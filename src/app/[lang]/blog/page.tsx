@@ -61,6 +61,27 @@ export default async function BlogPage({ params }: { params: Promise<{ lang: str
             description: 'なぜJSONデータは読みづらいのでしょうか？デバッグや共同作業に不可欠なJSON整形（Pretty Print）の重要性と、圧縮（Minify）の概念を完全に解説します。',
             date: '2025-11-29',
             lang: 'ja'
+        },
+        {
+            slug: 'character-encoding-guide',
+            title: 'Understanding Character Encodings: UTF-8 vs ASCII',
+            description: 'Why do broken characters (Mojibake) appear? We explain the fundamental differences between ASCII, UTF-8, and Unicode for developers.',
+            date: '2025-11-30',
+            lang: 'en'
+        },
+        {
+            slug: 'character-encoding-guide',
+            title: '문자 인코딩의 이해: UTF-8 vs ASCII 완벽 정리',
+            description: '왜 한글이 깨져서 나올까요? 개발자가 반드시 알아야 할 아스키(ASCII) 코드와 유니코드(UTF-8)의 차이점, 그리고 뷇뛟 같은 글자가 생기는 이유를 설명합니다.',
+            date: '2025-11-30',
+            lang: 'ko'
+        },
+        {
+            slug: 'character-encoding-guide',
+            title: '文字コードの理解：UTF-8 vs ASCII 完全ガイド',
+            description: 'なぜ文字化けが発生するのでしょうか？開発者が知っておくべきASCIIコードとUnicode（UTF-8）の違い、そして文字化けの原因を解説します。',
+            date: '2025-11-30',
+            lang: 'ja'
         }
     ];
 
