@@ -25,6 +25,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title = "履歴書の文字数カウント：空白あり vs 空白なし 完全ガイド";
             description = "履歴書やES作成時に迷う文字数カウント。「空白あり」と「空白なし」の違いを解説し、適切な文章量に調整するためのヒントを公開します。";
         }
+    } else if (slug === 'json-formatting-guide') {
+        if (lang === 'ko') {
+            title = "개발자에게 JSON 포맷팅이 필수적인 이유";
+            description = "JSON 데이터가 왜 엉망으로 보일까요? 디버깅과 협업을 위해 필수적인 JSON 포맷팅(Pretty Print)의 중요성과 압축(Minify)의 개념을 완벽하게 정리해 드립니다.";
+        } else if (lang === 'en') {
+            title = "Why JSON Formatting is Essential for Developers";
+            description = "Learn why proper JSON formatting is crucial for debugging, readability, and collaboration. We explain minification, pretty-printing, and how to use our JSON Formatter.";
+        } else if (lang === 'ja') {
+            title = "開発者にとってJSONフォーマットが不可欠な理由";
+            description = "なぜJSONデータは読みづらいのでしょうか？デバッグや共同作業に不可欠なJSON整形（Pretty Print）の重要性と、圧縮（Minify）の概念を完全に解説します。";
+        }
     }
 
     return {
@@ -56,10 +67,112 @@ export default async function BlogPostPage({ params }: Props) {
     const { lang, slug } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    if (slug !== 'resume-word-count') {
+    if (slug !== 'resume-word-count' && slug !== 'json-formatting-guide') {
         return (
             <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8 text-center">
                 <h1 className="text-2xl font-bold">Post not found</h1>
+            </div>
+        );
+    }
+
+    if (slug === 'json-formatting-guide') {
+        return (
+            <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+                <article className="prose dark:prose-invert lg:prose-xl mx-auto">
+                    {lang === 'ko' && (
+                        <>
+                            <h1>개발자에게 JSON 포맷팅이 필수적인 이유</h1>
+                            <p className="lead">JSON 데이터가 왜 엉망으로 보일까요? 디버깅과 협업을 위해 필수적인 JSON 포맷팅(Pretty Print)의 중요성과 압축(Minify)의 개념을 완벽하게 정리해 드립니다.</p>
+                            <p>안녕하세요! 개발자의 생산성을 책임지는 <strong>치트셋(Cheatset)</strong>입니다.</p>
+                            <p>API를 연동하거나 로그를 확인할 때, 수많은 중괄호 <code>&#123; &#125;</code>와 대괄호 <code>[ ]</code>가 뒤섞인 알 수 없는 문자열을 보신 적이 있나요? 바로 <strong>JSON(JavaScript Object Notation)</strong>입니다.</p>
+                            <p>서버와 클라이언트가 데이터를 주고받을 때 가장 많이 사용하는 형식이지만, 한 줄로 쭉 이어진 JSON 데이터는 사람이 읽기에 정말 고통스럽습니다.</p>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">1. 왜 JSON은 한 줄로 나올까? (Minify)</h2>
+                            <p>여러분이 보는 &apos;못생긴&apos; JSON은 사실 의도된 것입니다. 이를 <strong>Minify(압축)</strong>라고 합니다.</p>
+                            <ul className="list-disc pl-6 mb-4">
+                                <li><strong>전송 속도 향상:</strong> 공백과 줄바꿈을 제거하면 파일 크기가 줄어들어 네트워크 전송 속도가 빨라집니다.</li>
+                                <li><strong>비용 절감:</strong> 데이터 사용량을 줄여 서버 비용을 아낄 수 있습니다.</li>
+                            </ul>
+                            <p>하지만 컴퓨터에게는 효율적일지 몰라도, 사람에게는 가독성이 &apos;제로&apos;에 가깝다는 치명적인 단점이 있죠.</p>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">2. Pretty Print가 필요한 순간</h2>
+                            <p>개발 과정에서는 데이터를 눈으로 확인해야 할 일이 많습니다. 이때 필요한 것이 바로 <strong>Pretty Print(예쁘게 출력하기)</strong>, 즉 포맷팅입니다.</p>
+                            <ul className="list-disc pl-6 mb-4">
+                                <li><strong>디버깅:</strong> 데이터 구조가 올바른지, 필요한 필드가 있는지 한눈에 파악할 수 있습니다.</li>
+                                <li><strong>문법 오류 발견:</strong> 쉼표(,)가 빠졌거나 괄호 짝이 안 맞는 오류를 쉽게 찾을 수 있습니다.</li>
+                            </ul>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">3. 1초 만에 JSON 정리하는 법</h2>
+                            <p>매번 텍스트 에디터에서 수동으로 줄바꿈을 할 수는 없습니다. <strong>치트셋 JSON 포맷터</strong>를 사용하세요.</p>
+                            <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg my-6 text-center">
+                                <p className="text-lg font-bold text-blue-800 dark:text-blue-200">🚀 복잡한 JSON도 클릭 한 번으로 깔끔하게!</p>
+                                <a href={`/${lang}/tools/json-formatter`} className="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors font-medium">JSON 포맷터 바로가기</a>
+                            </div>
+                            <p>저희 도구는 다음과 같은 기능을 제공합니다:</p>
+                            <ol className="list-decimal pl-6 mb-4">
+                                <li><strong>자동 정렬:</strong> 들여쓰기를 맞춰 가독성을 높여줍니다.</li>
+                                <li><strong>오류 검사:</strong> 유효하지 않은 JSON이라면 즉시 알려줍니다.</li>
+                                <li><strong>Minify 기능:</strong> 반대로 공백을 제거하여 용량을 줄일 수도 있습니다.</li>
+                            </ol>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">마치며</h2>
+                            <p>잘 정리된 코드가 버그를 줄이듯, 잘 정리된 데이터는 개발 시간을 단축시켜 줍니다. 이제 <strong>치트셋</strong>과 함께 쾌적한 개발 환경을 만들어보세요!</p>
+                        </>
+                    )}
+                    {lang === 'en' && (
+                        <>
+                            <h1>Why JSON Formatting is Essential for Developers</h1>
+                            <p className="lead">Learn why proper JSON formatting is crucial for debugging, readability, and collaboration. We explain minification, pretty-printing, and how to use our JSON Formatter.</p>
+                            <p>Hello! This is <strong>Cheetset</strong>.</p>
+                            <p>Have you ever stared at a massive block of text full of curly braces <code>&#123; &#125;</code> and brackets <code>[ ]</code>? That is <strong>JSON (JavaScript Object Notation)</strong>.</p>
+                            <p>While it is the standard for data exchange, raw JSON is often unreadable for humans.</p>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">1. Why is JSON Minified?</h2>
+                            <p>The messy JSON you see is often <strong>Minified</strong> on purpose.</p>
+                            <ul className="list-disc pl-6 mb-4">
+                                <li><strong>Performance:</strong> Removing whitespace reduces file size and speeds up transfer.</li>
+                                <li><strong>Cost:</strong> Less data means lower bandwidth costs.</li>
+                            </ul>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">2. The Need for Pretty Print</h2>
+                            <p>For developers, readability is key. <strong>Pretty Printing</strong> formats the JSON with proper indentation.</p>
+                            <ul className="list-disc pl-6 mb-4">
+                                <li><strong>Debugging:</strong> Quickly verify data structure.</li>
+                                <li><strong>Error Checking:</strong> Spot missing commas or brackets easily.</li>
+                            </ul>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">3. Format JSON Instantly</h2>
+                            <p>Don&apos;t format manually. Use the <strong>Cheetset JSON Formatter</strong>.</p>
+                            <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg my-6 text-center">
+                                <p className="text-lg font-bold text-blue-800 dark:text-blue-200">🚀 Clean up your JSON in one click!</p>
+                                <a href={`/${lang}/tools/json-formatter`} className="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors font-medium">Go to JSON Formatter</a>
+                            </div>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">Conclusion</h2>
+                            <p>Clean data saves time. Boost your productivity with <strong>Cheetset</strong>!</p>
+                        </>
+                    )}
+                    {lang === 'ja' && (
+                        <>
+                            <h1>開発者にとってJSONフォーマットが不可欠な理由</h1>
+                            <p className="lead">なぜJSONデータは読みづらいのでしょうか？デバッグや共同作業に不可欠なJSON整形（Pretty Print）の重要性と、圧縮（Minify）の概念を完全に解説します。</p>
+                            <p>こんにちは！<strong>Cheetset</strong>です。</p>
+                            <p>中括弧 <code>&#123; &#125;</code> や大括弧 <code>[ ]</code> だらけのテキストを見たことがありますか？それが <strong>JSON (JavaScript Object Notation)</strong> です。</p>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">1. なぜJSONは圧縮（Minify）されるのか？</h2>
+                            <p>読みづらいJSONは、意図的に<strong>Minify（圧縮）</strong>されています。</p>
+                            <ul className="list-disc pl-6 mb-4">
+                                <li><strong>速度向上:</strong> 空白を削除してファイルサイズを小さくし、転送速度を上げます。</li>
+                                <li><strong>コスト削減:</strong> データ通信量を減らします。</li>
+                            </ul>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">2. 整形（Pretty Print）の必要性</h2>
+                            <p>開発者には可読性が重要です。<strong>Pretty Print</strong>は、適切なインデントでJSONを整形します。</p>
+                            <ul className="list-disc pl-6 mb-4">
+                                <li><strong>デバッグ:</strong> データ構造を一目で確認できます。</li>
+                                <li><strong>エラー発見:</strong> カンマ漏れなどを簡単に見つけられます。</li>
+                            </ul>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">3. 1秒でJSONを整理</h2>
+                            <p>手動で整形する必要はありません。<strong>Cheetset JSONフォーマットツール</strong>を使ってください。</p>
+                            <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg my-6 text-center">
+                                <p className="text-lg font-bold text-blue-800 dark:text-blue-200">🚀 ワンクリックでJSONをきれいに！</p>
+                                <a href={`/${lang}/tools/json-formatter`} className="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors font-medium">JSONフォーマッターへ</a>
+                            </div>
+                            <h2 className="text-2xl font-bold mt-8 mb-4">まとめ</h2>
+                            <p>きれいなデータは開発時間を短縮します。<strong>Cheetset</strong>で生産性を上げましょう！</p>
+                        </>
+                    )}
+                </article>
             </div>
         );
     }

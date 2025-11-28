@@ -6,6 +6,6 @@ const dictionaries = {
   ja: () => import('./ja.json').then((module) => module.default),
 }
 
-export const getDictionary = async (locale: keyof typeof dictionaries) => {
-  return dictionaries[locale]()
+export const getDictionary = async (locale: string) => {
+  return dictionaries[locale as keyof typeof dictionaries]?.() ?? dictionaries.en()
 }

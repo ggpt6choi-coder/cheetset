@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
@@ -64,6 +65,7 @@ export default async function RootLayout({
         <Header lang={lang} dict={dict} />
         <main className="min-h-screen bg-white dark:bg-gray-900">
           {children}
+          <Analytics />
         </main>
         <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

@@ -40,6 +40,27 @@ export default async function BlogPage({ params }: { params: Promise<{ lang: str
             description: '履歴書やES作成時に迷う文字数カウント。「空白あり」と「空白なし」の違いを解説し、適切な文章量に調整するためのヒントを公開します。',
             date: '2025-11-28',
             lang: 'ja'
+        },
+        {
+            slug: 'json-formatting-guide',
+            title: 'Why JSON Formatting is Essential for Developers',
+            description: 'Learn why proper JSON formatting is crucial for debugging, readability, and collaboration. We explain minification, pretty-printing, and how to use our JSON Formatter.',
+            date: '2025-11-29',
+            lang: 'en'
+        },
+        {
+            slug: 'json-formatting-guide',
+            title: '개발자에게 JSON 포맷팅이 필수적인 이유',
+            description: 'JSON 데이터가 왜 엉망으로 보일까요? 디버깅과 협업을 위해 필수적인 JSON 포맷팅(Pretty Print)의 중요성과 압축(Minify)의 개념을 완벽하게 정리해 드립니다.',
+            date: '2025-11-29',
+            lang: 'ko'
+        },
+        {
+            slug: 'json-formatting-guide',
+            title: '開発者にとってJSONフォーマットが不可欠な理由',
+            description: 'なぜJSONデータは読みづらいのでしょうか？デバッグや共同作業に不可欠なJSON整形（Pretty Print）の重要性と、圧縮（Minify）の概念を完全に解説します。',
+            date: '2025-11-29',
+            lang: 'ja'
         }
     ];
 
