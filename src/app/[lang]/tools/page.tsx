@@ -38,7 +38,7 @@ export default async function ToolsPage({ params }: Props) {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    const tools = [
+    const devTools = [
         {
             slug: 'word-counter',
             title: dict.tools.word_counter.title,
@@ -48,6 +48,14 @@ export default async function ToolsPage({ params }: Props) {
             slug: 'json-formatter',
             title: dict.tools.json_formatter.title,
             description: dict.tools.json_formatter.description,
+        }
+    ];
+
+    const dailyTools = [
+        {
+            slug: 'lotto-generator',
+            title: dict.tools.lotto_generator.title,
+            description: dict.tools.lotto_generator.description,
         }
     ];
 
@@ -62,21 +70,48 @@ export default async function ToolsPage({ params }: Props) {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tools.map((tool) => (
-                    <a
-                        key={tool.slug}
-                        href={`/${lang}/tools/${tool.slug}`}
-                        className="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700"
-                    >
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            {tool.title} &rarr;
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300">
-                            {tool.description}
-                        </p>
-                    </a>
-                ))}
+            <div className="mb-16">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                    👨‍💻 Developer Tools
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {devTools.map((tool) => (
+                        <a
+                            key={tool.slug}
+                            href={`/${lang}/tools/${tool.slug}`}
+                            className="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700"
+                        >
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                {tool.title} &rarr;
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-300">
+                                {tool.description}
+                            </p>
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            <div>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                    🍀 Daily Utilities
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {dailyTools.map((tool) => (
+                        <a
+                            key={tool.slug}
+                            href={`/${lang}/tools/${tool.slug}`}
+                            className="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700"
+                        >
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                                {tool.title} &rarr;
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-300">
+                                {tool.description}
+                            </p>
+                        </a>
+                    ))}
+                </div>
             </div>
         </div>
     );

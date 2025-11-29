@@ -35,6 +35,15 @@
       "error": "Invalid JSON",
       "copied": "Copied!",
       "seo_content": "Free online JSON Formatter and Validator. Beautify your JSON code, validate syntax, and minify for production."
+    },
+    "lotto_generator": {
+      "title": "Lotto Number Generator",
+      "description": "Generate 6 lucky lotto numbers for free.",
+      "generate": "Generate Numbers",
+      "save": "Save",
+      "saved_numbers": "Saved Numbers",
+      "no_saved": "No saved numbers.",
+      "seo_content": "Free online Lotto Number Generator. Randomly pick 6 numbers from 1 to 45 to test your luck. Save and manage your generated numbers."
     }
   },
   "privacy": {

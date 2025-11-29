@@ -5,7 +5,7 @@ import { posts } from '@/data/posts'
 const baseUrl = 'https://cheetset.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const routes = ['', '/blog', '/privacy', '/tools', '/tools/word-counter', '/tools/json-formatter']
+    const routes = ['', '/blog', '/privacy', '/tools', '/tools/word-counter', '/tools/json-formatter', '/tools/lotto-generator']
     const languages = ['en', 'ko', 'ja']
 
     const staticRoutes = languages.flatMap((lang) =>
