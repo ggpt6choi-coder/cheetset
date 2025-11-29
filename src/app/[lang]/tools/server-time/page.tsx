@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 
 export default function ServerTimePage() {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <ServerTimeClient />
 
             <div className="max-w-3xl mx-auto px-6 pb-20">
-                <div className="prose prose-blue max-w-none bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
                     <h2>서버 시간이란 무엇인가요?</h2>
                     <p>
                         우리가 평소에 보는 시계(핸드폰, 컴퓨터 시계)와 웹사이트를 운영하는 서버의 시간은 미세하게 다를 수 있습니다.
@@ -56,8 +56,8 @@ export default function ServerTimePage() {
                         </li>
                     </ol>
 
-                    <div className="bg-blue-50 p-4 rounded-lg not-prose mt-8">
-                        <p className="text-sm text-blue-800 font-medium text-center">
+                    <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg not-prose mt-8">
+                        <p className="text-sm text-indigo-800 dark:text-indigo-200 font-medium text-center">
                             CheatKey의 서버 시간 확인 도구는 여러분의 소중한 기회를 잡을 수 있도록<br />
                             가장 정확한 시간을 제공하기 위해 노력합니다.
                         </p>

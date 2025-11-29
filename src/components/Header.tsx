@@ -67,7 +67,7 @@ export default function Header({ lang, dict }: HeaderProps) {
                                         </Link>
                                     ))}
                                     <div className="border-t border-gray-100 dark:border-gray-700 my-1"></div>
-                                    <Link href={`/${lang}/tools`} className="block px-4 py-2 text-sm text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium" role="menuitem">
+                                    <Link href={`/${lang}/tools`} className="block px-4 py-2 text-sm text-indigo-600 dark:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium" role="menuitem">
                                         View All Tools &rarr;
                                     </Link>
                                 </div>
@@ -86,7 +86,7 @@ export default function Header({ lang, dict }: HeaderProps) {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                        className="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                     >
                         <span className="sr-only">Open menu</span>
                         {isMenuOpen ? (
