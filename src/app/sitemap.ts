@@ -1,12 +1,14 @@
 import { MetadataRoute } from 'next'
 
+import { posts } from '@/data/posts'
+
 const baseUrl = 'https://cheetset.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const routes = ['', '/blog', '/privacy', '/tools', '/tools/word-counter', '/tools/json-formatter']
     const languages = ['en', 'ko', 'ja']
 
-    const sitemap = languages.flatMap((lang) =>
+    const staticRoutes = languages.flatMap((lang) =>
         routes.map((route) => ({
             url: `${baseUrl}/${lang}${route}`,
             lastModified: new Date(),
@@ -15,5 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }))
     )
 
-    return sitemap
+    const blogRoutes = posts.map((post) => ({
+        url: `${baseUrl}/${post.lang}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+    }))
+
+    return [...staticRoutes, ...blogRoutes]
 }

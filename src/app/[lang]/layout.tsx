@@ -46,6 +46,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description: dict.common.description,
       images: ['/og-image.png'],
     },
+    verification: {
+      other: {
+        'naver-site-verification': '8da216d9fb402cb9cd0365bb0f9580e31b9f45d2',
+      },
+    },
   };
 }
 
