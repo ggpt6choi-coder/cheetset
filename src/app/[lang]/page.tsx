@@ -47,6 +47,16 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               {dict.tools.lotto_generator.description}
             </p>
           </a>
+
+          <a
+            href={`/${lang}/tools/server-time`}
+            className="p-6 text-left border w-full sm:w-[45%] rounded-xl hover:text-blue-600 focus:text-blue-600 dark:border-gray-700 dark:hover:text-blue-400 transition-colors"
+          >
+            <h3 className="text-2xl font-bold">{dict.tools.server_time.title} &rarr;</h3>
+            <p className="mt-4 text-xl">
+              {dict.tools.server_time.description}
+            </p>
+          </a>
         </div>
       </main>
     </div>

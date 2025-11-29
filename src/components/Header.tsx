@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
+import { tools } from '@/config/tools'
 
 interface HeaderProps {
     lang: string
@@ -13,9 +14,8 @@ interface HeaderProps {
         nav: {
             home: string
             tools: string
-            word_counter: string
-            json_formatter: string
             blog: string
+            [key: string]: string
         }
     }
 }
@@ -56,12 +56,16 @@ export default function Header({ lang, dict }: HeaderProps) {
                                 onMouseLeave={() => setIsToolsOpen(false)}
                             >
                                 <div className="py-1" role="menu" aria-orientation="vertical">
-                                    <Link href={`/${lang}/tools/word-counter`} className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" role="menuitem">
-                                        {dict.nav.word_counter}
-                                    </Link>
-                                    <Link href={`/${lang}/tools/json-formatter`} className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" role="menuitem">
-                                        {dict.nav.json_formatter}
-                                    </Link>
+                                    {tools.map((tool) => (
+                                        <Link
+                                            key={tool.slug}
+                                            href={`/${lang}/tools/${tool.slug}`}
+                                            className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                            role="menuitem"
+                                        >
+                                            {dict.nav[tool.slug.replace(/-/g, '_')] || tool.slug}
+                                        </Link>
+                                    ))}
                                     <div className="border-t border-gray-100 dark:border-gray-700 my-1"></div>
                                     <Link href={`/${lang}/tools`} className="block px-4 py-2 text-sm text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium" role="menuitem">
                                         View All Tools &rarr;
@@ -114,20 +118,16 @@ export default function Header({ lang, dict }: HeaderProps) {
                             <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                                 {dict.nav.tools}
                             </div>
-                            <Link
-                                href={`/${lang}/tools/word-counter`}
-                                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                {dict.nav.word_counter}
-                            </Link>
-                            <Link
-                                href={`/${lang}/tools/json-formatter`}
-                                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                {dict.nav.json_formatter}
-                            </Link>
+                            {tools.map((tool) => (
+                                <Link
+                                    key={tool.slug}
+                                    href={`/${lang}/tools/${tool.slug}`}
+                                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {dict.nav[tool.slug.replace(/-/g, '_')] || tool.slug}
+                                </Link>
+                            ))}
                         </div>
 
                         <Link

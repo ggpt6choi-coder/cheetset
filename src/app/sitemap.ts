@@ -1,11 +1,13 @@
 import { MetadataRoute } from 'next'
 
 import { posts } from '@/data/posts'
+import { tools } from '@/config/tools'
 
 const baseUrl = 'https://cheetset.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const routes = ['', '/blog', '/privacy', '/tools', '/tools/word-counter', '/tools/json-formatter', '/tools/lotto-generator']
+    const toolRoutes = tools.map(tool => `/tools/${tool.slug}`)
+    const routes = ['', '/blog', '/privacy', '/tools', ...toolRoutes]
     const languages = ['en', 'ko', 'ja']
 
     const staticRoutes = languages.flatMap((lang) =>

@@ -1,5 +1,6 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import type { Metadata } from "next";
+import { tools } from "@/config/tools";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -36,28 +37,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ToolsPage({ params }: Props) {
     const { lang } = await params;
-    const dict = await getDictionary(lang as Locale);
+    const dict: any = await getDictionary(lang as Locale);
 
-    const devTools = [
-        {
-            slug: 'word-counter',
-            title: dict.tools.word_counter.title,
-            description: dict.tools.word_counter.description,
-        },
-        {
-            slug: 'json-formatter',
-            title: dict.tools.json_formatter.title,
-            description: dict.tools.json_formatter.description,
-        }
-    ];
+    const devTools = tools.filter(t => t.category === 'developer').map(tool => ({
+        slug: tool.slug,
+        title: dict.tools[tool.slug.replace(/-/g, '_')]?.title || tool.slug,
+        description: dict.tools[tool.slug.replace(/-/g, '_')]?.description || '',
+    }));
 
-    const dailyTools = [
-        {
-            slug: 'lotto-generator',
-            title: dict.tools.lotto_generator.title,
-            description: dict.tools.lotto_generator.description,
-        }
-    ];
+    const dailyTools = tools.filter(t => t.category === 'daily').map(tool => ({
+        slug: tool.slug,
+        title: dict.tools[tool.slug.replace(/-/g, '_')]?.title || tool.slug,
+        description: dict.tools[tool.slug.replace(/-/g, '_')]?.description || '',
+    }));
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

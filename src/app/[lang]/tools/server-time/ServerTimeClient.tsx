@@ -1,0 +1,173 @@
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { Clock, Search, AlertCircle, CheckCircle2 } from 'lucide-react';
+
+export default function ServerTimeClient() {
+    const [url, setUrl] = useState('');
+    const [serverTime, setServerTime] = useState<Date | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [timeDiff, setTimeDiff] = useState<number | null>(null);
+    const [displayUrl, setDisplayUrl] = useState<string>('');
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+    const fetchServerTime = async () => {
+        if (!url) return;
+
+        setLoading(true);
+        setError(null);
+        setServerTime(null);
+        setTimeDiff(null);
+        setDisplayUrl('');
+
+        if (timerRef.current) {
+            clearInterval(timerRef.current);
+        }
+
+        try {
+            const res = await fetch(`/api/server-time?url=${encodeURIComponent(url)}`);
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Failed to fetch server time');
+            }
+
+            const fetchedTime = new Date(data.serverTime);
+            const now = new Date();
+            const diff = fetchedTime.getTime() - now.getTime();
+
+            setServerTime(fetchedTime);
+            setTimeDiff(diff);
+            setDisplayUrl(data.url);
+
+            // Start the clock
+            timerRef.current = setInterval(() => {
+                setServerTime(prev => {
+                    if (!prev) return null;
+                    return new Date(prev.getTime() + 1000); // Add 1 second
+                });
+            }, 1000);
+
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            fetchServerTime();
+        }
+    };
+
+    useEffect(() => {
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, []);
+
+    const formatTime = (date: Date) => {
+        return date.toLocaleTimeString('ko-KR', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        });
+    };
+
+    const formatDate = (date: Date) => {
+        return date.toLocaleDateString('ko-KR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            weekday: 'long'
+        });
+    };
+
+    return (
+        <div className="max-w-3xl mx-auto p-6">
+            <div className="mb-8 text-center">
+                <h1 className="text-3xl font-bold mb-2 flex items-center justify-center gap-2">
+                    <Clock className="w-8 h-8 text-blue-600" />
+                    서버 시간 확인
+                </h1>
+                <p className="text-gray-600">
+                    원하는 사이트의 정확한 서버 시간을 확인하세요.
+                    <br />
+                    티켓팅, 수강신청 등 1초가 중요한 순간에 도움이 됩니다.
+                </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-100">
+                <div className="flex gap-2 mb-4">
+                    <div className="relative flex-1">
+                        <input
+                            type="text"
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                            onKeyDown={handleKeyDown}
+                            placeholder="URL을 입력하세요 (예: www.naver.com)"
+                            className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900 placeholder:text-gray-400"
+                        />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    </div>
+                    <button
+                        onClick={fetchServerTime}
+                        disabled={loading || !url}
+                        className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors min-w-[100px]"
+                    >
+                        {loading ? '확인 중...' : '확인'}
+                    </button>
+                </div>
+
+                {error && (
+                    <div className="flex items-center gap-2 text-red-500 bg-red-50 p-3 rounded-lg">
+                        <AlertCircle className="w-5 h-5" />
+                        <span>{error}</span>
+                    </div>
+                )}
+
+                {serverTime && (
+                    <div className="mt-8 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        {displayUrl && (
+                            <div className="text-blue-600 font-medium mb-2 bg-blue-50 inline-block px-3 py-1 rounded-full text-sm">
+                                {displayUrl}
+                            </div>
+                        )}
+                        <div className="text-gray-500 mb-2 font-medium">
+                            {formatDate(serverTime)}
+                        </div>
+                        <div className="text-6xl font-black text-gray-900 tracking-tight font-mono mb-4">
+                            {formatTime(serverTime)}
+                        </div>
+
+                        {timeDiff !== null && (
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600">
+                                <CheckCircle2 className="w-4 h-4 text-green-600" />
+                                <span>
+                                    내 컴퓨터 시간보다{' '}
+                                    <span className="font-bold text-gray-900">
+                                        {Math.abs(timeDiff / 1000).toFixed(1)}초
+                                    </span>{' '}
+                                    {timeDiff > 0 ? '빠릅니다' : '느립니다'}
+                                </span>
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+
+            <div className="bg-blue-50 rounded-lg p-6 text-sm text-blue-800">
+                <h3 className="font-bold mb-2 text-lg">💡 이용 팁</h3>
+                <ul className="list-disc list-inside space-y-1 ml-1">
+                    <li>네이비즘(Navyism)과 같은 원리로 작동합니다.</li>
+                    <li>서버의 Date 헤더 정보를 기반으로 시간을 계산합니다.</li>
+                    <li>네트워크 지연 시간에 따라 약간의 오차가 발생할 수 있습니다.</li>
+                    <li>새로고침 없이 실시간으로 흐르는 시간을 확인할 수 있습니다.</li>
+                </ul>
+            </div>
+        </div>
+    );
+}

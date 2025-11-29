@@ -9,6 +9,8 @@
     "tools": "Tools",
     "word_counter": "Word Counter",
     "json_formatter": "JSON Formatter",
+    "lotto_generator": "Lotto Generator",
+    "server_time": "Server Time",
     "blog": "Blog",
     "privacy": "Privacy Policy"
   },
@@ -43,7 +45,11 @@
       "save": "Save",
       "saved_numbers": "Saved Numbers",
       "no_saved": "No saved numbers.",
-      "seo_content": "Free online Lotto Number Generator. Randomly pick 6 numbers from 1 to 45 to test your luck. Save and manage your generated numbers."
+      "seo_content": "Free online lottery number generator. Randomly draw 6 numbers from 1 to 45 to test your luck. Save and manage your generated numbers."
+    },
+    "server_time": {
+      "title": "Server Time Check",
+      "description": "Check the exact server time for ticketing and course registration."
     }
   },
   "privacy": {
