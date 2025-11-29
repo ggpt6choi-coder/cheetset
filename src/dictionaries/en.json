@@ -49,7 +49,21 @@
     },
     "server_time": {
       "title": "Server Time Check",
-      "description": "Check the exact server time for ticketing and course registration."
+      "description": "Check the exact server time of any website.",
+      "subtitle": "Essential for ticketing and course registration where every second counts.",
+      "placeholder": "Enter URL (e.g., www.ticketmaster.com)",
+      "button_check": "Check",
+      "button_checking": "Checking...",
+      "tips_title": "💡 Usage Tips",
+      "tip1": "Works on the same principle as Navyism.",
+      "tip2": "Calculates time based on the server's Date header information.",
+      "tip3": "Minor deviations may occur due to network latency.",
+      "tip4": "Watch the time flow in real-time without refreshing.",
+      "time_diff_faster": "Your local time is",
+      "time_diff_slower": "ahead",
+      "time_diff_slower_text": "behind",
+      "seconds": "seconds",
+      "seo_content": "Free online server time checker tool. Check the exact server time of Ticketmaster, StubHub, or any website down to 0.1 seconds. Essential tool for successful ticket purchases and course registration."
     }
   },
   "privacy": {

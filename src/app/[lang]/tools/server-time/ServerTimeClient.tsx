@@ -3,7 +3,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Clock, Search, AlertCircle, CheckCircle2 } from 'lucide-react';
 
-export default function ServerTimeClient() {
+interface ServerTimeClientProps {
+    labels: {
+        title: string;
+        subtitle: string;
+        placeholder: string;
+        button_check: string;
+        button_checking: string;
+        tips_title: string;
+        tip1: string;
+        tip2: string;
+        tip3: string;
+        tip4: string;
+        time_diff_faster: string;
+        time_diff_slower: string;
+        time_diff_slower_text: string;
+        seconds: string;
+    };
+}
+
+export default function ServerTimeClient({ labels }: ServerTimeClientProps) {
     const [url, setUrl] = useState('');
     const [serverTime, setServerTime] = useState<Date | null>(null);
     const [loading, setLoading] = useState(false);
@@ -91,12 +110,10 @@ export default function ServerTimeClient() {
             <div className="mb-8 text-center">
                 <h1 className="text-4xl font-extrabold mb-2 flex items-center justify-center gap-2 text-black dark:text-white">
                     <Clock className="w-9 h-9 text-indigo-600 dark:text-indigo-400" />
-                    서버 시간 확인
+                    {labels.title}
                 </h1>
                 <p className="text-gray-600 dark:text-gray-400">
-                    원하는 사이트의 정확한 서버 시간을 확인하세요.
-                    <br />
-                    티켓팅, 수강신청 등 1초가 중요한 순간에 도움이 됩니다.
+                    {labels.subtitle}
                 </p>
             </div>
 
@@ -108,7 +125,7 @@ export default function ServerTimeClient() {
                             value={url}
                             onChange={(e) => setUrl(e.target.value)}
                             onKeyDown={handleKeyDown}
-                            placeholder="URL을 입력하세요 (예: www.naver.com)"
+                            placeholder={labels.placeholder}
                             className="w-full px-4 py-3 pl-10 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 dark:bg-gray-700"
                         />
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
@@ -118,7 +135,7 @@ export default function ServerTimeClient() {
                         disabled={loading || !url}
                         className="px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors min-w-[100px] dark:bg-indigo-600 dark:hover:bg-indigo-500 dark:disabled:bg-gray-700"
                     >
-                        {loading ? '확인 중...' : '확인'}
+                        {loading ? labels.button_checking : labels.button_check}
                     </button>
                 </div>
 
@@ -147,11 +164,11 @@ export default function ServerTimeClient() {
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-gray-600 dark:text-gray-300">
                                 <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400" />
                                 <span>
-                                    내 컴퓨터 시간보다{' '}
+                                    {labels.time_diff_faster}{' '}
                                     <span className="font-bold text-gray-900 dark:text-white">
-                                        {Math.abs(timeDiff / 1000).toFixed(1)}초
+                                        {Math.abs(timeDiff / 1000).toFixed(1)}{labels.seconds}
                                     </span>{' '}
-                                    {timeDiff > 0 ? '빠릅니다' : '느립니다'}
+                                    {timeDiff > 0 ? labels.time_diff_slower : labels.time_diff_slower_text}
                                 </span>
                             </div>
                         )}
@@ -160,12 +177,12 @@ export default function ServerTimeClient() {
             </div>
 
             <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-6 text-sm text-indigo-800 dark:text-indigo-200">
-                <h3 className="font-bold mb-2 text-lg">💡 이용 팁</h3>
+                <h3 className="font-bold mb-2 text-lg">{labels.tips_title}</h3>
                 <ul className="list-disc list-inside space-y-1 ml-1">
-                    <li>네이비즘(Navyism)과 같은 원리로 작동합니다.</li>
-                    <li>서버의 Date 헤더 정보를 기반으로 시간을 계산합니다.</li>
-                    <li>네트워크 지연 시간에 따라 약간의 오차가 발생할 수 있습니다.</li>
-                    <li>새로고침 없이 실시간으로 흐르는 시간을 확인할 수 있습니다.</li>
+                    <li>{labels.tip1}</li>
+                    <li>{labels.tip2}</li>
+                    <li>{labels.tip3}</li>
+                    <li>{labels.tip4}</li>
                 </ul>
             </div>
         </div>

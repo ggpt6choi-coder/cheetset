@@ -95,6 +95,110 @@ export const tools: Tool[] = [
 ];
 ```
 
+### 4. 다국어 지원 (Multilingual Support) ⭐ 필수
+
+**목표:** 한국, 미국, 일본 유저 유입을 통한 애드센스 수익 극대화
+
+#### 4-1. Dictionary 파일에 모든 텍스트 추가
+
+`ko.json`, `en.json`, `ja.json` 세 파일 모두에 **도구에서 사용되는 모든 텍스트**를 추가합니다.
+
+```json
+// src/dictionaries/ko.json
+"tools": {
+    "base64_encoder": {
+        "title": "Base64 인코더",
+        "description": "텍스트를 Base64로 변환합니다.",
+        "placeholder": "텍스트를 입력하세요",
+        "button_encode": "인코딩",
+        "button_decode": "디코딩",
+        "result_label": "결과",
+        "seo_content": "무료 온라인 Base64 인코더입니다..."
+    }
+}
+```
+
+**주의:** UI에 표시되는 모든 텍스트(버튼, placeholder, 안내문 등)를 빠짐없이 추가하세요.
+
+#### 4-2. 클라이언트 컴포넌트 작성 (`Client Component`)
+
+도구가 인터랙티브한 경우, **Client Component**를 별도로 분리하고 `labels` prop으로 번역을 받습니다.
+
+```tsx
+// src/app/[lang]/tools/base64-encoder/Base64EncoderClient.tsx
+'use client';
+
+interface Base64EncoderClientProps {
+    labels: {
+        title: string;
+        placeholder: string;
+        button_encode: string;
+        button_decode: string;
+        result_label: string;
+    };
+}
+
+export default function Base64EncoderClient({ labels }: Base64EncoderClientProps) {
+    return (
+        <div>
+            <h1>{labels.title}</h1>
+            <input placeholder={labels.placeholder} />
+            <button>{labels.button_encode}</button>
+            {/* ... */}
+        </div>
+    );
+}
+```
+
+#### 4-3. Page Component에서 Dictionary 전달
+
+Server Component인 `page.tsx`에서 dictionary를 불러와 Client Component에 전달합니다.
+
+```tsx
+// src/app/[lang]/tools/base64-encoder/page.tsx
+import { getDictionary } from '@/dictionaries/get-dictionary';
+import Base64EncoderClient from './Base64EncoderClient';
+
+type Locale = 'en' | 'ko' | 'ja';
+type Props = { params: Promise<{ lang: string }>; };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { lang } = await params;
+    const dict = await getDictionary(lang as Locale);
+    
+    return {
+        title: `${dict.tools.base64_encoder.title} - ${dict.common.title}`,
+        description: dict.tools.base64_encoder.description,
+    };
+}
+
+export default async function Base64EncoderPage({ params }: Props) {
+    const { lang } = await params;
+    const dict = await getDictionary(lang as Locale);
+
+    return (
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <Base64EncoderClient
+                labels={{
+                    title: dict.tools.base64_encoder.title,
+                    placeholder: dict.tools.base64_encoder.placeholder,
+                    button_encode: dict.tools.base64_encoder.button_encode,
+                    button_decode: dict.tools.base64_encoder.button_decode,
+                    result_label: dict.tools.base64_encoder.result_label,
+                }}
+            />
+            
+            {/* SEO Content */}
+            <div className="max-w-3xl mx-auto px-6 pb-20">
+                <div className="prose prose-indigo dark:prose-invert ...">
+                    <p>{dict.tools.base64_encoder.seo_content}</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+```
+
 ---
 
 ## 💰 수익형 도구 개발 가이드 (Profit-Oriented Development)
