@@ -6,7 +6,6 @@
   },
   "nav": {
     "home": "Home",
-    "tools": "Tools",
     "word_counter": "Word Counter",
     "json_formatter": "JSON Formatter",
     "lotto_generator": "Lotto Generator",
@@ -14,11 +13,19 @@
     "blog": "Blog",
     "about": "About",
     "contact": "Contact",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "stock_average_calculator": "Stock Average Down Calculator",
+    "ticketing_practice": "Ticketing Practice",
+    "salary_calculator": "Real Salary Calculator"
   },
   "home": {
     "welcome": "Welcome to Cheetset",
-    "intro": "We provide useful tools to simplify your daily tasks."
+    "intro": "From work efficiency to daily fun, we provide all the tools you need.",
+    "categories": {
+      "developer": "👨‍💻 Developer Tools",
+      "finance": "💰 Finance & Investment",
+      "daily": "🍀 Daily Utilities"
+    }
   },
   "tools": {
     "word_counter": {
@@ -66,6 +73,49 @@
       "time_diff_slower_text": "behind",
       "seconds": "seconds",
       "seo_content": "Free online server time checker tool. Check the exact server time of Ticketmaster, StubHub, or any website down to 0.1 seconds. Essential tool for successful ticket purchases and course registration."
+    },
+    "stock_average_calculator": {
+      "title": "Stock Average Down Calculator",
+      "description": "Calculate your new average price by entering your current holdings and additional purchases.",
+      "current_price": "Current Price",
+      "current_quantity": "Current Quantity",
+      "add_price": "Add Price",
+      "add_quantity": "Add Quantity",
+      "calculate": "Calculate",
+      "reset": "Reset",
+      "result_avg_price": "New Average Price",
+      "result_total_quantity": "Total Quantity",
+      "result_total_amount": "Total Amount",
+      "seo_content": "Free stock average down calculator. Calculate how much you can lower your average price by buying more shares. Essential tool for successful stock and crypto investing."
+    },
+    "ticketing_practice": {
+      "title": "Ticketing Practice Game",
+      "description": "Improve your click speed and accuracy with realistic ticketing practice.",
+      "start_game": "Start Game",
+      "score": "Score",
+      "time_left": "Time Left",
+      "click_target": "Click!",
+      "game_over": "Game Over",
+      "final_score": "Final Score",
+      "retry": "Retry",
+      "share_result": "Share Score",
+      "share_message": "Ticketing Practice Score: {score}! Can you beat me? 👉",
+      "copied": "Copied!",
+      "seo_content": "Free ticketing practice game for Ticketmaster, StubHub, etc. Improve your reaction speed and click accuracy to secure the tickets you want."
+    },
+    "salary_calculator": {
+      "title": "Real Salary Calculator (US)",
+      "description": "Calculate your estimated monthly take-home pay after Federal, State, and FICA taxes.",
+      "salary_input": "Annual Salary ($)",
+      "calculate": "Calculate",
+      "monthly_salary": "Est. Monthly Pay",
+      "deductions": "Total Tax & Deductions",
+      "national_pension": "Social Security (6.2%)",
+      "health_insurance": "Medicare (1.45%)",
+      "care_insurance": "State Tax (Est. 5%)",
+      "employment_insurance": "Other / N/A",
+      "income_tax": "Federal Income Tax",
+      "seo_content": "US Salary Calculator 2025. Estimate your paycheck after Federal Tax, Social Security, Medicare, and State Taxes."
     }
   },
   "privacy": {

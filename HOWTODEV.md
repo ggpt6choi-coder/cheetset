@@ -55,6 +55,18 @@ if (slug === 'new-post-slug') {
 }
 ```
 
+### 3. 슬러그 등록 (`src/app/[lang]/blog/[slug]/page.tsx`)
+`BlogPostPage` 컴포넌트 내의 `validSlugs` 배열에 새로운 슬러그를 추가해야 합니다. **이 단계를 건너뛰면 404 페이지가 뜹니다.**
+
+```typescript
+const validSlugs = [
+    'resume-word-count',
+    'json-formatting-guide',
+    // ... 기존 슬러그들
+    'new-post-slug' // 여기에 추가
+];
+```
+
 ---
 
 ## 🛠 유틸리티 도구 추가하기 (Add Utility Tool)
@@ -82,7 +94,7 @@ if (slug === 'new-post-slug') {
 ```
 
 ### 3. 설정 파일 등록 (`src/config/tools.ts`)
-`src/config/tools.ts` 파일에 한 줄만 추가하면 **메뉴, 도구 목록, 사이트맵에 자동으로 반영**됩니다.
+`src/config/tools.ts` 파일에 한 줄만 추가하면 **메뉴, 사이트맵, 그리고 홈 화면의 카테고리별 카드 그리드에 자동으로 반영**됩니다.
 
 ```typescript
 // src/config/tools.ts
@@ -90,7 +102,7 @@ export const tools: Tool[] = [
     // ...
     {
         slug: 'base64-encoder',
-        category: 'developer', // 'developer' | 'daily'
+        category: 'developer', // 'developer' | 'finance' | 'daily'
     },
 ];
 ```

@@ -6,7 +6,6 @@
     },
     "nav": {
         "home": "ホーム",
-        "tools": "ツール",
         "word_counter": "文字数カウント",
         "json_formatter": "JSONフォーマッター",
         "lotto_generator": "ロト番号生成器",
@@ -14,11 +13,19 @@
         "blog": "ブログ",
         "about": "概要",
         "contact": "お問い合わせ",
-        "privacy": "プライバシーポリシー"
+        "privacy": "プライバシーポリシー",
+        "stock_average_calculator": "株式ナンピン計算機",
+        "ticketing_practice": "チケット予約練習",
+        "salary_calculator": "年収手取り計算機"
     },
     "home": {
         "welcome": "チートセットへようこそ",
-        "intro": "あなたの仕事を簡素化する便利なツールを提供します。"
+        "intro": "仕事の効率化から日常の楽しみまで、あなたに必要なすべてのツールを提供します。",
+        "categories": {
+            "developer": "👨‍💻 開発者ツール",
+            "finance": "💰 金融・投資",
+            "daily": "🍀 生活・便利"
+        }
     },
     "tools": {
         "word_counter": {
@@ -66,6 +73,49 @@
             "time_diff_slower_text": "遅いです",
             "seconds": "秒",
             "seo_content": "無料のオンラインサーバー時間確認ツールです。チケットぴあ、イープラス、任意のサイトの正確なサーバー時間を0.1秒単位で確認できます。チケット予約と受講申請の成功率を高める必須ツールです。"
+        },
+        "stock_average_calculator": {
+            "title": "株式ナンピン計算機",
+            "description": "現在保有している株式と追加購入する株式を入力して、最終的な平均単価を計算します。",
+            "current_price": "現在保有単価",
+            "current_quantity": "現在保有数量",
+            "add_price": "追加購入単価",
+            "add_quantity": "追加購入数量",
+            "calculate": "計算する",
+            "reset": "リセット",
+            "result_avg_price": "最終平均単価",
+            "result_total_quantity": "総保有数量",
+            "result_total_amount": "総購入金額",
+            "seo_content": "無料の株式ナンピン計算機です。株式や仮想通貨投資において、追加購入によって平均単価をどれだけ下げられるかを事前に計算できます。成功する投資のための必須ツールです。"
+        },
+        "ticketing_practice": {
+            "title": "チケット予約練習ゲーム",
+            "description": "実戦のようなチケット予約練習で、クリック速度と正確さを向上させましょう。",
+            "start_game": "ゲーム開始",
+            "score": "スコア",
+            "time_left": "残り時間",
+            "click_target": "クリック！",
+            "game_over": "ゲーム終了",
+            "final_score": "最終スコア",
+            "retry": "もう一度",
+            "share_result": "スコアを共有",
+            "share_message": "チケット予約練習スコア: {score}点！あなたも挑戦してみて 👉",
+            "copied": "コピー完了!",
+            "seo_content": "チケットぴあ、イープラスなどのチケット予約練習のための無料ゲームです。反応速度を高め、正確なクリック練習を通じて、希望のチケットを勝ち取りましょう。"
+        },
+        "salary_calculator": {
+            "title": "年収手取り計算機 (日本)",
+            "description": "年収を入力すると、税金と社会保険料を差し引いた実際の手取り月額を計算します。",
+            "salary_input": "年収 (万円)",
+            "calculate": "計算する",
+            "monthly_salary": "予想月額手取り",
+            "deductions": "控除額合計",
+            "national_pension": "厚生年金",
+            "health_insurance": "健康保険",
+            "care_insurance": "住民税 (概算)",
+            "employment_insurance": "雇用保険",
+            "income_tax": "所得税",
+            "seo_content": "2025年最新版、日本の年収手取り計算機です。厚生年金、健康保険、雇用保険、所得税、住民税を考慮した実際の手取り額をシミュレーションします。"
         }
     },
     "privacy": {

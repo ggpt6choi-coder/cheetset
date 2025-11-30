@@ -1,7 +1,7 @@
 export interface Tool {
     slug: string;
-    category: 'developer' | 'daily';
-    icon?: string; // Icon name from lucide-react or similar if needed later
+    category: 'developer' | 'finance' | 'daily';
+    icon?: string;
 }
 
 export const tools: Tool[] = [
@@ -14,6 +14,15 @@ export const tools: Tool[] = [
         slug: 'json-formatter',
         category: 'developer',
     },
+    // Finance Tools
+    {
+        slug: 'stock-average-calculator',
+        category: 'finance',
+    },
+    {
+        slug: 'salary-calculator',
+        category: 'finance',
+    },
     // Daily Utilities
     {
         slug: 'lotto-generator',
@@ -21,6 +30,10 @@ export const tools: Tool[] = [
     },
     {
         slug: 'server-time',
+        category: 'daily',
+    },
+    {
+        slug: 'ticketing-practice',
         category: 'daily',
     },
 ];

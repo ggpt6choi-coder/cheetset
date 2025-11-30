@@ -6,7 +6,6 @@
     },
     "nav": {
         "home": "홈",
-        "tools": "도구",
         "word_counter": "글자 수 세기",
         "json_formatter": "JSON 포맷터",
         "lotto_generator": "로또 번호 생성기",
@@ -14,11 +13,19 @@
         "blog": "블로그",
         "about": "소개",
         "contact": "문의하기",
-        "privacy": "개인정보처리방침"
+        "privacy": "개인정보처리방침",
+        "stock_average_calculator": "주식 물타기 계산기",
+        "ticketing_practice": "티켓팅 연습",
+        "salary_calculator": "연봉 실수령액 계산기"
     },
     "home": {
         "welcome": "치트셋에 오신 것을 환영합니다",
-        "intro": "여러분의 업무를 단순화하는 유용한 도구를 제공합니다."
+        "intro": "업무 효율부터 일상의 즐거움까지, 당신에게 필요한 모든 도구를 제공합니다.",
+        "categories": {
+            "developer": "👨‍💻 개발자 도구",
+            "finance": "💰 금융 및 재테크",
+            "daily": "🍀 생활 편의"
+        }
     },
     "tools": {
         "word_counter": {
@@ -66,6 +73,49 @@
             "time_diff_slower_text": "느립니다",
             "seconds": "초",
             "seo_content": "무료 온라인 서버 시간 확인 도구입니다. 인터파크, 멜론티켓, 예스24 등 원하는 사이트의 정확한 서버 시간을 0.1초 단위로 확인하세요. 티켓팅과 수강신청 성공률을 높이는 필수 도구입니다."
+        },
+        "stock_average_calculator": {
+            "title": "주식 물타기 계산기",
+            "description": "현재 보유 주식과 추가 매수할 주식을 입력하여 최종 평단가를 계산하세요.",
+            "current_price": "현재 보유 단가",
+            "current_quantity": "현재 보유 수량",
+            "add_price": "추가 매수 단가",
+            "add_quantity": "추가 매수 수량",
+            "calculate": "계산하기",
+            "reset": "초기화",
+            "result_avg_price": "최종 평단가",
+            "result_total_quantity": "총 보유 수량",
+            "result_total_amount": "총 매수 금액",
+            "seo_content": "무료 주식 물타기 계산기입니다. 주식이나 코인 투자 시 추가 매수를 통해 평단가를 얼마나 낮출 수 있는지 미리 계산해보세요. 성공적인 투자를 위한 필수 도구입니다."
+        },
+        "ticketing_practice": {
+            "title": "티켓팅 연습 게임",
+            "description": "실전 같은 티켓팅 연습으로 클릭 속도와 정확도를 높이세요.",
+            "start_game": "게임 시작",
+            "score": "점수",
+            "time_left": "남은 시간",
+            "click_target": "클릭하세요!",
+            "game_over": "게임 종료",
+            "final_score": "최종 점수",
+            "retry": "다시 하기",
+            "share_result": "친구에게 자랑하기",
+            "share_message": "티켓팅 연습 게임 점수: {score}점! 너도 도전해봐 👉",
+            "copied": "복사됨!",
+            "seo_content": "인터파크, 예스24, 멜론티켓 등 티켓팅 연습을 위한 무료 게임입니다. 반응 속도를 높이고 정확한 클릭 연습을 통해 원하는 티켓을 쟁취하세요."
+        },
+        "salary_calculator": {
+            "title": "연봉 실수령액 계산기",
+            "description": "연봉을 입력하면 세금과 4대보험을 제외한 실제 월 수령액을 계산해줍니다.",
+            "salary_input": "연봉 (만원)",
+            "calculate": "계산하기",
+            "monthly_salary": "월 예상 실수령액",
+            "deductions": "공제액 합계",
+            "national_pension": "국민연금",
+            "health_insurance": "건강보험",
+            "care_insurance": "장기요양",
+            "employment_insurance": "고용보험",
+            "income_tax": "소득세 (지방소득세 포함)",
+            "seo_content": "2025년 최신 세율이 적용된 연봉 실수령액 계산기입니다. 연봉 협상이나 이직 시 내 통장에 실제로 들어오는 돈이 얼마인지 정확하게 확인하세요."
         }
     },
     "privacy": {
