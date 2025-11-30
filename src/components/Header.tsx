@@ -13,7 +13,7 @@ interface HeaderProps {
         }
         nav: {
             home: string
-            tools: string
+
             blog: string
             [key: string]: string
         }
