@@ -77,6 +77,14 @@ export default function Header({ lang, dict }: HeaderProps) {
                         <Link href={`/${lang}/blog`} className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors">
                             {dict.nav.blog}
                         </Link>
+
+                        <Link href={`/${lang}/about`} className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+                            {dict.nav.about}
+                        </Link>
+
+                        <Link href={`/${lang}/contact`} className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+                            {dict.nav.contact}
+                        </Link>
                     </nav>
                 </div>
 
@@ -136,6 +144,22 @@ export default function Header({ lang, dict }: HeaderProps) {
                             onClick={() => setIsMenuOpen(false)}
                         >
                             {dict.nav.blog}
+                        </Link>
+
+                        <Link
+                            href={`/${lang}/about`}
+                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {dict.nav.about}
+                        </Link>
+
+                        <Link
+                            href={`/${lang}/contact`}
+                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {dict.nav.contact}
                         </Link>
                     </div>
                 </div>

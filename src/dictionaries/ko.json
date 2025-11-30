@@ -12,6 +12,8 @@
         "lotto_generator": "로또 번호 생성기",
         "server_time": "서버 시간 확인",
         "blog": "블로그",
+        "about": "소개",
+        "contact": "문의하기",
         "privacy": "개인정보처리방침"
     },
     "home": {

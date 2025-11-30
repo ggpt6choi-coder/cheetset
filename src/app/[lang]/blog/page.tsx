@@ -35,7 +35,7 @@ export default async function BlogPage({ params }: { params: Promise<{ lang: str
                             <div className="flex items-center justify-between mb-2">
                                 <span className="text-sm text-gray-500 dark:text-gray-400">{post.date}</span>
                                 <span className="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-200">
-                                    {post.lang === 'ko' ? 'Korean' : 'English'}
+                                    {post.lang === 'ko' ? 'Korean' : post.lang === 'en' ? 'English' : 'Japanese'}
                                 </span>
                             </div>
                             <a href={`/${lang}/blog/${post.slug}`} className="block mt-2">
