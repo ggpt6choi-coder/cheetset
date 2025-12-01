@@ -195,5 +195,47 @@ export const posts: Post[] = [
         description: '毎回損していませんか？楽天、Amazon、Yahoo!ショッピングで最安値を見つける検証済み方法と隠れた割引特典公開！',
         date: '2025-11-30',
         lang: 'ja'
+    },
+    {
+        slug: 'salary-calculator-guide-2025',
+        title: '2025 Salary Calculator: How Much is My Take-Home Pay? (Tax & Deductions Guide)',
+        description: 'Calculate your real take-home pay with our 2025 Salary Calculator. Learn about income tax, national pension, and health insurance deductions.',
+        date: '2025-12-01',
+        lang: 'en'
+    },
+    {
+        slug: 'salary-calculator-guide-2025',
+        title: '2025년 연봉 실수령액 계산기: 내 월급은 얼마일까? (4대보험, 소득세 완벽 분석)',
+        description: '2025년 최신 세율 적용! 연봉 3천, 5천, 1억일 때 실제 통장에 찍히는 금액은? 국민연금, 건강보험, 소득세 공제 항목을 완벽하게 분석해 드립니다.',
+        date: '2025-12-01',
+        lang: 'ko'
+    },
+    {
+        slug: 'salary-calculator-guide-2025',
+        title: '2025年給与手取り計算機：私の手取りはいくら？（税金・社会保険完全ガイド）',
+        description: '2025年最新税率適用！年収300万、500万、1000万の時の実際の手取り額は？所得税、住民税、社会保険料の控除項目を完全に分析します。',
+        date: '2025-12-01',
+        lang: 'ja'
+    },
+    {
+        slug: 'stock-average-down-strategy',
+        title: 'Stock Average Down Strategy: How to Turn Losses into Profits',
+        description: 'What is "Averaging Down"? Learn how to lower your break-even price and recover from stock market dips using our calculator.',
+        date: '2025-12-01',
+        lang: 'en'
+    },
+    {
+        slug: 'stock-average-down-strategy',
+        title: '주식 물타기 계산기 활용법: 손실을 수익으로 바꾸는 매수 전략',
+        description: '물타기(평단가 낮추기)도 전략입니다. 무턱대고 사지 말고, 계산기로 정확한 평단가를 예측하고 탈출 계획을 세우세요. 성공적인 물타기 3원칙을 공개합니다.',
+        date: '2025-12-01',
+        lang: 'ko'
+    },
+    {
+        slug: 'stock-average-down-strategy',
+        title: '株式ナンピン計算機活用法：損失を利益に変える買い増し戦略',
+        description: 'ナンピン買い（平均取得単価を下げる）も戦略です。無計画に買うのではなく、計算機で正確な平均単価を予測し、脱出計画を立てましょう。成功するナンピンの3原則を公開します。',
+        date: '2025-12-01',
+        lang: 'ja'
     }
 ];
