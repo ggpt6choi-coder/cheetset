@@ -15,6 +15,8 @@
         "contact": "문의하기",
         "privacy": "개인정보처리방침",
         "stock_average_calculator": "주식 물타기 계산기",
+        "image_to_base64": "이미지 Base64 변환기",
+        "base64_to_image": "Base64 이미지 디코더",
         "ticketing_practice": "티켓팅 연습",
         "salary_calculator": "연봉 실수령액 계산기"
     },
@@ -116,6 +118,22 @@
             "employment_insurance": "고용보험",
             "income_tax": "소득세 (지방소득세 포함)",
             "seo_content": "2025년 최신 세율이 적용된 연봉 실수령액 계산기입니다. 연봉 협상이나 이직 시 내 통장에 실제로 들어오는 돈이 얼마인지 정확하게 확인하세요."
+        },
+        "image_to_base64": {
+            "title": "이미지 Base64 변환기",
+            "description": "이미지 파일을 Base64 문자열로 변환합니다. HTML이나 CSS에 이미지를 직접 삽입할 때 유용합니다.",
+            "upload_label": "이미지를 드래그하거나 클릭하여 업로드하세요",
+            "copy": "Base64 복사",
+            "copied": "복사됨!",
+            "clear": "지우기",
+            "error_file_too_large": "파일이 너무 큽니다. (최대 10MB)"
+        },
+        "base64_to_image": {
+            "title": "Base64 이미지 디코더",
+            "description": "Base64 문자열을 이미지 파일로 변환하여 미리보고 다운로드할 수 있습니다.",
+            "input_placeholder": "Base64 문자열을 여기에 붙여넣으세요 (data:image/png;base64,...)",
+            "download": "이미지 다운로드",
+            "error_invalid_format": "유효하지 않은 Base64 이미지 형식입니다."
         }
     },
     "privacy": {

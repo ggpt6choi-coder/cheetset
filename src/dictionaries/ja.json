@@ -15,6 +15,8 @@
         "contact": "お問い合わせ",
         "privacy": "プライバシーポリシー",
         "stock_average_calculator": "株式ナンピン計算機",
+        "image_to_base64": "画像 Base64 変換",
+        "base64_to_image": "Base64 画像デコーダー",
         "ticketing_practice": "チケット予約練習",
         "salary_calculator": "年収手取り計算機"
     },
@@ -116,6 +118,22 @@
             "employment_insurance": "雇用保険",
             "income_tax": "所得税",
             "seo_content": "2025年最新版、日本の年収手取り計算機です。厚生年金、健康保険、雇用保険、所得税、住民税を考慮した実際の手取り額をシミュレーションします。"
+        },
+        "image_to_base64": {
+            "title": "画像 Base64 変換",
+            "description": "画像ファイルをBase64文字列に変換します。HTMLやCSSに画像を直接埋め込む際に便利です。",
+            "upload_label": "画像をドラッグ＆ドロップするか、クリックして選択してください",
+            "copy": "Base64をコピー",
+            "copied": "コピーしました！",
+            "clear": "クリア",
+            "error_file_too_large": "ファイルサイズが大きすぎます。（最大10MB）"
+        },
+        "base64_to_image": {
+            "title": "Base64 画像デコーダー",
+            "description": "Base64文字列を画像ファイルに変換して、プレビューおよびダウンロードできます。",
+            "input_placeholder": "Base64文字列をここに貼り付けてください (data:image/png;base64,...)",
+            "download": "画像をダウンロード",
+            "error_invalid_format": "無効なBase64画像形式です。"
         }
     },
     "privacy": {

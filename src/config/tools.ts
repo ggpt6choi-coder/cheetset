@@ -17,7 +17,18 @@ export const tools: Tool[] = [
     // Finance Tools
     {
         slug: 'stock-average-calculator',
-        category: 'finance',
+        icon: '📉',
+        category: 'finance'
+    },
+    {
+        slug: 'image-to-base64',
+        icon: '🖼️',
+        category: 'developer'
+    },
+    {
+        slug: 'base64-to-image',
+        icon: '🔄',
+        category: 'developer'
     },
     {
         slug: 'salary-calculator',

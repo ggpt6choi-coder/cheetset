@@ -1,0 +1,26 @@
+import { getDictionary } from "@/dictionaries/get-dictionary";
+import Base64ToImageClient from './Base64ToImageClient';
+
+type Locale = "en" | "ko" | "ja";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const dict = await getDictionary(lang as Locale) as any;
+
+    return {
+        title: `${dict.tools.base64_to_image.title} | Cheetset`,
+        description: dict.tools.base64_to_image.description,
+        alternates: {
+            canonical: `https://cheetset.com/${lang}/tools/base64-to-image`,
+        },
+    };
+}
+
+export default async function Base64ToImagePage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const dict = await getDictionary(lang as Locale) as any;
+
+    return <Base64ToImageClient dict={dict} />;
+}
