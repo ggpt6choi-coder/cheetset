@@ -14,6 +14,10 @@ export const tools: Tool[] = [
         slug: 'json-formatter',
         category: 'developer',
     },
+    {
+        slug: 'uuid-generator',
+        category: 'developer',
+    },
     // Finance Tools
     {
         slug: 'stock-average-calculator',

@@ -19,7 +19,8 @@
         "base64_to_image": "Base64 이미지 디코더",
         "ticketing_practice": "티켓팅 연습",
         "salary_calculator": "연봉 실수령액 계산기",
-        "compound_interest": "복리 계산기"
+        "compound_interest": "복리 계산기",
+        "uuid_generator": "UUID 생성기"
     },
     "home": {
         "welcome": "치트셋에 오신 것을 환영합니다",
@@ -153,6 +154,19 @@
             "table_total": "총 자산",
             "table_interest": "누적 이자",
             "seo_content": "무료 온라인 복리 계산기입니다. 주식, 코인, 적금 등 투자의 복리 효과를 미리 계산해보세요. 눈덩이처럼 불어나는 자산의 마법을 시각적으로 확인하세요."
+        },
+        "uuid_generator": {
+            "title": "UUID 생성기",
+            "description": "안전하고 고유한 UUID v4를 한 번에 생성하고 복사하세요.",
+            "subtitle": "개발자를 위한 대량 UUID 생성 도구",
+            "generate": "생성하기",
+            "copy": "복사",
+            "copy_all": "모두 복사",
+            "quantity": "생성 개수",
+            "copied": "복사됨!",
+            "all_copied": "모든 UUID가 복사되었습니다!",
+            "clear": "지우기",
+            "seo_content": "무료 온라인 UUID v4 생성기입니다. 데이터베이스 키나 고유 식별자로 사용할 수 있는 안전한 UUID를 한 번에 여러 개 생성하고 복사하세요. 브라우저 내에서 생성되므로 보안상 안전합니다."
         }
     },
     "privacy": {

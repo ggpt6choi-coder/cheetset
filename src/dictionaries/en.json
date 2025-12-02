@@ -19,7 +19,8 @@
     "base64_to_image": "Base64 to Image",
     "ticketing_practice": "Ticketing Practice",
     "salary_calculator": "Real Salary Calculator",
-    "compound_interest": "Compound Interest Calculator"
+    "compound_interest": "Compound Interest Calculator",
+    "uuid_generator": "UUID Generator"
   },
   "home": {
     "welcome": "Welcome to Cheetset",
@@ -153,6 +154,19 @@
       "table_total": "Total Balance",
       "table_interest": "Total Interest",
       "seo_content": "Free online compound interest calculator. Visualize your investment growth with monthly contributions. Essential tool for financial planning and retirement strategy."
+    },
+    "uuid_generator": {
+      "title": "UUID Generator",
+      "description": "Generate and copy secure, unique UUID v4 strings in bulk.",
+      "subtitle": "Bulk UUID generation tool for developers",
+      "generate": "Generate",
+      "copy": "Copy",
+      "copy_all": "Copy All",
+      "quantity": "Quantity",
+      "copied": "Copied!",
+      "all_copied": "All UUIDs copied!",
+      "clear": "Clear",
+      "seo_content": "Free online UUID v4 generator. Generate multiple secure UUIDs at once for database keys or unique identifiers. Generated locally in your browser for security."
     }
   },
   "privacy": {

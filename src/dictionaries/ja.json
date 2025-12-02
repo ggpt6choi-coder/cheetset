@@ -19,7 +19,8 @@
         "base64_to_image": "Base64 画像デコーダー",
         "ticketing_practice": "チケット予約練習",
         "salary_calculator": "年収手取り計算機",
-        "compound_interest": "複利計算機"
+        "compound_interest": "複利計算機",
+        "uuid_generator": "UUID生成器"
     },
     "home": {
         "welcome": "チートセットへようこそ",
@@ -153,6 +154,19 @@
             "table_total": "総資産",
             "table_interest": "累積利息",
             "seo_content": "無料のオンライン複利計算機です。株式、仮想通貨、積立など、投資の複利効果を事前に計算できます。雪だるま式に増える資産の魔法を視覚的に確認しましょう。"
+        },
+        "uuid_generator": {
+            "title": "UUID生成器",
+            "description": "安全でユニークなUUID v4を一括生成してコピーします。",
+            "subtitle": "開発者のための大量UUID生成ツール",
+            "generate": "生成する",
+            "copy": "コピー",
+            "copy_all": "すべてコピー",
+            "quantity": "生成数",
+            "copied": "コピー完了!",
+            "all_copied": "すべてのUUIDをコピーしました!",
+            "clear": "クリア",
+            "seo_content": "無料のオンラインUUID v4ジェネレーターです。データベースキーや一意の識別子として使用できる安全なUUIDを一度に複数生成してコピーします。ブラウザ内で生成されるため、セキュリティ上安全です。"
         }
     },
     "privacy": {
