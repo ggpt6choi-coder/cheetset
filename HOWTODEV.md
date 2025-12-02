@@ -26,51 +26,66 @@ export const posts: Post[] = [
 ];
 ```
 
-### 2. 콘텐츠 작성 (`src/app/[lang]/blog/[slug]/page.tsx`)
-실제 글 내용을 렌더링하는 로직을 추가합니다. 현재는 MDX가 아닌 하드코딩 방식으로 되어 있습니다.
+### 2. 컴포넌트 생성 (`src/components/blog/posts/`)
+새로운 블로그 글을 위한 컴포넌트 파일을 생성합니다.
 
-1.  `generateMetadata` 함수 내의 `if (slug === '...')` 블록에 메타데이터(Title, Description)를 추가합니다.
-2.  `BlogPostPage` 컴포넌트 내의 `if (slug === '...')` 블록에 실제 글 내용(JSX)을 작성합니다.
+1.  `src/components/blog/posts/` 폴더에 `PascalCase`로 파일명을 짓습니다. (예: `NewPostSlug.tsx`)
+2.  아래 템플릿을 복사하여 내용을 작성합니다.
 
 ```tsx
-// src/app/[lang]/blog/[slug]/page.tsx
+// src/components/blog/posts/NewPostSlug.tsx
+import React from 'react';
 
-// 1. 메타데이터 설정
-if (slug === 'new-post-slug') {
-    if (lang === 'ko') {
-        title = "새로운 글 제목";
-        description = "설명...";
-    }
-    // ...
-}
+type Props = {
+    lang: string;
+};
 
-// 2. 본문 내용 작성
-if (slug === 'new-post-slug') {
+export default function NewPostSlug({ lang }: Props) {
     return (
-        <article>
-            <h1>새로운 글 제목</h1>
-            <p>여기에 내용을 작성하세요...</p>
-        </article>
+        <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+            <article className="prose dark:prose-invert lg:prose-xl mx-auto">
+                {lang === 'ko' && (
+                    <>
+                        <h1>새로운 글 제목</h1>
+                        <p className="lead">글 요약...</p>
+                        {/* 본문 내용 */}
+                    </>
+                )}
+                {lang === 'en' && (
+                    <>
+                        <h1>New Post Title</h1>
+                        <p className="lead">Post summary...</p>
+                        {/* Content */}
+                    </>
+                )}
+                {/* 일본어 등 다른 언어 추가 */}
+            </article>
+        </div>
     );
 }
 ```
 
-> [!WARNING]
-> **파일 크기 주의**: `page.tsx` 파일이 매우 크기 때문에(2000줄 이상), AI나 자동화 도구로 수정할 때 코드가 잘릴 수 있습니다.
-> **수정 후 반드시 파일의 끝부분을 확인하여 코드가 정상적으로 닫혔는지(`}`, `)` 등) 검증하세요.**
-> 추후 이 구조는 파일 분리(Refactoring)를 통해 개선될 예정입니다.
+### 3. 컴포넌트 등록 (`src/app/[lang]/blog/[slug]/page.tsx`)
+생성한 컴포넌트를 `page.tsx`에 등록하여 동적으로 로딩되도록 합니다.
 
-### 3. 슬러그 등록 (`src/app/[lang]/blog/[slug]/page.tsx`)
-`BlogPostPage` 컴포넌트 내의 `validSlugs` 배열에 새로운 슬러그를 추가해야 합니다. **이 단계를 건너뛰면 404 페이지가 뜹니다.**
+1.  `dynamic` import를 추가합니다.
+2.  `POSTS` 객체에 슬러그와 컴포넌트를 매핑합니다.
 
-```typescript
-const validSlugs = [
-    'resume-word-count',
-    'json-formatting-guide',
-    // ... 기존 슬러그들
-    'new-post-slug' // 여기에 추가
-];
+```tsx
+// src/app/[lang]/blog/[slug]/page.tsx
+
+// 1. Dynamic Import 추가
+const NewPostSlug = dynamic(() => import('@/components/blog/posts/NewPostSlug'));
+
+// 2. POSTS 객체에 등록
+const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
+    // ... 기존 글들
+    'new-post-slug': NewPostSlug, // 슬러그: 컴포넌트
+};
 ```
+
+> [!NOTE]
+> **메타데이터 확인**: `generateMetadata` 함수에도 새로운 슬러그에 대한 메타데이터(Title, Description)가 추가되어 있는지 확인하세요. (1단계에서 `posts.ts`만 수정하면 되는 것이 아니라, `page.tsx`의 `generateMetadata`도 업데이트해야 합니다.)
 
 ---
 
@@ -263,10 +278,15 @@ Vercel이 자동으로 변경 사항을 감지하고 배포를 시작합니다.
 ## 🚨 문제 해결 및 예방 (Troubleshooting & Prevention)
 
 ### 1. 블로그 글 내용이 보이지 않을 때
-**증상:** URL에 접속했는데 "Post not found"가 뜨거나 내용이 비어있음.
-**원인:** `page.tsx` 파일이 너무 커서 AI가 코드를 수정하다가 뒷부분을 잘라먹었거나, `validSlugs`에는 추가했지만 본문 `if` 블록을 추가하지 않은 경우.
+**증상:** URL에 접속했는데 "Post not found"가 뜨거나 404 에러가 발생함.
+**원인:** `src/components/blog/posts/`에 컴포넌트는 만들었지만, `src/app/[lang]/blog/[slug]/page.tsx`의 `POSTS` 객체에 등록하지 않은 경우.
 **해결:**
-1. `src/app/[lang]/blog/[slug]/page.tsx` 파일을 열어 맨 아래쪽을 확인합니다.
-2. `if (slug === '새로운-슬러그')` 블록이 정상적으로 닫혀있는지 확인합니다.
-3. 코드가 잘렸다면 다시 작성하거나, 백업에서 복구합니다.
+1. `src/app/[lang]/blog/[slug]/page.tsx` 파일을 엽니다.
+2. `POSTS` 객체에 해당 슬러그와 컴포넌트가 올바르게 매핑되어 있는지 확인합니다.
+   ```typescript
+   const POSTS = {
+       // ...
+       'new-post-slug': NewPostComponent, // 이 부분이 누락되었는지 확인
+   };
+   ```
 
