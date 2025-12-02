@@ -237,5 +237,26 @@ export const posts: Post[] = [
         description: 'ナンピン買い（平均取得単価を下げる）も戦略です。無計画に買うのではなく、計算機で正確な平均単価を予測し、脱出計画を立てましょう。成功するナンピンの3原則を公開します。',
         date: '2025-12-01',
         lang: 'ja'
+    },
+    {
+        slug: 'base64-image-guide',
+        title: 'What is Base64 Image Encoding? Complete Guide & Converter Tool',
+        description: 'Why use Base64 for images? Learn the pros and cons of embedding images as Base64 strings and how to use our free converter tool.',
+        date: '2025-12-02',
+        lang: 'en'
+    },
+    {
+        slug: 'base64-image-guide',
+        title: '이미지 Base64 변환 완벽 가이드: 장단점과 사용법',
+        description: '이미지를 Base64로 변환하면 무엇이 좋을까요? 웹 성능에 미치는 영향과 언제 사용해야 하는지, 그리고 무료 변환 도구 사용법까지 알려드립니다.',
+        date: '2025-12-02',
+        lang: 'ko'
+    },
+    {
+        slug: 'base64-image-guide',
+        title: '画像Base64変換完全ガイド：メリット・デメリットと使い方',
+        description: '画像をBase64に変換する理由とは？Webパフォーマンスへの影響や使いどころ、そして無料変換ツールの使い方まで解説します。',
+        date: '2025-12-02',
+        lang: 'ja'
     }
 ];

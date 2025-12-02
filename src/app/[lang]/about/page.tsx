@@ -34,7 +34,10 @@ export default async function AboutPage({ params }: Props) {
                             <h2>제공하는 도구</h2>
                             <ul>
                                 <li><strong>글자 수 세기:</strong> 자기소개서, 블로그 글 작성 시 실시간 글자 수 확인</li>
-                                <li><strong>JSON 포맷터:</strong> 개발자를 위한 JSON 데이터 정리 도구</li>
+                                <li><strong>JSON 포맷터:</strong> 개발자를 위한 JSON 데이터 정리 및 검증</li>
+                                <li><strong>Base64 변환기:</strong> 이미지와 Base64 문자열 간의 상호 변환</li>
+                                <li><strong>주식 물타기 계산기:</strong> 성공적인 투자를 위한 평단가 계산</li>
+                                <li><strong>연봉 실수령액 계산기:</strong> 2025년 최신 세율이 적용된 실수령액 확인</li>
                                 <li><strong>로또 번호 생성기:</strong> 랜덤 로또 번호 추천</li>
                                 <li><strong>서버 시간 확인:</strong> 티켓팅, 수강신청을 위한 정확한 서버 시간 체크</li>
                             </ul>
@@ -71,8 +74,11 @@ export default async function AboutPage({ params }: Props) {
                             <ul>
                                 <li><strong>Word Counter:</strong> Real-time character counting for resumes and blog posts</li>
                                 <li><strong>JSON Formatter:</strong> Format and validate JSON data for developers</li>
+                                <li><strong>Base64 Converter:</strong> Convert between images and Base64 strings</li>
+                                <li><strong>Stock Average Calculator:</strong> Calculate average cost for smart investing</li>
+                                <li><strong>Salary Calculator:</strong> Estimate monthly take-home pay with 2025 tax rates</li>
                                 <li><strong>Lotto Number Generator:</strong> Random lottery number recommendations</li>
-                                <li><strong>Server Time Checker:</strong> Accurate server time for ticket purchases and course registration</li>
+                                <li><strong>Server Time Checker:</strong> Accurate server time for ticket purchases</li>
                             </ul>
 
                             <h2>Why CheatKey?</h2>
@@ -107,6 +113,9 @@ export default async function AboutPage({ params }: Props) {
                             <ul>
                                 <li><strong>文字数カウント:</strong> 履歴書、ブログ作成時のリアルタイム文字数確認</li>
                                 <li><strong>JSONフォーマッター:</strong> 開発者向けJSONデータ整形ツール</li>
+                                <li><strong>Base64変換:</strong> 画像とBase64文字列の相互変換</li>
+                                <li><strong>株式ナンピン計算機:</strong> 賢い投資のための平均取得単価計算</li>
+                                <li><strong>年収手取り計算機:</strong> 2025年の最新税率を適用した手取り額確認</li>
                                 <li><strong>宝くじ番号生成:</strong> ランダム宝くじ番号推薦</li>
                                 <li><strong>サーバー時間確認:</strong> チケット予約、履修登録のための正確なサーバー時間チェック</li>
                             </ul>
