@@ -34,6 +34,11 @@ export const tools: Tool[] = [
         slug: 'salary-calculator',
         category: 'finance',
     },
+    {
+        slug: 'compound-interest',
+        icon: '📈',
+        category: 'finance',
+    },
     // Daily Utilities
     {
         slug: 'lotto-generator',

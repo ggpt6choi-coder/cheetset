@@ -18,7 +18,8 @@
         "image_to_base64": "画像 Base64 変換",
         "base64_to_image": "Base64 画像デコーダー",
         "ticketing_practice": "チケット予約練習",
-        "salary_calculator": "年収手取り計算機"
+        "salary_calculator": "年収手取り計算機",
+        "compound_interest": "複利計算機"
     },
     "home": {
         "welcome": "チートセットへようこそ",
@@ -134,6 +135,24 @@
             "input_placeholder": "Base64文字列をここに貼り付けてください (data:image/png;base64,...)",
             "download": "画像をダウンロード",
             "error_invalid_format": "無効なBase64画像形式です。"
+        },
+        "compound_interest": {
+            "title": "複利計算機",
+            "description": "元本、積立額、金利を入力して、複利の効果を確認しましょう。",
+            "subtitle": "毎月の積立投資で10年後の資産はいくらになるでしょうか？",
+            "input_principal": "初期投資額（元本）",
+            "input_monthly": "毎月の積立額",
+            "input_rate": "年利 (%)",
+            "input_years": "投資期間（年）",
+            "result_final": "最終資産",
+            "result_principal": "元本合計",
+            "result_interest": "利息合計",
+            "chart_principal": "元本",
+            "chart_interest": "利息",
+            "table_year": "年目",
+            "table_total": "総資産",
+            "table_interest": "累積利息",
+            "seo_content": "無料のオンライン複利計算機です。株式、仮想通貨、積立など、投資の複利効果を事前に計算できます。雪だるま式に増える資産の魔法を視覚的に確認しましょう。"
         }
     },
     "privacy": {
