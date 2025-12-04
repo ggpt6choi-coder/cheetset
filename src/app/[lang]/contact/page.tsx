@@ -30,8 +30,8 @@ export default async function ContactPage({ params }: Props) {
 
                             <h2>📧 이메일</h2>
                             <p>
-                                <a href="mailto:contact@cheetset.com" className="text-indigo-600 dark:text-indigo-400 font-semibold text-lg">
-                                    contact@cheetset.com
+                                <a href="mailto:cheet.sett@gmail.com" className="text-indigo-600 dark:text-indigo-400 font-semibold text-lg">
+                                    cheet.sett@gmail.com
                                 </a>
                             </p>
                             <p className="text-sm text-gray-600 dark:text-gray-400">보통 24-48시간 내에 답변드립니다.</p>
@@ -112,12 +112,12 @@ export default async function ContactPage({ params }: Props) {
                     {lang === 'ja' && (
                         <>
                             <h1>お問い合わせ</h1>
-                            <p className="lead">CheatKeyについてのご質問、フィードバック、ご提案はありますか？お気軽にご連絡ください！</p>
+                            <p className="lead">CheatSetについてのご質問、フィードバック、ご提案はありますか？お気軽にご連絡ください！</p>
 
                             <h2>📧 メール</h2>
                             <p>
-                                <a href="mailto:contact@cheetset.com" className="text-indigo-600 dark:text-indigo-400 font-semibold text-lg">
-                                    contact@cheetset.com
+                                <a href="mailto:cheet.sett@gmail.com" className="text-indigo-600 dark:text-indigo-400 font-semibold text-lg">
+                                    cheet.sett@gmail.com
                                 </a>
                             </p>
                             <p className="text-sm text-gray-600 dark:text-gray-400">通常24-48時間以内に返信いたします。</p>

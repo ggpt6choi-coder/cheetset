@@ -35,10 +35,19 @@ export default async function AboutPage({ params }: Props) {
                             <ul>
                                 <li><strong>글자 수 세기:</strong> 자기소개서, 블로그 글 작성 시 실시간 글자 수 확인</li>
                                 <li><strong>JSON 포맷터:</strong> 개발자를 위한 JSON 데이터 정리 및 검증</li>
+                                <li><strong>JWT 디코더:</strong> 보안 토큰(JWT) 구조 분석 및 디버깅</li>
                                 <li><strong>Base64 변환기:</strong> 이미지와 Base64 문자열 간의 상호 변환</li>
+                                <li><strong>Unix 타임스탬프:</strong> 개발자를 위한 시간 변환 도구</li>
+                                <li><strong>Cron 생성기:</strong> 복잡한 스케줄링 표현식 생성</li>
                                 <li><strong>주식 물타기 계산기:</strong> 성공적인 투자를 위한 평단가 계산</li>
                                 <li><strong>연봉 실수령액 계산기:</strong> 2025년 최신 세율이 적용된 실수령액 확인</li>
+                                <li><strong>복리 계산기:</strong> 자산 증식을 위한 적립식 복리 계산</li>
+                                <li><strong>ROI 계산기:</strong> 투자 수익률 및 연평균 성장률 분석</li>
+                                <li><strong>유튜브 수익 계산기:</strong> 채널 조회수 기반 예상 수익 확인</li>
+                                <li><strong>포모도로 타이머:</strong> 25분 집중/5분 휴식으로 생산성 향상</li>
+                                <li><strong>비밀번호 생성기:</strong> 해킹 불가능한 강력한 비밀번호 생성</li>
                                 <li><strong>로또 번호 생성기:</strong> 랜덤 로또 번호 추천</li>
+                                <li><strong>단위 변환기:</strong> 길이, 무게, 부피 등 필수 단위 변환</li>
                                 <li><strong>서버 시간 확인:</strong> 티켓팅, 수강신청을 위한 정확한 서버 시간 체크</li>
                             </ul>
 
@@ -74,10 +83,19 @@ export default async function AboutPage({ params }: Props) {
                             <ul>
                                 <li><strong>Word Counter:</strong> Real-time character counting for resumes and blog posts</li>
                                 <li><strong>JSON Formatter:</strong> Format and validate JSON data for developers</li>
+                                <li><strong>JWT Decoder:</strong> Analyze and debug secure tokens (JWT)</li>
                                 <li><strong>Base64 Converter:</strong> Convert between images and Base64 strings</li>
+                                <li><strong>Unix Timestamp:</strong> Time conversion tool for developers</li>
+                                <li><strong>Cron Generator:</strong> Create complex scheduling expressions easily</li>
                                 <li><strong>Stock Average Calculator:</strong> Calculate average cost for smart investing</li>
                                 <li><strong>Salary Calculator:</strong> Estimate monthly take-home pay with 2025 tax rates</li>
-                                <li><strong>Lotto Number Generator:</strong> Random lottery number recommendations</li>
+                                <li><strong>Compound Interest:</strong> Calculate asset growth with compound interest</li>
+                                <li><strong>ROI Calculator:</strong> Analyze investment return and CAGR</li>
+                                <li><strong>YouTube Calculator:</strong> Estimate channel revenue based on views</li>
+                                <li><strong>Pomodoro Timer:</strong> Boost productivity with 25/5 focus cycles</li>
+                                <li><strong>Password Generator:</strong> Create strong, unhackable passwords</li>
+                                <li><strong>Lotto Generator:</strong> Random lottery number recommendations</li>
+                                <li><strong>Unit Converter:</strong> Essential unit conversions for length, weight, etc.</li>
                                 <li><strong>Server Time Checker:</strong> Accurate server time for ticket purchases</li>
                             </ul>
 
@@ -103,7 +121,7 @@ export default async function AboutPage({ params }: Props) {
                     )}
                     {lang === 'ja' && (
                         <>
-                            <h1>CheatKeyについて</h1>
+                            <h1>CheatSetについて</h1>
                             <p className="lead">日常で頻繁に必要なユーティリティツールを無料で提供するWebサービスです。</p>
 
                             <h2>私たちのミッション</h2>
@@ -113,10 +131,19 @@ export default async function AboutPage({ params }: Props) {
                             <ul>
                                 <li><strong>文字数カウント:</strong> 履歴書、ブログ作成時のリアルタイム文字数確認</li>
                                 <li><strong>JSONフォーマッター:</strong> 開発者向けJSONデータ整形ツール</li>
+                                <li><strong>JWTデコーダー:</strong> セキュリティトークン（JWT）の構造分析とデバッグ</li>
                                 <li><strong>Base64変換:</strong> 画像とBase64文字列の相互変換</li>
+                                <li><strong>Unixタイムスタンプ:</strong> 開発者のための時間変換ツール</li>
+                                <li><strong>Cron生成器:</strong> 複雑なスケジューリング式を簡単に作成</li>
                                 <li><strong>株式ナンピン計算機:</strong> 賢い投資のための平均取得単価計算</li>
                                 <li><strong>年収手取り計算機:</strong> 2025年の最新税率を適用した手取り額確認</li>
+                                <li><strong>複利計算機:</strong> 資産形成のための積立複利計算</li>
+                                <li><strong>ROI計算機:</strong> 投資収益率と年平均成長率の分析</li>
+                                <li><strong>YouTube収益計算機:</strong> 再生回数に基づく予想収益確認</li>
+                                <li><strong>ポモドーロタイマー:</strong> 25分集中/5分休憩で生産性向上</li>
+                                <li><strong>パスワード生成器:</strong> ハッキング不可能な強力なパスワード生成</li>
                                 <li><strong>宝くじ番号生成:</strong> ランダム宝くじ番号推薦</li>
+                                <li><strong>単位変換機:</strong> 長さ、重さ、体積などの必須単位変換</li>
                                 <li><strong>サーバー時間確認:</strong> チケット予約、履修登録のための正確なサーバー時間チェック</li>
                             </ul>
 
