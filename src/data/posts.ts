@@ -300,5 +300,47 @@ export const posts: Post[] = [
         description: 'Auto Incrementの代わりになぜUUIDを使うのですか？UUID v4の構造と衝突確率、そしていつ使用すべきかを明確に整理します。',
         date: '2025-12-04',
         lang: 'ja'
+    },
+    {
+        slug: 'jwt-guide',
+        title: 'JWT (JSON Web Token) Complete Guide: Structure, Security, and Use Cases',
+        description: 'What is JWT and how does it work? We explain the Header, Payload, and Signature structure, and why it is the standard for stateless authentication.',
+        date: '2025-12-04',
+        lang: 'en'
+    },
+    {
+        slug: 'jwt-guide',
+        title: 'JWT(JSON Web Token) 완벽 가이드: 구조, 보안, 그리고 사용 사례',
+        description: 'JWT는 무엇이고 어떻게 작동할까요? 헤더, 페이로드, 서명 구조를 분석하고, 왜 무상태(Stateless) 인증의 표준이 되었는지 설명합니다.',
+        date: '2025-12-04',
+        lang: 'ko'
+    },
+    {
+        slug: 'jwt-guide',
+        title: 'JWT（JSON Web Token）完全ガイド：構造、セキュリティ、使用事例',
+        description: 'JWTとは何か、どのように機能するのか？ヘッダー、ペイロード、署名の構造を分析し、なぜステートレス認証の標準となったのかを解説します。',
+        date: '2025-12-04',
+        lang: 'ja'
+    },
+    {
+        slug: 'pomodoro-technique',
+        title: 'The Pomodoro Technique: How to Skyrocket Your Productivity in 25 Minutes',
+        description: 'Struggling with focus? The Pomodoro Technique is a proven time management method. Learn how to use the 25/5 rule to beat procrastination.',
+        date: '2025-12-04',
+        lang: 'en'
+    },
+    {
+        slug: 'pomodoro-technique',
+        title: '포모도로 테크닉: 25분 집중으로 생산성을 극대화하는 방법',
+        description: '집중하기 힘드신가요? 포모도로 기법은 검증된 시간 관리 방법입니다. 25분 집중, 5분 휴식 규칙으로 미루는 습관을 이겨내는 법을 알아보세요.',
+        date: '2025-12-04',
+        lang: 'ko'
+    },
+    {
+        slug: 'pomodoro-technique',
+        title: 'ポモドーロ・テクニック：25分の集中で生産性を最大化する方法',
+        description: '集中力が続きませんか？ポモドーロ・テクニックは実証済みの時間管理法です。25分の集中と5分の休憩ルールで、先延ばし癖を克服する方法を学びましょう。',
+        date: '2025-12-04',
+        lang: 'ja'
     }
 ];

@@ -24,6 +24,8 @@ const StockAverageDownStrategy = dynamic(() => import('@/components/blog/posts/S
 const Base64ImageGuide = dynamic(() => import('@/components/blog/posts/Base64ImageGuide'));
 const CompoundInterestGuide = dynamic(() => import('@/components/blog/posts/CompoundInterestGuide'));
 const UuidGuide = dynamic(() => import('@/components/blog/posts/UuidGuide'));
+const JwtGuide = dynamic(() => import('@/components/blog/posts/JwtGuide'));
+const PomodoroTechnique = dynamic(() => import('@/components/blog/posts/PomodoroTechnique'));
 
 const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -40,6 +42,8 @@ const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
     'base64-image-guide': Base64ImageGuide,
     'compound-interest-guide': CompoundInterestGuide,
     'uuid-guide': UuidGuide,
+    'jwt-guide': JwtGuide,
+    'pomodoro-technique': PomodoroTechnique,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
