@@ -60,4 +60,40 @@ export const tools: Tool[] = [
         slug: 'unit-converter',
         category: 'daily',
     },
+    {
+        slug: 'jwt-decoder',
+        icon: '🛡️',
+        category: 'developer',
+    },
+    {
+        slug: 'unix-timestamp',
+        icon: '⏰',
+        category: 'developer',
+    },
+    {
+        slug: 'cron-generator',
+        icon: '⚙️',
+        category: 'developer',
+    },
+    {
+        slug: 'roi-calculator',
+        icon: '📊',
+        category: 'finance',
+    },
+    {
+        slug: 'youtube-calculator',
+        icon: '🎥',
+        category: 'finance',
+    },
+    {
+        slug: 'pomodoro-timer',
+        icon: '⏱️',
+        category: 'daily',
+    },
+    {
+        slug: 'password-generator',
+        icon: '🔒',
+        category: 'daily',
+    },
 ];
+// Force update

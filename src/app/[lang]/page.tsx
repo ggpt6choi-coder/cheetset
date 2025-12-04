@@ -7,6 +7,7 @@ type Locale = "en" | "ko" | "ja";
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
+  console.log('Home Page Tools:', tools.map(t => t.slug));
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] py-12 bg-gray-50 dark:bg-gray-900">
