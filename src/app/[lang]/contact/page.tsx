@@ -71,8 +71,8 @@ export default async function ContactPage({ params }: Props) {
 
                             <h2>📧 Email</h2>
                             <p>
-                                <a href="mailto:gusdn7269@gmail.com" className="text-indigo-600 dark:text-indigo-400 font-semibold text-lg">
-                                    gusdn7269@gmail.com
+                                <a href="mailto:cheet.sett@gmail.com" className="text-indigo-600 dark:text-indigo-400 font-semibold text-lg">
+                                    cheet.sett@gmail.com
                                 </a>
                             </p>
                             <p className="text-sm text-gray-600 dark:text-gray-400">We typically respond within 24-48 hours.</p>
