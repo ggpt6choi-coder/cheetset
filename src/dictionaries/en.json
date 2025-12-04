@@ -14,13 +14,15 @@
     "about": "About",
     "contact": "Contact",
     "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
     "stock_average_calculator": "Stock Average Calculator",
     "image_to_base64": "Image to Base64",
     "base64_to_image": "Base64 to Image",
     "ticketing_practice": "Ticketing Practice",
     "salary_calculator": "Real Salary Calculator",
     "compound_interest": "Compound Interest Calculator",
-    "uuid_generator": "UUID Generator"
+    "uuid_generator": "UUID Generator",
+    "unit_converter": "Unit Converter"
   },
   "home": {
     "welcome": "Welcome to Cheetset",
@@ -167,6 +169,19 @@
       "all_copied": "All UUIDs copied!",
       "clear": "Clear",
       "seo_content": "Free online UUID v4 generator. Generate multiple secure UUIDs at once for database keys or unique identifiers. Generated locally in your browser for security."
+    },
+    "unit_converter": {
+      "title": "Unit Converter",
+      "description": "Convert various units such as length, weight, volume, area, and temperature quickly and easily.",
+      "length": "Length",
+      "weight": "Weight",
+      "volume": "Volume",
+      "area": "Area",
+      "temperature": "Temperature",
+      "input": "Input",
+      "result": "Result",
+      "select_unit": "Select Unit",
+      "seo_content": "Free online unit converter. Convert meters, inches, feet, kilograms, pounds, Celsius, Fahrenheit, and more for daily life and work."
     }
   },
   "privacy": {
@@ -184,5 +199,17 @@
     "security_content": "We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way. For tools like our \"Word Counter\", all processing happens in your browser. Your text data is never sent to our servers.",
     "contact_title": "5. Contact Us",
     "contact_content": "If you have any questions about this privacy policy, please contact us at: support@cheetset.com"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated: December 4, 2025",
+    "intro_title": "1. Introduction",
+    "intro_content": "Welcome to Cheetset. These terms and conditions outline the rules and regulations for the use of our website. By accessing this website we assume you accept these terms and conditions.",
+    "usage_title": "2. Use of Service",
+    "usage_content": "You must use our services for lawful purposes only. Our tools are provided 'as is' without any warranties.",
+    "disclaimer_title": "3. Disclaimer",
+    "disclaimer_content": "Cheetset does not guarantee the accuracy, reliability, or completeness of the service. In particular, results from financial tools (Salary Calculator, Compound Interest Calculator, etc.) should be used for reference only.",
+    "contact_title": "4. Contact",
+    "contact_content": "If you have any questions about these Terms, please contact us at support@cheetset.com"
   }
 }

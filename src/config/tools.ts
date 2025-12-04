@@ -56,4 +56,8 @@ export const tools: Tool[] = [
         slug: 'ticketing-practice',
         category: 'daily',
     },
+    {
+        slug: 'unit-converter',
+        category: 'daily',
+    },
 ];

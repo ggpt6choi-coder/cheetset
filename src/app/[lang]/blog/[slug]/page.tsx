@@ -22,6 +22,8 @@ const OnlineShoppingTips = dynamic(() => import('@/components/blog/posts/OnlineS
 const SalaryCalculatorGuide2025 = dynamic(() => import('@/components/blog/posts/SalaryCalculatorGuide2025'));
 const StockAverageDownStrategy = dynamic(() => import('@/components/blog/posts/StockAverageDownStrategy'));
 const Base64ImageGuide = dynamic(() => import('@/components/blog/posts/Base64ImageGuide'));
+const CompoundInterestGuide = dynamic(() => import('@/components/blog/posts/CompoundInterestGuide'));
+const UuidGuide = dynamic(() => import('@/components/blog/posts/UuidGuide'));
 
 const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -36,6 +38,8 @@ const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
     'salary-calculator-guide-2025': SalaryCalculatorGuide2025,
     'stock-average-down-strategy': StockAverageDownStrategy,
     'base64-image-guide': Base64ImageGuide,
+    'compound-interest-guide': CompoundInterestGuide,
+    'uuid-guide': UuidGuide,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -176,6 +180,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         } else if (lang === 'ja') {
             title = "画像Base64変換完全ガイド：メリット・デメリットと使い方";
             description = "画像をBase64に変換する理由とは？Webパフォーマンスへの影響や使いどころ、そして無料変換ツールの使い方まで解説します。";
+        }
+    } else if (slug === 'compound-interest-guide') {
+        if (lang === 'ko') {
+            title = "복리 계산기 활용 가이드: 복리의 마법으로 1억 모으기";
+            description = "아인슈타인이 극찬한 복리의 마법! 72의 법칙을 이해하고, 복리 계산기를 활용하여 자산 증식 계획을 세우는 방법을 알려드립니다.";
+        } else if (lang === 'en') {
+            title = "Compound Interest Calculator Guide: How to Become a Millionaire";
+            description = "Einstein called compound interest the 8th wonder of the world. Learn the Rule of 72 and how to use our calculator to plan your financial freedom.";
+        } else if (lang === 'ja') {
+            title = "複利計算機活用ガイド：複利の魔法で資産を増やす方法";
+            description = "アインシュタインが絶賛した複利の魔法！72の法則を理解し、複利計算機を活用して資産形成計画を立てる方法を解説します。";
+        }
+    } else if (slug === 'uuid-guide') {
+        if (lang === 'ko') {
+            title = "UUID v4란 무엇인가? 개발자를 위한 고유 식별자 가이드";
+            description = "Auto Increment 대신 왜 UUID를 쓸까요? UUID v4의 구조와 충돌 확률, 그리고 언제 사용해야 하는지 명확하게 정리해 드립니다.";
+        } else if (lang === 'en') {
+            title = "What is UUID v4? A Developer's Guide to Unique Identifiers";
+            description = "Why use UUIDs instead of Auto Increment IDs? We explain the structure of UUID v4, collision probabilities, and when to use them in your projects.";
+        } else if (lang === 'ja') {
+            title = "UUID v4とは？開発者のための固有識別子ガイド";
+            description = "Auto Incrementの代わりになぜUUIDを使うのですか？UUID v4の構造と衝突確率、そしていつ使用すべきかを明確に整理します。";
         }
     }
 

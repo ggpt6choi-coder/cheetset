@@ -80,6 +80,9 @@ export default async function RootLayout({
               <a href={`/${lang}/privacy`} className="text-gray-400 hover:text-gray-500">
                 {dict.nav.privacy}
               </a>
+              <a href={`/${lang}/terms`} className="text-gray-400 hover:text-gray-500">
+                {dict.nav.terms}
+              </a>
             </div>
           </div>
         </footer>

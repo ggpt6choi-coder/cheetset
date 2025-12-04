@@ -14,13 +14,15 @@
         "about": "소개",
         "contact": "문의하기",
         "privacy": "개인정보처리방침",
+        "terms": "이용약관",
         "stock_average_calculator": "주식 물타기 계산기",
         "image_to_base64": "이미지 Base64 변환기",
         "base64_to_image": "Base64 이미지 디코더",
         "ticketing_practice": "티켓팅 연습",
         "salary_calculator": "연봉 실수령액 계산기",
         "compound_interest": "복리 계산기",
-        "uuid_generator": "UUID 생성기"
+        "uuid_generator": "UUID 생성기",
+        "unit_converter": "단위 변환기"
     },
     "home": {
         "welcome": "치트셋에 오신 것을 환영합니다",
@@ -167,6 +169,19 @@
             "all_copied": "모든 UUID가 복사되었습니다!",
             "clear": "지우기",
             "seo_content": "무료 온라인 UUID v4 생성기입니다. 데이터베이스 키나 고유 식별자로 사용할 수 있는 안전한 UUID를 한 번에 여러 개 생성하고 복사하세요. 브라우저 내에서 생성되므로 보안상 안전합니다."
+        },
+        "unit_converter": {
+            "title": "단위 변환기",
+            "description": "길이, 무게, 부피, 넓이, 온도 등 다양한 단위를 쉽고 빠르게 변환하세요.",
+            "length": "길이",
+            "weight": "무게",
+            "volume": "부피",
+            "area": "넓이",
+            "temperature": "온도",
+            "input": "입력값",
+            "result": "변환 결과",
+            "select_unit": "단위 선택",
+            "seo_content": "무료 온라인 단위 변환기입니다. 미터, 인치, 피트, 평, 킬로그램, 파운드, 섭씨, 화씨 등 일상 생활과 업무에 필요한 모든 단위를 간편하게 변환하세요."
         }
     },
     "privacy": {
@@ -184,5 +199,17 @@
         "security_content": "우리는 귀하의 개인정보가 우발적으로 분실, 사용 또는 무단으로 액세스되는 것을 방지하기 위해 적절한 보안 조치를 마련했습니다. '글자 수 세기'와 같은 도구의 경우, 모든 처리는 귀하의 브라우저 내에서 이루어집니다. 귀하의 텍스트 데이터는 **절대** 당사 서버로 전송되지 않습니다.",
         "contact_title": "5. 문의하기",
         "contact_content": "본 개인정보처리방침에 대해 궁금한 점이 있으시면 다음 주소로 문의해 주십시오: support@cheetset.com"
+    },
+    "terms": {
+        "title": "이용약관",
+        "last_updated": "최종 업데이트: 2025년 12월 4일",
+        "intro_title": "1. 소개",
+        "intro_content": "치트셋(Cheetset) 웹사이트에 오신 것을 환영합니다. 본 약관은 귀하의 웹사이트 이용에 관한 규정을 담고 있습니다. 서비스를 이용함으로써 귀하는 본 약관에 동의하게 됩니다.",
+        "usage_title": "2. 서비스 이용",
+        "usage_content": "귀하는 본 서비스를 합법적인 목적으로만 이용해야 합니다. 당사의 도구들은 '있는 그대로' 제공되며, 사용 결과에 대해 어떠한 보증도 하지 않습니다.",
+        "disclaimer_title": "3. 면책 조항",
+        "disclaimer_content": "치트셋은 서비스의 정확성, 신뢰성, 완전성을 보장하지 않습니다. 특히 금융 도구(연봉 계산기, 복리 계산기 등)의 결과는 참고용으로만 사용해야 하며, 실제 결과와 다를 수 있습니다.",
+        "contact_title": "4. 문의",
+        "contact_content": "이용약관에 대한 문의사항은 support@cheetset.com으로 보내주시기 바랍니다."
     }
 }
