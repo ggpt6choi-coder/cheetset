@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import LottoGenerator from "@/components/LottoGenerator";
 import type { Metadata } from "next";
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -79,6 +80,12 @@ export default async function LottoGeneratorPage({ params }: Props) {
                     </p>
                 </div>
             </div>
+
+            <RelatedTools
+                currentSlug="lotto-generator"
+                category="daily"
+                lang={lang}
+            />
         </div>
     );
 }

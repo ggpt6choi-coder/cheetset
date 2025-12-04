@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import JsonFormatter from "@/components/JsonFormatter";
 import type { Metadata } from "next";
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -82,6 +83,12 @@ export default async function JsonFormatterPage({ params }: Props) {
                     </p>
                 </div>
             </div>
+
+            <RelatedTools
+                currentSlug="json-formatter"
+                category="developer"
+                lang={lang}
+            />
         </div>
     );
 }

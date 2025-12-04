@@ -1,6 +1,7 @@
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import UUIDGeneratorClient from './UUIDGeneratorClient';
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -50,6 +51,12 @@ export default async function UUIDGeneratorPage({ params }: Props) {
                     <p>{dict.tools.uuid_generator.seo_content}</p>
                 </article>
             </div>
+
+            <RelatedTools
+                currentSlug="uuid-generator"
+                category="developer"
+                lang={lang}
+            />
         </div>
     );
 }

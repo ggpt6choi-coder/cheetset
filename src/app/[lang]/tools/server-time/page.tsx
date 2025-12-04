@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import ServerTimeClient from './ServerTimeClient';
 import { getDictionary } from '@/dictionaries/get-dictionary';
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -57,6 +58,12 @@ export default async function ServerTimePage({ params }: Props) {
                     </p>
                 </div>
             </div>
+
+            <RelatedTools
+                currentSlug="server-time"
+                category="daily"
+                lang={lang}
+            />
         </div>
     );
 }

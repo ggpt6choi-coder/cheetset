@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import WordCounter from "@/components/WordCounter";
 import type { Metadata } from "next";
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -77,6 +78,12 @@ export default async function WordCounterPage({ params }: Props) {
                     </p>
                 </div>
             </div>
+
+            <RelatedTools
+                currentSlug="word-counter"
+                category="developer"
+                lang={lang}
+            />
         </div>
     );
 }

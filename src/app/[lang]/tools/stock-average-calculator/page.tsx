@@ -1,6 +1,7 @@
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import StockAverageClient from './StockAverageClient';
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -44,6 +45,12 @@ export default async function StockAveragePage({ params }: Props) {
                     <p>{dict.tools.stock_average_calculator.seo_content}</p>
                 </div>
             </div>
+
+            <RelatedTools
+                currentSlug="stock-average-calculator"
+                category="finance"
+                lang={lang}
+            />
         </div>
     );
 }

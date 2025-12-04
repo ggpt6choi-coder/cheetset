@@ -1,6 +1,7 @@
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import CompoundInterestClient from './CompoundInterestClient';
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -56,6 +57,12 @@ export default async function CompoundInterestPage({ params }: Props) {
                     <p>{dict.tools.compound_interest.seo_content}</p>
                 </article>
             </div>
+
+            <RelatedTools
+                currentSlug="compound-interest"
+                category="finance"
+                lang={lang}
+            />
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import Base64ToImageClient from './Base64ToImageClient';
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -22,5 +23,14 @@ export default async function Base64ToImagePage({ params }: { params: Promise<{ 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const dict = await getDictionary(lang as Locale) as any;
 
-    return <Base64ToImageClient dict={dict} />;
+    return (
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <Base64ToImageClient dict={dict} />
+            <RelatedTools
+                currentSlug="base64-to-image"
+                category="developer"
+                lang={lang}
+            />
+        </div>
+    );
 }

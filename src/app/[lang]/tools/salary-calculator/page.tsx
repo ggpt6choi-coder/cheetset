@@ -1,6 +1,7 @@
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import SalaryClient from './SalaryClient';
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -45,6 +46,12 @@ export default async function SalaryPage({ params }: Props) {
                     <p>{dict.tools.salary_calculator.seo_content}</p>
                 </div>
             </div>
+
+            <RelatedTools
+                currentSlug="salary-calculator"
+                category="finance"
+                lang={lang}
+            />
         </div>
     );
 }

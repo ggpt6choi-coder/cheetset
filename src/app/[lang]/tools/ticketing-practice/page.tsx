@@ -1,6 +1,7 @@
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import TicketingClient from './TicketingClient';
+import RelatedTools from '@/components/tools/RelatedTools';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -45,6 +46,12 @@ export default async function TicketingPage({ params }: Props) {
                     <p>{dict.tools.ticketing_practice.seo_content}</p>
                 </div>
             </div>
+
+            <RelatedTools
+                currentSlug="ticketing-practice"
+                category="daily"
+                lang={lang}
+            />
         </div>
     );
 }
