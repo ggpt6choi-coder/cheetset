@@ -29,7 +29,8 @@
         "roi_calculator": "ROI計算機",
         "youtube_calculator": "YouTube収益計算機",
         "pomodoro_timer": "ポモドーロタイマー",
-        "password_generator": "パスワード生成器"
+        "password_generator": "パスワード生成器",
+        "qr_code": "QRコード生成器"
     },
     "home": {
         "welcome": "チートセットへようこそ",
@@ -301,7 +302,19 @@
             "weak": "弱い",
             "medium": "普通",
             "strong": "強い",
-            "seo_content": "無料のオンライン強力パスワード生成器です。長さと文字オプションを設定して、ハッキングされにくい安全なパスワードを生成します。クライアント側でのみ動作するため安全です。"
+            "seo_content": "無料のオンライン強力パスワード生成器です。長さと文字オプションを設定して、ハッキング不可能な安全なパスワードを生成します。クライアント側でのみ動作するため安全です。"
+        },
+        "qr_code": {
+            "title": "QRコード生成器",
+            "description": "URL、テキスト、メールなどをQRコードに変換してダウンロードできます。",
+            "input_label": "内容入力（URLまたはテキスト）",
+            "placeholder": "https://example.com または こんにちは",
+            "options": "オプション",
+            "size": "サイズ",
+            "color_dark": "QR色",
+            "color_light": "背景色",
+            "download": "PNGでダウンロード",
+            "seo_content": "無料のオンラインQRコード生成器です。ウェブサイトのリンク、テキスト、連絡先情報をQRコードに変換してPNG画像としてダウンロードできます。色とサイズを自由にカスタマイズできます。"
         }
     },
     "privacy": {

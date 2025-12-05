@@ -4,6 +4,7 @@ export type Post = {
     description: string;
     date: string;
     lang: 'en' | 'ko' | 'ja';
+    category?: string;
 };
 
 export const posts: Post[] = [
@@ -327,20 +328,47 @@ export const posts: Post[] = [
         title: 'The Pomodoro Technique: How to Skyrocket Your Productivity in 25 Minutes',
         description: 'Struggling with focus? The Pomodoro Technique is a proven time management method. Learn how to use the 25/5 rule to beat procrastination.',
         date: '2025-12-04',
-        lang: 'en'
+        lang: 'en',
+        category: 'productivity'
     },
     {
         slug: 'pomodoro-technique',
         title: '포모도로 테크닉: 25분 집중으로 생산성을 극대화하는 방법',
         description: '집중하기 힘드신가요? 포모도로 기법은 검증된 시간 관리 방법입니다. 25분 집중, 5분 휴식 규칙으로 미루는 습관을 이겨내는 법을 알아보세요.',
         date: '2025-12-04',
-        lang: 'ko'
+        lang: 'ko',
+        category: 'productivity'
     },
     {
         slug: 'pomodoro-technique',
         title: 'ポモドーロ・テクニック：25分の集中で生産性を最大化する方法',
         description: '集中力が続きませんか？ポモドーロ・テクニックは実証済みの時間管理法です。25分の集中と5分の休憩ルールで、先延ばし癖を克服する方法を学びましょう。',
         date: '2025-12-04',
-        lang: 'ja'
+        lang: 'ja',
+        category: 'productivity'
+    },
+    {
+        slug: 'qr-code-guide',
+        title: 'How QR Codes Work & Marketing Tips: Create Your Own for Free',
+        description: 'How do QR codes store data? We explain the working principle, business use cases, and how to use our free QR code generator.',
+        date: '2025-12-05',
+        lang: 'en',
+        category: 'tech'
+    },
+    {
+        slug: 'qr-code-guide',
+        title: 'QR 코드의 원리와 마케팅 활용법: 무료 생성기로 나만의 QR 만들기',
+        description: 'QR 코드는 어떻게 데이터를 저장할까요? 작동 원리부터 비즈니스 활용 사례, 그리고 무료 QR 코드 생성기 사용법까지 완벽하게 정리해 드립니다.',
+        date: '2025-12-05',
+        lang: 'ko',
+        category: 'tech'
+    },
+    {
+        slug: 'qr-code-guide',
+        title: 'QRコードの仕組みとマーケティング活用法：無料生成器で自分だけのQRを作ろう',
+        description: 'QRコードはどのようにデータを保存するのでしょうか？動作原理からビジネス活用事例、そして無料QRコード生成器の使い方まで完全に整理します。',
+        date: '2025-12-05',
+        lang: 'ja',
+        category: 'tech'
     }
 ];

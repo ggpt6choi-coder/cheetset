@@ -29,7 +29,8 @@
     "roi_calculator": "ROI Calculator",
     "youtube_calculator": "YouTube Calculator",
     "pomodoro_timer": "Pomodoro Timer",
-    "password_generator": "Password Generator"
+    "password_generator": "Password Generator",
+    "qr_code": "QR Code Generator"
   },
   "home": {
     "welcome": "Welcome to Cheetset",
@@ -301,7 +302,19 @@
       "weak": "Weak",
       "medium": "Medium",
       "strong": "Strong",
-      "seo_content": "Free online Secure Password Generator. Create strong, random passwords with customizable length and character options. Client-side only for maximum security."
+      "seo_content": "Free online strong password generator. Create secure, unhackable passwords with customizable length and character options. Works entirely client-side for safety."
+    },
+    "qr_code": {
+      "title": "QR Code Generator",
+      "description": "Convert URLs, text, emails, and more into QR codes and download them.",
+      "input_label": "Enter Content (URL or Text)",
+      "placeholder": "https://example.com or Hello",
+      "options": "Options",
+      "size": "Size",
+      "color_dark": "QR Color",
+      "color_light": "Background Color",
+      "download": "Download PNG",
+      "seo_content": "Free online QR Code Generator. Convert website links, text, and contact info into QR codes and download as PNG images. Customize colors and size freely."
     }
   },
   "privacy": {

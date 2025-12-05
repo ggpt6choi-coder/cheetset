@@ -92,8 +92,13 @@ export const tools: Tool[] = [
     },
     {
         slug: 'password-generator',
-        icon: '🔒',
-        category: 'daily',
+        icon: 'Key',
+        category: 'developer'
     },
+    {
+        slug: 'qr-code',
+        icon: 'QrCode',
+        category: 'daily'
+    }
 ];
 // Force update

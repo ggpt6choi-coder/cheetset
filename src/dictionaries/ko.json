@@ -29,7 +29,8 @@
         "roi_calculator": "ROI 계산기",
         "youtube_calculator": "유튜브 수익 계산기",
         "pomodoro_timer": "포모도로 타이머",
-        "password_generator": "비밀번호 생성기"
+        "password_generator": "비밀번호 생성기",
+        "qr_code": "QR 코드 생성기"
     },
     "home": {
         "welcome": "치트셋에 오신 것을 환영합니다",
@@ -302,6 +303,18 @@
             "medium": "중간",
             "strong": "강함",
             "seo_content": "무료 온라인 강력한 비밀번호 생성기입니다. 길이와 문자 옵션을 설정하여 해킹하기 어려운 안전한 비밀번호를 생성하세요. 클라이언트 측에서만 작동하여 안전합니다."
+        },
+        "qr_code": {
+            "title": "QR 코드 생성기",
+            "description": "URL, 텍스트, 이메일 등을 QR 코드로 변환하고 다운로드하세요.",
+            "input_label": "내용 입력 (URL 또는 텍스트)",
+            "placeholder": "https://example.com 또는 안녕하세요",
+            "options": "옵션",
+            "size": "크기",
+            "color_dark": "QR 색상",
+            "color_light": "배경 색상",
+            "download": "PNG로 다운로드",
+            "seo_content": "무료 온라인 QR 코드 생성기입니다. 웹사이트 링크, 텍스트, 연락처 정보를 QR 코드로 변환하여 PNG 이미지로 다운로드하세요. 색상과 크기를 자유롭게 커스터마이징할 수 있습니다."
         }
     },
     "privacy": {

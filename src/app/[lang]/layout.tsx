@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
 import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
 import { getDictionary } from "@/dictionaries/get-dictionary";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -68,6 +69,31 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className={inter.className}>
         <Header lang={lang} dict={dict} />
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'WebSite',
+                '@id': 'https://cheetset.com/#website',
+                'url': 'https://cheetset.com',
+                'name': 'CheetSet',
+                'description': dict.common.description,
+                'inLanguage': lang,
+              },
+              {
+                '@type': 'Organization',
+                '@id': 'https://cheetset.com/#organization',
+                'name': 'CheetSet',
+                'url': 'https://cheetset.com',
+                'logo': {
+                  '@type': 'ImageObject',
+                  'url': 'https://cheetset.com/logo.png',
+                },
+              },
+            ],
+          }}
+        />
         <main className="min-h-screen bg-white dark:bg-gray-900">
           {children}
         </main>

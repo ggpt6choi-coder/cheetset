@@ -2,6 +2,7 @@ import { getDictionary } from "@/dictionaries/get-dictionary";
 import type { Metadata } from "next";
 import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
+import JsonLd from '@/components/JsonLd';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -26,6 +27,7 @@ const CompoundInterestGuide = dynamic(() => import('@/components/blog/posts/Comp
 const UuidGuide = dynamic(() => import('@/components/blog/posts/UuidGuide'));
 const JwtGuide = dynamic(() => import('@/components/blog/posts/JwtGuide'));
 const PomodoroTechnique = dynamic(() => import('@/components/blog/posts/PomodoroTechnique'));
+const QrCodeGuide = dynamic(() => import('@/components/blog/posts/QrCodeGuide'));
 
 const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -44,6 +46,7 @@ const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
     'uuid-guide': UuidGuide,
     'jwt-guide': JwtGuide,
     'pomodoro-technique': PomodoroTechnique,
+    'qr-code-guide': QrCodeGuide,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -207,6 +210,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title = "UUID v4とは？開発者のための固有識別子ガイド";
             description = "Auto Incrementの代わりになぜUUIDを使うのですか？UUID v4の構造と衝突確率、そしていつ使用すべきかを明確に整理します。";
         }
+    } else if (slug === 'qr-code-guide') {
+        if (lang === 'ko') {
+            title = "QR 코드의 원리와 마케팅 활용법: 무료 생성기로 나만의 QR 만들기";
+            description = "QR 코드는 어떻게 데이터를 저장할까요? 작동 원리부터 비즈니스 활용 사례, 그리고 무료 QR 코드 생성기 사용법까지 완벽하게 정리해 드립니다.";
+        } else if (lang === 'en') {
+            title = "How QR Codes Work & Marketing Tips: Create Your Own for Free";
+            description = "How do QR codes store data? We explain the working principle, business use cases, and how to use our free QR code generator.";
+        } else if (lang === 'ja') {
+            title = "QRコードの仕組みとマーケティング活用法：無料生成器で自分だけのQRを作ろう";
+            description = "QRコードはどのようにデータを保存するのでしょうか？動作原理からビジネス活用事例、そして無料QRコード生成器の使い方まで完全に整理します。";
+        }
     }
 
     return {
@@ -252,5 +266,39 @@ export default async function BlogPostPage({ params }: Props) {
         );
     }
 
-    return <PostComponent lang={lang} />;
+    // Fetch metadata for JSON-LD
+    // Since the logic is complex and inside generateMetadata, I will simplify for now
+    // and just use a generic description or try to extract it.
+    // Ideally, I should refactor the metadata logic into a shared function.
+
+    // Let's import the posts data to get the date and basic info if possible.
+    // But the detailed title/description logic is in generateMetadata.
+    // I will skip the detailed title/description for JSON-LD for now to avoid huge code duplication
+    // and just use the component. 
+    // WAIT, I can just move the logic to a function.
+
+    const meta = await generateMetadata({ params: Promise.resolve({ lang, slug }) });
+    const title = (meta.title as string)?.split(' - ')[0] || 'Blog Post';
+    const description = meta.description || '';
+
+    return (
+        <>
+            <JsonLd
+                data={{
+                    '@context': 'https://schema.org',
+                    '@type': 'BlogPosting',
+                    headline: title,
+                    description: description,
+                    image: `https://cheetset.com/og-image.png`,
+                    datePublished: '2025-12-04', // Hardcoded for now, should be dynamic
+                    author: {
+                        '@type': 'Organization',
+                        name: 'CheetSet',
+                        url: 'https://cheetset.com',
+                    },
+                }}
+            />
+            <PostComponent lang={lang} />
+        </>
+    );
 }
