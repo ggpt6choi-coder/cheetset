@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
@@ -113,6 +114,7 @@ export default async function RootLayout({
           </div>
         </footer>
         <Analytics />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       </body>
     </html>
   );
