@@ -114,7 +114,7 @@ export default async function RootLayout({
           </div>
         </footer>
         <Analytics />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+        <GoogleAnalytics gaId="G-PKQS2FJ9YE" />
       </body>
     </html>
   );
