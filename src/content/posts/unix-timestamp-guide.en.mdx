@@ -1,0 +1,39 @@
+
+export const metadata = {
+  title: 'What is Unix Time? The Year 2038 Problem Explained',
+  date: '2025-12-06',
+  description: 'Why do computers count seconds from 1970? Learn about Unix Time, the Epoch, and the upcoming Year 2038 problem.',
+}
+
+# What is Unix Time? The Year 2038 Problem Explained
+
+If you've ever seen a number like `1733452800`, you've seen **Unix Time**. It's the way computers track time, but it comes with a ticking time bomb.
+
+## The Epoch: January 1, 1970
+
+Unix Time is defined as the number of seconds that have elapsed since **January 1, 1970, at 00:00:00 UTC**. This moment is called the **Unix Epoch**.
+Why 1970? It was chosen arbitrarily by the developers of the Unix operating system as a convenient starting point.
+
+## The Year 2038 Problem
+
+Most older systems store Unix Time as a **32-bit signed integer**.
+The maximum value a 32-bit integer can hold is `2,147,483,647`.
+
+This corresponds to **January 19, 2038, at 03:14:07 UTC**.
+One second later, the counter will overflow and wrap around to `-2,147,483,648`, which corresponds to **December 13, 1901**.
+
+This is known as the **Year 2038 Problem** (or Y2K38), and it could cause computers worldwide to crash or behave unpredictably.
+
+## The Solution: 64-bit Systems
+
+Modern 64-bit systems can store a much larger number, pushing the overflow date to **292 billion years** in the future. The universe will likely end before 64-bit Unix Time overflows.
+
+## How to Convert Unix Time
+
+Need to convert a timestamp to a readable date? Or vice versa?
+Use our **[Unix Timestamp Converter](/tools/unix-timestamp)** to easily switch between human-readable dates and Unix timestamps.
+
+## Conclusion
+
+Unix Time is the heartbeat of the internet. While the 2038 problem looms for legacy systems, modern technology has already solved it.
+Check the current Unix Time with our **[Unix Timestamp Converter](/tools/unix-timestamp)**.

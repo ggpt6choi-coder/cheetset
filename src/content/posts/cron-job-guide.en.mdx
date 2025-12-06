@@ -1,0 +1,55 @@
+
+export const metadata = {
+  title: 'Master Cron Expressions: A Developer\'s Guide',
+  date: '2025-12-06',
+  description: 'Confused by * * * * *? Learn how to schedule tasks using Cron expressions and use our Cron Generator to create them instantly.',
+}
+
+# Master Cron Expressions: A Developer's Guide
+
+If you are a developer or system administrator, you've likely encountered the cryptic string `* * * * *`. This is a **Cron expression**, the standard way to schedule tasks on Unix-like systems.
+
+## What is Cron?
+
+Cron is a time-based job scheduler. It allows you to run scripts or commands automatically at specific intervals (e.g., every minute, every day at midnight, every Monday).
+
+## Understanding the Syntax
+
+A standard Cron expression consists of 5 fields:
+
+```
+* * * * *
+│ │ │ │ │
+│ │ │ │ └── Day of Week (0 - 7) (Sunday is 0 or 7)
+│ │ │ └──── Month (1 - 12)
+│ │ └────── Day of Month (1 - 31)
+│ └──────── Hour (0 - 23)
+└────────── Minute (0 - 59)
+```
+
+### Common Examples
+
+| Expression | Meaning |
+| :--- | :--- |
+| `* * * * *` | Run every minute |
+| `0 * * * *` | Run at the start of every hour |
+| `0 0 * * *` | Run every day at midnight |
+| `0 9 * * 1` | Run every Monday at 9:00 AM |
+| `*/5 * * * *` | Run every 5 minutes |
+
+## Special Characters
+
+- **`*` (Asterisk)**: Matches any value.
+- **`,` (Comma)**: Separates items (e.g., `1,3,5` means 1st, 3rd, and 5th).
+- **`-` (Hyphen)**: Defines a range (e.g., `1-5` means 1 to 5).
+- **`/` (Slash)**: Defines steps (e.g., `*/10` means every 10 units).
+
+## How to Generate Cron Expressions Easily
+
+Memorizing this syntax is unnecessary. Use our **[Cron Generator](/tools/cron-generator)** to create complex schedules with a simple UI.
+Just select "Every Day" or "Every Weekend", and it will generate the correct code for you.
+
+## Conclusion
+
+Cron is a powerful tool for automation. Whether you're backing up databases or sending newsletters, mastering Cron is essential.
+Save time and avoid errors by using our **[Cron Generator](/tools/cron-generator)**.

@@ -370,5 +370,133 @@ export const posts: Post[] = [
         date: '2025-12-05',
         lang: 'ja',
         category: 'tech'
+    },
+    {
+        slug: 'mdx-test',
+        title: 'MDX Test Post',
+        description: 'This is a test post written in MDX to verify the new blog system.',
+        date: '2025-12-06',
+        lang: 'en',
+        category: 'tech'
+    },
+    {
+        slug: 'password-security-guide',
+        title: 'How to Create Uncrackable Passwords (and Why It Matters)',
+        description: 'Learn how hackers crack passwords and how to create strong, memorable passwords using our Password Generator.',
+        date: '2025-12-06',
+        lang: 'en',
+        category: 'security'
+    },
+    {
+        slug: 'password-security-guide',
+        title: '해커가 뚫지 못하는 비밀번호 만드는 법 (강력한 암호 생성 가이드)',
+        description: '해커들은 어떻게 비밀번호를 해킹할까요? 무차별 대입 공격부터 사전 공격까지 알아보고, 안전한 비밀번호를 만드는 방법을 소개합니다.',
+        date: '2025-12-06',
+        lang: 'ko',
+        category: 'security'
+    },
+    {
+        slug: 'password-security-guide',
+        title: 'ハッカーに破られないパスワードの作り方（強力なパスワード生成ガイド）',
+        description: 'ハッカーはどのようにパスワードを解読するのでしょうか？ブルートフォース攻撃から辞書攻撃までを学び、安全なパスワードを作成する方法を紹介します。',
+        date: '2025-12-06',
+        lang: 'ja',
+        category: 'security'
+    },
+    {
+        slug: 'cron-job-guide',
+        title: 'Master Cron Expressions: A Developer\'s Guide',
+        description: 'Confused by * * * * *? Learn how to schedule tasks using Cron expressions and use our Cron Generator to create them instantly.',
+        date: '2025-12-06',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'cron-job-guide',
+        title: '개발자를 위한 Cron 표현식 완벽 가이드 (크론잡 설정법)',
+        description: '* * * * * 이게 무슨 뜻일까요? 리눅스 스케줄링의 핵심인 Cron 표현식을 완벽하게 이해하고, Cron 생성기로 쉽게 만드는 법을 알려드립니다.',
+        date: '2025-12-06',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'cron-job-guide',
+        title: '開発者のためのCron式完全ガイド（クーロンジョブ設定法）',
+        description: '* * * * * これは何の意味でしょうか？Linuxスケジューリングの核心であるCron式を完全に理解し、Cronジェネレーターで簡単に作成する方法を紹介します。',
+        date: '2025-12-06',
+        lang: 'ja',
+        category: 'developer'
+    },
+    {
+        slug: 'unix-timestamp-guide',
+        title: 'What is Unix Time? The Year 2038 Problem Explained',
+        description: 'Why do computers count seconds from 1970? Learn about Unix Time, the Epoch, and the upcoming Year 2038 problem.',
+        date: '2025-12-06',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'unix-timestamp-guide',
+        title: '유닉스 시간(Unix Time)이란? 2038년 문제 완벽 정리',
+        description: '컴퓨터는 왜 1970년부터 시간을 셀까요? 유닉스 타임스탬프의 정의와 다가오는 2038년 문제(Y2K38)에 대해 알아봅니다.',
+        date: '2025-12-06',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'unix-timestamp-guide',
+        title: 'Unix時間（ユニックスタイム）とは？2038年問題の完全解説',
+        description: 'コンピュータはなぜ1970年から時間を数えるのでしょうか？Unixタイムスタンプの定義と、迫り来る2038年問題（Y2K38）について解説します。',
+        date: '2025-12-06',
+        lang: 'ja',
+        category: 'developer'
+    },
+    {
+        slug: 'unit-conversion-guide',
+        title: 'The Chaos of Measurement: Imperial vs Metric System',
+        description: 'Why does the US use miles while the rest of the world uses kilometers? Explore the history of measurement systems and how to convert between them.',
+        date: '2025-12-06',
+        lang: 'en',
+        category: 'life'
+    },
+    {
+        slug: 'unit-conversion-guide',
+        title: '단위의 혼란: 미터법 vs 야드파운드법, 왜 다를까?',
+        description: '미국은 왜 마일을 쓰고 한국은 킬로미터를 쓸까요? 복잡한 단위 체계의 역사와 정확한 변환 방법을 알아봅니다.',
+        date: '2025-12-06',
+        lang: 'ko',
+        category: 'life'
+    },
+    {
+        slug: 'unit-conversion-guide',
+        title: '単位の混乱：メートル法 vs ヤード・ポンド法、なぜ違う？',
+        description: 'なぜアメリカはマイルを使い、日本はキロメートルを使うのでしょうか？複雑な単位体系の歴史と正確な変換方法を学びます。',
+        date: '2025-12-06',
+        lang: 'ja',
+        category: 'life'
+    },
+    {
+        slug: 'image-formats-guide',
+        title: 'WebP vs PNG vs JPEG: Which Image Format Should You Use?',
+        description: 'Confused by image formats? We compare WebP, PNG, and JPEG to help you choose the best format for your website\'s performance.',
+        date: '2025-12-06',
+        lang: 'en',
+        category: 'tech'
+    },
+    {
+        slug: 'image-formats-guide',
+        title: 'WebP vs PNG vs JPEG: 어떤 이미지 포맷을 써야 할까?',
+        description: '이미지 포맷 때문에 고민이신가요? WebP, PNG, JPEG의 장단점을 비교하고 웹사이트 성능을 위해 최적의 포맷을 선택하는 법을 알려드립니다.',
+        date: '2025-12-06',
+        lang: 'ko',
+        category: 'tech'
+    },
+    {
+        slug: 'image-formats-guide',
+        title: 'WebP vs PNG vs JPEG：どの画像形式を使うべき？',
+        description: '画像形式で迷っていませんか？WebP、PNG、JPEGの長所と短所を比較し、Webサイトのパフォーマンスのために最適な形式を選択する方法を紹介します。',
+        date: '2025-12-06',
+        lang: 'ja',
+        category: 'tech'
     }
 ];
