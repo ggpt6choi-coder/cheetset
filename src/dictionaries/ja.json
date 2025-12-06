@@ -39,7 +39,10 @@
         "youtube_calculator": "YouTube収益計算機",
         "pomodoro_timer": "ポモドーロタイマー",
         "password_generator": "パスワード生成器",
-        "qr_code": "QRコード生成器"
+        "qr_code": "QRコード生成器",
+        "sql_formatter": "SQLフォーマッター",
+        "percentage_calculator": "パーセント計算機",
+        "diff_checker": "テキスト比較 (Diff)"
     },
     "home": {
         "welcome": "チートセットへようこそ",
@@ -324,6 +327,46 @@
             "color_light": "背景色",
             "download": "PNGでダウンロード",
             "seo_content": "無料のオンラインQRコード生成器です。ウェブサイトのリンク、テキスト、連絡先情報をQRコードに変換してPNG画像としてダウンロードできます。色とサイズを自由にカスタマイズできます。"
+        },
+        "sql_formatter": {
+            "title": "SQLフォーマッター",
+            "description": "SQLクエリを整形し、シンタックスハイライトで読みやすくします。",
+            "placeholder": "ここにSQLクエリを貼り付けてください...",
+            "format": "整形 (Format)",
+            "copy": "コピー",
+            "clear": "クリア",
+            "copied": "コピーしました！",
+            "dialect": "SQL方言",
+            "tab_width": "タブ幅",
+            "seo_content": "無料のオンラインSQLフォーマッターおよびビューティファイアです。複雑なSQLクエリをきれいに整形します。標準SQL、MySQL、PostgreSQLなど、さまざまな方言をサポートしています。"
+        },
+        "percentage_calculator": {
+            "title": "パーセント計算機",
+            "description": "様々なパーセント計算を素早く簡単に行えます。",
+            "calc1_label": "全体の値に対する割合",
+            "calc1_desc": "の",
+            "calc1_result": "はいくつですか？",
+            "calc2_label": "割合の値",
+            "calc2_desc": "は",
+            "calc2_result": "の何パーセントですか？",
+            "calc3_label": "増減率",
+            "calc3_desc": "から",
+            "calc3_result": "に変わると何パーセントの増減ですか？",
+            "calculate": "計算する",
+            "result": "結果",
+            "seo_content": "無料のオンラインパーセント計算機です。全体の値に対する割合、割合の値、増減率など、様々なパーセント計算を簡単に解決します。割引率の計算や収益率の計算などに役立ちます。"
+        },
+        "diff_checker": {
+            "title": "テキスト比較ツール (Diff Checker)",
+            "description": "2つのテキストの違いを比較し、視覚的に確認します。",
+            "original": "元のテキスト",
+            "modified": "変更後のテキスト",
+            "compare": "比較する",
+            "clear": "クリア",
+            "legend_added": "追加",
+            "legend_removed": "削除",
+            "no_diff": "2つのテキストは同一です。",
+            "seo_content": "無料のオンラインテキスト比較ツール（Diff Checker）です。2つのテキストファイルやコードの違いを簡単に比較し、追加または削除された部分を視覚的に確認できます。コードレビューやドキュメントの比較に役立ちます。"
         }
     },
     "privacy": {

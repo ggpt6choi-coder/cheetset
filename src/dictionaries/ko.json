@@ -39,7 +39,10 @@
         "youtube_calculator": "유튜브 수익 계산기",
         "pomodoro_timer": "포모도로 타이머",
         "password_generator": "비밀번호 생성기",
-        "qr_code": "QR 코드 생성기"
+        "qr_code": "QR 코드 생성기",
+        "sql_formatter": "SQL 포매터",
+        "percentage_calculator": "퍼센트 계산기",
+        "diff_checker": "텍스트 비교 (Diff)"
     },
     "home": {
         "welcome": "치트셋에 오신 것을 환영합니다",
@@ -324,6 +327,46 @@
             "color_light": "배경 색상",
             "download": "PNG로 다운로드",
             "seo_content": "무료 온라인 QR 코드 생성기입니다. 웹사이트 링크, 텍스트, 연락처 정보를 QR 코드로 변환하여 PNG 이미지로 다운로드하세요. 색상과 크기를 자유롭게 커스터마이징할 수 있습니다."
+        },
+        "sql_formatter": {
+            "title": "SQL 포매터",
+            "description": "SQL 쿼리를 보기 좋게 정렬하고 구문을 강조합니다.",
+            "placeholder": "여기에 SQL 쿼리를 붙여넣으세요...",
+            "format": "정렬 (Format)",
+            "copy": "복사",
+            "clear": "지우기",
+            "copied": "복사됨!",
+            "dialect": "SQL 방언",
+            "tab_width": "탭 크기",
+            "seo_content": "무료 온라인 SQL 포매터 및 뷰티파이어입니다. 복잡한 SQL 쿼리를 보기 좋게 정렬하고, Standard SQL, MySQL, PostgreSQL 등 다양한 방언을 지원합니다. 코드 가독성을 높이세요."
+        },
+        "percentage_calculator": {
+            "title": "퍼센트 계산기",
+            "description": "다양한 퍼센트 계산을 쉽고 빠르게 수행하세요.",
+            "calc1_label": "전체값의 비율 계산",
+            "calc1_desc": "의",
+            "calc1_result": "은/는 얼마인가요?",
+            "calc2_label": "비율의 값 계산",
+            "calc2_desc": "은/는",
+            "calc2_result": "의 몇 퍼센트인가요?",
+            "calc3_label": "증감률 계산",
+            "calc3_desc": "에서",
+            "calc3_result": "로 변하면 몇 퍼센트 증감인가요?",
+            "calculate": "계산하기",
+            "result": "결과",
+            "seo_content": "무료 온라인 퍼센트 계산기입니다. 전체값의 비율, 비율의 값, 증감률 등 다양한 퍼센트 계산을 간편하게 해결하세요. 할인율 계산, 수익률 계산 등에 유용합니다."
+        },
+        "diff_checker": {
+            "title": "텍스트 비교 도구 (Diff Checker)",
+            "description": "두 텍스트의 차이점을 비교하고 시각적으로 확인하세요.",
+            "original": "원본 텍스트",
+            "modified": "수정된 텍스트",
+            "compare": "비교하기",
+            "clear": "초기화",
+            "legend_added": "추가됨",
+            "legend_removed": "삭제됨",
+            "no_diff": "두 텍스트가 동일합니다.",
+            "seo_content": "무료 온라인 텍스트 비교 도구(Diff Checker)입니다. 두 텍스트 파일이나 코드의 차이점을 쉽게 비교하고, 추가되거나 삭제된 부분을 시각적으로 확인하세요. 코드 리뷰, 문서 비교에 유용합니다."
         }
     },
     "privacy": {

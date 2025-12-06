@@ -254,6 +254,18 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 />
 ```
 
+### 5. 소개 페이지 업데이트 (Update About Page)
+
+새로운 도구를 추가했다면 `src/app/[lang]/about/page.tsx` 파일의 도구 목록에도 추가해야 합니다. 한국어, 영어, 일본어 섹션 모두에 추가해주세요.
+
+```tsx
+// src/app/[lang]/about/page.tsx
+<ul>
+    {/* ... 기존 도구들 */}
+    <li><strong>도구 이름:</strong> 도구에 대한 짧은 설명</li>
+</ul>
+```
+
 ---
 
 ## 💰 수익형 도구 개발 가이드 (Profit-Oriented Development)
@@ -282,6 +294,21 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 - **Sitemap 등록**: `src/config/tools.ts`에 추가하면 자동으로 처리됩니다.
 - **내부 링크 (Internal Link)**: 블로그 글에서 도구로, 도구에서 다른 도구로 연결되는 링크를 적극적으로 활용하세요.
 - **체류 시간 증대**: 복사 버튼, 공유하기 기능 등을 넣어 사용자가 페이지에 오래 머물도록 유도하세요.
+
+---
+
+## 🌐 전역 기능 관리 (Global Features)
+
+### 1. 검색 기능 (Search Functionality)
+`src/components/SearchCommand.tsx`에서 관리됩니다.
+- **데이터 소스**: `src/config/tools.ts` (도구)와 `src/data/posts.ts` (블로그)를 자동으로 불러옵니다.
+- **수정**: 검색 로직이나 UI를 변경하려면 `SearchCommand.tsx`를 수정하세요.
+
+### 2. PWA (Progressive Web App)
+모바일 앱 설치를 지원합니다.
+- **설정 파일**: `public/manifest.json` (앱 이름, 아이콘 경로 등)
+- **아이콘**: `public/icons/` 폴더의 192px, 512px 이미지를 사용합니다.
+- **메타 태그**: `src/app/[lang]/layout.tsx`에 설정되어 있습니다.
 
 ---
 

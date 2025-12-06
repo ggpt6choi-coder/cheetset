@@ -49,6 +49,10 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>로또 번호 생성기:</strong> 랜덤 로또 번호 추천</li>
                                 <li><strong>단위 변환기:</strong> 길이, 무게, 부피 등 필수 단위 변환</li>
                                 <li><strong>서버 시간 확인:</strong> 티켓팅, 수강신청을 위한 정확한 서버 시간 체크</li>
+                                <li><strong>QR 코드 생성기:</strong> URL, 텍스트를 QR 코드로 변환 및 커스터마이징</li>
+                                <li><strong>SQL 포매터:</strong> 복잡한 SQL 쿼리 정렬 및 구문 강조</li>
+                                <li><strong>퍼센트 계산기:</strong> 비율, 증감률 등 다양한 퍼센트 계산</li>
+                                <li><strong>텍스트 비교 (Diff):</strong> 두 텍스트의 차이점 비교 및 시각화</li>
                             </ul>
 
                             <h2>왜 CheatSet인가?</h2>
@@ -97,6 +101,10 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>Lotto Generator:</strong> Random lottery number recommendations</li>
                                 <li><strong>Unit Converter:</strong> Essential unit conversions for length, weight, etc.</li>
                                 <li><strong>Server Time Checker:</strong> Accurate server time for ticket purchases</li>
+                                <li><strong>QR Code Generator:</strong> Create and customize QR codes for URLs and text</li>
+                                <li><strong>SQL Formatter:</strong> Format and beautify complex SQL queries</li>
+                                <li><strong>Percentage Calculator:</strong> Calculate percentages, increases, and decreases easily</li>
+                                <li><strong>Diff Checker:</strong> Compare two texts and visualize differences</li>
                             </ul>
 
                             <h2>Why CheatKey?</h2>
@@ -145,6 +153,10 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>宝くじ番号生成:</strong> ランダム宝くじ番号推薦</li>
                                 <li><strong>単位変換機:</strong> 長さ、重さ、体積などの必須単位変換</li>
                                 <li><strong>サーバー時間確認:</strong> チケット予約、履修登録のための正確なサーバー時間チェック</li>
+                                <li><strong>QRコード生成器:</strong> URLやテキストをQRコードに変換・カスタマイズ</li>
+                                <li><strong>SQLフォーマッター:</strong> 複雑なSQLクエリの整形とシンタックスハイライト</li>
+                                <li><strong>パーセント計算機:</strong> 割合や増減率など、様々なパーセント計算</li>
+                                <li><strong>テキスト比較 (Diff):</strong> 2つのテキストの違いを比較・可視化</li>
                             </ul>
 
                             <h2>なぜCheatKey？</h2>

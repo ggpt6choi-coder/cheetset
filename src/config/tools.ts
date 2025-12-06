@@ -99,6 +99,21 @@ export const tools: Tool[] = [
         slug: 'qr-code',
         icon: 'QrCode',
         category: 'daily'
+    },
+    {
+        slug: 'sql-formatter',
+        icon: 'Database',
+        category: 'developer'
+    },
+    {
+        slug: 'percentage-calculator',
+        icon: 'Percent',
+        category: 'daily'
+    },
+    {
+        slug: 'diff-checker',
+        icon: 'GitCompare',
+        category: 'developer'
     }
 ];
 // Force update

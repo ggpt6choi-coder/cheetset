@@ -39,7 +39,10 @@
     "youtube_calculator": "YouTube Calculator",
     "pomodoro_timer": "Pomodoro Timer",
     "password_generator": "Password Generator",
-    "qr_code": "QR Code Generator"
+    "qr_code": "QR Code Generator",
+    "sql_formatter": "SQL Formatter",
+    "percentage_calculator": "Percentage Calculator",
+    "diff_checker": "Diff Checker"
   },
   "home": {
     "welcome": "Welcome to Cheetset",
@@ -324,6 +327,46 @@
       "color_light": "Background Color",
       "download": "Download PNG",
       "seo_content": "Free online QR Code Generator. Convert website links, text, and contact info into QR codes and download as PNG images. Customize colors and size freely."
+    },
+    "sql_formatter": {
+      "title": "SQL Formatter",
+      "description": "Format and beautify your SQL queries with syntax highlighting.",
+      "placeholder": "Paste your SQL query here...",
+      "format": "Format",
+      "copy": "Copy",
+      "clear": "Clear",
+      "copied": "Copied!",
+      "dialect": "SQL Dialect",
+      "tab_width": "Tab Width",
+      "seo_content": "Free online SQL Formatter and Beautifier. Format complex SQL queries instantly. Supports Standard SQL, MySQL, PostgreSQL, and more. Improve your code readability."
+    },
+    "percentage_calculator": {
+      "title": "Percentage Calculator",
+      "description": "Perform various percentage calculations quickly and easily.",
+      "calc1_label": "Percentage of a value",
+      "calc1_desc": "of",
+      "calc1_result": "is what?",
+      "calc2_label": "Percentage change",
+      "calc2_desc": "is",
+      "calc2_result": "of what?",
+      "calc3_label": "Percentage increase/decrease",
+      "calc3_desc": "from",
+      "calc3_result": "to is what % change?",
+      "calculate": "Calculate",
+      "result": "Result",
+      "seo_content": "Free online percentage calculator. Calculate percentage of a value, percentage change, and percentage increase/decrease easily. Useful for discounts, tips, and financial calculations."
+    },
+    "diff_checker": {
+      "title": "Diff Checker",
+      "description": "Compare two texts and visualize the differences.",
+      "original": "Original Text",
+      "modified": "Modified Text",
+      "compare": "Compare",
+      "clear": "Clear",
+      "legend_added": "Added",
+      "legend_removed": "Removed",
+      "no_diff": "The two texts are identical.",
+      "seo_content": "Free online Diff Checker. Compare two text files or code snippets to find differences. Visualize added and removed lines easily. Useful for code review and document comparison."
     }
   },
   "privacy": {
