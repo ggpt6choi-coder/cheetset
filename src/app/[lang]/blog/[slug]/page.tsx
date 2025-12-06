@@ -102,8 +102,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
+import ShareButtons from '@/components/blog/ShareButtons';
+
+// ... (existing imports)
+
 export default async function BlogPostPage({ params }: Props) {
     const { slug, lang } = await params;
+    const dict = await getDictionary(lang as Locale);
     let PostComponent = POSTS[slug];
 
     if (!PostComponent) {
@@ -155,6 +160,11 @@ export default async function BlogPostPage({ params }: Props) {
             />
             <div className="prose prose-lg dark:prose-invert mx-auto">
                 <PostComponent lang={lang} />
+                <ShareButtons
+                    title={title}
+                    url={`https://cheetset.com/${lang}/blog/${slug}`}
+                    dict={dict}
+                />
             </div>
         </article>
     );

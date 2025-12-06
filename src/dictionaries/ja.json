@@ -2,7 +2,16 @@
     "common": {
         "title": "チートセット",
         "description": "みんなのためのグローバルユーティリティツール",
-        "language": "日本語"
+        "language": "日本語",
+        "cookie_consent": {
+            "message": "当サイトでは、お客様の利便性向上のためにクッキーを使用しています。",
+            "button": "確認"
+        },
+        "share": {
+            "title": "この記事をシェアする",
+            "copy_link": "リンクをコピー",
+            "copied": "コピーしました！"
+        }
     },
     "nav": {
         "home": "ホーム",

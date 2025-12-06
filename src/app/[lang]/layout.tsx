@@ -1,10 +1,11 @@
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import CookieConsent from "@/components/CookieConsent";
 import { getDictionary } from "@/dictionaries/get-dictionary";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -115,6 +116,10 @@ export default async function RootLayout({
         </footer>
         <Analytics />
         <GoogleAnalytics gaId="G-PKQS2FJ9YE" />
+        <CookieConsent
+          message={dict.common.cookie_consent?.message || "This website uses cookies."}
+          buttonText={dict.common.cookie_consent?.button || "Got it!"}
+        />
       </body>
     </html>
   );

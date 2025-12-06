@@ -2,7 +2,16 @@
     "common": {
         "title": "치트셋",
         "description": "모두를 위한 글로벌 유틸리티 도구",
-        "language": "한국어"
+        "language": "한국어",
+        "cookie_consent": {
+            "message": "이 웹사이트는 사용자 경험 개선을 위해 쿠키를 사용합니다.",
+            "button": "확인"
+        },
+        "share": {
+            "title": "이 글 공유하기",
+            "copy_link": "링크 복사",
+            "copied": "복사됨!"
+        }
     },
     "nav": {
         "home": "홈",

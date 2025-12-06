@@ -2,7 +2,16 @@
   "common": {
     "title": "Cheetset",
     "description": "Global Utility Tools for Everyone",
-    "language": "English"
+    "language": "English",
+    "cookie_consent": {
+      "message": "This website uses cookies to ensure you get the best experience on our website.",
+      "button": "Got it!"
+    },
+    "share": {
+      "title": "Share this post",
+      "copy_link": "Copy Link",
+      "copied": "Copied!"
+    }
   },
   "nav": {
     "home": "Home",
