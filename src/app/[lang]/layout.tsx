@@ -54,6 +54,17 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         'naver-site-verification': '8da216d9fb402cb9cd0365bb0f9580e31b9f45d2',
       },
     },
+    manifest: '/manifest.json',
+    themeColor: '#4f46e5',
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'default',
+      title: dict.common.title,
+    },
+    icons: {
+      icon: '/icons/icon-192x192.png',
+      apple: '/icons/icon-192x192.png',
+    },
   };
 }
 

@@ -226,9 +226,32 @@ export default async function Base64EncoderPage({ params }: Props) {
                     <p>{dict.tools.base64_encoder.seo_content}</p>
                 </div>
             </div>
+
+            {/* JSON-LD (Rich Snippets) */}
+            <ToolJsonLd
+                name={dict.tools.base64_encoder.title}
+                description={dict.tools.base64_encoder.description}
+                url={`https://cheetset.com/${lang}/tools/base64-encoder`}
+            />
         </div>
     );
 }
+```
+
+#### 4-4. JSON-LD 추가 (Structured Data) ⭐ 필수
+
+구글 검색 결과에 리치 스니펫(별점, 가격 등)이 나오도록 `ToolJsonLd` 컴포넌트를 반드시 추가해야 합니다.
+
+```tsx
+// page.tsx 상단에 import
+import ToolJsonLd from '@/components/ToolJsonLd';
+
+// JSX 최하단에 추가
+<ToolJsonLd
+    name={dict.tools.tool_name.title}
+    description={dict.tools.tool_name.description}
+    url={`https://cheetset.com/${lang}/tools/tool-slug`}
+/>
 ```
 
 ---
