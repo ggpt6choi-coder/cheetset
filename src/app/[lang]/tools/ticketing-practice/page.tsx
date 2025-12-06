@@ -2,6 +2,7 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import TicketingClient from './TicketingClient';
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -51,6 +52,11 @@ export default async function TicketingPage({ params }: Props) {
                 currentSlug="ticketing-practice"
                 category="daily"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.ticketing_practice.title}
+                description={dict.tools.ticketing_practice.description}
+                url={`https://cheetset.com/${lang}/tools/ticketing-practice`}
             />
         </div>
     );

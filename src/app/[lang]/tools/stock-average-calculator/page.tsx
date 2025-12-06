@@ -2,6 +2,7 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import StockAverageClient from './StockAverageClient';
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -50,6 +51,11 @@ export default async function StockAveragePage({ params }: Props) {
                 currentSlug="stock-average-calculator"
                 category="finance"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.stock_average_calculator.title}
+                description={dict.tools.stock_average_calculator.description}
+                url={`https://cheetset.com/${lang}/tools/stock-average-calculator`}
             />
         </div>
     );

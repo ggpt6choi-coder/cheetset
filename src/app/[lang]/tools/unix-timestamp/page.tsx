@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import UnixTimestampClient from "@/components/tools/UnixTimestampClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -75,6 +76,11 @@ export default async function UnixTimestampPage({ params }: Props) {
                     currentSlug="unix-timestamp"
                     category="developer"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.unix_timestamp.title}
+                    description={dict.tools.unix_timestamp.description}
+                    url={`https://cheetset.com/${lang}/tools/unix-timestamp`}
                 />
             </div>
         </div>

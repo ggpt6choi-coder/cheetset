@@ -2,6 +2,7 @@ import { getDictionary } from "@/dictionaries/get-dictionary";
 import WordCounter from "@/components/WordCounter";
 import type { Metadata } from "next";
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -83,6 +84,11 @@ export default async function WordCounterPage({ params }: Props) {
                 currentSlug="word-counter"
                 category="developer"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.word_counter.title}
+                description={dict.tools.word_counter.description}
+                url={`https://cheetset.com/${lang}/tools/word-counter`}
             />
         </div>
     );

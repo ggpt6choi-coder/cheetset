@@ -2,6 +2,7 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import UUIDGeneratorClient from './UUIDGeneratorClient';
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -56,6 +57,11 @@ export default async function UUIDGeneratorPage({ params }: Props) {
                 currentSlug="uuid-generator"
                 category="developer"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.uuid_generator.title}
+                description={dict.tools.uuid_generator.description}
+                url={`https://cheetset.com/${lang}/tools/uuid-generator`}
             />
         </div>
     );

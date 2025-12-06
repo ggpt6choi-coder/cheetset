@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import YoutubeCalculatorClient from "@/components/tools/YoutubeCalculatorClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -72,6 +73,11 @@ export default async function YoutubeCalculatorPage({ params }: Props) {
                     currentSlug="youtube-calculator"
                     category="finance"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.youtube_calculator.title}
+                    description={dict.tools.youtube_calculator.description}
+                    url={`https://cheetset.com/${lang}/tools/youtube-calculator`}
                 />
             </div>
         </div>

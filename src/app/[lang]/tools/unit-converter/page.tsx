@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import UnitConverterClient from "@/components/tools/UnitConverterClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -70,6 +71,11 @@ export default async function UnitConverterPage({ params }: Props) {
                     currentSlug="unit-converter"
                     category="daily"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.unit_converter.title}
+                    description={dict.tools.unit_converter.description}
+                    url={`https://cheetset.com/${lang}/tools/unit-converter`}
                 />
             </div>
         </div>

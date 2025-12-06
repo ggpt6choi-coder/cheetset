@@ -2,6 +2,7 @@ import { getDictionary } from "@/dictionaries/get-dictionary";
 import LottoGenerator from "@/components/LottoGenerator";
 import type { Metadata } from "next";
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -85,6 +86,11 @@ export default async function LottoGeneratorPage({ params }: Props) {
                 currentSlug="lotto-generator"
                 category="daily"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.lotto_generator.title}
+                description={dict.tools.lotto_generator.description}
+                url={`https://cheetset.com/${lang}/tools/lotto-generator`}
             />
         </div>
     );

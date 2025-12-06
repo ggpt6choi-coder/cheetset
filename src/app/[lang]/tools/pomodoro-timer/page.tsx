@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import PomodoroTimerClient from "@/components/tools/PomodoroTimerClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -71,6 +72,11 @@ export default async function PomodoroTimerPage({ params }: Props) {
                     currentSlug="pomodoro-timer"
                     category="daily"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.pomodoro_timer.title}
+                    description={dict.tools.pomodoro_timer.description}
+                    url={`https://cheetset.com/${lang}/tools/pomodoro-timer`}
                 />
             </div>
         </div>

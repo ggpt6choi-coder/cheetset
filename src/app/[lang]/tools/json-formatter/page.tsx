@@ -2,6 +2,7 @@ import { getDictionary } from "@/dictionaries/get-dictionary";
 import JsonFormatter from "@/components/JsonFormatter";
 import type { Metadata } from "next";
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -88,6 +89,11 @@ export default async function JsonFormatterPage({ params }: Props) {
                 currentSlug="json-formatter"
                 category="developer"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.json_formatter.title}
+                description={dict.tools.json_formatter.description}
+                url={`https://cheetset.com/${lang}/tools/json-formatter`}
             />
         </div>
     );

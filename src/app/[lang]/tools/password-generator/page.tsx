@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import PasswordGeneratorClient from "@/components/tools/PasswordGeneratorClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -77,6 +78,11 @@ export default async function PasswordGeneratorPage({ params }: Props) {
                     currentSlug="password-generator"
                     category="daily"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.password_generator.title}
+                    description={dict.tools.password_generator.description}
+                    url={`https://cheetset.com/${lang}/tools/password-generator`}
                 />
             </div>
         </div>

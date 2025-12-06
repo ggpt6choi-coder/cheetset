@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import JwtDecoderClient from "@/components/tools/JwtDecoderClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -70,6 +71,11 @@ export default async function JwtDecoderPage({ params }: Props) {
                     currentSlug="jwt-decoder"
                     category="developer"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.jwt_decoder.title}
+                    description={dict.tools.jwt_decoder.description}
+                    url={`https://cheetset.com/${lang}/tools/jwt-decoder`}
                 />
             </div>
         </div>

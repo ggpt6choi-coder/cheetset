@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import ImageToBase64Client from './ImageToBase64Client';
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -30,6 +31,11 @@ export default async function ImageToBase64Page({ params }: { params: Promise<{ 
                 currentSlug="image-to-base64"
                 category="developer"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.image_to_base64.title}
+                description={dict.tools.image_to_base64.description}
+                url={`https://cheetset.com/${lang}/tools/image-to-base64`}
             />
         </div>
     );

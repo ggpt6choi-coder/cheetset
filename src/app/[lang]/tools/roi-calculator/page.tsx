@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import RoiCalculatorClient from "@/components/tools/RoiCalculatorClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -77,6 +78,11 @@ export default async function RoiCalculatorPage({ params }: Props) {
                     currentSlug="roi-calculator"
                     category="finance"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.roi_calculator.title}
+                    description={dict.tools.roi_calculator.description}
+                    url={`https://cheetset.com/${lang}/tools/roi-calculator`}
                 />
             </div>
         </div>

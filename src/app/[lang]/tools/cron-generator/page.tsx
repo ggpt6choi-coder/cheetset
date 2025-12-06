@@ -1,6 +1,7 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import CronGeneratorClient from "@/components/tools/CronGeneratorClient";
 import RelatedTools from "@/components/tools/RelatedTools";
+import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -71,6 +72,11 @@ export default async function CronGeneratorPage({ params }: Props) {
                     currentSlug="cron-generator"
                     category="developer"
                     lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.cron_generator.title}
+                    description={dict.tools.cron_generator.description}
+                    url={`https://cheetset.com/${lang}/tools/cron-generator`}
                 />
             </div>
         </div>

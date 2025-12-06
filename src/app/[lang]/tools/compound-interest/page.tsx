@@ -2,6 +2,7 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import CompoundInterestClient from './CompoundInterestClient';
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -62,6 +63,11 @@ export default async function CompoundInterestPage({ params }: Props) {
                 currentSlug="compound-interest"
                 category="finance"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.compound_interest.title}
+                description={dict.tools.compound_interest.description}
+                url={`https://cheetset.com/${lang}/tools/compound-interest`}
             />
         </div>
     );

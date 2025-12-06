@@ -2,6 +2,7 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import { Metadata } from 'next';
 import SalaryClient from './SalaryClient';
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -51,6 +52,11 @@ export default async function SalaryPage({ params }: Props) {
                 currentSlug="salary-calculator"
                 category="finance"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.salary_calculator.title}
+                description={dict.tools.salary_calculator.description}
+                url={`https://cheetset.com/${lang}/tools/salary-calculator`}
             />
         </div>
     );

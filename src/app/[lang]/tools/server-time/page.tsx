@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import ServerTimeClient from './ServerTimeClient';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import RelatedTools from '@/components/tools/RelatedTools';
+import ToolJsonLd from '@/components/ToolJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -63,6 +64,11 @@ export default async function ServerTimePage({ params }: Props) {
                 currentSlug="server-time"
                 category="daily"
                 lang={lang}
+            />
+            <ToolJsonLd
+                name={dict.tools.server_time.title}
+                description={dict.tools.server_time.description}
+                url={`https://cheetset.com/${lang}/tools/server-time`}
             />
         </div>
     );
