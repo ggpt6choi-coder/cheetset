@@ -1,15 +1,72 @@
 export interface Tool {
     slug: string;
-    category: 'developer' | 'finance' | 'daily';
+    category: 'developer' | 'finance' | 'daily' | 'image' | 'text';
     icon?: string;
 }
 
 export const tools: Tool[] = [
-    // Developer Tools
+    // Text Tools
     {
         slug: 'word-counter',
-        category: 'developer',
+        category: 'text',
     },
+    {
+        slug: 'case-converter',
+        icon: 'Type',
+        category: 'text',
+    },
+    {
+        slug: 'lorem-ipsum',
+        icon: 'Type',
+        category: 'text'
+    },
+    {
+        slug: 'diff-checker',
+        icon: 'GitCompare',
+        category: 'text'
+    },
+    {
+        slug: 'html-encoder',
+        icon: 'Code',
+        category: 'text'
+    },
+    // Image Tools
+    {
+        slug: 'image-to-base64',
+        icon: '🖼️',
+        category: 'image'
+    },
+    {
+        slug: 'base64-to-image',
+        icon: '🔄',
+        category: 'image'
+    },
+    {
+        slug: 'image-resizer',
+        icon: 'Image',
+        category: 'image'
+    },
+    {
+        slug: 'image-cropper',
+        icon: 'Crop',
+        category: 'image'
+    },
+    {
+        slug: 'image-filters',
+        icon: 'Palette',
+        category: 'image'
+    },
+    {
+        slug: 'image-to-pdf',
+        icon: 'FileText',
+        category: 'image'
+    },
+    {
+        slug: 'image-blur',
+        icon: 'EyeOff',
+        category: 'image'
+    },
+    // Developer Tools
     {
         slug: 'json-formatter',
         category: 'developer',
@@ -18,21 +75,36 @@ export const tools: Tool[] = [
         slug: 'uuid-generator',
         category: 'developer',
     },
+    {
+        slug: 'jwt-decoder',
+        icon: '🛡️',
+        category: 'developer',
+    },
+    {
+        slug: 'unix-timestamp',
+        icon: '⏰',
+        category: 'developer',
+    },
+    {
+        slug: 'cron-generator',
+        icon: '⚙️',
+        category: 'developer',
+    },
+    {
+        slug: 'password-generator',
+        icon: 'Key',
+        category: 'developer'
+    },
+    {
+        slug: 'sql-formatter',
+        icon: 'Database',
+        category: 'developer'
+    },
     // Finance Tools
     {
         slug: 'stock-average-calculator',
         icon: '📉',
         category: 'finance'
-    },
-    {
-        slug: 'image-to-base64',
-        icon: '🖼️',
-        category: 'developer'
-    },
-    {
-        slug: 'base64-to-image',
-        icon: '🔄',
-        category: 'developer'
     },
     {
         slug: 'salary-calculator',
@@ -41,6 +113,16 @@ export const tools: Tool[] = [
     {
         slug: 'compound-interest',
         icon: '📈',
+        category: 'finance',
+    },
+    {
+        slug: 'roi-calculator',
+        icon: '📊',
+        category: 'finance',
+    },
+    {
+        slug: 'youtube-calculator',
+        icon: '🎥',
         category: 'finance',
     },
     // Daily Utilities
@@ -61,39 +143,9 @@ export const tools: Tool[] = [
         category: 'daily',
     },
     {
-        slug: 'jwt-decoder',
-        icon: '🛡️',
-        category: 'developer',
-    },
-    {
-        slug: 'unix-timestamp',
-        icon: '⏰',
-        category: 'developer',
-    },
-    {
-        slug: 'cron-generator',
-        icon: '⚙️',
-        category: 'developer',
-    },
-    {
-        slug: 'roi-calculator',
-        icon: '📊',
-        category: 'finance',
-    },
-    {
-        slug: 'youtube-calculator',
-        icon: '🎥',
-        category: 'finance',
-    },
-    {
         slug: 'pomodoro-timer',
         icon: '⏱️',
         category: 'daily',
-    },
-    {
-        slug: 'password-generator',
-        icon: 'Key',
-        category: 'developer'
     },
     {
         slug: 'qr-code',
@@ -101,19 +153,24 @@ export const tools: Tool[] = [
         category: 'daily'
     },
     {
-        slug: 'sql-formatter',
-        icon: 'Database',
-        category: 'developer'
-    },
-    {
         slug: 'percentage-calculator',
         icon: 'Percent',
         category: 'daily'
     },
     {
-        slug: 'diff-checker',
-        icon: 'GitCompare',
-        category: 'developer'
+        slug: 'd-day-counter',
+        icon: 'Calendar',
+        category: 'daily'
+    },
+    {
+        slug: 'bmi-calculator',
+        icon: 'Activity',
+        category: 'daily'
+    },
+    {
+        slug: 'random-wheel',
+        icon: 'Dices',
+        category: 'daily'
     }
 ];
 // Force update

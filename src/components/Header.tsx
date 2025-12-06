@@ -15,9 +15,14 @@ interface HeaderProps {
         }
         nav: {
             home: string
-
             blog: string
             [key: string]: string
+        }
+        tools: {
+            [key: string]: {
+                title: string
+                description: string
+            }
         }
     }
 }
@@ -126,7 +131,7 @@ export default function Header({ lang, dict }: HeaderProps) {
                 )}
             </header>
 
-            <SearchCommand open={isSearchOpen} setOpen={setIsSearchOpen} lang={lang} />
+            <SearchCommand open={isSearchOpen} setOpen={setIsSearchOpen} lang={lang} toolsDict={dict.tools} />
         </>
     )
 }

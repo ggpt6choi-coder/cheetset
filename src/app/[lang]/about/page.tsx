@@ -53,6 +53,17 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>SQL 포매터:</strong> 복잡한 SQL 쿼리 정렬 및 구문 강조</li>
                                 <li><strong>퍼센트 계산기:</strong> 비율, 증감률 등 다양한 퍼센트 계산</li>
                                 <li><strong>텍스트 비교 (Diff):</strong> 두 텍스트의 차이점 비교 및 시각화</li>
+                                <li><strong>D-Day 계산기:</strong> 기념일, 시험 등 중요한 날짜 계산</li>
+                                <li><strong>BMI 계산기:</strong> 키와 몸무게로 비만도 측정</li>
+                                <li><strong>랜덤 추첨기:</strong> 돌림판으로 공정하고 재미있는 랜덤 선택</li>
+                                <li><strong>이미지 변환/리사이저:</strong> 이미지 크기 조절 및 포맷 변환 (JPG, PNG, WebP)</li>
+                                <li><strong>로렘 입숨 생성기:</strong> 디자인/개발용 더미 텍스트 생성</li>
+                                <li><strong>이미지 자르기:</strong> 이미지를 원하는 비율로 자르기</li>
+                                <li><strong>이미지 필터:</strong> 이미지에 다양한 필터 적용</li>
+                                <li><strong>대소문자 변환기:</strong> 텍스트 대소문자 변환</li>
+                                <li><strong>HTML 엔코더/디코더:</strong> HTML 엔티티 변환</li>
+                                <li><strong>이미지 PDF 변환:</strong> 이미지를 PDF로 변환</li>
+                                <li><strong>이미지 모자이크/블러:</strong> 이미지 부분 모자이크 및 블러 처리</li>
                             </ul>
 
                             <h2>왜 CheatSet인가?</h2>
@@ -105,6 +116,17 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>SQL Formatter:</strong> Format and beautify complex SQL queries</li>
                                 <li><strong>Percentage Calculator:</strong> Calculate percentages, increases, and decreases easily</li>
                                 <li><strong>Diff Checker:</strong> Compare two texts and visualize differences</li>
+                                <li><strong>D-Day Counter:</strong> Calculate days remaining for anniversaries and events</li>
+                                <li><strong>BMI Calculator:</strong> Check your Body Mass Index and weight status</li>
+                                <li><strong>Random Wheel:</strong> Fair and fun random selection with a spinning wheel</li>
+                                <li><strong>Image Resizer:</strong> Resize images and convert formats (JPG, PNG, WebP)</li>
+                                <li><strong>Lorem Ipsum Generator:</strong> Generate dummy text for designs and development</li>
+                                <li><strong>Image Cropper:</strong> Crop images to desired aspect ratios</li>
+                                <li><strong>Image Filters:</strong> Apply filters to images</li>
+                                <li><strong>Case Converter:</strong> Convert text case</li>
+                                <li><strong>HTML Encoder/Decoder:</strong> Convert HTML entities</li>
+                                <li><strong>Image to PDF:</strong> Convert images to PDF</li>
+                                <li><strong>Image Blur/Mosaic:</strong> Blur or mosaic specific areas of images</li>
                             </ul>
 
                             <h2>Why CheatKey?</h2>
@@ -157,6 +179,17 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>SQLフォーマッター:</strong> 複雑なSQLクエリの整形とシンタックスハイライト</li>
                                 <li><strong>パーセント計算機:</strong> 割合や増減率など、様々なパーセント計算</li>
                                 <li><strong>テキスト比較 (Diff):</strong> 2つのテキストの違いを比較・可視化</li>
+                                <li><strong>D-Day カウンター:</strong> 記念日や試験など、重要な日までの日数を計算</li>
+                                <li><strong>BMI計算機:</strong> 身長と体重で肥満度を測定</li>
+                                <li><strong>ランダムルーレット:</strong> ルーレットで公平かつ楽しいランダム選択</li>
+                                <li><strong>画像変換・リサイズ:</strong> 画像サイズ変更とフォーマット変換（JPG、PNG、WebP）</li>
+                                <li>Lorem Ipsum 生成器: デザイン用ダミーテキスト生成</li>
+                                <li>画像トリミング: 画像を希望の比率で切り抜き</li>
+                                <li>画像フィルター: 画像にフィルターを適用</li>
+                                <li>大文字・小文字変換: テキストの大文字・小文字変換</li>
+                                <li>HTMLエンコーダー/デコーダー: HTMLエンティティ変換</li>
+                                <li>画像PDF変換: 画像をPDFに変換</li>
+                                <li>画像モザイク・ぼかし: 画像の部分的なモザイク・ぼかし処理</li>
                             </ul>
 
                             <h2>なぜCheatKey？</h2>

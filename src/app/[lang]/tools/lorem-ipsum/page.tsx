@@ -1,0 +1,67 @@
+import { getDictionary } from '@/dictionaries/get-dictionary';
+import { Metadata } from 'next';
+import LoremIpsumClient from './LoremIpsumClient';
+import ToolJsonLd from '@/components/ToolJsonLd';
+import RelatedTools from '@/components/tools/RelatedTools';
+
+type Locale = 'en' | 'ko' | 'ja';
+
+interface Props {
+    params: Promise<{
+        lang: string;
+    }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { lang } = await params;
+    const dict = await getDictionary(lang as Locale);
+
+    return {
+        title: `${dict.tools.lorem_ipsum.title} - ${dict.common.title}`,
+        description: dict.tools.lorem_ipsum.description,
+        alternates: {
+            canonical: `https://cheetset.com/${lang}/tools/lorem-ipsum`,
+        },
+    };
+}
+
+export default async function LoremIpsumPage({ params }: Props) {
+    const { lang } = await params;
+    const dict = await getDictionary(lang as Locale);
+
+    return (
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <LoremIpsumClient
+                labels={{
+                    title: dict.tools.lorem_ipsum.title,
+                    description: dict.tools.lorem_ipsum.description,
+                    count: dict.tools.lorem_ipsum.count,
+                    type: dict.tools.lorem_ipsum.type,
+                    type_paragraphs: dict.tools.lorem_ipsum.type_paragraphs,
+                    type_sentences: dict.tools.lorem_ipsum.type_sentences,
+                    type_words: dict.tools.lorem_ipsum.type_words,
+                    generate: dict.tools.lorem_ipsum.generate,
+                    copy: dict.tools.lorem_ipsum.copy,
+                    copied: dict.tools.lorem_ipsum.copied,
+                }}
+            />
+
+            {/* SEO Content */}
+            <div className="max-w-3xl mx-auto px-6 pb-12">
+                <div className="prose prose-indigo dark:prose-invert max-w-none">
+                    <p className="text-gray-600 dark:text-gray-400">
+                        {dict.tools.lorem_ipsum.seo_content}
+                    </p>
+                </div>
+            </div>
+
+            <RelatedTools lang={lang} currentSlug="lorem-ipsum" category="developer" />
+
+            <ToolJsonLd
+                name={dict.tools.lorem_ipsum.title}
+                description={dict.tools.lorem_ipsum.description}
+                url={`https://cheetset.com/${lang}/tools/lorem-ipsum`}
+            />
+        </div>
+    );
+}

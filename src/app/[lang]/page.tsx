@@ -21,7 +21,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </p>
 
         <div className="w-full max-w-6xl space-y-16">
-          {['developer', 'finance', 'daily'].map((category) => {
+          {['image', 'text', 'developer', 'finance', 'daily'].map((category) => {
             const categoryTools = tools.filter((t) => t.category === category);
             if (categoryTools.length === 0) return null;
 

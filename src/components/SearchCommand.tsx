@@ -11,9 +11,15 @@ interface SearchCommandProps {
     open: boolean;
     setOpen: (open: boolean) => void;
     lang: string;
+    toolsDict: {
+        [key: string]: {
+            title: string;
+            description: string;
+        }
+    };
 }
 
-export default function SearchCommand({ open, setOpen, lang }: SearchCommandProps) {
+export default function SearchCommand({ open, setOpen, lang, toolsDict }: SearchCommandProps) {
     const router = useRouter();
 
     React.useEffect(() => {
@@ -58,23 +64,30 @@ export default function SearchCommand({ open, setOpen, lang }: SearchCommandProp
                 </Command.Empty>
 
                 <Command.Group heading="Tools" className="text-xs font-medium text-gray-500 px-2 py-1.5 mb-2">
-                    {tools.map((tool) => (
-                        <Command.Item
-                            key={tool.slug}
-                            onSelect={() => runCommand(() => router.push(`/${lang}/tools/${tool.slug}`))}
-                            className="flex items-center px-3 py-2.5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer aria-selected:bg-indigo-50 dark:aria-selected:bg-indigo-900/30 aria-selected:text-indigo-600 dark:aria-selected:text-indigo-400 transition-colors"
-                        >
-                            <span className="mr-3 text-lg">{tool.icon || <Wrench className="w-4 h-4" />}</span>
-                            <span className="flex-1">{tool.slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
-                            <span className="text-xs text-gray-400 capitalize">{tool.category}</span>
-                        </Command.Item>
-                    ))}
+                    {tools.map((tool) => {
+                        const toolInfo = toolsDict[tool.slug.replace(/-/g, '_')] || toolsDict[tool.slug];
+                        const title = toolInfo?.title || tool.slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+                        return (
+                            <Command.Item
+                                key={tool.slug}
+                                value={`${title} ${tool.slug}`}
+                                onSelect={() => runCommand(() => router.push(`/${lang}/tools/${tool.slug}`))}
+                                className="flex items-center px-3 py-2.5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer aria-selected:bg-indigo-50 dark:aria-selected:bg-indigo-900/30 aria-selected:text-indigo-600 dark:aria-selected:text-indigo-400 transition-colors"
+                            >
+                                <span className="mr-3 text-lg">{tool.icon || <Wrench className="w-4 h-4" />}</span>
+                                <span className="flex-1">{title}</span>
+                                <span className="text-xs text-gray-400 capitalize">{tool.category}</span>
+                            </Command.Item>
+                        );
+                    })}
                 </Command.Group>
 
                 <Command.Group heading="Blog Posts" className="text-xs font-medium text-gray-500 px-2 py-1.5 mb-2">
                     {currentLangPosts.map((post) => (
                         <Command.Item
                             key={post.slug}
+                            value={post.title}
                             onSelect={() => runCommand(() => router.push(`/${lang}/blog/${post.slug}`))}
                             className="flex items-center px-3 py-2.5 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer aria-selected:bg-indigo-50 dark:aria-selected:bg-indigo-900/30 aria-selected:text-indigo-600 dark:aria-selected:text-indigo-400 transition-colors"
                         >
