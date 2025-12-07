@@ -118,13 +118,15 @@ const POSTS: Record<string, React.ComponentType<{ lang: string }>> = {
 
 ```typescript
 // src/config/tools.ts
-export const tools: Tool[] = [
-    // ...
     {
         slug: 'base64-encoder',
         category: 'developer', // 'developer' | 'finance' | 'daily'
     },
 ];
+
+> [!TIP]
+> **무거운 작업은 클라이언트에서 처리하세요 (Client-side Processing)**
+> PDF 변환, 이미지 처리 등 서버 리소스를 많이 사용하는 작업은 `pdf-lib`, `jspdf` 등의 라이브러리를 사용하여 **브라우저(Client-side)**에서 처리하는 것이 좋습니다. 이는 서버 비용을 절감하고 사용자 데이터 프라이버시를 보호하는 데 도움이 됩니다.
 ```
 
 ### 4. 다국어 지원 (Multilingual Support) ⭐ 필수

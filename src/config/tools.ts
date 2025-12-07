@@ -66,6 +66,16 @@ export const tools: Tool[] = [
         icon: 'EyeOff',
         category: 'image'
     },
+    {
+        slug: 'merge-pdf',
+        icon: 'Files',
+        category: 'image'
+    },
+    {
+        slug: 'split-pdf',
+        icon: 'Scissors',
+        category: 'image'
+    },
     // Developer Tools
     {
         slug: 'json-formatter',
@@ -170,6 +180,11 @@ export const tools: Tool[] = [
     {
         slug: 'random-wheel',
         icon: 'Dices',
+        category: 'daily'
+    },
+    {
+        slug: 'reaction-time',
+        icon: 'Zap',
         category: 'daily'
     }
 ];

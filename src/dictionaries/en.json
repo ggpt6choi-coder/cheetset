@@ -47,13 +47,16 @@
     "bmi_calculator": "BMI Calculator",
     "random_wheel": "Random Wheel",
     "image_resizer": "Image Resizer",
+    "image_blur": "Image Blur/Mosaic",
+    "merge_pdf": "Merge PDF",
+    "split_pdf": "Split PDF",
+    "reaction_time": "Reaction Time Test",
     "lorem_ipsum": "Lorem Ipsum Generator",
     "image_cropper": "Image Cropper",
     "image_filters": "Image Filters",
     "case_converter": "Case Converter",
     "html_encoder": "HTML Encoder/Decoder",
-    "image_to_pdf": "Image to PDF",
-    "image_blur": "Image Blur/Mosaic"
+    "image_to_pdf": "Image to PDF"
   },
   "home": {
     "welcome": "Welcome to Cheetset",
@@ -529,6 +532,44 @@
       "download": "Download",
       "reset": "Reset",
       "seo_content": "Free online Image Blur and Mosaic tool. Easily blur or pixelate specific areas of your photos to hide faces, sensitive information, or for artistic effect."
+    },
+    "merge_pdf": {
+      "title": "Merge PDF",
+      "description": "Combine multiple PDF files into a single file.",
+      "drop_zone": "Drag and drop PDF files here, or click to select",
+      "merge": "Merge PDF",
+      "download": "Download Merged PDF",
+      "reset": "Reset",
+      "file_count": "files selected",
+      "drag_to_reorder": "Drag to reorder files",
+      "seo_content": "Free online PDF merger tool. Combine multiple PDF files into one document in the order you want. Fast, secure, and no installation required."
+    },
+    "split_pdf": {
+      "title": "Split PDF",
+      "description": "Extract specific pages from a PDF file.",
+      "drop_zone": "Drag and drop a PDF file here, or click to select",
+      "split": "Split PDF",
+      "download": "Download Split PDF",
+      "reset": "Reset",
+      "page_range": "Page Range (e.g., 1, 3-5, 7)",
+      "extract_all": "Split All Pages",
+      "extract_custom": "Extract Custom Pages",
+      "total_pages": "Total Pages:",
+      "seo_content": "Free online PDF splitter tool. Extract specific pages or split all pages into separate files. Fast, secure, and no installation required."
+    },
+    "reaction_time": {
+      "title": "Reaction Time Test",
+      "description": "Measure your reaction time. Click when the screen turns green!",
+      "wait": "Wait for green...",
+      "click": "Click!",
+      "too_soon": "Too soon!",
+      "start": "Click to start",
+      "play_again": "Play Again",
+      "average": "Average",
+      "best": "Best",
+      "tries": "Tries",
+      "ms": "ms",
+      "seo_content": "Free online reaction time test. Measure your reaction speed to visual stimuli in milliseconds and check your average. Compete with friends!"
     }
   },
   "privacy": {

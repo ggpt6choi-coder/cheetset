@@ -63,7 +63,10 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>대소문자 변환기:</strong> 텍스트 대소문자 변환</li>
                                 <li><strong>HTML 엔코더/디코더:</strong> HTML 엔티티 변환</li>
                                 <li><strong>이미지 PDF 변환:</strong> 이미지를 PDF로 변환</li>
-                                <li><strong>이미지 모자이크/블러:</strong> 이미지 부분 모자이크 및 블러 처리</li>
+                                <li><strong>이미지 모자이크/블러:</strong> 이미지의 특정 부분을 선택하여 모자이크 또는 블러 처리하세요.</li>
+                                <li><strong>PDF 합치기:</strong> 여러 PDF 파일을 하나의 파일로 병합하세요.</li>
+                                <li><strong>PDF 나누기:</strong> PDF 파일에서 원하는 페이지만 추출하여 저장하세요.</li>
+                                <li><strong>반응속도 테스트:</strong> 당신의 반응속도를 측정해보세요. 화면이 초록색으로 변하면 클릭하세요!</li>
                             </ul>
 
                             <h2>왜 CheatSet인가?</h2>
@@ -127,6 +130,9 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>HTML Encoder/Decoder:</strong> Convert HTML entities</li>
                                 <li><strong>Image to PDF:</strong> Convert images to PDF</li>
                                 <li><strong>Image Blur/Mosaic:</strong> Blur or mosaic specific areas of images</li>
+                                <li><strong>PDF Merger:</strong> Combine multiple PDF files into one.</li>
+                                <li><strong>Split PDF:</strong> Extract specific pages from a PDF file.</li>
+                                <li><strong>Reaction Time Test:</strong> Measure your reaction time. Click when the screen turns green!</li>
                             </ul>
 
                             <h2>Why CheatKey?</h2>
@@ -159,37 +165,30 @@ export default async function AboutPage({ params }: Props) {
 
                             <h2>提供するツール</h2>
                             <ul>
-                                <li><strong>文字数カウント:</strong> 履歴書、ブログ作成時のリアルタイム文字数確認</li>
-                                <li><strong>JSONフォーマッター:</strong> 開発者向けJSONデータ整形ツール</li>
-                                <li><strong>JWTデコーダー:</strong> セキュリティトークン（JWT）の構造分析とデバッグ</li>
-                                <li><strong>Base64変換:</strong> 画像とBase64文字列の相互変換</li>
-                                <li><strong>Unixタイムスタンプ:</strong> 開発者のための時間変換ツール</li>
-                                <li><strong>Cron生成器:</strong> 複雑なスケジューリング式を簡単に作成</li>
-                                <li><strong>株式ナンピン計算機:</strong> 賢い投資のための平均取得単価計算</li>
-                                <li><strong>年収手取り計算機:</strong> 2025年の最新税率を適用した手取り額確認</li>
-                                <li><strong>複利計算機:</strong> 資産形成のための積立複利計算</li>
-                                <li><strong>ROI計算機:</strong> 投資収益率と年平均成長率の分析</li>
-                                <li><strong>YouTube収益計算機:</strong> 再生回数に基づく予想収益確認</li>
-                                <li><strong>ポモドーロタイマー:</strong> 25分集中/5分休憩で生産性向上</li>
-                                <li><strong>パスワード生成器:</strong> ハッキング不可能な強力なパスワード生成</li>
-                                <li><strong>宝くじ番号生成:</strong> ランダム宝くじ番号推薦</li>
-                                <li><strong>単位変換機:</strong> 長さ、重さ、体積などの必須単位変換</li>
-                                <li><strong>サーバー時間確認:</strong> チケット予約、履修登録のための正確なサーバー時間チェック</li>
-                                <li><strong>QRコード生成器:</strong> URLやテキストをQRコードに変換・カスタマイズ</li>
-                                <li><strong>SQLフォーマッター:</strong> 複雑なSQLクエリの整形とシンタックスハイライト</li>
-                                <li><strong>パーセント計算機:</strong> 割合や増減率など、様々なパーセント計算</li>
-                                <li><strong>テキスト比較 (Diff):</strong> 2つのテキストの違いを比較・可視化</li>
-                                <li><strong>D-Day カウンター:</strong> 記念日や試験など、重要な日までの日数を計算</li>
-                                <li><strong>BMI計算機:</strong> 身長と体重で肥満度を測定</li>
-                                <li><strong>ランダムルーレット:</strong> ルーレットで公平かつ楽しいランダム選択</li>
-                                <li><strong>画像変換・リサイズ:</strong> 画像サイズ変更とフォーマット変換（JPG、PNG、WebP）</li>
-                                <li>Lorem Ipsum 生成器: デザイン用ダミーテキスト生成</li>
-                                <li>画像トリミング: 画像を希望の比率で切り抜き</li>
-                                <li>画像フィルター: 画像にフィルターを適用</li>
-                                <li>大文字・小文字変換: テキストの大文字・小文字変換</li>
-                                <li>HTMLエンコーダー/デコーダー: HTMLエンティティ変換</li>
-                                <li>画像PDF変換: 画像をPDFに変換</li>
-                                <li>画像モザイク・ぼかし: 画像の部分的なモザイク・ぼかし処理</li>
+                                <li><strong>文字数カウンター:</strong> テキストの文字数、単語数、行数、バイト数をリアルタイムで計算します。</li>
+                                <li><strong>JSONフォーマッター:</strong> 複雑なJSONデータを読みやすく整形し、検証します。</li>
+                                <li><strong>ロト番号生成器:</strong> 韓国のロト6/45方式でランダムな番号を生成します。</li>
+                                <li><strong>サーバー時間確認:</strong> チケット予約や受講申請のための正確なサーバー時間を確認できます。</li>
+                                <li><strong>画像Base64変換:</strong> 画像をBase64文字列に変換、またはその逆に変換します。</li>
+                                <li><strong>株式平均単価計算機:</strong> 追加購入時の株式平均単価（「ムルタギ」）を計算します。</li>
+                                <li><strong>UUID生成器:</strong> バージョン4のUUIDを生成します。</li>
+                                <li><strong>JWTデコーダー:</strong> JWTトークンをデコードしてヘッダーとペイロードを確認します。</li>
+                                <li><strong>Unixタイムスタンプ変換:</strong> Unixタイムスタンプを人間が読める日時に変換します。</li>
+                                <li><strong>Cron式生成器:</strong> スケジュール設定のためのCron式を簡単に作成できます。</li>
+                                <li><strong>パスワード生成器:</strong> 安全で強力なパスワードを生成します。</li>
+                                <li><strong>SQLフォーマッター:</strong> 複雑なSQLクエリを整形して可読性を高めます。</li>
+                                <li><strong>テキスト比較 (Diff):</strong> 2つのテキストの違いを比較してハイライト表示します。</li>
+                                <li><strong>画像リサイズ:</strong> 画像のサイズを変更し、フォーマット（PNG, JPG, WebP）を変換します。</li>
+                                <li><strong>Lorem Ipsum生成器:</strong> デザイン用のダミーテキストを生成します。</li>
+                                <li><strong>画像トリミング:</strong> 画像を希望の比率で切り抜き</li>
+                                <li><strong>画像フィルター:</strong> 画像にフィルターを適用</li>
+                                <li><strong>大文字・小文字変換:</strong> テキストの大文字・小文字変換</li>
+                                <li><strong>HTMLエンコーダー/デコーダー:</strong> HTMLエンティティ変換</li>
+                                <li><strong>画像PDF変換:</strong> 画像をPDFに変換</li>
+                                <li><strong>画像モザイク・ぼかし:</strong> 画像の特定の部分を選択して、モザイクまたはぼかし効果を適用します。</li>
+                                <li><strong>PDF結合:</strong> 複数のPDFファイルを1つのファイルに結合します。</li>
+                                <li><strong>PDF分割:</strong> PDFファイルから特定のページを抽出して保存します。</li>
+                                <li><strong>反応速度テスト:</strong> あなたの反応速度を測定します。画面が緑色になったらクリックしてください！</li>
                             </ul>
 
                             <h2>なぜCheatKey？</h2>
@@ -214,6 +213,6 @@ export default async function AboutPage({ params }: Props) {
                     )}
                 </article>
             </div>
-        </div>
+        </div >
     );
 }

@@ -53,7 +53,10 @@
         "case_converter": "大文字・小文字変換",
         "html_encoder": "HTMLエンコーダー/デコーダー",
         "image_to_pdf": "画像PDF変換",
-        "image_blur": "画像モザイク・ぼかし"
+        "image_blur": "画像モザイク・ぼかし",
+        "merge_pdf": "PDF結合",
+        "split_pdf": "PDF分割",
+        "reaction_time": "反応速度テスト"
     },
     "home": {
         "welcome": "チートセットへようこそ",
@@ -529,6 +532,44 @@
             "download": "ダウンロード",
             "reset": "リセット",
             "seo_content": "無料のオンライン画像モザイク・ぼかしツールです。写真の顔や個人情報など、隠したい部分を選択して簡単にモザイクやぼかし処理ができます。"
+        },
+        "merge_pdf": {
+            "title": "PDF結合",
+            "description": "複数のPDFファイルを1つのファイルに結合します。",
+            "drop_zone": "PDFファイルをドラッグ＆ドロップするか、クリックして選択してください",
+            "merge": "PDF結合",
+            "download": "結合されたPDFをダウンロード",
+            "reset": "リセット",
+            "file_count": "個のファイルが選択されました",
+            "drag_to_reorder": "ドラッグして順序を変更してください",
+            "seo_content": "無料のオンラインPDF結合ツールです。複数のPDFファイルを好きな順序で1つのドキュメントにまとめられます。インストール不要で、高速かつ安全に処理されます。"
+        },
+        "split_pdf": {
+            "title": "PDF分割",
+            "description": "PDFファイルから特定のページを抽出して保存します。",
+            "drop_zone": "PDFファイルをドラッグ＆ドロップするか、クリックして選択してください",
+            "split": "PDF分割",
+            "download": "分割されたPDFをダウンロード",
+            "reset": "リセット",
+            "page_range": "ページ範囲 (例: 1, 3-5, 7)",
+            "extract_all": "全ページ分割",
+            "extract_custom": "選択ページ抽出",
+            "total_pages": "総ページ数:",
+            "seo_content": "無料のオンラインPDF分割ツールです。PDFファイルから特定のページを抽出したり、すべてのページを個別のファイルに分割したりできます。"
+        },
+        "reaction_time": {
+            "title": "反応速度テスト",
+            "description": "あなたの反応速度を測定します。画面が緑色になったらクリックしてください！",
+            "wait": "待機中...",
+            "click": "クリック！",
+            "too_soon": "早すぎます！",
+            "start": "クリックして開始",
+            "play_again": "もう一度プレイ",
+            "average": "平均",
+            "best": "ベスト",
+            "tries": "試行回数",
+            "ms": "ms",
+            "seo_content": "無料のオンライン反応速度テストです。視覚刺激に対する反応速度をミリ秒単位で測定し、平均記録を確認できます。友達と競争してみましょう！"
         }
     },
     "privacy": {
