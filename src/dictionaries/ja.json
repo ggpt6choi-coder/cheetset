@@ -53,6 +53,7 @@
         "case_converter": "大文字・小文字変換",
         "html_encoder": "HTMLエンコーダー/デコーダー",
         "image_to_pdf": "画像PDF変換",
+        "image_converter": "画像変換機",
         "image_blur": "画像モザイク・ぼかし",
         "merge_pdf": "PDF結合",
         "split_pdf": "PDF分割",
@@ -570,6 +571,20 @@
             "tries": "試行回数",
             "ms": "ms",
             "seo_content": "無料のオンライン反応速度テストです。視覚刺激に対する反応速度をミリ秒単位で測定し、平均記録を確認できます。友達と競争してみましょう！"
+        },
+        "image_converter": {
+            "title": "画像変換機",
+            "description": "画像をJPG、PNG、WEBPなどの形式に変換します。",
+            "drop_zone": "画像をドラッグするかクリックしてアップロード",
+            "format": "変換フォーマット",
+            "quality": "品質",
+            "convert": "変換する",
+            "download": "ダウンロード",
+            "reset": "リセット",
+            "converting": "変換中...",
+            "success": "変換完了！",
+            "error": "変換中にエラーが発生しました。",
+            "seo_content": "無料のオンライン画像変換ツールです。JPG、PNG、WEBP、HEICなど様々な画像形式に対応しており、ソフトのインストールなしでブラウザ上で安全に変換できます。"
         }
     },
     "privacy": {

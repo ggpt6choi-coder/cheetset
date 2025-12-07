@@ -56,7 +56,8 @@
     "image_filters": "Image Filters",
     "case_converter": "Case Converter",
     "html_encoder": "HTML Encoder/Decoder",
-    "image_to_pdf": "Image to PDF"
+    "image_to_pdf": "Image to PDF",
+    "image_converter": "Image Converter"
   },
   "home": {
     "welcome": "Welcome to Cheetset",
@@ -559,17 +560,31 @@
     },
     "reaction_time": {
       "title": "Reaction Time Test",
-      "description": "Measure your reaction time. Click when the screen turns green!",
-      "wait": "Wait for green...",
+      "description": "Test your reflexes. Click when the screen turns green!",
+      "wait": "Wait for it...",
       "click": "Click!",
       "too_soon": "Too soon!",
       "start": "Click to start",
       "play_again": "Play Again",
-      "average": "Average",
-      "best": "Best",
+      "average": "Average Reaction Time",
+      "best": "Best Score",
       "tries": "Tries",
       "ms": "ms",
-      "seo_content": "Free online reaction time test. Measure your reaction speed to visual stimuli in milliseconds and check your average. Compete with friends!"
+      "seo_content": "Free online reaction time test. Measure your visual reflex speed in milliseconds and check your average score. Compete with friends!"
+    },
+    "image_converter": {
+      "title": "Image Converter",
+      "description": "Convert images to JPG, PNG, WEBP, and more.",
+      "drop_zone": "Drag & drop or click to upload images",
+      "format": "Target Format",
+      "quality": "Quality",
+      "convert": "Convert",
+      "download": "Download",
+      "reset": "Reset",
+      "converting": "Converting...",
+      "success": "Conversion Complete!",
+      "error": "Error during conversion.",
+      "seo_content": "Free online image converter. Convert images to JPG, PNG, WEBP, HEIC formats securely in your browser without installing any software."
     }
   },
   "privacy": {

@@ -76,6 +76,11 @@ export const tools: Tool[] = [
         icon: 'Scissors',
         category: 'image'
     },
+    {
+        slug: 'image-converter',
+        icon: 'RefreshCw',
+        category: 'image'
+    },
     // Developer Tools
     {
         slug: 'json-formatter',

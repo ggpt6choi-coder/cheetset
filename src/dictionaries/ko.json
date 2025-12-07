@@ -56,7 +56,8 @@
         "image_filters": "이미지 필터",
         "case_converter": "대소문자 변환기",
         "html_encoder": "HTML 엔코더/디코더",
-        "image_to_pdf": "이미지 PDF 변환"
+        "image_to_pdf": "이미지 PDF 변환",
+        "image_converter": "이미지 변환기"
     },
     "home": {
         "welcome": "치트셋에 오신 것을 환영합니다",
@@ -570,6 +571,20 @@
             "tries": "시도 횟수",
             "ms": "ms",
             "seo_content": "무료 온라인 반응속도 테스트입니다. 시각적 자극에 대한 반응 속도를 밀리초(ms) 단위로 측정하고 평균 기록을 확인해보세요. 친구들과 경쟁해보세요!"
+        },
+        "image_converter": {
+            "title": "이미지 변환기",
+            "description": "이미지를 JPG, PNG, WEBP 등 원하는 포맷으로 변환하세요.",
+            "drop_zone": "이미지를 드래그하거나 클릭하여 업로드하세요",
+            "format": "변환할 포맷",
+            "quality": "품질",
+            "convert": "변환하기",
+            "download": "다운로드",
+            "reset": "초기화",
+            "converting": "변환 중...",
+            "success": "변환 완료!",
+            "error": "변환 중 오류가 발생했습니다.",
+            "seo_content": "무료 온라인 이미지 변환기입니다. JPG, PNG, WEBP, HEIC 등 다양한 이미지 포맷을 지원하며, 별도의 프로그램 설치 없이 브라우저에서 안전하게 변환할 수 있습니다."
         }
     },
     "privacy": {

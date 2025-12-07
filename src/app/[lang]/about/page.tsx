@@ -67,6 +67,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>PDF 합치기:</strong> 여러 PDF 파일을 하나의 파일로 병합하세요.</li>
                                 <li><strong>PDF 나누기:</strong> PDF 파일에서 원하는 페이지만 추출하여 저장하세요.</li>
                                 <li><strong>반응속도 테스트:</strong> 당신의 반응속도를 측정해보세요. 화면이 초록색으로 변하면 클릭하세요!</li>
+                                <li><strong>이미지 변환기:</strong> 이미지를 JPG, PNG, WEBP, HEIC 등 다양한 포맷으로 변환하세요.</li>
                             </ul>
 
                             <h2>왜 CheatSet인가?</h2>
@@ -133,6 +134,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>PDF Merger:</strong> Combine multiple PDF files into one.</li>
                                 <li><strong>Split PDF:</strong> Extract specific pages from a PDF file.</li>
                                 <li><strong>Reaction Time Test:</strong> Measure your reaction time. Click when the screen turns green!</li>
+                                <li><strong>Image Converter:</strong> Convert images to JPG, PNG, WEBP, HEIC, and more.</li>
                             </ul>
 
                             <h2>Why CheatKey?</h2>
@@ -189,6 +191,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>PDF結合:</strong> 複数のPDFファイルを1つのファイルに結合します。</li>
                                 <li><strong>PDF分割:</strong> PDFファイルから特定のページを抽出して保存します。</li>
                                 <li><strong>反応速度テスト:</strong> あなたの反応速度を測定します。画面が緑色になったらクリックしてください！</li>
+                                <li><strong>画像変換機:</strong> 画像をJPG、PNG、WEBP、HEICなどの形式に変換します。</li>
                             </ul>
 
                             <h2>なぜCheatKey？</h2>
