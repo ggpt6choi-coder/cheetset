@@ -16,6 +16,7 @@ interface ImageFile {
     status: 'idle' | 'converting' | 'done' | 'error';
     originalSize: number;
     convertedSize?: number;
+    errorMessage?: string;
 }
 
 export default function ImageConverterClient({ dict }: Props) {
@@ -58,6 +59,7 @@ export default function ImageConverterClient({ dict }: Props) {
                         preview = URL.createObjectURL(Array.isArray(blob) ? blob[0] : blob);
                     } catch (e) {
                         console.error("HEIC preview error", e);
+                        // Fallback to a generic icon if preview fails
                     }
                 }
             } else {
@@ -103,15 +105,32 @@ export default function ImageConverterClient({ dict }: Props) {
             if (newImages[i].status === 'done') continue;
 
             newImages[i].status = 'converting';
+            newImages[i].errorMessage = undefined;
             setImages([...newImages]);
 
             try {
                 let sourceFile = newImages[i].file;
 
                 // Handle HEIC conversion first
-                if ((sourceFile.type === 'image/heic' || sourceFile.name.toLowerCase().endsWith('.heic')) && heic2any) {
-                    const blob = await heic2any({ blob: sourceFile, toType: 'image/jpeg' }); // Convert to JPEG first as intermediate
-                    sourceFile = new File([Array.isArray(blob) ? blob[0] : blob], sourceFile.name.replace(/\.heic$/i, '.jpg'), { type: 'image/jpeg' });
+                if (sourceFile.type === 'image/heic' || sourceFile.name.toLowerCase().endsWith('.heic')) {
+                    if (!heic2any) {
+                        throw new Error('HEIC converter not loaded yet. Please try again in a moment.');
+                    }
+
+                    // Ensure blob has type
+                    const blobToConvert = sourceFile.type ? sourceFile : new Blob([sourceFile], { type: 'image/heic' });
+
+                    const blob = await heic2any({
+                        blob: blobToConvert,
+                        toType: 'image/jpeg',
+                        quality: 0.9
+                    });
+
+                    sourceFile = new File(
+                        [Array.isArray(blob) ? blob[0] : blob],
+                        sourceFile.name.replace(/\.heic$/i, '.jpg'),
+                        { type: 'image/jpeg' }
+                    );
                 }
 
                 const options = {
@@ -127,9 +146,10 @@ export default function ImageConverterClient({ dict }: Props) {
                 newImages[i].convertedBlob = compressedFile;
                 newImages[i].convertedSize = compressedFile.size;
                 newImages[i].status = 'done';
-            } catch (error) {
+            } catch (error: any) {
                 console.error('Conversion error:', error);
                 newImages[i].status = 'error';
+                newImages[i].errorMessage = error.message || 'Conversion failed';
             }
 
             setImages([...newImages]);
@@ -264,6 +284,11 @@ export default function ImageConverterClient({ dict }: Props) {
                                         </>
                                     )}
                                 </div>
+                                {image.errorMessage && (
+                                    <p className="text-xs text-red-500 mt-1">
+                                        {image.errorMessage}
+                                    </p>
+                                )}
                             </div>
 
                             <div className="flex items-center gap-3">
@@ -271,7 +296,12 @@ export default function ImageConverterClient({ dict }: Props) {
                                     <RefreshCw className="w-5 h-5 text-blue-500 animate-spin" />
                                 )}
                                 {image.status === 'error' && (
-                                    <AlertCircle className="w-5 h-5 text-red-500" />
+                                    <div className="group relative">
+                                        <AlertCircle className="w-5 h-5 text-red-500 cursor-help" />
+                                        <div className="absolute right-0 bottom-full mb-2 hidden group-hover:block w-48 p-2 bg-red-50 text-red-600 text-xs rounded shadow-lg border border-red-100 z-10">
+                                            {image.errorMessage || dict.tools.image_converter.error}
+                                        </div>
+                                    </div>
                                 )}
                                 {image.status === 'done' && (
                                     <button
