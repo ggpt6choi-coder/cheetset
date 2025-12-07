@@ -303,6 +303,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 
 ### 1. 검색 기능 (Search Functionality)
 `src/components/SearchCommand.tsx`에서 관리됩니다.
+- **구현 방식**: `cmdk` 라이브러리의 `Command` 컴포넌트와 `@radix-ui/react-dialog`를 조합하여 구현되었습니다. (접근성 준수를 위해 `Command.Dialog` 대신 Radix UI `Dialog` 직접 사용)
 - **데이터 소스**: `src/config/tools.ts` (도구)와 `src/data/posts.ts` (블로그)를 자동으로 불러옵니다.
 - **다국어 검색**: `Header.tsx`에서 `dict.tools`를 `SearchCommand`에 `toolsDict` prop으로 전달하여, 사용자의 언어에 맞는 도구 이름으로 검색되도록 구현되어 있습니다.
 - **수정**: 검색 로직이나 UI를 변경하려면 `SearchCommand.tsx`를 수정하세요.

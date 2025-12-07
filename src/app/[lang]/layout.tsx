@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
 import Header from "@/components/Header";
@@ -57,7 +57,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       },
     },
     manifest: '/manifest.json',
-    themeColor: '#4f46e5',
     appleWebApp: {
       capable: true,
       statusBarStyle: 'default',
@@ -69,6 +68,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
   };
 }
+
+export const viewport: Viewport = {
+  themeColor: '#4f46e5',
+};
 
 export default async function RootLayout({
   children,

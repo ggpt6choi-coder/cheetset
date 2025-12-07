@@ -110,32 +110,89 @@ export default function ImageConverterClient({ dict }: Props) {
 
             try {
                 let sourceFile = newImages[i].file;
+                let isHeic = sourceFile.type === 'image/heic' || sourceFile.name.toLowerCase().endsWith('.heic');
 
-                // Handle HEIC conversion first
-                if (sourceFile.type === 'image/heic' || sourceFile.name.toLowerCase().endsWith('.heic')) {
-                    if (!heic2any) {
-                        throw new Error('HEIC converter not loaded yet. Please try again in a moment.');
+                // 1. Try Native Conversion (createImageBitmap) - Best for Mac/Safari/Chrome
+                if (isHeic) {
+                    try {
+                        const bitmap = await createImageBitmap(sourceFile);
+                        const canvas = document.createElement('canvas');
+                        canvas.width = bitmap.width;
+                        canvas.height = bitmap.height;
+                        const ctx = canvas.getContext('2d');
+                        if (ctx) {
+                            ctx.drawImage(bitmap, 0, 0);
+                            const nativeBlob = await new Promise<Blob | null>(resolve =>
+                                canvas.toBlob(resolve, 'image/jpeg', 0.95)
+                            );
+
+                            if (nativeBlob) {
+                                sourceFile = new File([nativeBlob], sourceFile.name.replace(/\.heic$/i, '.jpg'), { type: 'image/jpeg' });
+                                isHeic = false; // Success!
+                            }
+                        }
+                    } catch (e) {
+                        console.log("Native HEIC conversion (createImageBitmap) failed, trying fallback...", e);
                     }
+                }
 
-                    // Ensure blob has type
-                    const blobToConvert = sourceFile.type ? sourceFile : new Blob([sourceFile], { type: 'image/heic' });
+                // 2. Fallback to heic2any (Client-side)
+                if (isHeic) {
+                    try {
+                        let heic2anyLib = heic2any;
+                        if (!heic2anyLib) {
+                            // Dynamic import if not loaded
+                            const heic2anyModule = await import('heic2any');
+                            heic2anyLib = heic2anyModule.default;
+                        }
 
-                    const blob = await heic2any({
-                        blob: blobToConvert,
-                        toType: 'image/jpeg',
-                        quality: 0.9
-                    });
+                        const arrayBuffer = await sourceFile.arrayBuffer();
+                        const cleanBlob = new Blob([arrayBuffer], { type: 'image/heic' });
 
-                    sourceFile = new File(
-                        [Array.isArray(blob) ? blob[0] : blob],
-                        sourceFile.name.replace(/\.heic$/i, '.jpg'),
-                        { type: 'image/jpeg' }
-                    );
+                        const blob = await heic2anyLib({
+                            blob: cleanBlob,
+                            toType: 'image/jpeg',
+                            quality: 0.9
+                        });
+
+                        sourceFile = new File(
+                            [Array.isArray(blob) ? blob[0] : blob],
+                            sourceFile.name.replace(/\.heic$/i, '.jpg'),
+                            { type: 'image/jpeg' }
+                        );
+                        isHeic = false;
+                    } catch (e) {
+                        console.log("Client-side heic2any failed, trying server fallback...", e);
+                    }
+                }
+
+                // 3. Server-Side Fallback (Ultimate Backup)
+                if (isHeic) {
+                    try {
+                        const { convertHeicToJpeg } = await import('@/app/actions/image-converter');
+                        const formData = new FormData();
+                        formData.append('file', sourceFile);
+
+                        const result = await convertHeicToJpeg(formData);
+
+                        if (result.success && result.data) {
+                            const res = await fetch(result.data);
+                            const blob = await res.blob();
+                            sourceFile = new File([blob], sourceFile.name.replace(/\.heic$/i, '.jpg'), { type: 'image/jpeg' });
+                            isHeic = false;
+                            console.log("Server-side fallback successful!");
+                        } else {
+                            throw new Error(result.error || 'Server conversion failed');
+                        }
+                    } catch (e) {
+                        console.error("Server-side conversion failed:", e);
+                        throw new Error('HEIC conversion failed on both client and server.');
+                    }
                 }
 
                 const options = {
-                    maxSizeMB: 10, // No strict limit, just high enough
-                    maxWidthOrHeight: 4096, // Reasonable limit
+                    maxSizeMB: 10,
+                    maxWidthOrHeight: 4096,
                     useWebWorker: true,
                     fileType: targetFormat,
                     initialQuality: quality
@@ -323,6 +380,43 @@ export default function ImageConverterClient({ dict }: Props) {
                     ))}
 
                     <div className="flex justify-end gap-3 pt-4">
+                        {images.some(img => img.status === 'done') && (
+                            <button
+                                onClick={async () => {
+                                    const doneImages = images.filter(img => img.status === 'done' && img.convertedBlob);
+                                    if (doneImages.length === 0) return;
+
+                                    try {
+                                        const JSZip = (await import('jszip')).default;
+                                        const zip = new JSZip();
+
+                                        doneImages.forEach(img => {
+                                            if (img.convertedBlob) {
+                                                const extension = targetFormat.split('/')[1];
+                                                const fileName = img.file.name.replace(/\.[^/.]+$/, "") + `_converted.${extension}`;
+                                                zip.file(fileName, img.convertedBlob);
+                                            }
+                                        });
+
+                                        const content = await zip.generateAsync({ type: "blob" });
+                                        const url = URL.createObjectURL(content);
+                                        const link = document.createElement('a');
+                                        link.href = url;
+                                        link.download = "converted_images.zip";
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                        URL.revokeObjectURL(url);
+                                    } catch (e) {
+                                        console.error("Failed to zip images", e);
+                                    }
+                                }}
+                                className="px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium transition-colors flex items-center gap-2"
+                            >
+                                <Download className="w-5 h-5" />
+                                Download All
+                            </button>
+                        )}
                         <button
                             onClick={() => setImages([])}
                             className="px-6 py-2.5 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl font-medium transition-colors"
