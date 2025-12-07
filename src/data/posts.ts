@@ -498,5 +498,53 @@ export const posts: Post[] = [
         date: '2025-12-06',
         lang: 'ja',
         category: 'tech'
+    },
+    {
+        slug: 'pdf-merge-guide',
+        title: 'How to Merge PDF Files for Free: No Installation Required',
+        description: 'Need to combine multiple PDFs into one? Learn how to use our free online Merge PDF tool. It\'s fast, secure, and runs entirely in your browser.',
+        date: '2025-12-07',
+        lang: 'en',
+        category: 'productivity'
+    },
+    {
+        slug: 'pdf-merge-guide',
+        title: '무료로 PDF 합치기: 프로그램 설치 없이 3초 만에 끝내는 법',
+        description: '여러 개의 PDF 파일을 하나로 합쳐야 하나요? 프로그램 설치 없이 브라우저에서 바로 실행되는 무료 PDF 병합 도구 사용법을 알려드립니다.',
+        date: '2025-12-07',
+        lang: 'ko',
+        category: 'productivity'
+    },
+    {
+        slug: 'pdf-merge-guide',
+        title: '無料でPDFを結合する方法：インストール不要で3秒で完了',
+        description: '複数のPDFファイルを1つにまとめる必要がありますか？インストール不要でブラウザ上で動作する無料のPDF結合ツールの使い方を紹介します。',
+        date: '2025-12-07',
+        lang: 'ja',
+        category: 'productivity'
+    },
+    {
+        slug: 'reaction-time-guide',
+        title: 'Test Your Reaction Time: Are You Faster Than a Pro Gamer?',
+        description: 'How fast is your brain? Measure your reaction speed in milliseconds with our Reaction Time Test and see how you compare to the average.',
+        date: '2025-12-07',
+        lang: 'en',
+        category: 'game'
+    },
+    {
+        slug: 'reaction-time-guide',
+        title: '내 반응속도는 상위 몇 %일까? 프로게이머급 피지컬 테스트',
+        description: '당신의 뇌는 얼마나 빠를까요? 반응속도 테스트로 밀리초(ms) 단위의 반응 속도를 측정하고 평균과 비교해보세요. 친구들과 내기하기 딱 좋습니다!',
+        date: '2025-12-07',
+        lang: 'ko',
+        category: 'game'
+    },
+    {
+        slug: 'reaction-time-guide',
+        title: 'あなたの反応速度は上位何％？プロゲーマー級フィジカルテスト',
+        description: 'あなたの脳はどれくらい速いですか？反応速度テストでミリ秒（ms）単位の反応速度を測定し、平均と比較してみましょう。友達と競争するのに最適です！',
+        date: '2025-12-07',
+        lang: 'ja',
+        category: 'game'
     }
 ];

@@ -24,6 +24,8 @@ const OnlineShoppingTips = dynamic(() => import('@/components/blog/posts/OnlineS
 const SalaryCalculatorGuide2025 = dynamic(() => import('@/components/blog/posts/SalaryCalculatorGuide2025'));
 const StockAverageDownStrategy = dynamic(() => import('@/components/blog/posts/StockAverageDownStrategy'));
 const Base64ImageGuide = dynamic(() => import('@/components/blog/posts/Base64ImageGuide'));
+const PdfMergeGuide = dynamic(() => import('@/components/blog/posts/PdfMergeGuide'));
+const ReactionTimeGuide = dynamic(() => import('@/components/blog/posts/ReactionTimeGuide'));
 const CompoundInterestGuide = dynamic(() => import('@/components/blog/posts/CompoundInterestGuide'));
 const UuidGuide = dynamic(() => import('@/components/blog/posts/UuidGuide'));
 const JwtGuide = dynamic(() => import('@/components/blog/posts/JwtGuide'));
@@ -46,6 +48,8 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'compound-interest-guide': CompoundInterestGuide,
     'uuid-guide': UuidGuide,
     'jwt-guide': JwtGuide,
+    'pdf-merge-guide': PdfMergeGuide,
+    'reaction-time-guide': ReactionTimeGuide,
     'pomodoro-technique': PomodoroTechnique,
     'qr-code-guide': QrCodeGuide,
 };
