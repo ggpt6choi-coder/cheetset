@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
@@ -127,6 +128,12 @@ export default async function RootLayout({
         </footer>
         <Analytics />
         <GoogleAnalytics gaId="G-PKQS2FJ9YE" />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338629507494018"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <CookieConsent
           message={dict.common.cookie_consent?.message || "This website uses cookies."}
           buttonText={dict.common.cookie_consent?.button || "Got it!"}
