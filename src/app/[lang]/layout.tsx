@@ -53,6 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     verification: {
       other: {
         'naver-site-verification': '8da216d9fb402cb9cd0365bb0f9580e31b9f45d2',
+        'google-adsense-account': 'ca-pub-8338629507494018',
       },
     },
     manifest: '/manifest.json',
