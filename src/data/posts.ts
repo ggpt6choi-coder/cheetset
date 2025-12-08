@@ -546,5 +546,29 @@ export const posts: Post[] = [
         date: '2025-12-07',
         lang: 'ja',
         category: 'game'
+    },
+    {
+        slug: 'heic-to-jpg-guide',
+        title: 'How to Convert HEIC to JPG for Free (iPhone Photos to Windows)',
+        description: 'Cannot open iPhone photos on Windows? Learn what HEIC format is and how to convert HEIC to JPG/PNG for free using our online converter.',
+        date: '2025-12-08',
+        lang: 'en',
+        category: 'tech'
+    },
+    {
+        slug: 'heic-to-jpg-guide',
+        title: 'HEIC JPG 변환 방법: 아이폰 사진 윈도우에서 안 열릴 때 해결법',
+        description: '아이폰으로 찍은 사진이 윈도우에서 안 열리나요? HEIC 파일의 장단점과 무료로 JPG, PNG로 변환하여 호환성 문제를 해결하는 방법을 알려드립니다.',
+        date: '2025-12-08',
+        lang: 'ko',
+        category: 'tech'
+    },
+    {
+        slug: 'heic-to-jpg-guide',
+        title: 'HEIC JPG 変換方法：iPhoneの写真がWindowsで開かない時の解決策',
+        description: 'iPhoneで撮った写真がWindowsで開きませんか？HEICファイルのメリット・デメリットと、無料でJPG、PNGに変換して互換性問題を解決する方法を紹介します。',
+        date: '2025-12-08',
+        lang: 'ja',
+        category: 'tech'
     }
 ];

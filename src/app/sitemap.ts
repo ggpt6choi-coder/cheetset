@@ -7,7 +7,7 @@ const baseUrl = 'https://cheetset.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const toolRoutes = tools.map(tool => `/tools/${tool.slug}`)
-    const routes = ['', '/blog', '/privacy', '/tools', ...toolRoutes]
+    const routes = ['', '/blog', '/privacy', '/terms', '/about', '/contact', '/tools', ...toolRoutes]
     const languages = ['en', 'ko', 'ja']
 
     const staticRoutes = languages.flatMap((lang) =>
