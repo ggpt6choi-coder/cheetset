@@ -127,6 +127,9 @@ export default async function RootLayout({
               <a href={`/${lang}/terms`} className="text-gray-400 hover:text-gray-500">
                 {dict.nav.terms}
               </a>
+              <a href={`/${lang}/contact`} className="text-gray-400 hover:text-gray-500">
+                {dict.nav.contact}
+              </a>
             </div>
           </div>
         </footer>
