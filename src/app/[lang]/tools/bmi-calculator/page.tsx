@@ -46,6 +46,15 @@ export default async function BmiCalculatorPage({ params }: Props) {
                     status_overweight: dict.tools.bmi_calculator.status_overweight,
                     status_obese: dict.tools.bmi_calculator.status_obese,
                     status_severe_obese: dict.tools.bmi_calculator.status_severe_obese,
+                    table_title: dict.tools.bmi_calculator.table_title,
+                    table_bmi: dict.tools.bmi_calculator.table_bmi,
+                    table_status: dict.tools.bmi_calculator.table_status,
+                    tip_title: dict.tools.bmi_calculator.tip_title,
+                    tip_underweight: dict.tools.bmi_calculator.tip_underweight,
+                    tip_normal: dict.tools.bmi_calculator.tip_normal,
+                    tip_overweight: dict.tools.bmi_calculator.tip_overweight,
+                    tip_obese: dict.tools.bmi_calculator.tip_obese,
+                    tip_severe_obese: dict.tools.bmi_calculator.tip_severe_obese,
                 }}
             />
 

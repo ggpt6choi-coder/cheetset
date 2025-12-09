@@ -570,5 +570,29 @@ export const posts: Post[] = [
         date: '2025-12-08',
         lang: 'ja',
         category: 'tech'
+    },
+    {
+        slug: 'youtube-revenue-calculator-guide',
+        title: 'YouTube Revenue Calculator: How Much Money Can You Make?',
+        description: 'Curious about YouTuber earnings? Learn how YouTube RPM works and estimate your potential income based on views using our calculator.',
+        date: '2025-12-09',
+        lang: 'en',
+        category: 'finance'
+    },
+    {
+        slug: 'youtube-revenue-calculator-guide',
+        title: '유튜브 수익 계산기 활용법: 내 조회수로 얼마를 벌 수 있을까?',
+        description: '유튜버들은 조회수 1회당 얼마를 벌까요? RPM과 CPM의 개념을 이해하고, 내 조회수로 예상 수익을 계산하는 방법을 알려드립니다.',
+        date: '2025-12-09',
+        lang: 'ko',
+        category: 'finance'
+    },
+    {
+        slug: 'youtube-revenue-calculator-guide',
+        title: 'YouTube収益計算機活用法：私の再生回数でいくら稼げる？',
+        description: 'YouTuberは再生回数1回あたりいくら稼ぐのでしょうか？RPMとCPMの概念を理解し、自分の再生回数で予想収益を計算する方法を紹介します。',
+        date: '2025-12-09',
+        lang: 'ja',
+        category: 'finance'
     }
 ];

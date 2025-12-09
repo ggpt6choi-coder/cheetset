@@ -32,6 +32,7 @@ const JwtGuide = dynamic(() => import('@/components/blog/posts/JwtGuide'));
 const PomodoroTechnique = dynamic(() => import('@/components/blog/posts/PomodoroTechnique'));
 const QrCodeGuide = dynamic(() => import('@/components/blog/posts/QrCodeGuide'));
 const HeicToJpgGuide = dynamic(() => import('@/components/blog/posts/HeicToJpgGuide'));
+const YoutubeRevenueCalculatorGuide = dynamic(() => import('@/components/blog/posts/YoutubeRevenueCalculatorGuide'));
 
 const POSTS: Record<string, React.ComponentType<any>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -54,6 +55,7 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'pomodoro-technique': PomodoroTechnique,
     'qr-code-guide': QrCodeGuide,
     'heic-to-jpg-guide': HeicToJpgGuide,
+    'youtube-revenue-calculator-guide': YoutubeRevenueCalculatorGuide,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

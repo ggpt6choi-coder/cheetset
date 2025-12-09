@@ -61,7 +61,7 @@
     },
     "home": {
         "welcome": "치트셋에 오신 것을 환영합니다",
-        "intro": "개발자 도구, 금융 계산기, 그리고 생산성 향상 도구까지. 당신에게 필요한 모든 유틸리티를 한곳에 모았습니다.",
+        "intro": "개발자 도구, 금융 계산기, 그리고 생산성 향상 도구까지.당신에게 필요한 모든 유틸리티를 한곳에 모았습니다.",
         "categories": {
             "developer": "👨‍💻 개발자 도구",
             "finance": "💰 금융 및 재테크",
@@ -415,7 +415,53 @@
             "status_overweight": "과체중",
             "status_obese": "비만",
             "status_severe_obese": "고도비만",
+            "table_title": "비만도 판정 기준",
+            "table_bmi": "BMI 지수",
+            "table_status": "상태",
+            "tip_title": "건강 팁",
+            "tip_underweight": "저체중입니다. 균형 잡힌 식단과 근력 운동을 통해 건강한 체중을 만드는 것이 중요합니다.",
+            "tip_normal": "축하합니다! 정상 체중입니다. 현재의 식습관과 운동을 유지하여 건강을 지키세요.",
+            "tip_overweight": "과체중입니다. 식사량을 조절하고 규칙적인 유산소 운동을 시작하여 체중을 관리해보세요.",
+            "tip_obese": "비만 단계입니다. 고혈압, 당뇨 등 합병증 예방을 위해 전문가와 상담하고 체계적인 다이어트가 필요합니다.",
+            "tip_severe_obese": "고도비만입니다. 건강에 심각한 위협이 될 수 있으므로, 반드시 전문 의료진과 상담하여 치료 계획을 세우시길 권장합니다.",
             "seo_content": "무료 온라인 BMI 계산기입니다. 키와 몸무게만 입력하면 체질량지수(BMI)를 계산하고 저체중, 정상, 과체중, 비만 여부를 알려줍니다. 건강 관리를 위한 필수 도구입니다."
+        },
+        "vat_calculator": {
+            "title": "부가세 계산기",
+            "description": "공급가액 또는 합계금액을 기준으로 부가가치세(VAT)를 쉽고 정확하게 계산하세요.",
+            "amount_label": "금액",
+            "rate_label": "세율 (%)",
+            "add_tax": "부가세 별도 (공급가액 → 합계)",
+            "remove_tax": "부가세 포함 (합계 → 공급가액)",
+            "vat_amount": "부가가치세",
+            "total_amount": "합계금액",
+            "net_amount": "공급가액",
+            "seo_content": "무료 온라인 부가세(VAT) 계산기입니다. 공급가액에서 부가세를 더하거나, 합계금액에서 부가세를 분리하여 계산할 수 있습니다. 10% 기본 세율 및 사용자 지정 세율을 지원합니다."
+        },
+        "aspect_ratio_calculator": {
+            "title": "화면 비율 계산기",
+            "description": "화면 비율(Aspect Ratio)에 따른 해상도를 계산하세요. 디자이너와 개발자를 위한 필수 도구입니다.",
+            "width_label": "너비 (px)",
+            "height_label": "높이 (px)",
+            "ratio_label": "화면 비율",
+            "calculate": "계산하기",
+            "result": "결과",
+            "common_ratios": "자주 쓰는 비율",
+            "seo_content": "무료 온라인 화면 비율 계산기입니다. 16:9, 4:3, 21:9 등 다양한 비율에 맞춰 너비와 높이를 자동으로 계산해줍니다. 반응형 웹 디자인과 영상 편집에 유용합니다."
+        },
+        "country_capital_quiz": {
+            "title": "수도 퀴즈 & 탐험기",
+            "description": "전 세계 국가와 수도를 검색하고 학습하세요. 재미있는 퀴즈로 지식을 테스트해보세요!",
+            "tab_finder": "국가 탐험",
+            "tab_quiz": "수도 퀴즈",
+            "search_placeholder": "국가 또는 수도 검색...",
+            "region_all": "전체 대륙",
+            "quiz_question": "{country}의 수도는 어디일까요?",
+            "quiz_score": "점수",
+            "quiz_next": "다음 문제",
+            "quiz_correct": "정답입니다!",
+            "quiz_wrong": "틀렸습니다. 정답은 {answer}입니다.",
+            "seo_content": "무료 온라인 수도 퀴즈 및 국가 검색 도구입니다. 전 세계 국가의 국기, 수도, 대륙 정보를 검색하거나 퀴즈 게임을 통해 지리를 학습할 수 있습니다."
         },
         "random_wheel": {
             "title": "랜덤 추첨기 (돌림판)",

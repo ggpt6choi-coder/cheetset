@@ -191,6 +191,18 @@ export const tools: Tool[] = [
         slug: 'reaction-time',
         icon: 'Zap',
         category: 'daily'
-    }
+    },
+    {
+        slug: 'vat-calculator',
+        category: 'finance',
+    },
+    {
+        slug: 'aspect-ratio-calculator',
+        category: 'developer',
+    },
+    {
+        slug: 'country-capital-quiz',
+        category: 'daily',
+    },
 ];
 // Force update
