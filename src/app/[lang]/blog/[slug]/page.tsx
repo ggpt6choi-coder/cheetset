@@ -36,6 +36,11 @@ const YoutubeRevenueCalculatorGuide = dynamic(() => import('@/components/blog/po
 const ImageCompressionGuide = dynamic(() => import('@/components/blog/posts/ImageCompressionGuide'));
 const ImageCropperGuide = dynamic(() => import('@/components/blog/posts/ImageCropperGuide'));
 const ImageResizerGuide = dynamic(() => import('@/components/blog/posts/ImageResizerGuide'));
+const LoanCalculatorGuide = dynamic(() => import('@/components/blog/posts/LoanCalculatorGuide'));
+const BmrCalculatorGuide = dynamic(() => import('@/components/blog/posts/BmrCalculatorGuide'));
+
+const ExifViewerGuide = dynamic(() => import('@/components/blog/posts/ExifViewerGuide'));
+const ImageFiltersGuide = dynamic(() => import('@/components/blog/posts/ImageFiltersGuide'));
 
 const POSTS: Record<string, React.ComponentType<any>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -62,6 +67,10 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'image-compression-guide': ImageCompressionGuide,
     'image-cropper-guide': ImageCropperGuide,
     'image-resizer-guide': ImageResizerGuide,
+    'loan-calculator-guide': LoanCalculatorGuide,
+    'bmr-calculator-guide': BmrCalculatorGuide,
+    'exif-viewer-guide': ExifViewerGuide,
+    'image-filters-guide': ImageFiltersGuide,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

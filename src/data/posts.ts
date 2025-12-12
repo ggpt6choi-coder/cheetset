@@ -652,6 +652,22 @@ export const posts: Post[] = [
         category: 'developer'
     },
     {
+        slug: 'loan-calculator-guide',
+        title: '대출 이자 줄이는 상환 방식 비교: 원리금균등 vs 원금균등',
+        description: '대출 상환 방식에 따라 총 이자가 수백만 원 차이납니다. 원리금균등, 원금균등, 만기일시 상환 방식을 비교하고 나에게 맞는 대출 전략을 세워보세요.',
+        date: '2025-12-12',
+        lang: 'ko',
+        category: 'finance'
+    },
+    {
+        slug: 'bmr-calculator-guide',
+        title: '다이어트 필수! 내 기초대사량(BMR) 계산하고 식단 짜는 법',
+        description: '무작정 굶는 다이어트는 그만! 기초대사량(BMR)과 활동 대사량(TDEE)을 알면 먹으면서 살을 뺄 수 있습니다. 다이어트 성공 공식을 공개합니다.',
+        date: '2025-12-12',
+        lang: 'ko',
+        category: 'daily'
+    },
+    {
         slug: 'image-resizer-guide',
         title: 'Resize Images Online: Optimize for Web Speed',
         description: 'Large images slow down websites. Learn how to resize images to exact pixel dimensions and convert formats for maximum performance.',
@@ -666,5 +682,53 @@ export const posts: Post[] = [
         date: '2025-12-11',
         lang: 'ja',
         category: 'developer'
+    },
+    {
+        slug: 'exif-viewer-guide',
+        title: '사진 속 숨겨진 정보(EXIF) 확인하는 방법: 촬영 날짜, 위치, 카메라 설정까지',
+        description: '스마트폰 사진에 숨겨진 EXIF 데이터가 무엇인지 알아보고, 무료로 카메라 설정과 GPS 위치 정보를 확인하는 방법을 소개합니다.',
+        date: '2025-12-12',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'exif-viewer-guide',
+        title: 'How to View Hidden Photo Data (EXIF): Date, Location, and Camera Settings',
+        description: 'Learn what EXIF data is and how to view hidden metadata in your photos, including camera settings and GPS location, for free.',
+        date: '2025-12-12',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'exif-viewer-guide',
+        title: '写真の隠された情報（EXIF）を確認する方法：撮影日時、場所、カメラ設定まで',
+        description: 'スマホの写真に隠されたEXIFデータとは何か、そしてカメラ設定やGPS位置情報を無料で確認する方法を紹介します。',
+        date: '2025-12-12',
+        lang: 'ja',
+        category: 'developer'
+    },
+    {
+        slug: 'image-filters-guide',
+        title: '사진 분위기를 바꾸는 가장 쉬운 방법: 무료 온라인 이미지 필터',
+        description: '복잡한 프로그램 없이 브라우저에서 바로 사진의 밝기, 대비를 조절하고 다양한 필터를 적용하는 방법을 소개합니다.',
+        date: '2025-12-12',
+        lang: 'ko',
+        category: 'image'
+    },
+    {
+        slug: 'image-filters-guide',
+        title: 'The Easiest Way to Change Photo Mood: Free Online Image Filters',
+        description: 'Learn how to adjust brightness, contrast, and apply various filters to your photos directly in your browser without complex software.',
+        date: '2025-12-12',
+        lang: 'en',
+        category: 'image'
+    },
+    {
+        slug: 'image-filters-guide',
+        title: '写真の雰囲気を変える一番簡単な方法：無料オンライン画像フィルター',
+        description: '複雑なソフトなしで、ブラウザ上で写真の明るさやコントラストを調整し、様々なフィルターを適用する方法を紹介します。',
+        date: '2025-12-12',
+        lang: 'ja',
+        category: 'image'
     }
 ];

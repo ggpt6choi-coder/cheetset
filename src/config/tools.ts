@@ -1,6 +1,6 @@
 export interface Tool {
     slug: string;
-    category: 'developer' | 'finance' | 'daily' | 'image' | 'text';
+    category: 'developer' | 'finance' | 'daily' | 'image' | 'text' | 'health';
     icon?: string;
 }
 
@@ -45,6 +45,11 @@ export const tools: Tool[] = [
         slug: 'image-resizer',
         icon: 'Image',
         category: 'image'
+    },
+    {
+        slug: 'exif-viewer',
+        category: 'image',
+        icon: 'Camera'
     },
     {
         slug: 'image-cropper',
@@ -208,5 +213,15 @@ export const tools: Tool[] = [
         slug: 'country-capital-quiz',
         category: 'daily',
     },
+    {
+        slug: 'loan-calculator',
+        icon: 'DollarSign',
+        category: 'finance'
+    },
+    {
+        slug: 'bmr-calculator',
+        icon: 'Activity',
+        category: 'health'
+    }
 ];
 // Force update
