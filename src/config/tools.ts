@@ -201,6 +201,10 @@ export const tools: Tool[] = [
         category: 'developer',
     },
     {
+        slug: 'image-compressor',
+        category: 'developer',
+    },
+    {
         slug: 'country-capital-quiz',
         category: 'daily',
     },

@@ -631,6 +631,22 @@
             "success": "変換完了！",
             "error": "変換中にエラーが発生しました。",
             "seo_content": "無料のオンライン画像変換ツールです。JPG、PNG、WEBP、HEICなど様々な画像形式に対応しており、ソフトのインストールなしでブラウザ上で安全に変換できます。"
+        },
+        "image_compressor": {
+            "title": "画像圧縮ツール",
+            "description": "画質を落とさずに画像の容量を圧縮します。",
+            "drop_zone": "画像をここにドロップ",
+            "drop_zone_sub": "またはクリックして選択 (JPG, PNG, WEBP)",
+            "compressing": "圧縮中...",
+            "download": "圧縮画像をダウンロード",
+            "original_size": "元のサイズ",
+            "compressed_size": "圧縮後のサイズ",
+            "quality_label": "画質",
+            "max_width_label": "最大幅",
+            "compress_button": "画像を圧縮する",
+            "reset_button": "リセット",
+            "saved_label": "節約",
+            "seo_content": "無料のオンライン画像圧縮ツールです。JPG、PNG、WEBP画像の容量を画質劣化なしで削減します。ブラウザ上で安全に処理されます。"
         }
     },
     "privacy": {

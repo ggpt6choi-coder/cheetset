@@ -33,6 +33,9 @@ const PomodoroTechnique = dynamic(() => import('@/components/blog/posts/Pomodoro
 const QrCodeGuide = dynamic(() => import('@/components/blog/posts/QrCodeGuide'));
 const HeicToJpgGuide = dynamic(() => import('@/components/blog/posts/HeicToJpgGuide'));
 const YoutubeRevenueCalculatorGuide = dynamic(() => import('@/components/blog/posts/YoutubeRevenueCalculatorGuide'));
+const ImageCompressionGuide = dynamic(() => import('@/components/blog/posts/ImageCompressionGuide'));
+const ImageCropperGuide = dynamic(() => import('@/components/blog/posts/ImageCropperGuide'));
+const ImageResizerGuide = dynamic(() => import('@/components/blog/posts/ImageResizerGuide'));
 
 const POSTS: Record<string, React.ComponentType<any>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -56,6 +59,9 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'qr-code-guide': QrCodeGuide,
     'heic-to-jpg-guide': HeicToJpgGuide,
     'youtube-revenue-calculator-guide': YoutubeRevenueCalculatorGuide,
+    'image-compression-guide': ImageCompressionGuide,
+    'image-cropper-guide': ImageCropperGuide,
+    'image-resizer-guide': ImageResizerGuide,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

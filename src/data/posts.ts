@@ -580,6 +580,30 @@ export const posts: Post[] = [
         category: 'finance'
     },
     {
+        slug: 'image-compression-guide',
+        title: '이미지 용량 줄이기: 화질 저하 없이 압축하는 방법',
+        description: '웹사이트 속도 향상을 위한 필수 팁! JPG, PNG, WEBP 이미지 용량을 화질 저하 없이 줄이는 방법과 무료 도구를 소개합니다.',
+        date: '2025-12-11',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'image-compression-guide',
+        title: 'How to Compress Images Without Losing Quality',
+        description: 'Essential tips for faster websites! Learn how to reduce JPG, PNG, WEBP file sizes without losing quality using free tools.',
+        date: '2025-12-11',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'image-compression-guide',
+        title: '画質を落とさずに画像の容量を減らす方法',
+        description: 'ウェブサイト高速化の必須テクニック！JPG、PNG、WEBP画像の容量を画質劣化なしで削減する方法と無料ツールを紹介します。',
+        date: '2025-12-11',
+        lang: 'ja',
+        category: 'developer'
+    },
+    {
         slug: 'youtube-revenue-calculator-guide',
         title: '유튜브 수익 계산기 활용법: 내 조회수로 얼마를 벌 수 있을까?',
         description: '유튜버들은 조회수 1회당 얼마를 벌까요? RPM과 CPM의 개념을 이해하고, 내 조회수로 예상 수익을 계산하는 방법을 알려드립니다.',
@@ -594,5 +618,53 @@ export const posts: Post[] = [
         date: '2025-12-09',
         lang: 'ja',
         category: 'finance'
+    },
+    {
+        slug: 'image-cropper-guide',
+        title: '이미지 자르기: SNS 프로필, 썸네일용 사진 3초 만에 편집하기',
+        description: '인스타그램, 유튜브 썸네일 비율 때문에 고민이신가요? 1:1, 16:9 등 원하는 비율로 이미지를 쉽고 빠르게 자르는 방법을 소개합니다.',
+        date: '2025-12-11',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'image-cropper-guide',
+        title: 'Crop Images Online: Perfect Aspect Ratios for Social Media',
+        description: 'Need the perfect ratio for Instagram or YouTube? Learn how to crop images to 1:1, 16:9, or any custom size instantly in your browser.',
+        date: '2025-12-11',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'image-cropper-guide',
+        title: '画像切り抜き：SNSプロフィール、サムネイル用写真を3秒で編集',
+        description: 'InstagramやYouTubeのサムネイル比率で悩んでいませんか？1:1、16:9など、希望の比率で画像を簡単かつ迅速に切り抜く方法を紹介します。',
+        date: '2025-12-11',
+        lang: 'ja',
+        category: 'developer'
+    },
+    {
+        slug: 'image-resizer-guide',
+        title: '이미지 크기 조절: 웹사이트 속도 높이는 리사이징 꿀팁',
+        description: '이미지 해상도가 너무 크면 로딩이 느려집니다. 픽셀 단위로 정확하게 크기를 조절하고, 포맷을 변환하여 웹사이트 속도를 최적화하세요.',
+        date: '2025-12-11',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'image-resizer-guide',
+        title: 'Resize Images Online: Optimize for Web Speed',
+        description: 'Large images slow down websites. Learn how to resize images to exact pixel dimensions and convert formats for maximum performance.',
+        date: '2025-12-11',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'image-resizer-guide',
+        title: '画像サイズ変更：Webサイト高速化のためのリサイズ術',
+        description: '画像の解像度が大きすぎると読み込みが遅くなります。ピクセル単位で正確にサイズを調整し、フォーマットを変換してWebサイトの速度を最適化しましょう。',
+        date: '2025-12-11',
+        lang: 'ja',
+        category: 'developer'
     }
 ];

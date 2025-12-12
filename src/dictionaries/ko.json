@@ -630,7 +630,23 @@
             "converting": "변환 중...",
             "success": "변환 완료!",
             "error": "변환 중 오류가 발생했습니다.",
-            "seo_content": "무료 온라인 이미지 변환기입니다. JPG, PNG, WEBP, HEIC 등 다양한 이미지 포맷을 지원하며, 별도의 프로그램 설치 없이 브라우저에서 안전하게 변환할 수 있습니다."
+            "seo_content": "무료 온라인 이미지 변환기입니다. JPG, PNG, WEBP, HEIC 형식을 지원하며, 클라이언트 사이드에서 안전하게 변환됩니다."
+        },
+        "image_compressor": {
+            "title": "이미지 용량 줄이기",
+            "description": "화질 저하 없이 이미지 용량을 압축하세요.",
+            "drop_zone": "이미지를 여기에 드롭하세요",
+            "drop_zone_sub": "또는 클릭하여 파일 선택 (JPG, PNG, WEBP)",
+            "compressing": "압축 중...",
+            "download": "압축된 이미지 다운로드",
+            "original_size": "원본 크기",
+            "compressed_size": "압축된 크기",
+            "quality_label": "화질",
+            "max_width_label": "최대 너비",
+            "compress_button": "이미지 압축하기",
+            "reset_button": "초기화",
+            "saved_label": "절약",
+            "seo_content": "무료 온라인 이미지 압축 도구입니다. JPG, PNG, WEBP 이미지의 용량을 화질 저하 없이 줄여보세요. 서버 업로드 없이 브라우저에서 안전하게 처리됩니다."
         }
     },
     "privacy": {

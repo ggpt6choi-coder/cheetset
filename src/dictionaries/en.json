@@ -630,7 +630,23 @@
       "converting": "Converting...",
       "success": "Conversion Complete!",
       "error": "Error during conversion.",
-      "seo_content": "Free online image converter. Convert images to JPG, PNG, WEBP, HEIC formats securely in your browser without installing any software."
+      "seo_content": "Free online image converter. Supports JPG, PNG, WEBP, HEIC formats. Converts safely on the client side without server upload."
+    },
+    "image_compressor": {
+      "title": "Image Compressor",
+      "description": "Compress images without losing quality.",
+      "drop_zone": "Drop images here",
+      "drop_zone_sub": "or click to select (JPG, PNG, WEBP)",
+      "compressing": "Compressing...",
+      "download": "Download Compressed Image",
+      "original_size": "Original Size",
+      "compressed_size": "Compressed Size",
+      "quality_label": "Quality",
+      "max_width_label": "Max Width",
+      "compress_button": "Compress Image",
+      "reset_button": "Reset",
+      "saved_label": "Saved",
+      "seo_content": "Free online image compressor. Reduce file size of JPG, PNG, WEBP images without quality loss. Processed safely in your browser."
     }
   },
   "privacy": {
