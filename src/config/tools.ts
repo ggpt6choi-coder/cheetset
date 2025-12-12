@@ -222,6 +222,11 @@ export const tools: Tool[] = [
         slug: 'bmr-calculator',
         icon: 'Activity',
         category: 'health'
+    },
+    {
+        slug: 'tdee-calculator',
+        icon: 'Activity',
+        category: 'health'
     }
 ];
 // Force update

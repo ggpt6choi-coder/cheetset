@@ -67,7 +67,8 @@
       "finance": "💰 Finance Tools",
       "daily": "🍀 Daily Tools",
       "image": "🖼️ Image & Document Tools",
-      "text": "📝 Text Tools"
+      "text": "📝 Text Tools",
+      "health": "💪 Health & Fitness"
     }
   },
   "tools": {
@@ -726,6 +727,33 @@
       "reset_button": "Reset",
       "saved_label": "Saved",
       "seo_content": "Free online image compressor. Reduce file size of JPG, PNG, WEBP images without quality loss. Processed safely in your browser."
+    },
+    "tdee_calculator": {
+      "title": "TDEE & Macro Calculator",
+      "description": "Calculate your Total Daily Energy Expenditure and macronutrient needs.",
+      "gender_label": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "age_label": "Age",
+      "height_label": "Height",
+      "weight_label": "Weight",
+      "activity_label": "Activity Level",
+      "activity_sedentary": "Sedentary (Office job)",
+      "activity_light": "Light Exercise (1-2 days/week)",
+      "activity_moderate": "Moderate Exercise (3-5 days/week)",
+      "activity_active": "Heavy Exercise (6-7 days/week)",
+      "activity_very_active": "Athlete (2x per day)",
+      "goal_label": "Goal",
+      "goal_lose": "Lose Weight (-500kcal)",
+      "goal_maintain": "Maintain Weight",
+      "goal_gain": "Gain Weight (+500kcal)",
+      "calculate_button": "Calculate TDEE",
+      "result_tdee": "Your Daily Calories",
+      "result_macros": "Macronutrients",
+      "macro_carbs": "Carbs",
+      "macro_protein": "Protein",
+      "macro_fat": "Fat",
+      "seo_content": "Calculate your Total Daily Energy Expenditure (TDEE) and macronutrient split for weight loss, maintenance, or muscle gain. Based on the Mifflin-St Jeor equation."
     }
   },
   "privacy": {

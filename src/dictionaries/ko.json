@@ -67,7 +67,8 @@
             "finance": "💰 금융 및 재테크",
             "daily": "🍀 생활 편의",
             "image": "🖼️ 이미지 및 문서 도구",
-            "text": "📝 텍스트 도구"
+            "text": "📝 텍스트 도구",
+            "health": "💪 건강 및 피트니스"
         }
     },
     "tools": {
@@ -726,6 +727,33 @@
             "result_tdee": "하루 총 에너지 소비량",
             "result_tdee_desc": "현재 체중을 유지하기 위해 하루에 섭취해야 할 칼로리입니다.",
             "seo_content": "다이어트를 성공하려면 내 기초대사량을 아는 것이 중요합니다. 미플린-세인트 지어(Mifflin-St Jeor) 공식을 사용하여 가장 정확한 기초대사량과 활동 대사량을 계산해드립니다."
+        },
+        "tdee_calculator": {
+            "title": "TDEE & 매크로 계산기",
+            "description": "활동량을 고려한 하루 총 에너지 소비량(TDEE)과 다이어트 목표에 맞는 탄단지 비율을 계산해보세요.",
+            "gender_label": "성별",
+            "male": "남성",
+            "female": "여성",
+            "age_label": "나이",
+            "height_label": "키",
+            "weight_label": "몸무게",
+            "activity_label": "활동량",
+            "activity_sedentary": "운동 안 함 (사무직)",
+            "activity_light": "가벼운 운동 (주 1-2회)",
+            "activity_moderate": "적당한 운동 (주 3-5회)",
+            "activity_active": "활발한 운동 (주 6-7회)",
+            "activity_very_active": "매우 활발 (육체노동/선수)",
+            "goal_label": "목표",
+            "goal_lose": "체중 감량 (-500kcal)",
+            "goal_maintain": "체중 유지",
+            "goal_gain": "체중 증량 (+500kcal)",
+            "calculate_button": "TDEE 계산하기",
+            "result_tdee": "하루 권장 칼로리",
+            "result_macros": "매크로 영양소 (탄단지)",
+            "macro_carbs": "탄수화물",
+            "macro_protein": "단백질",
+            "macro_fat": "지방",
+            "seo_content": "다이어트 성공의 열쇠는 TDEE(Total Daily Energy Expenditure)를 아는 것입니다. 활동량에 따른 정확한 칼로리와 탄수화물, 단백질, 지방의 황금 비율을 계산해드립니다."
         }
     },
     "privacy": {

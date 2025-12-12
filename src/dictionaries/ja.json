@@ -67,7 +67,8 @@
             "finance": "💰 金融・投資",
             "daily": "🍀 生活便利ツール",
             "image": "🖼️ 画像・ドキュメントツール",
-            "text": "📝 テキストツール"
+            "text": "📝 テキストツール",
+            "health": "💪 健康・フィットネス"
         }
     },
     "tools": {
@@ -726,6 +727,33 @@
             "success": "変換完了！",
             "error": "変換中にエラーが発生しました。",
             "seo_content": "無料のオンライン画像変換ツールです。JPG、PNG、WEBP、HEICなど様々な画像形式に対応しており、ソフトのインストールなしでブラウザ上で安全に変換できます。"
+        },
+        "tdee_calculator": {
+            "title": "TDEE & マクロ栄養素計算機",
+            "description": "活動レベルを考慮した1日の総エネルギー消費量(TDEE)と、ダイエット目標に合わせたPFCバランスを計算します。",
+            "gender_label": "性別",
+            "male": "男性",
+            "female": "女性",
+            "age_label": "年齢",
+            "height_label": "身長",
+            "weight_label": "体重",
+            "activity_label": "活動レベル",
+            "activity_sedentary": "運動しない（デスクワーク）",
+            "activity_light": "軽い運動（週1-2回）",
+            "activity_moderate": "中程度の運動（週3-5回）",
+            "activity_active": "活発な運動（週6-7回）",
+            "activity_very_active": "非常に活発（肉体労働/選手）",
+            "goal_label": "目標",
+            "goal_lose": "減量 (-500kcal)",
+            "goal_maintain": "現状維持",
+            "goal_gain": "増量 (+500kcal)",
+            "calculate_button": "TDEEを計算",
+            "result_tdee": "1日の推奨カロリー",
+            "result_macros": "マクロ栄養素 (PFC)",
+            "macro_carbs": "炭水化物",
+            "macro_protein": "タンパク質",
+            "macro_fat": "脂質",
+            "seo_content": "ダイエット成功の鍵はTDEE(Total Daily Energy Expenditure)を知ることです。活動レベルに応じた正確なカロリーと、炭水化物、タンパク質、脂質の黄金比率を計算します。"
         }
     },
     "privacy": {
