@@ -754,6 +754,63 @@
       "macro_protein": "Protein",
       "macro_fat": "Fat",
       "seo_content": "Calculate your Total Daily Energy Expenditure (TDEE) and macronutrient split for weight loss, maintenance, or muscle gain. Based on the Mifflin-St Jeor equation."
+    },
+    "subnet_calculator": {
+      "title": "CIDR / Subnet Calculator",
+      "description": "Calculate network range, broadcast address, and usable IPs from CIDR.",
+      "ip_label": "IP Address",
+      "cidr_label": "CIDR (Mask)",
+      "calculate_button": "Calculate",
+      "result_network": "Network Address",
+      "result_broadcast": "Broadcast Address",
+      "result_netmask": "Subnet Mask",
+      "result_first_ip": "First Usable IP",
+      "result_last_ip": "Last Usable IP",
+      "result_hosts": "Total Usable Hosts",
+      "result_binary_ip": "Binary IP",
+      "result_binary_mask": "Binary Mask",
+      "error_invalid_ip": "Invalid IP Address",
+      "seo_content": "Free online CIDR Subnet Calculator. Enter your IP address and CIDR mask to instantly calculate the network address, broadcast address, subnet mask, and usable IP range. Essential tool for network engineers and developers."
+    },
+    "curl_converter": {
+      "title": "cURL to Code Converter",
+      "description": "Convert cURL commands to Python, JavaScript, Node.js, Go, and PHP code.",
+      "input_label": "Paste cURL Command",
+      "input_placeholder": "curl -X POST https://api.example.com/data -d '{\"key\":\"value\"}'",
+      "output_label": "Generated Code",
+      "copy_button": "Copy Code",
+      "copied": "Copied!",
+      "error_invalid_curl": "Invalid cURL command",
+      "lang_python": "Python (Requests)",
+      "lang_javascript": "JavaScript (Fetch)",
+      "lang_node": "Node.js (Axios)",
+      "lang_go": "Go",
+      "lang_php": "PHP (Requests)",
+      "examples_label": "Try Examples:",
+      "example_get": "GET Request",
+      "example_post": "POST + JSON",
+      "example_auth": "Auth + Headers",
+      "seo_content": "Free online cURL to Code Converter. Instantly convert cURL commands into Python Requests, JavaScript Fetch, Node.js Axios, Go, and PHP code. Essential tool for API testing and integration."
+    },
+    "regex_tester": {
+      "title": "Regex Tester & Cheat Sheet",
+      "description": "Test regular expressions in real-time and access common patterns.",
+      "input_label": "Regular Expression",
+      "text_label": "Test String",
+      "flags_label": "Flags",
+      "cheatsheet_label": "Cheat Sheet",
+      "no_match": "No matches found",
+      "match_found": "Match found!",
+      "matches_found": "matches found",
+      "cheatsheet": {
+        "email": "Email Address",
+        "url": "URL",
+        "phone": "Phone Number",
+        "date": "Date (YYYY-MM-DD)",
+        "ipv4": "IPv4 Address",
+        "hex": "Hex Color"
+      },
+      "seo_content": "Free online Regex Tester and Cheat Sheet. Test your regular expressions against text in real-time. Includes a quick reference for common regex patterns like email, phone numbers, and URLs."
     }
   },
   "privacy": {

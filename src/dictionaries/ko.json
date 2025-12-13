@@ -754,6 +754,63 @@
             "macro_protein": "단백질",
             "macro_fat": "지방",
             "seo_content": "다이어트 성공의 열쇠는 TDEE(Total Daily Energy Expenditure)를 아는 것입니다. 활동량에 따른 정확한 칼로리와 탄수화물, 단백질, 지방의 황금 비율을 계산해드립니다."
+        },
+        "subnet_calculator": {
+            "title": "CIDR / 서브넷 계산기",
+            "description": "CIDR을 통해 네트워크 범위, 브로드캐스트 주소, 가용 IP 개수를 계산합니다.",
+            "ip_label": "IP 주소",
+            "cidr_label": "CIDR (마스크)",
+            "calculate_button": "계산하기",
+            "result_network": "네트워크 주소",
+            "result_broadcast": "브로드캐스트 주소",
+            "result_netmask": "서브넷 마스크",
+            "result_first_ip": "첫 번째 가용 IP",
+            "result_last_ip": "마지막 가용 IP",
+            "result_hosts": "총 가용 호스트 수",
+            "result_binary_ip": "2진수 IP",
+            "result_binary_mask": "2진수 마스크",
+            "error_invalid_ip": "유효하지 않은 IP 주소입니다",
+            "seo_content": "무료 온라인 CIDR 서브넷 계산기입니다. IP 주소와 CIDR 마스크를 입력하여 네트워크 주소, 브로드캐스트 주소, 서브넷 마스크, 가용 IP 범위를 즉시 계산하세요. 네트워크 엔지니어와 개발자를 위한 필수 도구입니다."
+        },
+        "curl_converter": {
+            "title": "cURL 코드 변환기",
+            "description": "cURL 명령어를 Python, JavaScript, Node.js, Go, PHP 코드로 즉시 변환합니다.",
+            "input_label": "cURL 명령어 붙여넣기",
+            "input_placeholder": "curl -X POST https://api.example.com/data -d '{\"key\":\"value\"}'",
+            "output_label": "변환된 코드",
+            "copy_button": "코드 복사",
+            "copied": "복사됨!",
+            "error_invalid_curl": "유효하지 않은 cURL 명령어입니다",
+            "lang_python": "Python (Requests)",
+            "lang_javascript": "JavaScript (Fetch)",
+            "lang_node": "Node.js (Axios)",
+            "lang_go": "Go",
+            "lang_php": "PHP (Requests)",
+            "examples_label": "예제 사용해보기:",
+            "example_get": "GET 요청",
+            "example_post": "POST + JSON",
+            "example_auth": "인증 + 헤더",
+            "seo_content": "무료 온라인 cURL 코드 변환기입니다. cURL 명령어를 Python Requests, JavaScript Fetch, Node.js Axios, Go, PHP 코드로 즉시 변환하세요. API 테스트 및 통합을 위한 필수 개발자 도구입니다."
+        },
+        "regex_tester": {
+            "title": "정규표현식 테스터 & 치트시트",
+            "description": "실시간으로 정규표현식을 테스트하고 자주 쓰는 패턴을 확인하세요.",
+            "input_label": "정규표현식",
+            "text_label": "테스트 문자열",
+            "flags_label": "플래그",
+            "cheatsheet_label": "치트시트",
+            "no_match": "일치하는 항목 없음",
+            "match_found": "일치 항목 발견!",
+            "matches_found": "개의 일치 항목",
+            "cheatsheet": {
+                "email": "이메일 주소",
+                "url": "URL",
+                "phone": "전화번호",
+                "date": "날짜 (YYYY-MM-DD)",
+                "ipv4": "IPv4 주소",
+                "hex": "Hex 색상 코드"
+            },
+            "seo_content": "무료 온라인 정규표현식 테스터 및 치트시트입니다. 텍스트에 대해 정규식을 실시간으로 테스트하세요. 이메일, 전화번호, URL 등 자주 사용되는 정규식 패턴 모음을 제공합니다."
         }
     },
     "privacy": {

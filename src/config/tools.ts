@@ -227,6 +227,20 @@ export const tools: Tool[] = [
         slug: 'tdee-calculator',
         icon: 'Activity',
         category: 'health'
+    },
+    {
+        slug: 'subnet-calculator',
+        icon: 'Network',
+        category: 'developer'
+    },
+    {
+        slug: 'curl-converter',
+        icon: 'Terminal',
+        category: 'developer'
+    },
+    {
+        slug: 'regex-tester',
+        icon: 'Code2',
+        category: 'developer'
     }
 ];
-// Force update

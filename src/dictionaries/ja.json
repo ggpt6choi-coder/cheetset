@@ -754,6 +754,63 @@
             "macro_protein": "タンパク質",
             "macro_fat": "脂質",
             "seo_content": "ダイエット成功の鍵はTDEE(Total Daily Energy Expenditure)を知ることです。活動レベルに応じた正確なカロリーと、炭水化物、タンパク質、脂質の黄金比率を計算します。"
+        },
+        "subnet_calculator": {
+            "title": "CIDR / サブネット計算機",
+            "description": "CIDRを使用して、ネットワーク範囲、ブロードキャストアドレス、使用可能なIP数を計算します。",
+            "ip_label": "IPアドレス",
+            "cidr_label": "CIDR (マスク)",
+            "calculate_button": "計算する",
+            "result_network": "ネットワークアドレス",
+            "result_broadcast": "ブロードキャストアドレス",
+            "result_netmask": "サブネットマスク",
+            "result_first_ip": "最初の使用可能IP",
+            "result_last_ip": "最後の使用可能IP",
+            "result_hosts": "総ホスト数",
+            "result_binary_ip": "2進数 IP",
+            "result_binary_mask": "2進数 マスク",
+            "error_invalid_ip": "無効なIPアドレスです",
+            "seo_content": "無料のオンラインCIDRサブネット計算機です。IPアドレスとCIDRマスクを入力して、ネットワークアドレス、ブロードキャストアドレス、サブネットマスク、使用可能なIP範囲を即座に計算します。ネットワークエンジニアや開発者に必須のツールです。"
+        },
+        "curl_converter": {
+            "title": "cURLコード変換機",
+            "description": "cURLコマンドをPython、JavaScript、Node.js、Go、PHPコードに即座に変換します。",
+            "input_label": "cURLコマンドを貼り付け",
+            "input_placeholder": "curl -X POST https://api.example.com/data -d '{\"key\":\"value\"}'",
+            "output_label": "変換されたコード",
+            "copy_button": "コードをコピー",
+            "copied": "コピーしました！",
+            "error_invalid_curl": "無効なcURLコマンドです",
+            "lang_python": "Python (Requests)",
+            "lang_javascript": "JavaScript (Fetch)",
+            "lang_node": "Node.js (Axios)",
+            "lang_go": "Go",
+            "lang_php": "PHP (Requests)",
+            "examples_label": "例を試す:",
+            "example_get": "GETリクエスト",
+            "example_post": "POST + JSON",
+            "example_auth": "認証 + ヘッダー",
+            "seo_content": "無料のオンラインcURLコード変換ツールです。cURLコマンドをPython Requests、JavaScript Fetch、Node.js Axios、Go、PHPコードに即座に変換します。APIテストや統合のための必須開発者ツールです。"
+        },
+        "regex_tester": {
+            "title": "正規表現テスター & チートシート",
+            "description": "リアルタイムで正規表現をテストし、一般的なパターンを確認できます。",
+            "input_label": "正規表現",
+            "text_label": "テスト文字列",
+            "flags_label": "フラグ",
+            "cheatsheet_label": "チートシート",
+            "no_match": "一致する項目はありません",
+            "match_found": "一致が見つかりました！",
+            "matches_found": "個の一致",
+            "cheatsheet": {
+                "email": "メールアドレス",
+                "url": "URL",
+                "phone": "電話番号",
+                "date": "日付 (YYYY-MM-DD)",
+                "ipv4": "IPv4アドレス",
+                "hex": "Hexカラーコード"
+            },
+            "seo_content": "無料のオンライン正規表現テスターおよびチートシートです。テキストに対して正規表現をリアルタイムでテストします。メールアドレス、電話番号、URLなど、よく使用される正規表現パターンのクイックリファレンスが含まれています。"
         }
     },
     "privacy": {
