@@ -41,6 +41,7 @@ const BmrCalculatorGuide = dynamic(() => import('@/components/blog/posts/BmrCalc
 
 const ExifViewerGuide = dynamic(() => import('@/components/blog/posts/ExifViewerGuide'));
 const ImageFiltersGuide = dynamic(() => import('@/components/blog/posts/ImageFiltersGuide'));
+const NewToolsRelease = dynamic(() => import('@/components/blog/posts/NewToolsRelease'));
 
 const POSTS: Record<string, React.ComponentType<any>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -71,6 +72,7 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'bmr-calculator-guide': BmrCalculatorGuide,
     'exif-viewer-guide': ExifViewerGuide,
     'image-filters-guide': ImageFiltersGuide,
+    'new-tools-release-json-diff-color-palette': NewToolsRelease,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

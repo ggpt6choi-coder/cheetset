@@ -242,5 +242,15 @@ export const tools: Tool[] = [
         slug: 'regex-tester',
         icon: 'Code2',
         category: 'developer'
+    },
+    {
+        slug: 'json-diff',
+        icon: 'FileDiff',
+        category: 'developer'
+    },
+    {
+        slug: 'color-palette',
+        icon: 'Palette',
+        category: 'image'
     }
 ];

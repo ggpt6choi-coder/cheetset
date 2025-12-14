@@ -730,5 +730,29 @@ export const posts: Post[] = [
         date: '2025-12-12',
         lang: 'ja',
         category: 'image'
+    },
+    {
+        slug: 'new-tools-release-json-diff-color-palette',
+        title: 'New Tools Released: JSON Diff & Color Palette Generator',
+        description: 'We have added two powerful tools for developers and designers: JSON Diff for debugging APIs and Color Palette Generator for design inspiration.',
+        date: '2025-12-14',
+        lang: 'en',
+        category: 'news'
+    },
+    {
+        slug: 'new-tools-release-json-diff-color-palette',
+        title: '신규 도구 출시: JSON 비교 & 컬러 팔레트 추출기',
+        description: '개발자와 디자이너를 위한 강력한 도구 2종이 추가되었습니다. API 디버깅을 위한 JSON 비교 도구와 디자인 영감을 주는 컬러 팔레트 추출기를 만나보세요.',
+        date: '2025-12-14',
+        lang: 'ko',
+        category: 'news'
+    },
+    {
+        slug: 'new-tools-release-json-diff-color-palette',
+        title: '新ツール公開：JSON比較 & カラーパレット抽出機',
+        description: '開発者とデザイナーのための強力なツール2種が追加されました。APIデバッグのためのJSON比較ツールと、デザインのインスピレーションを与えるカラーパレット抽出機をご覧ください。',
+        date: '2025-12-14',
+        lang: 'ja',
+        category: 'news'
     }
 ];

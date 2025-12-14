@@ -811,6 +811,27 @@
         "hex": "Hex Color"
       },
       "seo_content": "Free online Regex Tester and Cheat Sheet. Test your regular expressions against text in real-time. Includes a quick reference for common regex patterns like email, phone numbers, and URLs."
+    },
+    "json_diff": {
+      "title": "JSON Diff Tool",
+      "description": "Compare two JSON objects and visualize the differences.",
+      "original_label": "Original JSON",
+      "modified_label": "Modified JSON",
+      "compare_button": "Compare",
+      "result_label": "Difference",
+      "error_invalid_json": "Invalid JSON",
+      "no_diff": "No differences found.",
+      "seo_content": "Free online JSON Diff tool. Compare two JSON objects side-by-side and highlight differences. Essential for debugging API responses and configuration files."
+    },
+    "color_palette": {
+      "title": "Color Palette Generator",
+      "description": "Extract dominant colors from an image and generate a palette.",
+      "upload_label": "Drag & Drop or Click to Upload Image",
+      "palette_label": "Extracted Palette",
+      "copy_hex": "Copy HEX",
+      "copy_rgb": "Copy RGB",
+      "copied": "Copied!",
+      "seo_content": "Free online Color Palette Generator. Upload an image to extract its dominant colors and create a beautiful color scheme. Perfect for designers and developers."
     }
   },
   "privacy": {
