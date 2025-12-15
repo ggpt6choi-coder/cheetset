@@ -47,38 +47,73 @@ export default async function SubnetCalculatorPage({ params }: Props) {
             {/* SEO Content */}
             <div className="max-w-3xl mx-auto px-6 pb-20">
                 <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700">
-                    <h2>{dict.tools.subnet_calculator.title}</h2>
-                    <p>{dict.tools.subnet_calculator.seo_content}</p>
+                    <h2 className="text-2xl font-bold mb-4">
+                        {dict.tools.subnet_calculator.title}
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                        {dict.tools.subnet_calculator.seo_content}
+                    </p>
 
-                    <div className="mt-8 space-y-6">
+                    <div className="space-y-12">
+                        {/* How to Use */}
                         <div>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                                {lang === 'ko' ? 'CIDR 표기법이란?' :
-                                    lang === 'ja' ? 'CIDR表記とは？' :
-                                        'What is CIDR Notation?'}
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-sm">1</span>
+                                {dict.tools.subnet_calculator.how_to_title}
                             </h3>
-                            <p className="text-gray-600 dark:text-gray-400">
-                                {lang === 'ko' ?
-                                    'CIDR(Classless Inter-Domain Routing)은 IP 주소 할당 및 라우팅을 위한 방법입니다. 기존의 클래스 기반 주소 지정 방식(Class A, B, C)보다 유연하게 IP 주소를 관리할 수 있습니다. 예를 들어, /24는 256개의 IP 주소(254개의 가용 호스트)를 의미합니다.' :
-                                    lang === 'ja' ?
-                                        'CIDR（Classless Inter-Domain Routing）は、IPアドレスの割り当てとルーティングのための方法です。従来のクラスベースのアドレス指定方式（クラスA、B、C）よりも柔軟にIPアドレスを管理できます。例えば、/24は256個のIPアドレス（254個の使用可能なホスト）を意味します。' :
-                                        'CIDR (Classless Inter-Domain Routing) is a method for allocating IP addresses and IP routing. It allows for more flexible management of IP addresses compared to the traditional class-based addressing (Class A, B, C). For example, /24 means 256 IP addresses (254 usable hosts).'}
-                            </p>
+                            <ul className="space-y-3 text-gray-600 dark:text-gray-400 pl-4 border-l-2 border-gray-100 dark:border-gray-700 ml-3">
+                                <li>{dict.tools.subnet_calculator.how_to_step1}</li>
+                                <li>{dict.tools.subnet_calculator.how_to_step2}</li>
+                                <li>{dict.tools.subnet_calculator.how_to_step3}</li>
+                                <li>{dict.tools.subnet_calculator.how_to_step4}</li>
+                            </ul>
                         </div>
 
+                        {/* Use Cases */}
                         <div>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                                {lang === 'ko' ? '서브넷 마스크 계산법' :
-                                    lang === 'ja' ? 'サブネットマスクの計算方法' :
-                                        'How to Calculate Subnet Mask'}
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 text-sm">2</span>
+                                {dict.tools.subnet_calculator.use_cases_title}
                             </h3>
-                            <p className="text-gray-600 dark:text-gray-400">
-                                {lang === 'ko' ?
-                                    '서브넷 마스크는 IP 주소의 어느 부분이 네트워크 주소이고 어느 부분이 호스트 주소인지를 구분하는 데 사용됩니다. 32비트 숫자로, 네트워크 부분은 1로, 호스트 부분은 0으로 표시됩니다.' :
-                                    lang === 'ja' ?
-                                        'サブネットマスクは、IPアドレスのどの部分がネットワークアドレスで、どの部分がホストアドレスであるかを区別するために使用されます。32ビットの数値で、ネットワーク部分は1、ホスト部分は0で表されます。' :
-                                        'A subnet mask is used to distinguish which part of an IP address is the network address and which part is the host address. It is a 32-bit number where the network part is represented by 1s and the host part by 0s.'}
-                            </p>
+                            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.subnet_calculator.use_case_1}
+                                </li>
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.subnet_calculator.use_case_2}
+                                </li>
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.subnet_calculator.use_case_3}
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* FAQ */}
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 text-sm">3</span>
+                                {dict.tools.subnet_calculator.faq_title}
+                            </h3>
+                            <div className="space-y-4">
+                                <details className="group bg-gray-50 dark:bg-gray-900/50 rounded-xl overflow-hidden">
+                                    <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                        {dict.tools.subnet_calculator.faq_1_q}
+                                        <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                        {dict.tools.subnet_calculator.faq_1_a}
+                                    </div>
+                                </details>
+                                <details className="group bg-gray-50 dark:bg-gray-900/50 rounded-xl overflow-hidden">
+                                    <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                        {dict.tools.subnet_calculator.faq_2_q}
+                                        <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                        {dict.tools.subnet_calculator.faq_2_a}
+                                    </div>
+                                </details>
+                            </div>
                         </div>
                     </div>
                 </div>
