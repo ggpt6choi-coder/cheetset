@@ -821,7 +821,21 @@
       "result_label": "Difference",
       "error_invalid_json": "Invalid JSON",
       "no_diff": "No differences found.",
-      "seo_content": "Free online JSON Diff tool. Compare two JSON objects side-by-side and highlight differences. Essential for debugging API responses and configuration files."
+      "seo_content": "Free online JSON Diff tool. Compare two JSON objects side-by-side and highlight differences. Essential for debugging API responses and configuration files.",
+      "how_to_title": "How to Use JSON Diff",
+      "how_to_step1": "Paste the original JSON into the left text area.",
+      "how_to_step2": "Paste the modified JSON into the right text area.",
+      "how_to_step3": "Click the 'Compare' button to see the differences.",
+      "how_to_step4": "Additions are highlighted in green, and deletions in red.",
+      "faq_title": "Frequently Asked Questions",
+      "faq_1_q": "Does it support unquoted keys?",
+      "faq_1_a": "Yes, our tool supports JSON5 (Relaxed JSON), so unquoted keys and trailing commas are accepted.",
+      "faq_2_q": "Is my data safe?",
+      "faq_2_a": "Absolutely. All comparisons are performed locally in your browser. No data is sent to our servers.",
+      "use_cases_title": "Common Use Cases",
+      "use_case_1": "Debugging API responses by comparing expected vs. actual output.",
+      "use_case_2": "Tracking changes in configuration files (e.g., package.json, tsconfig.json).",
+      "use_case_3": "Verifying data migration integrity."
     },
     "color_palette": {
       "title": "Color Palette Generator",
@@ -831,7 +845,21 @@
       "copy_hex": "Copy HEX",
       "copy_rgb": "Copy RGB",
       "copied": "Copied!",
-      "seo_content": "Free online Color Palette Generator. Upload an image to extract its dominant colors and create a beautiful color scheme. Perfect for designers and developers."
+      "seo_content": "Extract beautiful color palettes from any image. Our tool analyzes your photos to find the dominant colors and provides Hex, RGB, and HSL codes. Perfect for designers, artists, and developers.",
+      "how_to_title": "How to Extract Colors",
+      "how_to_step1": "Upload an image by dragging and dropping or clicking the upload area.",
+      "how_to_step2": "Wait for the tool to analyze the image automatically.",
+      "how_to_step3": "View the extracted color palette with Hex and RGB codes.",
+      "how_to_step4": "Click on any color code to copy it to your clipboard.",
+      "faq_title": "Frequently Asked Questions",
+      "faq_1_q": "What image formats are supported?",
+      "faq_1_a": "We support all common web image formats including JPG, PNG, WEBP, and GIF.",
+      "faq_2_q": "Is my image uploaded to a server?",
+      "faq_2_a": "No, your privacy is important. Image processing happens entirely in your browser. Your images are never uploaded to our servers.",
+      "use_cases_title": "Who is this for?",
+      "use_case_1": "Web Designers looking for a color scheme that matches a hero image.",
+      "use_case_2": "Digital Artists creating cohesive artwork based on reference photos.",
+      "use_case_3": "Developers needing exact color codes from design mockups."
     }
   },
   "privacy": {

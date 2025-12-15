@@ -754,5 +754,29 @@ export const posts: Post[] = [
         date: '2025-12-14',
         lang: 'ja',
         category: 'news'
+    },
+    {
+        slug: 'developer-productivity-guide-2025',
+        title: 'The Ultimate Developer Productivity Setup for 2025',
+        description: 'Essential free online tools for developers and designers in 2025. JSON Diff, Color Palette, Salary Calculator, and more.',
+        date: '2025-12-15',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'developer-productivity-guide-2025',
+        title: '개발 생산성을 200% 높이는 필수 온라인 도구 모음 2025',
+        description: '2025년 개발자와 디자이너가 반드시 즐겨찾기 해야 할 무료 온라인 도구들을 엄선했습니다. JSON Diff, 컬러 팔레트, 연봉 계산기 등.',
+        date: '2025-12-15',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'developer-productivity-guide-2025',
+        title: '開発生産性を200%向上させる必須オンラインツール集 2025',
+        description: '2025年に開発者とデザイナーが必ずブックマークすべき無料オンラインツールを厳選しました。JSON Diff、カラーパレット、給与計算機など。',
+        date: '2025-12-15',
+        lang: 'ja',
+        category: 'developer'
     }
 ];

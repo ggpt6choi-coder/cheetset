@@ -44,20 +44,66 @@ export default async function JsonDiffPage({ params }: Props) {
                     <h2>{dict.tools.json_diff.title}</h2>
                     <p>{dict.tools.json_diff.seo_content}</p>
 
-                    <div className="mt-8 space-y-6">
+                    <div className="mt-12 space-y-12">
+                        {/* How to Use */}
                         <div>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                                {lang === 'ko' ? 'JSON Diff 도구란?' :
-                                    lang === 'ja' ? 'JSON Diffツールとは？' :
-                                        'What is JSON Diff Tool?'}
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-sm">1</span>
+                                {dict.tools.json_diff.how_to_title}
                             </h3>
-                            <p className="text-gray-600 dark:text-gray-400">
-                                {lang === 'ko' ?
-                                    'JSON Diff 도구는 두 개의 JSON 객체를 비교하여 차이점을 찾아내는 개발자용 유틸리티입니다. API 응답이 예상과 다를 때, 설정 파일이 변경되었을 때, 또는 두 데이터 세트를 비교해야 할 때 유용하게 사용할 수 있습니다. 추가된 부분은 초록색으로, 삭제된 부분은 빨간색으로 표시되어 한눈에 파악할 수 있습니다.' :
-                                    lang === 'ja' ?
-                                        'JSON Diffツールは、2つのJSONオブジェクトを比較して違いを見つける開発者用ユーティリティです。APIレスポンスが予想と異なる場合、設定ファイルが変更された場合、または2つのデータセットを比較する必要がある場合に役立ちます。追加された部分は緑色で、削除された部分は赤色で表示され、一目で把握できます。' :
-                                        'The JSON Diff tool is a developer utility that compares two JSON objects to find differences. It is useful when API responses differ from expectations, configuration files change, or when you need to compare two datasets. Additions are highlighted in green, and deletions in red, making it easy to spot changes at a glance.'}
-                            </p>
+                            <ul className="space-y-3 text-gray-600 dark:text-gray-400 pl-4 border-l-2 border-gray-100 dark:border-gray-700 ml-3">
+                                <li>{dict.tools.json_diff.how_to_step1}</li>
+                                <li>{dict.tools.json_diff.how_to_step2}</li>
+                                <li>{dict.tools.json_diff.how_to_step3}</li>
+                                <li>{dict.tools.json_diff.how_to_step4}</li>
+                            </ul>
+                        </div>
+
+                        {/* Use Cases */}
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 text-sm">2</span>
+                                {dict.tools.json_diff.use_cases_title}
+                            </h3>
+                            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.json_diff.use_case_1}
+                                </li>
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.json_diff.use_case_2}
+                                </li>
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.json_diff.use_case_3}
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* FAQ */}
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 text-sm">3</span>
+                                {dict.tools.json_diff.faq_title}
+                            </h3>
+                            <div className="space-y-4">
+                                <details className="group bg-gray-50 dark:bg-gray-900/50 rounded-xl overflow-hidden">
+                                    <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                        {dict.tools.json_diff.faq_1_q}
+                                        <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                        {dict.tools.json_diff.faq_1_a}
+                                    </div>
+                                </details>
+                                <details className="group bg-gray-50 dark:bg-gray-900/50 rounded-xl overflow-hidden">
+                                    <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                        {dict.tools.json_diff.faq_2_q}
+                                        <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                        {dict.tools.json_diff.faq_2_a}
+                                    </div>
+                                </details>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -43,42 +43,66 @@ export default async function ColorPalettePage({ params }: Props) {
                     <h2>{dict.tools.color_palette.title}</h2>
                     <p>{dict.tools.color_palette.seo_content}</p>
 
-                    <div className="mt-8 space-y-6">
+                    <div className="mt-12 space-y-12">
+                        {/* How to Use */}
                         <div>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                                {lang === 'ko' ? '이미지에서 색상 추출하기' :
-                                    lang === 'ja' ? '画像から色を抽出する' :
-                                        'Extracting Colors from Images'}
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-sm">1</span>
+                                {dict.tools.color_palette.how_to_title}
                             </h3>
-                            <p className="text-gray-600 dark:text-gray-400">
-                                {lang === 'ko' ?
-                                    '디자인 작업을 할 때, 마음에 드는 이미지의 색상 조합(Color Scheme)을 참고하고 싶을 때가 있습니다. 이 도구는 이미지에서 가장 지배적인 색상(Dominant Colors)을 자동으로 분석하여 16진수(HEX) 코드와 RGB 값으로 제공합니다. 추출된 팔레트를 사용하여 웹사이트, 앱, 또는 그래픽 디자인에 조화로운 색상을 적용해보세요.' :
-                                    lang === 'ja' ?
-                                        'デザイン作業を行う際、気に入った画像の配色（カラースキーム）を参考にしたい場合があります。このツールは、画像から最も支配的な色（ドミナントカラー）を自動的に分析し、16進数（HEX）コードとRGB値として提供します。抽出されたパレットを使用して、Webサイト、アプリ、またはグラフィックデザインに調和のとれた色を適用してください。' :
-                                        'When designing, you often want to reference the color scheme of an image you like. This tool automatically analyzes the dominant colors in an image and provides them as Hex codes and RGB values. Use the extracted palette to apply harmonious colors to your website, app, or graphic design.'}
-                            </p>
+                            <ul className="space-y-3 text-gray-600 dark:text-gray-400 pl-4 border-l-2 border-gray-100 dark:border-gray-700 ml-3">
+                                <li>{dict.tools.color_palette.how_to_step1}</li>
+                                <li>{dict.tools.color_palette.how_to_step2}</li>
+                                <li>{dict.tools.color_palette.how_to_step3}</li>
+                                <li>{dict.tools.color_palette.how_to_step4}</li>
+                            </ul>
                         </div>
 
+                        {/* Use Cases */}
                         <div>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                                {lang === 'ko' ? '배색 가이드' :
-                                    lang === 'ja' ? '配色ガイド' :
-                                        'Color Theory Basics'}
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400 text-sm">2</span>
+                                {dict.tools.color_palette.use_cases_title}
                             </h3>
-                            <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-400">
-                                <li>
-                                    <strong>Dominant Color:</strong>
-                                    {lang === 'ko' ? ' 이미지의 전체적인 분위기를 결정하는 주조색입니다.' :
-                                        lang === 'ja' ? ' 画像の全体的な雰囲気を決定する主調色です。' :
-                                            ' The main color that sets the overall tone of the image.'}
+                            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.color_palette.use_case_1}
                                 </li>
-                                <li>
-                                    <strong>Accent Color:</strong>
-                                    {lang === 'ko' ? ' 강조하고 싶은 부분에 사용하는 포인트 색상입니다.' :
-                                        lang === 'ja' ? ' 強調したい部分に使用するアクセントカラーです。' :
-                                            ' A color used to highlight specific elements.'}
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.color_palette.use_case_2}
+                                </li>
+                                <li className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
+                                    {dict.tools.color_palette.use_case_3}
                                 </li>
                             </ul>
+                        </div>
+
+                        {/* FAQ */}
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 text-sm">3</span>
+                                {dict.tools.color_palette.faq_title}
+                            </h3>
+                            <div className="space-y-4">
+                                <details className="group bg-gray-50 dark:bg-gray-900/50 rounded-xl overflow-hidden">
+                                    <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                        {dict.tools.color_palette.faq_1_q}
+                                        <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                        {dict.tools.color_palette.faq_1_a}
+                                    </div>
+                                </details>
+                                <details className="group bg-gray-50 dark:bg-gray-900/50 rounded-xl overflow-hidden">
+                                    <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                        {dict.tools.color_palette.faq_2_q}
+                                        <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                        {dict.tools.color_palette.faq_2_a}
+                                    </div>
+                                </details>
+                            </div>
                         </div>
                     </div>
                 </div>
