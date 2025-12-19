@@ -252,5 +252,10 @@ export const tools: Tool[] = [
         slug: 'color-palette',
         icon: 'Palette',
         category: 'image'
+    },
+    {
+        slug: 'url-encoder',
+        icon: 'Link',
+        category: 'developer'
     }
 ];

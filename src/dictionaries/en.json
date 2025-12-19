@@ -1070,6 +1070,33 @@
       "use_case_1": "Web Designers looking for a color scheme that matches a hero image.",
       "use_case_2": "Digital Artists creating cohesive artwork based on reference photos.",
       "use_case_3": "Developers needing exact color codes from design mockups."
+    },
+    "url_encoder": {
+      "title": "URL Encoder / Decoder",
+      "description": "Encode or decode URLs simply and securely. Convert special characters to their percent-encoded versions.",
+      "input_label": "Input Text",
+      "output_label": "Output Result",
+      "encode": "Encode",
+      "decode": "Decode",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "clear": "Clear",
+      "placeholder": "Enter text to encode or decode...",
+      "seo_content": "Free online URL Encoder/Decoder tool. Easily convert text to URL-safe format (percent-encoding) or decode encoded URLs back to readable text. Essential for web developers and SEO.",
+      "how_to_title": "How to Use URL Encoder/Decoder",
+      "how_to_step1": "Enter or paste your text/URL into the input box.",
+      "how_to_step2": "Click 'Encode' to convert special characters to % codes.",
+      "how_to_step3": "Click 'Decode' to convert % codes back to normal text.",
+      "how_to_step4": "Use the 'Copy' button to save the result to your clipboard.",
+      "faq_title": "Frequently Asked Questions",
+      "faq_1_q": "What is URL Encoding?",
+      "faq_1_a": "URL encoding converts characters into a format that can be transmitted over the Internet. It replaces unsafe ASCII characters with a '%' followed by two hexadecimal digits.",
+      "faq_2_q": "Why do I need to encode URLs?",
+      "faq_2_a": "URLs can only contain a limited set of characters. Spaces and other special symbols must be encoded to ensure the URL is valid and works correctly across all browsers and servers.",
+      "use_cases_title": "Common Use Cases",
+      "use_case_1": "Preparing query string parameters for API calls.",
+      "use_case_2": "Fixing broken links containing special characters.",
+      "use_case_3": "Decoding complex URLs to read their parameters."
     }
   },
   "privacy": {

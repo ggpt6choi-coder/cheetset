@@ -71,6 +71,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>부가세 계산기:</strong> 공급가액과 합계금액을 기준으로 부가세를 계산하세요.</li>
                                 <li><strong>화면 비율 계산기:</strong> 16:9, 4:3 등 화면 비율에 따른 해상도를 계산하세요.</li>
                                 <li><strong>수도 퀴즈 & 탐험기:</strong> 전 세계 국가의 수도를 검색하고 퀴즈로 맞춰보세요.</li>
+                                <li><strong>URL 인코더/디코더:</strong> URL을 안전하게 인코딩하거나 원래대로 복원하세요.</li>
                             </ul>
 
                             <h2>왜 CheatSet인가?</h2>
@@ -141,6 +142,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>VAT Calculator:</strong> Calculate VAT and total amount from net or gross price.</li>
                                 <li><strong>Aspect Ratio Calculator:</strong> Calculate dimensions based on screen aspect ratios.</li>
                                 <li><strong>Country Capital Quiz:</strong> Search for capitals and test your knowledge with a quiz.</li>
+                                <li><strong>URL Encoder/Decoder:</strong> Encode URLs securely or decode them back to original text.</li>
                             </ul>
 
                             <h2>Why CheatKey?</h2>
@@ -201,6 +203,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>消費税計算機:</strong> 税抜・税込金額から消費税を計算します。</li>
                                 <li><strong>アスペクト比計算機:</strong> 画面比率に基づいて解像度を計算します。</li>
                                 <li><strong>首都クイズ＆検索:</strong> 世界の首都を検索し、クイズで知識をテストします。</li>
+                                <li><strong>URLエンコーダー/デコーダー:</strong> URLを安全にエンコードまたは元のテキストに復元します。</li>
                             </ul>
 
                             <h2>なぜCheatKey？</h2>
