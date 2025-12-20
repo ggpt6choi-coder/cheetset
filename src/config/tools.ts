@@ -257,5 +257,10 @@ export const tools: Tool[] = [
         slug: 'url-encoder',
         icon: 'Link',
         category: 'developer'
+    },
+    {
+        slug: 'meta-tag-generator',
+        icon: 'Share2',
+        category: 'developer'
     }
 ];

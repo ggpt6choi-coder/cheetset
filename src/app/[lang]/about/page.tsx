@@ -72,6 +72,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>화면 비율 계산기:</strong> 16:9, 4:3 등 화면 비율에 따른 해상도를 계산하세요.</li>
                                 <li><strong>수도 퀴즈 & 탐험기:</strong> 전 세계 국가의 수도를 검색하고 퀴즈로 맞춰보세요.</li>
                                 <li><strong>URL 인코더/디코더:</strong> URL을 안전하게 인코딩하거나 원래대로 복원하세요.</li>
+                                <li><strong>메타 태그 생성기:</strong> SEO 및 SNS 공유를 위한 메타 태그와 오픈 그래프 태그를 쉽게 생성하세요.</li>
                             </ul>
 
                             <h2>왜 CheatSet인가?</h2>
@@ -143,6 +144,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>Aspect Ratio Calculator:</strong> Calculate dimensions based on screen aspect ratios.</li>
                                 <li><strong>Country Capital Quiz:</strong> Search for capitals and test your knowledge with a quiz.</li>
                                 <li><strong>URL Encoder/Decoder:</strong> Encode URLs securely or decode them back to original text.</li>
+                                <li><strong>Meta Tag Generator:</strong> Generate SEO-friendly Meta Tags and Open Graph tags for social media sharing.</li>
                             </ul>
 
                             <h2>Why CheatKey?</h2>
@@ -204,6 +206,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>アスペクト比計算機:</strong> 画面比率に基づいて解像度を計算します。</li>
                                 <li><strong>首都クイズ＆検索:</strong> 世界の首都を検索し、クイズで知識をテストします。</li>
                                 <li><strong>URLエンコーダー/デコーダー:</strong> URLを安全にエンコードまたは元のテキストに復元します。</li>
+                                <li><strong>メタタグ生成ツール:</strong> SEO最適化とSNS共有のためのメタタグとオープングラフタグを簡単に生成します。</li>
                             </ul>
 
                             <h2>なぜCheatKey？</h2>
