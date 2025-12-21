@@ -42,10 +42,46 @@ export default async function SalaryPage({ params }: Props) {
                 }}
             />
 
-            <div className="max-w-3xl mx-auto mt-16 px-6">
+            <div className="max-w-3xl mx-auto mt-16 px-6 pb-20 space-y-12">
                 <div className="prose prose-indigo dark:prose-invert mx-auto">
-                    <p>{dict.tools.salary_calculator.seo_content}</p>
+                    <p className="lead">{dict.tools.salary_calculator.seo_content}</p>
                 </div>
+
+                {/* How-to Guide */}
+                <section className="prose prose-indigo dark:prose-invert mx-auto">
+                    <h3>{dict.tools.salary_calculator.how_to_title}</h3>
+                    <ol>
+                        <li>{dict.tools.salary_calculator.how_to_step1}</li>
+                        <li>{dict.tools.salary_calculator.how_to_step2}</li>
+                        <li>{dict.tools.salary_calculator.how_to_step3}</li>
+                        <li>{dict.tools.salary_calculator.how_to_step4}</li>
+                    </ol>
+                </section>
+
+                {/* FAQ Section */}
+                <section className="prose prose-indigo dark:prose-invert mx-auto">
+                    <h3>{dict.tools.salary_calculator.faq_title}</h3>
+                    <div className="space-y-4">
+                        <div>
+                            <h4 className="font-semibold">{dict.tools.salary_calculator.faq_1_q}</h4>
+                            <p>{dict.tools.salary_calculator.faq_1_a}</p>
+                        </div>
+                        <div>
+                            <h4 className="font-semibold">{dict.tools.salary_calculator.faq_2_q}</h4>
+                            <p>{dict.tools.salary_calculator.faq_2_a}</p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Use Cases */}
+                <section className="prose prose-indigo dark:prose-invert mx-auto">
+                    <h3>{dict.tools.salary_calculator.use_cases_title}</h3>
+                    <ul>
+                        <li>{dict.tools.salary_calculator.use_case_1}</li>
+                        <li>{dict.tools.salary_calculator.use_case_2}</li>
+                        <li>{dict.tools.salary_calculator.use_case_3}</li>
+                    </ul>
+                </section>
             </div>
 
             <RelatedTools
