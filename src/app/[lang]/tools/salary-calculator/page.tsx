@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import SalaryClient from './SalaryClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import FAQJsonLd from '@/components/FAQJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -93,6 +94,12 @@ export default async function SalaryPage({ params }: Props) {
                 name={dict.tools.salary_calculator.title}
                 description={dict.tools.salary_calculator.description}
                 url={`https://cheetset.com/${lang}/tools/salary-calculator`}
+            />
+            <FAQJsonLd
+                faqs={[
+                    { question: dict.tools.salary_calculator.faq_1_q, answer: dict.tools.salary_calculator.faq_1_a },
+                    { question: dict.tools.salary_calculator.faq_2_q, answer: dict.tools.salary_calculator.faq_2_a }
+                ]}
             />
         </div>
     );

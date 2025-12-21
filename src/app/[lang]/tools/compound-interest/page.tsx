@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import CompoundInterestClient from './CompoundInterestClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import FAQJsonLd from '@/components/FAQJsonLd';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -104,6 +105,12 @@ export default async function CompoundInterestPage({ params }: Props) {
                 name={dict.tools.compound_interest.title}
                 description={dict.tools.compound_interest.description}
                 url={`https://cheetset.com/${lang}/tools/compound-interest`}
+            />
+            <FAQJsonLd
+                faqs={[
+                    { question: dict.tools.compound_interest.faq_1_q, answer: dict.tools.compound_interest.faq_1_a },
+                    { question: dict.tools.compound_interest.faq_2_q, answer: dict.tools.compound_interest.faq_2_a }
+                ]}
             />
         </div>
     );

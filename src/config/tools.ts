@@ -141,6 +141,31 @@ export const tools: Tool[] = [
         category: 'finance',
     },
     {
+        slug: 'csv-json-converter',
+        icon: 'FileJson',
+        category: 'developer',
+    },
+    {
+        slug: 'css-generators',
+        icon: 'Palette',
+        category: 'image',
+    },
+    {
+        slug: 'youtube-thumbnail',
+        icon: 'Youtube',
+        category: 'image',
+    },
+    {
+        slug: 'my-ip-address',
+        icon: 'Globe',
+        category: 'daily',
+    },
+    {
+        slug: 'wifi-qr-code',
+        icon: 'Wifi',
+        category: 'daily',
+    },
+    {
         slug: 'youtube-calculator',
         icon: '🎥',
         category: 'finance',
