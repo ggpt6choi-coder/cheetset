@@ -778,5 +778,13 @@ export const posts: Post[] = [
         date: '2025-12-15',
         lang: 'ja',
         category: 'developer'
+    },
+    {
+        slug: 'magic-of-compound-interest',
+        title: '복리의 마법: 적은 돈으로 자산을 불리는 가장 확실한 방법',
+        description: '아인슈타인이 극찬한 복리의 마법! 단리와의 차이점을 표로 비교하고, 월 50만원으로 7억을 만드는 실제 시뮬레이션 결과를 공개합니다.',
+        date: '2025-12-21',
+        lang: 'ko',
+        category: 'finance'
     }
 ];

@@ -75,7 +75,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>메타 태그 생성기:</strong> SEO 및 SNS 공유를 위한 메타 태그와 오픈 그래프 태그를 쉽게 생성하세요.</li>
                             </ul>
 
-                            <h2>왜 CheatSet인가?</h2>
+                            <h2>왜 CheetSet인가?</h2>
                             <h3>✅ 완전 무료</h3>
                             <p>모든 도구는 영구 무료입니다. 숨겨진 비용이 없습니다.</p>
 

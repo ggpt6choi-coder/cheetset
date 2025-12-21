@@ -103,7 +103,39 @@
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Beautifying minified API responses for debugging.",
       "use_case_2": "Validating JSON syntax before deployment.",
-      "use_case_3": "Minifying JSON configuration files to save space."
+      "use_case_3": "Minifying JSON configuration files to save space.",
+      "guide": [
+        {
+          "title": "Paste JSON",
+          "description": "Paste your messy or minified JSON string into the input area."
+        },
+        {
+          "title": "Format or Minify",
+          "description": "Click 'Format' to beautify the code with proper indentation, or 'Minify' to remove whitespace for production use."
+        },
+        {
+          "title": "Validate",
+          "description": "The tool automatically checks for syntax errors. If there's an error, it will be highlighted."
+        },
+        {
+          "title": "Copy Result",
+          "description": "Click the copy button to save the result to your clipboard."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How to fix 'Invalid JSON' error?",
+          "answer": "Common JSON errors include trailing commas, missing quotes around keys, or using single quotes instead of double quotes. Our tool highlights the line with the error."
+        },
+        {
+          "question": "Difference between Minify and Beautify?",
+          "answer": "Minify removes all unnecessary whitespace (newlines, spaces) to reduce file size. Beautify adds indentation and newlines to make the code human-readable."
+        },
+        {
+          "question": "Is my JSON data safe?",
+          "answer": "Yes, all processing is done locally in your browser (client-side). Your data is never sent to our servers."
+        }
+      ]
     },
     "lotto_generator": {
       "title": "Lotto Number Generator",
@@ -640,7 +672,39 @@
       "convert": "Convert",
       "download": "Download",
       "reset": "Reset",
-      "seo_content": "Free online Image Converter & Resizer. Resize images and convert formats (JPG, PNG, WebP) easily. No software installation required, works directly in your browser."
+      "seo_content": "Free online Image Converter & Resizer. Resize images and convert formats (JPG, PNG, WebP) easily. No software installation required, works directly in your browser.",
+      "guide": [
+        {
+          "title": "Upload Image",
+          "description": "Drag and drop your image (JPG, PNG, WebP) into the upload area."
+        },
+        {
+          "title": "Set Dimensions",
+          "description": "Enter your desired Width and Height in pixels. Toggle 'Maintain Aspect Ratio' to keep proportions."
+        },
+        {
+          "title": "Choose Format",
+          "description": "Select the output format (JPG, PNG, WebP) and quality."
+        },
+        {
+          "title": "Convert & Download",
+          "description": "Click 'Convert' to process the image, then 'Download' to save it."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How to resize without losing quality?",
+          "answer": "Reducing image size generally preserves quality. When enlarging, pixelation may occur. Our tool uses high-quality algorithms to minimize quality loss."
+        },
+        {
+          "question": "How to convert pixels?",
+          "answer": "You can precisely control the pixel dimensions (width/height) to fit specific requirements like social media posts or website banners."
+        },
+        {
+          "question": "Is there a file size limit?",
+          "answer": "Since processing happens in your browser, large files (e.g. >20MB) might depend on your device memory, but most images are handled easily."
+        }
+      ]
     },
     "lorem_ipsum": {
       "title": "Lorem Ipsum Generator",
@@ -856,7 +920,39 @@
       "use_cases_title": "Use Cases",
       "use_case_1": "Designers needing high-res references.",
       "use_case_2": "Marketers analyzing competitor thumbnails.",
-      "use_case_3": "Archiving thumbnails for personal collections."
+      "use_case_3": "Archiving thumbnails for personal collections.",
+      "guide": [
+        {
+          "title": "Copy Video Link",
+          "description": "Go to YouTube and copy the URL of the video or Short you want."
+        },
+        {
+          "title": "Paste URL",
+          "description": "Paste the link into the input box on this page."
+        },
+        {
+          "title": "Extract Thumbnail",
+          "description": "Click 'Get Thumbnail' to generate previews."
+        },
+        {
+          "title": "Download",
+          "description": "Select your preferred resolution (4K, HD, etc.) and click 'Download Image'."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How to download 4K thumbnails?",
+          "answer": "If the original video was uploaded in 4K or high quality, our tool automatically detects and provides the 'Max Resolution' option."
+        },
+        {
+          "question": "Can I save thumbnails without logging in?",
+          "answer": "Yes, our tool is completely free and requires no login or registration."
+        },
+        {
+          "question": "Is it legal to download YouTube thumbnails?",
+          "answer": "Thumbnails are copyrighted by the video owner. You should use them for reference, personal use, or fair use purposes only."
+        }
+      ]
     },
     "my_ip_address": {
       "title": "My IP Address & Info",

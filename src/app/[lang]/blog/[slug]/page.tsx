@@ -38,6 +38,7 @@ const ImageCropperGuide = dynamic(() => import('@/components/blog/posts/ImageCro
 const ImageResizerGuide = dynamic(() => import('@/components/blog/posts/ImageResizerGuide'));
 const LoanCalculatorGuide = dynamic(() => import('@/components/blog/posts/LoanCalculatorGuide'));
 const BmrCalculatorGuide = dynamic(() => import('@/components/blog/posts/BmrCalculatorGuide'));
+const MagicOfCompoundInterest = dynamic(() => import('@/components/blog/posts/MagicOfCompoundInterest'));
 
 const ExifViewerGuide = dynamic(() => import('@/components/blog/posts/ExifViewerGuide'));
 const ImageFiltersGuide = dynamic(() => import('@/components/blog/posts/ImageFiltersGuide'));
@@ -75,6 +76,7 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'image-filters-guide': ImageFiltersGuide,
     'new-tools-release-json-diff-color-palette': NewToolsRelease,
     'developer-productivity-guide-2025': DeveloperProductivityGuide,
+    'magic-of-compound-interest': MagicOfCompoundInterest,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
