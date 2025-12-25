@@ -3,6 +3,8 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import ReactionTimeClient from './ReactionTimeClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -54,9 +56,7 @@ export default async function ReactionTimePage({ params }: Props) {
 
             {/* SEO Content */}
             <div className="max-w-3xl mx-auto px-6 pb-20">
-                <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm">
-                    <p className="whitespace-pre-line">{dict.tools.reaction_time.seo_content}</p>
-                </div>
+                <RichContentSection content={dict.tools.reaction_time as ToolContent} />
             </div>
 
             <RelatedTools lang={lang} currentSlug="reaction-time" category="daily" />

@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import DDayCounterClient from './DDayCounterClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -51,11 +53,7 @@ export default async function DDayCounterPage({ params }: Props) {
 
             {/* SEO Content */}
             <div className="max-w-3xl mx-auto px-6 pb-12">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400">
-                        {dict.tools.d_day_counter.seo_content}
-                    </p>
-                </div>
+                <RichContentSection content={dict.tools.d_day_counter as ToolContent} />
             </div>
 
             <RelatedTools lang={lang} currentSlug="d-day-counter" category="daily" />

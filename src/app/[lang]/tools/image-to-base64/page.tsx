@@ -2,6 +2,7 @@ import { getDictionary } from "@/dictionaries/get-dictionary";
 import ImageToBase64Client from './ImageToBase64Client';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -27,6 +28,7 @@ export default async function ImageToBase64Page({ params }: { params: Promise<{ 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <ImageToBase64Client dict={dict} />
+            <RichContentSection content={dict.tools.image_to_base64} />
             <RelatedTools
                 currentSlug="image-to-base64"
                 category="developer"

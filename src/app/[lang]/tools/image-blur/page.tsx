@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import ImageBlurClient from './ImageBlurClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -49,13 +51,8 @@ export default async function ImageBlurPage({ params }: Props) {
             />
 
             {/* SEO Content */}
-            <div className="max-w-3xl mx-auto px-6 pb-12">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400">
-                        {dict.tools.image_blur.seo_content}
-                    </p>
-                </div>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.image_blur as ToolContent} />
 
             <RelatedTools lang={lang} currentSlug="image-blur" category="image" />
 

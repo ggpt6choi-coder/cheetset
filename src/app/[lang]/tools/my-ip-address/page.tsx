@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import MyIpAddressClient from './MyIpAddressClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
-import FAQJsonLd from '@/components/FAQJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -50,45 +51,7 @@ export default async function MyIpAddressPage({ params }: Props) {
 
             {/* SEO Content */}
             <div className="max-w-3xl mx-auto px-6 pb-20 space-y-12 mt-12 mb-20">
-                <article className="prose prose-blue dark:prose-invert mx-auto">
-                    <h2>{dict.tools.my_ip_address.title}</h2>
-                    <p>{dict.tools.my_ip_address.seo_content}</p>
-                </article>
-
-                {/* How-to Guide */}
-                <section className="prose prose-blue dark:prose-invert mx-auto">
-                    <h3>{dict.tools.my_ip_address.how_to_title}</h3>
-                    <ol>
-                        <li>{dict.tools.my_ip_address.how_to_step1}</li>
-                        <li>{dict.tools.my_ip_address.how_to_step2}</li>
-                        <li>{dict.tools.my_ip_address.how_to_step3}</li>
-                    </ol>
-                </section>
-
-                {/* FAQ Section */}
-                <section className="prose prose-blue dark:prose-invert mx-auto">
-                    <h3>{dict.tools.my_ip_address.faq_title}</h3>
-                    <div className="space-y-4">
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.my_ip_address.faq_1_q}</h4>
-                            <p>{dict.tools.my_ip_address.faq_1_a}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.my_ip_address.faq_2_q}</h4>
-                            <p>{dict.tools.my_ip_address.faq_2_a}</p>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Use Cases */}
-                <section className="prose prose-blue dark:prose-invert mx-auto">
-                    <h3>{dict.tools.my_ip_address.use_cases_title}</h3>
-                    <ul>
-                        <li>{dict.tools.my_ip_address.use_case_1}</li>
-                        <li>{dict.tools.my_ip_address.use_case_2}</li>
-                        <li>{dict.tools.my_ip_address.use_case_3}</li>
-                    </ul>
-                </section>
+                <RichContentSection content={dict.tools.my_ip_address as ToolContent} />
             </div>
 
             <RelatedTools
@@ -101,12 +64,7 @@ export default async function MyIpAddressPage({ params }: Props) {
                 description={dict.tools.my_ip_address.description}
                 url={`https://cheetset.com/${lang}/tools/my-ip-address`}
             />
-            <FAQJsonLd
-                faqs={[
-                    { question: dict.tools.my_ip_address.faq_1_q, answer: dict.tools.my_ip_address.faq_1_a },
-                    { question: dict.tools.my_ip_address.faq_2_q, answer: dict.tools.my_ip_address.faq_2_a }
-                ]}
-            />
+
         </div>
     );
 }

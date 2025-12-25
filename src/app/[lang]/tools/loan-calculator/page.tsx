@@ -2,6 +2,8 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import LoanCalculatorClient from './LoanCalculatorClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 import { Metadata } from 'next';
 
 type Locale = 'en' | 'ko' | 'ja';
@@ -54,11 +56,7 @@ export default async function LoanCalculatorPage({ params }: Props) {
                 lang={lang}
             />
 
-            <div className="max-w-4xl mx-auto px-4 pb-12">
-                <div className="prose dark:prose-invert max-w-none">
-                    <p>{dict.tools.loan_calculator.seo_content}</p>
-                </div>
-            </div>
+            <RichContentSection content={dict.tools.loan_calculator as ToolContent} />
 
             <RelatedTools currentSlug="loan-calculator" lang={lang} category="finance" />
 

@@ -2,6 +2,8 @@ import { getDictionary } from "@/dictionaries/get-dictionary";
 import YoutubeCalculatorClient from "@/components/tools/YoutubeCalculatorClient";
 import RelatedTools from "@/components/tools/RelatedTools";
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -61,13 +63,7 @@ export default async function YoutubeCalculatorPage({ params }: Props) {
                     lang={lang}
                 />
 
-                <div className="max-w-3xl mx-auto mt-16">
-                    <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            {dict.tools.youtube_calculator.seo_content}
-                        </p>
-                    </div>
-                </div>
+                <RichContentSection content={dict.tools.youtube_calculator as ToolContent} />
 
                 <RelatedTools
                     currentSlug="youtube-calculator"

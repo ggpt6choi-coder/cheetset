@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import CssGeneratorsClient from './CssGeneratorsClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
-import FAQJsonLd from '@/components/FAQJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -56,48 +57,8 @@ export default async function CssGeneratorsPage({ params }: Props) {
             />
 
             {/* SEO Content */}
-            <div className="max-w-3xl mx-auto px-6 pb-20 space-y-12 mt-12">
-                <article className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h2>{dict.tools.css_generators.title}</h2>
-                    <p>{dict.tools.css_generators.seo_content}</p>
-                </article>
-
-                {/* How-to Guide */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.css_generators.how_to_title}</h3>
-                    <ol>
-                        <li>{dict.tools.css_generators.how_to_step1}</li>
-                        <li>{dict.tools.css_generators.how_to_step2}</li>
-                        <li>{dict.tools.css_generators.how_to_step3}</li>
-                        <li>{dict.tools.css_generators.how_to_step4}</li>
-                    </ol>
-                </section>
-
-                {/* FAQ Section */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.css_generators.faq_title}</h3>
-                    <div className="space-y-4">
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.css_generators.faq_1_q}</h4>
-                            <p>{dict.tools.css_generators.faq_1_a}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.css_generators.faq_2_q}</h4>
-                            <p>{dict.tools.css_generators.faq_2_a}</p>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Use Cases */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.css_generators.use_cases_title}</h3>
-                    <ul>
-                        <li>{dict.tools.css_generators.use_case_1}</li>
-                        <li>{dict.tools.css_generators.use_case_2}</li>
-                        <li>{dict.tools.css_generators.use_case_3}</li>
-                    </ul>
-                </section>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.css_generators as ToolContent} />
 
             <RelatedTools
                 currentSlug="css-generators"
@@ -108,12 +69,6 @@ export default async function CssGeneratorsPage({ params }: Props) {
                 name={dict.tools.css_generators.title}
                 description={dict.tools.css_generators.description}
                 url={`https://cheetset.com/${lang}/tools/css-generators`}
-            />
-            <FAQJsonLd
-                faqs={[
-                    { question: dict.tools.css_generators.faq_1_q, answer: dict.tools.css_generators.faq_1_a },
-                    { question: dict.tools.css_generators.faq_2_q, answer: dict.tools.css_generators.faq_2_a }
-                ]}
             />
         </div>
     );

@@ -3,6 +3,8 @@ import ImageConverterClient from './ImageConverterClient';
 import { Metadata } from 'next';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -41,14 +43,7 @@ export default async function ImageConverterPage({ params }: Props) {
 
                 <ImageConverterClient dict={dict} />
 
-                <div className="mt-12 prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                    <h2 className="text-2xl font-bold mb-4">
-                        About this Tool
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {dict.tools.image_converter.seo_content}
-                    </p>
-                </div>
+                <RichContentSection content={dict.tools.image_converter as ToolContent} />
             </div>
 
             <RelatedTools

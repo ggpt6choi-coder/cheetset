@@ -4,6 +4,8 @@ import ServerTimeClient from './ServerTimeClient';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -53,11 +55,7 @@ export default async function ServerTimePage({ params }: Props) {
             />
 
             <div className="max-w-3xl mx-auto px-6 pb-20">
-                <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {dict.tools.server_time.seo_content}
-                    </p>
-                </div>
+                <RichContentSection content={dict.tools.server_time as ToolContent} />
             </div>
 
             <RelatedTools

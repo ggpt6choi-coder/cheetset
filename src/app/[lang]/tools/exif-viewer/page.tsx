@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import ExifViewerClient from './ExifViewerClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -66,13 +68,8 @@ export default async function ExifViewerPage({ params }: Props) {
             />
 
             {/* SEO Content */}
-            <div className="max-w-3xl mx-auto px-6 pb-12">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400">
-                        {dict.tools.exif_viewer.seo_content}
-                    </p>
-                </div>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.exif_viewer as ToolContent} />
 
             <RelatedTools lang={lang} currentSlug="exif-viewer" category="image" />
 

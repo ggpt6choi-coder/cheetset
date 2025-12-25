@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import HtmlEncoderClient from './HtmlEncoderClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -46,11 +48,7 @@ export default async function HtmlEncoderPage({ params }: Props) {
 
             {/* SEO Content */}
             <div className="max-w-3xl mx-auto px-6 pb-12">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400">
-                        {dict.tools.html_encoder.seo_content}
-                    </p>
-                </div>
+                <RichContentSection content={dict.tools.html_encoder as ToolContent} />
             </div>
 
             <RelatedTools lang={lang} currentSlug="html-encoder" category="text" />

@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import CountryCapitalQuizClient from './CountryCapitalQuizClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -47,11 +49,7 @@ export default async function CountryCapitalQuizPage({ params }: Props) {
 
             {/* SEO Content */}
             <div className="max-w-3xl mx-auto px-6 pb-20">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">
-                        {dict.tools.country_capital_quiz.seo_content}
-                    </p>
-                </div>
+                <RichContentSection content={dict.tools.country_capital_quiz as ToolContent} />
             </div>
 
             <ToolJsonLd

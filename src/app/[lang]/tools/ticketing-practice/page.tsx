@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import TicketingClient from './TicketingClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -43,9 +45,7 @@ export default async function TicketingPage({ params }: Props) {
             />
 
             <div className="max-w-3xl mx-auto mt-16 px-6">
-                <div className="prose prose-indigo dark:prose-invert mx-auto">
-                    <p>{dict.tools.ticketing_practice.seo_content}</p>
-                </div>
+                <RichContentSection content={dict.tools.ticketing_practice as ToolContent} />
             </div>
 
             <RelatedTools

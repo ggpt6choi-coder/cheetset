@@ -2,6 +2,8 @@ import { getDictionary } from "@/dictionaries/get-dictionary";
 import RoiCalculatorClient from "@/components/tools/RoiCalculatorClient";
 import RelatedTools from "@/components/tools/RelatedTools";
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
@@ -60,19 +62,13 @@ export default async function RoiCalculatorPage({ params }: Props) {
                         years: dict.tools.roi_calculator.years,
                         months: dict.tools.roi_calculator.months,
                         days: dict.tools.roi_calculator.days,
-                        invested: dict.tools.roi_calculator.invested,
-                        returned: dict.tools.roi_calculator.returned,
+                        invested: dict.tools.roi_calculator.invested_amount,
+                        returned: dict.tools.roi_calculator.amount_returned,
                     }}
                     lang={lang}
                 />
 
-                <div className="max-w-3xl mx-auto mt-16">
-                    <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            {dict.tools.roi_calculator.seo_content}
-                        </p>
-                    </div>
-                </div>
+                <RichContentSection content={dict.tools.roi_calculator as ToolContent} />
 
                 <RelatedTools
                     currentSlug="roi-calculator"

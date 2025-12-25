@@ -2,6 +2,8 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import QrCodeGeneratorClient from '@/components/tools/QrCodeGeneratorClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 import type { Metadata } from 'next';
 
 type Props = {
@@ -31,14 +33,16 @@ export default async function QrCodeGeneratorPage({ params }: Props) {
                 <QrCodeGeneratorClient labels={dict.tools.qr_code} />
 
                 <div className="mt-16">
-                    <RelatedTools lang={lang} currentSlug="qr-code" category="daily" />
+                    <RichContentSection content={dict.tools.qr_code as ToolContent} />
                 </div>
-                <ToolJsonLd
-                    name={dict.tools.qr_code.title}
-                    description={dict.tools.qr_code.description}
-                    url={`https://cheetset.com/${lang}/tools/qr-code`}
-                />
+                <RelatedTools lang={lang} currentSlug="qr-code" category="daily" />
             </div>
+            <ToolJsonLd
+                name={dict.tools.qr_code.title}
+                description={dict.tools.qr_code.description}
+                url={`https://cheetset.com/${lang}/tools/qr-code`}
+            />
         </div>
+
     );
 }

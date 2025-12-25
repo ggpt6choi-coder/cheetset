@@ -11,5 +11,7 @@ export interface ToolContent {
         question: string;
         answer: string;
     }[];
+    use_cases_title?: string;
+    use_cases?: string[];
     [key: string]: any;
 }

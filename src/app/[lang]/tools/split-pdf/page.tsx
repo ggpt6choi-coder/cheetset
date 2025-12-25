@@ -3,6 +3,8 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import SplitPdfClient from './SplitPdfClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -52,11 +54,8 @@ export default async function SplitPdfPage({ params }: Props) {
             </div>
 
             {/* SEO Content */}
-            <div className="max-w-3xl mx-auto px-6 pb-20">
-                <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm">
-                    <p className="whitespace-pre-line">{dict.tools.split_pdf.seo_content}</p>
-                </div>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.split_pdf as ToolContent} />
 
             <RelatedTools lang={lang} currentSlug="split-pdf" category="image" />
 

@@ -50,7 +50,7 @@ export default async function ImageResizerPage({ params }: Props) {
             />
 
             {/* SEO Content */}
-            {/* SEO Content */}
+
             <div className="pb-12">
                 <RichContentSection content={dict.tools.image_resizer as ToolContent} />
             </div>

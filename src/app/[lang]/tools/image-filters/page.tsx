@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import ImageFiltersClient from './ImageFiltersClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -50,13 +52,8 @@ export default async function ImageFiltersPage({ params }: Props) {
             />
 
             {/* SEO Content */}
-            <div className="max-w-3xl mx-auto px-6 pb-12">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400">
-                        {dict.tools.image_filters.seo_content}
-                    </p>
-                </div>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.image_filters as ToolContent} />
 
             <RelatedTools lang={lang} currentSlug="image-filters" category="image" />
 

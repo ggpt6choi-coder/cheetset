@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import StockAverageClient from './StockAverageClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -41,11 +43,8 @@ export default async function StockAveragePage({ params }: Props) {
                 }}
             />
 
-            <div className="max-w-3xl mx-auto mt-16 px-6">
-                <div className="prose prose-indigo dark:prose-invert mx-auto">
-                    <p>{dict.tools.stock_average_calculator.seo_content}</p>
-                </div>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.stock_average_calculator as ToolContent} />
 
             <RelatedTools
                 currentSlug="stock-average-calculator"

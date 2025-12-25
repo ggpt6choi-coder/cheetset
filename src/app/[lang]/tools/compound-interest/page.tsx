@@ -4,6 +4,8 @@ import CompoundInterestClient from './CompoundInterestClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import FAQJsonLd from '@/components/FAQJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -53,48 +55,7 @@ export default async function CompoundInterestPage({ params }: Props) {
             />
 
             {/* SEO Content */}
-            <div className="max-w-3xl mx-auto px-6 pb-20 space-y-12 mt-16">
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h2>{dict.tools.compound_interest.title}</h2>
-                    <p>{dict.tools.compound_interest.seo_content}</p>
-                </section>
-
-                {/* How-to Guide */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.compound_interest.how_to_title}</h3>
-                    <ol>
-                        <li>{dict.tools.compound_interest.how_to_step1}</li>
-                        <li>{dict.tools.compound_interest.how_to_step2}</li>
-                        <li>{dict.tools.compound_interest.how_to_step3}</li>
-                        <li>{dict.tools.compound_interest.how_to_step4}</li>
-                    </ol>
-                </section>
-
-                {/* FAQ Section */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.compound_interest.faq_title}</h3>
-                    <div className="space-y-4">
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.compound_interest.faq_1_q}</h4>
-                            <p>{dict.tools.compound_interest.faq_1_a}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.compound_interest.faq_2_q}</h4>
-                            <p>{dict.tools.compound_interest.faq_2_a}</p>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Use Cases */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.compound_interest.use_cases_title}</h3>
-                    <ul>
-                        <li>{dict.tools.compound_interest.use_case_1}</li>
-                        <li>{dict.tools.compound_interest.use_case_2}</li>
-                        <li>{dict.tools.compound_interest.use_case_3}</li>
-                    </ul>
-                </section>
-            </div>
+            <RichContentSection content={dict.tools.compound_interest as ToolContent} />
 
             <RelatedTools
                 currentSlug="compound-interest"
@@ -107,10 +68,7 @@ export default async function CompoundInterestPage({ params }: Props) {
                 url={`https://cheetset.com/${lang}/tools/compound-interest`}
             />
             <FAQJsonLd
-                faqs={[
-                    { question: dict.tools.compound_interest.faq_1_q, answer: dict.tools.compound_interest.faq_1_a },
-                    { question: dict.tools.compound_interest.faq_2_q, answer: dict.tools.compound_interest.faq_2_a }
-                ]}
+                faqs={(dict.tools.compound_interest as unknown as ToolContent).faq || []}
             />
         </div>
     );

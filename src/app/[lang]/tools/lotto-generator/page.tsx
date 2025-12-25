@@ -3,6 +3,8 @@ import LottoGenerator from "@/components/LottoGenerator";
 import type { Metadata } from "next";
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = "en" | "ko" | "ja";
 
@@ -72,26 +74,21 @@ export default async function LottoGeneratorPage({ params }: Props) {
                     />
                 </div>
 
-                <div className="prose prose-indigo dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                    <h2 className="text-2xl font-bold mb-4">
-                        About this Tool
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {dict.tools.lotto_generator.seo_content}
-                    </p>
+                <div className="max-w-3xl mx-auto px-6 py-12">
+                    <RichContentSection content={dict.tools.lotto_generator as ToolContent} />
                 </div>
-            </div>
 
-            <RelatedTools
-                currentSlug="lotto-generator"
-                category="daily"
-                lang={lang}
-            />
-            <ToolJsonLd
-                name={dict.tools.lotto_generator.title}
-                description={dict.tools.lotto_generator.description}
-                url={`https://cheetset.com/${lang}/tools/lotto-generator`}
-            />
+                <RelatedTools
+                    currentSlug="lotto-generator"
+                    category="daily"
+                    lang={lang}
+                />
+                <ToolJsonLd
+                    name={dict.tools.lotto_generator.title}
+                    description={dict.tools.lotto_generator.description}
+                    url={`https://cheetset.com/${lang}/tools/lotto-generator`}
+                />
+            </div>
         </div>
     );
 }

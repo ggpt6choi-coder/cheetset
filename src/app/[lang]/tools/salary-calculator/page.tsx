@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import SalaryClient from './SalaryClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
-import FAQJsonLd from '@/components/FAQJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -43,47 +44,8 @@ export default async function SalaryPage({ params }: Props) {
                 }}
             />
 
-            <div className="max-w-3xl mx-auto mt-16 px-6 pb-20 space-y-12">
-                <div className="prose prose-indigo dark:prose-invert mx-auto">
-                    <p className="lead">{dict.tools.salary_calculator.seo_content}</p>
-                </div>
-
-                {/* How-to Guide */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.salary_calculator.how_to_title}</h3>
-                    <ol>
-                        <li>{dict.tools.salary_calculator.how_to_step1}</li>
-                        <li>{dict.tools.salary_calculator.how_to_step2}</li>
-                        <li>{dict.tools.salary_calculator.how_to_step3}</li>
-                        <li>{dict.tools.salary_calculator.how_to_step4}</li>
-                    </ol>
-                </section>
-
-                {/* FAQ Section */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.salary_calculator.faq_title}</h3>
-                    <div className="space-y-4">
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.salary_calculator.faq_1_q}</h4>
-                            <p>{dict.tools.salary_calculator.faq_1_a}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold">{dict.tools.salary_calculator.faq_2_q}</h4>
-                            <p>{dict.tools.salary_calculator.faq_2_a}</p>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Use Cases */}
-                <section className="prose prose-indigo dark:prose-invert mx-auto">
-                    <h3>{dict.tools.salary_calculator.use_cases_title}</h3>
-                    <ul>
-                        <li>{dict.tools.salary_calculator.use_case_1}</li>
-                        <li>{dict.tools.salary_calculator.use_case_2}</li>
-                        <li>{dict.tools.salary_calculator.use_case_3}</li>
-                    </ul>
-                </section>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.salary_calculator as ToolContent} />
 
             <RelatedTools
                 currentSlug="salary-calculator"
@@ -94,12 +56,6 @@ export default async function SalaryPage({ params }: Props) {
                 name={dict.tools.salary_calculator.title}
                 description={dict.tools.salary_calculator.description}
                 url={`https://cheetset.com/${lang}/tools/salary-calculator`}
-            />
-            <FAQJsonLd
-                faqs={[
-                    { question: dict.tools.salary_calculator.faq_1_q, answer: dict.tools.salary_calculator.faq_1_a },
-                    { question: dict.tools.salary_calculator.faq_2_q, answer: dict.tools.salary_calculator.faq_2_a }
-                ]}
             />
         </div>
     );

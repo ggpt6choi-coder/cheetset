@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import VatCalculatorClient from './VatCalculatorClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -44,13 +46,8 @@ export default async function VatCalculatorPage({ params }: Props) {
             />
 
             {/* SEO Content */}
-            <div className="max-w-3xl mx-auto px-6 pb-20">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">
-                        {dict.tools.vat_calculator.seo_content}
-                    </p>
-                </div>
-            </div>
+            {/* SEO Content */}
+            <RichContentSection content={dict.tools.vat_calculator as ToolContent} />
 
             <ToolJsonLd
                 name={dict.tools.vat_calculator.title}

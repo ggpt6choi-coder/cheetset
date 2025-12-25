@@ -77,7 +77,39 @@
       "description": "Count words and characters in your text.",
       "placeholder": "Type or paste your text here...",
       "result": "Words: {words}, Characters: {chars}",
-      "seo_content": "This is a free online word counter tool. It helps you count words and characters for your essays, articles, and social media posts."
+      "seo_content": "This is a free online word counter tool. It helps you count words and characters for your essays, articles, and social media posts.",
+      "guide_title": "How to Use Word Counter",
+      "guide": [
+        {
+          "title": "Enter Text",
+          "description": "Type or paste your text into the input area."
+        },
+        {
+          "title": "Check Results",
+          "description": "The word and character counts update instantly as you type."
+        },
+        {
+          "title": "Analyze",
+          "description": "Use the detailed stats to see sentence and paragraph counts."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Is there a limit on text length?",
+          "answer": "No, you can paste as much text as your browser can handle."
+        },
+        {
+          "question": "Is my text saved?",
+          "answer": "No, all analysis is performed locally in your browser. Your text is not sent to any server."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Checking essay word limits.",
+        "Optimizing social media posts (X, Instagram).",
+        "Analyzing text density for SEO."
+      ]
     },
     "json_formatter": {
       "title": "JSON Formatter",
@@ -144,7 +176,39 @@
       "save": "Save",
       "saved_numbers": "Saved Numbers",
       "no_saved": "No saved numbers.",
-      "seo_content": "Free online lottery number generator. Randomly draw 6 numbers from 1 to 45 to test your luck. Save and manage your generated numbers."
+      "seo_content": "Free online lottery number generator. Randomly draw 6 numbers from 1 to 45 to test your luck. Save and manage your generated numbers.",
+      "guide_title": "How to Generate Lotto Numbers",
+      "guide": [
+        {
+          "title": "Generate",
+          "description": "Click the 'Generate Numbers' button to get a random set of 6 numbers (1-45)."
+        },
+        {
+          "title": "Save Numbers",
+          "description": "Click 'Save' to keep the current set in your history list."
+        },
+        {
+          "title": "Manage",
+          "description": "View your saved numbers or clear them to start over."
+        }
+      ],
+      "faq_title": "Lotto Generator FAQ",
+      "faq": [
+        {
+          "question": "Can this predict winning numbers?",
+          "answer": "No, this tool uses a random number generator for entertainment purposes only. It cannot predict future lottery results."
+        },
+        {
+          "question": "Is it truly random?",
+          "answer": "Yes, we use a cryptographically secure random number generator provided by your browser."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Picking random numbers for lottery tickets.",
+        "Testing probability or luck for fun.",
+        "Generating random datasets for educational purposes."
+      ]
     },
     "server_time": {
       "title": "Server Time Check",
@@ -162,7 +226,39 @@
       "time_diff_slower": "ahead",
       "time_diff_slower_text": "behind",
       "seconds": "seconds",
-      "seo_content": "Free online server time checker tool. Check the exact server time of Ticketmaster, StubHub, or any website down to 0.1 seconds. Essential tool for successful ticket purchases and course registration."
+      "seo_content": "Free online server time checker tool. Check the exact server time of Ticketmaster, StubHub, or any website down to 0.1 seconds. Essential tool for successful ticket purchases and course registration.",
+      "guide_title": "How to Check Server Time",
+      "guide": [
+        {
+          "title": "Enter URL",
+          "description": "Enter the website URL (e.g., ticketmaster.com) you want to check."
+        },
+        {
+          "title": "Check",
+          "description": "Click the 'Check' button to retrieve the server's current time."
+        },
+        {
+          "title": "Sync",
+          "description": "Watch the seconds to synchronize your actions exactly."
+        }
+      ],
+      "faq_title": "Server Time FAQ",
+      "faq": [
+        {
+          "question": "Why is server time important?",
+          "answer": "For competitive events like ticketing, even a second difference between your clock and the server's clock can mean failure."
+        },
+        {
+          "question": "How accurate is it?",
+          "answer": "We fetch the HTTP Date header directly from the server, providing high accuracy relative to network latency."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Buying concert tickets on Ticketmaster/Interpark.",
+        "Course registration for university classes.",
+        "Participating in time-sensitive online events."
+      ]
     },
     "stock_average_calculator": {
       "title": "Stock Average Down Calculator",
@@ -176,7 +272,35 @@
       "result_avg_price": "New Average Price",
       "result_total_quantity": "Total Quantity",
       "result_total_amount": "Total Amount",
-      "seo_content": "Free stock average down calculator. Calculate how much you can lower your average price by buying more shares. Essential tool for successful stock and crypto investing."
+      "seo_content": "Free stock average down calculator. Calculate how much you can lower your average price by buying more shares. Essential tool for successful stock and crypto investing.",
+      "guide_title": "How to Calculate Average Down",
+      "guide": [
+        {
+          "title": "Current Holdings",
+          "description": "Enter your current stock price and quantity."
+        },
+        {
+          "title": "New Purchase",
+          "description": "Enter the price and quantity of the new shares you plan to buy."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click Calculate to see your new lowered average price."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is 'averaging down'?",
+          "answer": "Averaging down is an investment strategy where you buy more shares of a stock at a lower price than your initial purchase, thereby lowering the average cost per share."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        " lowering break-even point for underwater stocks.",
+        "Planning additional investments in a dipping market.",
+        "Managing cryptocurrency portfolio averages."
+      ]
     },
     "ticketing_practice": {
       "title": "Ticketing Practice Game",
@@ -191,7 +315,39 @@
       "share_result": "Share Score",
       "share_message": "Ticketing Practice Score: {score}! Can you beat me? 👉",
       "copied": "Copied!",
-      "seo_content": "Free ticketing practice game for Ticketmaster, StubHub, etc. Improve your reaction speed and click accuracy to secure the tickets you want."
+      "seo_content": "Free ticketing practice game for Ticketmaster, StubHub, etc. Improve your reaction speed and click accuracy to secure the tickets you want.",
+      "guide_title": "How to Practice Ticketing",
+      "guide": [
+        {
+          "title": "Wait for Open",
+          "description": "Watch the countdown timer carefully."
+        },
+        {
+          "title": "Click Fast",
+          "description": "As soon as the button becomes active, click it immediately."
+        },
+        {
+          "title": "Check Score",
+          "description": "See your reaction time and milliseconds elapsed. Try to improve."
+        }
+      ],
+      "faq_title": "Ticketing FAQ",
+      "faq": [
+        {
+          "question": "Does this guarantee tickets?",
+          "answer": "No, real ticketing sites depend on server load and internet speed, but this helps train your reflexes."
+        },
+        {
+          "question": "What is a good time?",
+          "answer": "For highly competitive concerts, clicking within 100-300ms of the button opening is often required."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Practicing for K-pop concert ticketing.",
+        "University course registration training.",
+        "Improving general mouse click speed."
+      ]
     },
     "salary_calculator": {
       "title": "Real Salary Calculator (US)",
@@ -206,20 +362,38 @@
       "employment_insurance": "Other / N/A",
       "income_tax": "Federal Income Tax",
       "seo_content": "US Salary Calculator 2025. Estimate your paycheck after Federal Tax, Social Security, Medicare, and State Taxes.",
-      "how_to_title": "How to Calculate Real Salary",
-      "how_to_step1": "Enter your annual gross salary in the input field.",
-      "how_to_step2": "The calculator automatically estimates Federal and State taxes based on standard rates.",
-      "how_to_step3": "It also deducts Social Security (6.2%) and Medicare (1.45%).",
-      "how_to_step4": "View your estimated monthly take-home pay and total deductions.",
+      "guide_title": "How to Calculate Real Salary",
+      "guide": [
+        {
+          "title": "Enter Salary",
+          "description": "Input your annual gross salary."
+        },
+        {
+          "title": "Review Taxes",
+          "description": "The calculator automatically estimates Federal, State, and FICA taxes."
+        },
+        {
+          "title": "Get Results",
+          "description": "See your estimated monthly take-home pay immediately."
+        }
+      ],
       "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "How accurate is this calculator?",
-      "faq_1_a": "This tool provides an estimate based on standard 2024-2025 tax brackets and FICA rates. Actual take-home pay may vary due to specific state laws, filing status, and other deductions like 401(k).",
-      "faq_2_q": "What is FICA?",
-      "faq_2_a": "FICA stands for the Federal Insurance Contributions Act. It is a mandatory payroll tax that funds Social Security and Medicare.",
+      "faq": [
+        {
+          "question": "How accurate is this calculator?",
+          "answer": "It provides an estimate based on standard 2024-2025 tax brackets. Actual pay may vary due to specific deductions (401k, etc.) and filing status."
+        },
+        {
+          "question": "What is FICA?",
+          "answer": "FICA is a mandatory payroll tax funding Social Security and Medicare."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
-      "use_case_1": "Estimating take-home pay for a new job offer.",
-      "use_case_2": "Budgeting monthly expenses based on real income.",
-      "use_case_3": "Understanding the impact of taxes on your salary."
+      "use_cases": [
+        "Estimating take-home pay for a new job offer.",
+        "Budgeting monthly expenses based on real income.",
+        "Understanding tax impact on salary."
+      ]
     },
     "image_to_base64": {
       "title": "Image to Base64 Converter",
@@ -228,14 +402,74 @@
       "copy": "Copy Base64",
       "copied": "Copied!",
       "clear": "Clear",
-      "error_file_too_large": "File is too large. (Max 10MB)"
+      "error_file_too_large": "File is too large. (Max 10MB)",
+      "guide_title": "How to Convert Image to Base64",
+      "guide": [
+        {
+          "title": "Upload Image",
+          "description": "Drag and drop your image file or click to select from your device."
+        },
+        {
+          "title": "Automatic Conversion",
+          "description": "The tool automatically converts the image to a Base64 string."
+        },
+        {
+          "title": "Copy Result",
+          "description": "Click 'Copy Base64' to save the string to your clipboard."
+        }
+      ],
+      "faq_title": "Frequently Asked Questions",
+      "faq": [
+        {
+          "question": "What is Base64?",
+          "answer": "Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format."
+        },
+        {
+          "question": "Does it increase file size?",
+          "answer": "Yes, Base64 strings are approximately 33% larger than the original binary file."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_case_1": "Embedding small icons directly into HTML or CSS.",
+      "use_case_2": "Saving images in text-based databases (JSON/XML).",
+      "use_case_3": "Transferring image data over text-only protocols."
     },
     "base64_to_image": {
       "title": "Base64 Image Decoder",
       "description": "Convert Base64 strings back to image files. Preview and download the result.",
       "input_placeholder": "Paste Base64 string here (data:image/png;base64,...)",
       "download": "Download Image",
-      "error_invalid_format": "Invalid Base64 image format."
+      "error_invalid_format": "Invalid Base64 image format.",
+      "guide_title": "How to Convert Base64 to Image",
+      "guide": [
+        {
+          "title": "Paste String",
+          "description": "Paste your Base64 string into the input field."
+        },
+        {
+          "title": "Decode",
+          "description": "Click 'Decode' (if manual) or wait for auto-detection."
+        },
+        {
+          "title": "Download",
+          "description": "Preview the image and click 'Download' to save it."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What formats are supported?",
+          "answer": "We support most common image formats like PNG, JPEG, GIF, and WEBP."
+        },
+        {
+          "question": "Is my data safe?",
+          "answer": "Yes, decoding happens entirely in your browser."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_case_1": "Previewing images from API responses.",
+      "use_case_2": "Recovering images from database text dumps.",
+      "use_case_3": "Debugging Data URIs in web development."
     },
     "compound_interest": {
       "title": "Compound Interest Calculator",
@@ -254,20 +488,42 @@
       "table_total": "Total Balance",
       "table_interest": "Total Interest",
       "seo_content": "Free online compound interest calculator. Visualize your investment growth with monthly contributions. Essential tool for financial planning and retirement strategy.",
-      "how_to_title": "How to Calculate Compound Interest",
-      "how_to_step1": "Enter your initial investment amount (Principal).",
-      "how_to_step2": "Add your monthly contribution amount.",
-      "how_to_step3": "Set the annual interest rate and the duration in years.",
-      "how_to_step4": "Click calculate to see how your money grows over time.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is Compound Interest?",
-      "faq_1_a": "Compound interest is the interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods.",
-      "faq_2_q": "Why is it called the 'eighth wonder of the world'?",
-      "faq_2_a": "Because of its exponential growth potential. Small regular investments can grow into significant sums over long periods due to compounding.",
-      "use_cases_title": "Common Use Cases",
-      "use_case_1": "Planning for retirement savings.",
-      "use_case_2": "Calculating returns on stock market investments.",
-      "use_case_3": "Visualizing the benefits of starting to invest early."
+      "guide_title": "How to Calculate Compound Interest",
+      "guide": [
+        {
+          "title": "Enter Principal",
+          "description": "Input your initial investment amount."
+        },
+        {
+          "title": "Add Monthly Contribution",
+          "description": "Enter the amount you plan to add each month."
+        },
+        {
+          "title": "Set Rate & Time",
+          "description": "Input the annual interest rate and investment duration in years."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click Calculate to see the future value and interest earned."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is Compound Interest?",
+          "answer": "Compound interest is the interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods."
+        },
+        {
+          "question": "Why is it powerful?",
+          "answer": "Because of its exponential growth potential. Small regular investments can grow into significant sums over long periods due to compounding."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Planning for retirement savings.",
+        "Calculating returns on stock market investments.",
+        "Visualizing the benefits of starting to invest early."
+      ]
     },
     "uuid_generator": {
       "title": "UUID Generator",
@@ -281,16 +537,34 @@
       "all_copied": "All UUIDs copied!",
       "clear": "Clear",
       "seo_content": "Free online UUID Generator. Generate random UUIDs (v4) instantly. Essential for developers needing unique identifiers for databases and applications.",
-      "how_to_title": "How to Generate UUIDs",
-      "how_to_step1": "Select the number of UUIDs you want to generate (default is 1).",
-      "how_to_step2": "Click the 'Generate' button.",
-      "how_to_step3": "Click the copy icon next to a UUID to copy it.",
-      "how_to_step4": "Use 'Copy All' to copy the entire list.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "Are these UUIDs unique?",
-      "faq_1_a": "Yes, we generate Version 4 UUIDs which are randomly generated. The probability of collision is astronomically low.",
-      "faq_2_q": "Can I generate bulk UUIDs?",
-      "faq_2_a": "Yes, you can generate multiple UUIDs at once using the quantity selector.",
+      "guide": [
+        {
+          "title": "Set Quantity",
+          "description": "Select the number of UUIDs you want to generate (default is 1)."
+        },
+        {
+          "title": "Generate",
+          "description": "Click the 'Generate' button."
+        },
+        {
+          "title": "Copy One",
+          "description": "Click the copy icon next to a UUID to copy it."
+        },
+        {
+          "title": "Copy All",
+          "description": "Use 'Copy All' to copy the entire list."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Are these UUIDs unique?",
+          "answer": "Yes, we generate Version 4 UUIDs which are randomly generated. The probability of collision is astronomically low."
+        },
+        {
+          "question": "Can I generate bulk UUIDs?",
+          "answer": "Yes, you can generate multiple UUIDs at once using the quantity selector."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Generating unique primary keys for database records.",
       "use_case_2": "Creating unique session IDs or transaction IDs.",
@@ -307,7 +581,39 @@
       "input": "Input",
       "result": "Result",
       "select_unit": "Select Unit",
-      "seo_content": "Free online unit converter. Convert meters, inches, feet, kilograms, pounds, Celsius, Fahrenheit, and more for daily life and work."
+      "seo_content": "Free online unit converter. Convert meters, inches, feet, kilograms, pounds, Celsius, Fahrenheit, and more for daily life and work.",
+      "guide_title": "How to Convert Units",
+      "guide": [
+        {
+          "title": "Select Category",
+          "description": "Choose the type of unit you want to convert (Length, Weight, Volume, etc.)."
+        },
+        {
+          "title": "Enter Value",
+          "description": "Input the value you want to convert."
+        },
+        {
+          "title": "Select Units",
+          "description": "Select the 'From' and 'To' units from the dropdowns."
+        }
+      ],
+      "faq_title": "Unit Converter FAQ",
+      "faq": [
+        {
+          "question": "Which units are supported?",
+          "answer": "We support common units for length (m, ft, in), weight (kg, lb), temperature (C, F), volume, and area."
+        },
+        {
+          "question": "Is the conversion accurate?",
+          "answer": "Yes, we use standard conversion factors for precise calculations."
+        }
+      ],
+      "use_cases_title": "Common Uses",
+      "use_cases": [
+        "Converting cooking measurements (cups to ml, oz to g).",
+        "Travel conversions (miles to km, Fahrenheit to Celsius).",
+        "Academic and scientific calculations."
+      ]
     },
     "jwt_decoder": {
       "title": "JWT Decoder",
@@ -319,16 +625,34 @@
       "error_invalid": "Invalid Token",
       "privacy_alert": "Your token is decoded locally in your browser and never sent to any server.",
       "seo_content": "Free online JWT Decoder. Decode and inspect JSON Web Tokens (JWT) instantly. View header, payload, and signature details without sending data to a server.",
-      "how_to_title": "How to Decode JWT",
-      "how_to_step1": "Paste your JWT string into the input area.",
-      "how_to_step2": "The tool will automatically decode the token.",
-      "how_to_step3": "View the Header, Payload, and Signature sections.",
-      "how_to_step4": "Check the expiration time and other claims.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "Is it safe to paste my JWT here?",
-      "faq_1_a": "Yes, decoding is done entirely in your browser. Your tokens are never sent to our servers.",
-      "faq_2_q": "Can I verify the signature?",
-      "faq_2_a": "Currently, we only support decoding. Signature verification requires your secret key, which you should not share.",
+      "guide": [
+        {
+          "title": "Paste JWT",
+          "description": "Paste your JWT string into the input area."
+        },
+        {
+          "title": "Auto Decode",
+          "description": "The tool will automatically decode the token."
+        },
+        {
+          "title": "View Details",
+          "description": "View the Header, Payload, and Signature sections."
+        },
+        {
+          "title": "Check Claims",
+          "description": "Check the expiration time and other claims."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Is it safe to paste my JWT here?",
+          "answer": "Yes, decoding is done entirely in your browser. Your tokens are never sent to our servers."
+        },
+        {
+          "question": "Can I verify the signature?",
+          "answer": "Currently, we only support decoding. Signature verification requires your secret key, which you should not share."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Debugging authentication issues in web applications.",
       "use_case_2": "Inspecting token claims (roles, permissions, expiration).",
@@ -349,20 +673,42 @@
       "copy": "Copy",
       "copied": "Copied",
       "seo_content": "Free online Unix Timestamp Converter. Convert Unix timestamps to human-readable dates and vice versa. Supports seconds, milliseconds, and microseconds.",
-      "how_to_title": "How to Convert Timestamps",
-      "how_to_step1": "Enter a Unix timestamp to convert it to a date.",
-      "how_to_step2": "Or, select a date and time to convert it to a Unix timestamp.",
-      "how_to_step3": "The tool automatically detects seconds, milliseconds, or microseconds.",
-      "how_to_step4": "Click the copy button to save the result.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is a Unix Timestamp?",
-      "faq_1_a": "It is the number of seconds that have elapsed since January 1, 1970 (UTC). It is widely used in computer systems to track time.",
-      "faq_2_q": "Does it support milliseconds?",
-      "faq_2_a": "Yes, our tool automatically detects 13-digit timestamps as milliseconds and 10-digit timestamps as seconds.",
-      "use_cases_title": "Common Use Cases",
-      "use_case_1": "Debugging server logs with timestamped entries.",
-      "use_case_2": "Converting database stored procedures dates.",
-      "use_case_3": "Calculating time differences between events."
+      "guide_title": "How to Convert Timestamps",
+      "guide": [
+        {
+          "title": "Timestamp to Date",
+          "description": "Enter a Unix timestamp to see the date in UTC and Local time."
+        },
+        {
+          "title": "Date to Timestamp",
+          "description": "Select a specific date and time to generate its Unix timestamp."
+        },
+        {
+          "title": "Auto Detect",
+          "description": "The tool automatically detects seconds (10 digits) or milliseconds (13 digits)."
+        },
+        {
+          "title": "Copy Result",
+          "description": "Click the copy button to use the result in your code."
+        }
+      ],
+      "faq_title": "Unix Timestamp FAQ",
+      "faq": [
+        {
+          "question": "What is the Unix Epoch?",
+          "answer": "It is 00:00:00 UTC on 1 January 1970."
+        },
+        {
+          "question": "Does it handle timezones?",
+          "answer": "The input timestamp is UTC. The output shows both UTC and your local time."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Decoding API response timestamps.",
+        "Debugging database records.",
+        "Scheduling tasks in code."
+      ]
     },
     "cron_generator": {
       "title": "Cron Expression Generator",
@@ -388,16 +734,34 @@
         "on_day": "On day"
       },
       "seo_content": "Free online Cron Expression Generator. Create Linux Crontab schedules easily with a GUI and get human-readable descriptions. Set up recurring tasks for minutes, hours, days, weeks, and months.",
-      "how_to_title": "How to Generate Cron Expressions",
-      "how_to_step1": "Select the frequency tab (Minutes, Hourly, Daily, Weekly, Monthly).",
-      "how_to_step2": "Configure the specific time and day settings.",
-      "how_to_step3": "The Cron expression is automatically generated below.",
-      "how_to_step4": "Click 'Copy' to use it in your crontab file.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is Cron?",
-      "faq_1_a": "Cron is a time-based job scheduler in Unix-like computer operating systems. Users use cron to schedule jobs (commands or scripts) to run periodically at fixed times, dates, or intervals.",
-      "faq_2_q": "Does this support 5 or 6 fields?",
-      "faq_2_a": "This tool generates standard 5-field cron expressions (minute, hour, day of month, month, day of week) used in most Linux systems.",
+      "guide": [
+        {
+          "title": "Select Frequency",
+          "description": "Select the frequency tab (Minutes, Hourly, Daily, Weekly, Monthly)."
+        },
+        {
+          "title": "Configure Settings",
+          "description": "Configure the specific time and day settings."
+        },
+        {
+          "title": "Auto Generate",
+          "description": "The Cron expression is automatically generated below."
+        },
+        {
+          "title": "Copy Result",
+          "description": "Click 'Copy' to use it in your crontab file."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is Cron?",
+          "answer": "Cron is a time-based job scheduler in Unix-like computer operating systems. Users use cron to schedule jobs (commands or scripts) to run periodically at fixed times, dates, or intervals."
+        },
+        {
+          "question": "Does this support 5 or 6 fields?",
+          "answer": "This tool generates standard 5-field cron expressions (minute, hour, day of month, month, day of week) used in most Linux systems."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Scheduling daily database backups.",
       "use_case_2": "Running periodic system maintenance scripts.",
@@ -405,20 +769,48 @@
     },
     "roi_calculator": {
       "title": "ROI Calculator",
-      "description": "Calculate your Return on Investment (ROI) and annualized ROI.",
-      "invested_amount": "Invested Amount",
-      "amount_returned": "Amount Returned (Final Value)",
-      "investment_duration": "Investment Duration",
-      "calculate": "Calculate",
-      "roi_result": "ROI Result",
-      "annualized_roi": "Annualized ROI (CAGR)",
-      "total_profit": "Total Profit",
+      "description": "Calculate Return on Investment (ROI) and annualized ROI.",
+      "invested_amount": "Amount Invested",
+      "amount_returned": "Amount Returned",
+      "investment_duration": "Investment Peiord (Years) - Optional",
+      "calculate": "Calculate ROI",
+      "roi_result": "ROI",
+      "annualized_roi": "Annualized ROI",
+      "total_profit": "Investment Gain",
       "years": "Years",
       "months": "Months",
       "days": "Days",
       "invested": "Invested",
       "returned": "Returned",
-      "seo_content": "Free online ROI Calculator. Calculate your Return on Investment percentage, Total Profit, and Annualized ROI (CAGR) instantly. Useful for analyzing stocks, real estate, and business investments."
+      "seo_content": "Free online ROI Calculator. Calculate Return on Investment and Annualized ROI to evaluate the efficiency of an investment.",
+      "guide_title": "How to Calculate ROI",
+      "guide": [
+        {
+          "title": "Enter Investment",
+          "description": "Input the initial amount you invested."
+        },
+        {
+          "title": "Enter Return",
+          "description": "Input the final value or amount returned."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click 'Calculate' to see the ROI percentage."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is the ROI formula?",
+          "answer": "ROI = ((Final Value - Initial Cost) / Initial Cost) * 100%."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Evaluating stock market performance.",
+        "Measuring marketing campaign success.",
+        "Comparing different investment opportunities."
+      ]
     },
     "youtube_calculator": {
       "title": "YouTube Earnings Calculator",
@@ -429,8 +821,40 @@
       "daily": "Daily",
       "monthly": "Monthly",
       "yearly": "Yearly",
-      "disclaimer": "Estimates only. Actual earnings vary by niche and country.",
-      "seo_content": "Free online YouTube Estimated Earnings Calculator. Estimate your potential daily, monthly, and yearly revenue based on daily views and RPM. Essential tool for YouTubers and creators."
+      "disclaimer": "Estimates only. Actual earnings vary by niche, country, and engagement.",
+      "seo_content": "Free YouTube Money Calculator. Estimate your potential earnings from YouTube AdSense based on daily views and RPM.",
+      "guide_title": "How to Estimate YouTube Income",
+      "guide": [
+        {
+          "title": "Enter Views",
+          "description": "Input your average daily video views."
+        },
+        {
+          "title": "Set RPM",
+          "description": "Enter your estimated RPM (Revenue Per Mille/Thousand views). Standard range is $0.5 - $5.0."
+        },
+        {
+          "title": "Check Earnings",
+          "description": "See your estimated daily, monthly, and yearly income."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is RPM?",
+          "answer": "RPM stands for Revenue Per Mille (thousand). It represents how much money you earn for every 1,000 views."
+        },
+        {
+          "question": "Are these figures exact?",
+          "answer": "No, they are estimates. Actual earnings depend on ad types, viewer location, and niche."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Planning a YouTube channel strategy.",
+        "Setting revenue goals for creators.",
+        "Understanding potential ad revenue."
+      ]
     },
     "pomodoro_timer": {
       "title": "Pomodoro Timer",
@@ -445,7 +869,43 @@
       "save": "Save",
       "close": "Close",
       "minutes": "Minutes",
-      "seo_content": "Free online Pomodoro Timer. Boost your focus and productivity with the 25-minute work and 5-minute break cycle. Optimized for study, work, and coding."
+      "seo_content": "Free online Pomodoro Timer. Boost your focus and productivity with the 25-minute work and 5-minute break cycle. Optimized for study, work, and coding.",
+      "guide_title": "How to Use Pomodoro Timer",
+      "guide": [
+        {
+          "title": "Set Tasks",
+          "description": "Decide on the task you need to complete."
+        },
+        {
+          "title": "Start Timer",
+          "description": "Start the 25-minute focus timer and work on your task."
+        },
+        {
+          "title": "Take a Break",
+          "description": "When the alarm rings, take a 5-minute short break."
+        },
+        {
+          "title": "Repeat Cycle",
+          "description": "Repeat the cycle 4 times, then take a longer break (15-30 min)."
+        }
+      ],
+      "faq_title": "Pomodoro FAQ",
+      "faq": [
+        {
+          "question": "What is the Pomodoro Technique?",
+          "answer": "It's a time management method developed by Francesco Cirillo that uses a timer to break work into intervals, typically 25 minutes in length, separated by short breaks."
+        },
+        {
+          "question": "Can I change the time intervals?",
+          "answer": "Yes, you can customize the focus, short break, and long break durations in the settings."
+        }
+      ],
+      "use_cases_title": "Ideal For",
+      "use_cases": [
+        "Studying for exams or learning new skills.",
+        "Focusing on deep work or coding tasks.",
+        "Managing meaningful breaks to prevent burnout."
+      ]
     },
     "password_generator": {
       "title": "Password Generator",
@@ -463,20 +923,42 @@
       "medium": "Medium",
       "strong": "Strong",
       "seo_content": "Free online Password Generator. Create strong, secure passwords instantly. Customize length, include symbols, numbers, and uppercase letters to protect your accounts.",
-      "how_to_title": "How to Generate Secure Passwords",
-      "how_to_step1": "Adjust the password length using the slider.",
-      "how_to_step2": "Check the boxes to include uppercase letters, numbers, or symbols.",
-      "how_to_step3": "Click 'Generate' to create a new password.",
-      "how_to_step4": "Click the copy icon to save it to your clipboard.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "Are these passwords secure?",
-      "faq_1_a": "Yes, we use a cryptographically strong random number generator in your browser. The passwords are never sent to our servers.",
-      "faq_2_q": "What is a good password length?",
-      "faq_2_a": "We recommend a minimum of 12 characters, mixing letters, numbers, and symbols for better security.",
+      "guide_title": "How to Generate Secure Passwords",
+      "guide": [
+        {
+          "title": "Set Length",
+          "description": "Adjust the slider to choose your desired password length (12+ recommended)."
+        },
+        {
+          "title": "Select Options",
+          "description": "Check boxes to include Uppercase, Numbers, and Symbols for better security."
+        },
+        {
+          "title": "Generate",
+          "description": "Click 'Generate' to create a new random password."
+        },
+        {
+          "title": "Copy",
+          "description": "Click the copy icon to save the password to your clipboard."
+        }
+      ],
+      "faq_title": "Password Generator FAQ",
+      "faq": [
+        {
+          "question": "Are these passwords secure?",
+          "answer": "Yes, we use a cryptographically strong random number generator in your browser. The passwords are never sent to our servers."
+        },
+        {
+          "question": "What is a good password length?",
+          "answer": "We recommend a minimum of 12 characters, mixing letters, numbers, and symbols for better security."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
-      "use_case_1": "Creating strong passwords for new online accounts.",
-      "use_case_2": "Replacing weak or compromised passwords.",
-      "use_case_3": "Generating secure keys for Wi-Fi or encryption."
+      "use_cases": [
+        "Creating unique passwords for new accounts.",
+        "Replacing weak passwords with strong ones.",
+        "Generating API keys or random tokens."
+      ]
     },
     "qr_code": {
       "title": "QR Code Generator",
@@ -488,7 +970,39 @@
       "color_dark": "QR Color",
       "color_light": "Background Color",
       "download": "Download PNG",
-      "seo_content": "Free online QR Code Generator. Convert website links, text, and contact info into QR codes and download as PNG images. Customize colors and size freely."
+      "seo_content": "Free online QR Code Generator. Convert website links, text, and contact info into QR codes and download as PNG images. Customize colors and size freely.",
+      "guide_title": "How to Create QR Codes",
+      "guide": [
+        {
+          "title": "Enter Content",
+          "description": "Type the URL or text you want to encode."
+        },
+        {
+          "title": "Customize",
+          "description": "Adjust the size and choose custom colors."
+        },
+        {
+          "title": "Download",
+          "description": "Click 'Download PNG' to save your QR code."
+        }
+      ],
+      "faq_title": "QR Code FAQ",
+      "faq": [
+        {
+          "question": "Do these QR codes expire?",
+          "answer": "No, standard static QR codes never expire. They work as long as the content (link) is valid."
+        },
+        {
+          "question": "Is there a scan limit?",
+          "answer": "No, you can scan them an unlimited number of times."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Sharing website URLs on print materials.",
+        "Encoding text messages or contact info.",
+        "Creating scannable coupons or promotion codes."
+      ]
     },
     "sql_formatter": {
       "title": "SQL Formatter",
@@ -501,16 +1015,34 @@
       "dialect": "SQL Dialect",
       "tab_width": "Tab Width",
       "seo_content": "Free online SQL Formatter and Beautifier. Format complex SQL queries instantly. Supports Standard SQL, MySQL, PostgreSQL, and more. Improve your code readability.",
-      "how_to_title": "How to Format SQL",
-      "how_to_step1": "Paste your SQL query into the editor.",
-      "how_to_step2": "Select your SQL dialect (Standard, MySQL, PostgreSQL, etc.).",
-      "how_to_step3": "Click 'Format' to beautify the query.",
-      "how_to_step4": "Copy the formatted SQL to your clipboard.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "Which SQL dialects are supported?",
-      "faq_1_a": "We support Standard SQL, MySQL, PostgreSQL, SQLite, MariaDB, and PL/SQL.",
-      "faq_2_q": "Is my SQL code sent to a server?",
-      "faq_2_a": "No, all formatting is done locally in your browser. Your queries remain private.",
+      "guide": [
+        {
+          "title": "Paste SQL",
+          "description": "Paste your SQL query into the editor."
+        },
+        {
+          "title": "Select Dialect",
+          "description": "Select your SQL dialect (Standard, MySQL, PostgreSQL, etc.)."
+        },
+        {
+          "title": "Format Code",
+          "description": "Click 'Format' to beautify the query."
+        },
+        {
+          "title": "Copy Result",
+          "description": "Copy the formatted SQL to your clipboard."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Which SQL dialects are supported?",
+          "answer": "We support Standard SQL, MySQL, PostgreSQL, SQLite, MariaDB, and PL/SQL."
+        },
+        {
+          "question": "Is my SQL code sent to a server?",
+          "answer": "No, all formatting is done locally in your browser. Your queries remain private."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Formatting complex nested queries for better readability.",
       "use_case_2": "Standardizing SQL code style across a team.",
@@ -530,7 +1062,35 @@
       "calc3_result": "to is what % change?",
       "calculate": "Calculate",
       "result": "Result",
-      "seo_content": "Free online percentage calculator. Calculate percentage of a value, percentage change, and percentage increase/decrease easily. Useful for discounts, tips, and financial calculations."
+      "seo_content": "Free online percentage calculator. Calculate percentage of a value, percentage change, and percentage increase/decrease easily. Useful for discounts, tips, and financial calculations.",
+      "guide_title": "How to Use Percentage Calculator",
+      "guide": [
+        {
+          "title": "Select Type",
+          "description": "Choose the type of calculation: Percentage of Value, Percentage Change, or Increase/Decrease."
+        },
+        {
+          "title": "Enter Values",
+          "description": "Input the numbers into the corresponding fields."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click Calculate to see the result instantly."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "How do I calculate X% of Y?",
+          "answer": "Multiply Y by X, then divide by 100. Or use our first calculator mode."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Calculating discounts during sales.",
+        "Determining tip amounts at restaurants.",
+        "Analyzing growth rates in business."
+      ]
     },
     "diff_checker": {
       "title": "Diff Checker",
@@ -542,7 +1102,43 @@
       "legend_added": "Added",
       "legend_removed": "Removed",
       "no_diff": "The two texts are identical.",
-      "seo_content": "Free online Diff Checker. Compare two text files or code snippets to find differences. Visualize added and removed lines easily. Useful for code review and document comparison."
+      "seo_content": "Free online Diff Checker. Compare two text files or code snippets to find differences. Visualize added and removed lines easily. Useful for code review and document comparison.",
+      "guide_title": "How to Use Diff Checker",
+      "guide": [
+        {
+          "title": "Enter Original Text",
+          "description": "Paste the original text or code into the left panel."
+        },
+        {
+          "title": "Enter Modified Text",
+          "description": "Paste the new version into the right panel."
+        },
+        {
+          "title": "Compare",
+          "description": "Click the 'Compare' button to visualize the differences."
+        },
+        {
+          "title": "Review",
+          "description": "Added lines are green, removed lines are red. Unchanged lines remain neutral."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Is my code secure?",
+          "answer": "Yes, the comparison happens entirely in your browser using JavaScript. No data is sent to our servers."
+        },
+        {
+          "question": "Can I compare code files?",
+          "answer": "Yes, copy and paste the contents of your code files to see line-by-line differences."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Reviewing code changes before commit.",
+        "Comparing two versions of a document.",
+        "Debugging configuration file mismatches."
+      ]
     },
     "d_day_counter": {
       "title": "D-Day Counter",
@@ -558,7 +1154,39 @@
       "days_left": "days left",
       "days_passed": "days passed",
       "today": "It's Today!",
-      "seo_content": "Free online D-Day Counter. Calculate days remaining for events or days passed since a date. Perfect for anniversaries, countdowns, and tracking important milestones."
+      "seo_content": "Free online D-Day Counter. Calculate days remaining for events or days passed since a date. Perfect for anniversaries, countdowns, and tracking important milestones.",
+      "guide_title": "How to Use D-Day Counter",
+      "guide": [
+        {
+          "title": "Select Type",
+          "description": "Choose between 'D-Day' (days remaining) or 'Day Count' (days passed)."
+        },
+        {
+          "title": "Set Details",
+          "description": "Enter the target date and a title for your event."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click the button to see the days remaining or passed."
+        }
+      ],
+      "faq_title": "D-Day FAQ",
+      "faq": [
+        {
+          "question": "Does it include the start date?",
+          "answer": "You can toggle 'Include Start Date' to count the starting day as Day 1 (common for anniversaries)."
+        },
+        {
+          "question": "How do I calculate anniversaries?",
+          "answer": "Use the 'Day Count' mode and check 'Include Start Date' to find out how many days have passed since a specific date like a wedding or birth."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Countdown to exams, weddings, or holidays.",
+        "Tracking days since a relationship started or a baby was born.",
+        "Calculating project deadlines."
+      ]
     },
     "bmi_calculator": {
       "title": "BMI Calculator",
@@ -584,32 +1212,78 @@
       "tip_obese": "You are in the obese range. It is recommended to consult a healthcare provider for a personalized weight management plan.",
       "tip_severe_obese": "You are in the severely obese range. Please consult a healthcare provider for immediate medical advice and support.",
       "seo_content": "Free online BMI Calculator. Enter your height and weight to calculate your Body Mass Index (BMI) and check your weight status. Essential tool for health management.",
-      "how_to_title": "How to Calculate BMI",
-      "how_to_step1": "Enter your height in centimeters (cm).",
-      "how_to_step2": "Enter your weight in kilograms (kg).",
-      "how_to_step3": "Click the 'Calculate' button.",
-      "how_to_step4": "Check your BMI score and weight status classification.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is BMI?",
-      "faq_1_a": "BMI stands for Body Mass Index. It is a simple calculation using a person's height and weight. The formula is BMI = kg/m2 where kg is a person's weight in kilograms and m2 is their height in metres squared.",
-      "faq_2_q": "Is BMI accurate for athletes?",
-      "faq_2_a": "BMI does not distinguish between muscle and fat. Therefore, athletes with high muscle mass may be classified as overweight even if they have low body fat.",
-      "use_cases_title": "Common Use Cases",
-      "use_case_1": "Self-assessment of weight status.",
-      "use_case_2": "Setting healthy weight goals.",
-      "use_case_3": "Monitoring weight changes over time."
+      "guide_title": "How to Calculate BMI",
+      "guide": [
+        {
+          "title": "Enter Height & Weight",
+          "description": "Input your height in cm and weight in kg."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click Calculate to see your BMI score."
+        },
+        {
+          "title": "Check Status",
+          "description": "See if you are underweight, normal, overweight, or obese based on the WHO classification."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is BMI?",
+          "answer": "BMI (Body Mass Index) is a simple calculation using a person's height and weight to categorize weight status."
+        },
+        {
+          "question": "Is BMI accurate for athletes?",
+          "answer": "BMI doesn't distinguish between muscle and fat, so athletes with high muscle mass might be classified as overweight."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Self-assessment of weight status.",
+        "Setting healthy weight goals.",
+        "Monitoring weight changes over time."
+      ]
     },
     "vat_calculator": {
       "title": "VAT Calculator",
-      "description": "Calculate VAT (Value Added Tax) and total amount easily. Supports both tax-exclusive and tax-inclusive calculations.",
+      "description": "Calculate VAT (Value Added Tax) inclusive and exclusive prices.",
       "amount_label": "Amount",
-      "rate_label": "Tax Rate (%)",
-      "add_tax": "Add Tax (Exclusive)",
-      "remove_tax": "Remove Tax (Inclusive)",
+      "rate_label": "VAT Rate (%)",
+      "add_tax": "Add VAT",
+      "remove_tax": "Remove VAT",
       "vat_amount": "VAT Amount",
-      "total_amount": "Total Amount",
+      "total_amount": "Gross Amount",
       "net_amount": "Net Amount",
-      "seo_content": "Free online VAT Calculator. Calculate Value Added Tax (VAT) quickly and accurately. Supports adding tax to net amount or extracting tax from gross amount. Customizable tax rates for all countries."
+      "seo_content": "Free online VAT Calculator. Easily calculate VAT inclusive and exclusive amounts. Supports custom VAT rates.",
+      "guide_title": "How to Use VAT Calculator",
+      "guide": [
+        {
+          "title": "Enter Amount",
+          "description": "Input the price or amount."
+        },
+        {
+          "title": "Set Rate",
+          "description": "Enter the VAT percentage (e.g., 20)."
+        },
+        {
+          "title": "Select Action",
+          "description": "Choose 'Add VAT' to get the gross price, or 'Remove VAT' to get the net price."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "values rounded?",
+          "answer": "Yes, values are typically rounded to 2 decimal places suitable for currency."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Checking invoice amounts.",
+        "Calculating tax refunds for shopping abroad.",
+        "Setting product prices for retail."
+      ]
     },
     "aspect_ratio_calculator": {
       "title": "Aspect Ratio Calculator",
@@ -621,16 +1295,34 @@
       "result": "Result",
       "common_ratios": "Common Ratios",
       "seo_content": "Free online Aspect Ratio Calculator. Calculate width or height based on 16:9, 4:3, 21:9 and other common aspect ratios. Essential tool for responsive design and video editing.",
-      "how_to_title": "How to Calculate Aspect Ratios",
-      "how_to_step1": "Enter the known width or height.",
-      "how_to_step2": "Select a common aspect ratio (e.g., 16:9) or enter a custom one.",
-      "how_to_step3": "The tool automatically calculates the missing dimension.",
-      "how_to_step4": "Use the result for your design or video project.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is Aspect Ratio?",
-      "faq_1_a": "Aspect Ratio is the proportional relationship between the width and height of an image or screen.",
-      "faq_2_q": "What is the standard aspect ratio for YouTube?",
-      "faq_2_a": "The standard aspect ratio for YouTube videos is 16:9. Vertical Shorts use 9:16.",
+      "guide": [
+        {
+          "title": "Enter Dimensions",
+          "description": "Enter the known width or height."
+        },
+        {
+          "title": "Select Ratio",
+          "description": "Select a common aspect ratio (e.g., 16:9) or enter a custom one."
+        },
+        {
+          "title": "Auto Calculate",
+          "description": "The tool automatically calculates the missing dimension."
+        },
+        {
+          "title": "Use Result",
+          "description": "Use the result for your design or video project."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is Aspect Ratio?",
+          "answer": "Aspect Ratio is the proportional relationship between the width and height of an image or screen."
+        },
+        {
+          "question": "What is the standard aspect ratio for YouTube?",
+          "answer": "The standard aspect ratio for YouTube videos is 16:9. Vertical Shorts use 9:16."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Resizing images for social media posts.",
       "use_case_2": "Calculating video dimensions for editing.",
@@ -648,7 +1340,39 @@
       "quiz_next": "Next Question",
       "quiz_correct": "Correct!",
       "quiz_wrong": "Wrong! The answer is {answer}.",
-      "seo_content": "Free online Country Capital Quiz and Finder. Search for capitals of countries around the world or test your geography knowledge with an interactive quiz. Learn flags, capitals, and regions."
+      "seo_content": "Free online Country Capital Quiz and Finder. Search for capitals of countries around the world or test your geography knowledge with an interactive quiz. Learn flags, capitals, and regions.",
+      "guide_title": "How to Play Quiz",
+      "guide": [
+        {
+          "title": "Start Quiz",
+          "description": "Click 'Quiz' tab to begin the game."
+        },
+        {
+          "title": "Guess Capital",
+          "description": "Select the correct capital for the displayed country flag and name."
+        },
+        {
+          "title": "Learn",
+          "description": "If you get it wrong, the correct answer is shown to help you learn."
+        }
+      ],
+      "faq_title": "Quiz FAQ",
+      "faq": [
+        {
+          "question": "How many countries are included?",
+          "answer": "We have a comprehensive database of over 240 countries and territories."
+        },
+        {
+          "question": "Is it educational?",
+          "answer": "Yes, it's great for students and geography enthusiasts to learn world, capitals."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Studying for geography tests.",
+        "Learning about new countries and travel destinations.",
+        "Brain training and memory improvement."
+      ]
     },
     "random_wheel": {
       "title": "Random Wheel Picker",
@@ -658,7 +1382,39 @@
       "spin": "Spin",
       "reset": "Reset",
       "winner": "Winner!",
-      "seo_content": "Free online Random Wheel Picker. Make decisions fun and fair by spinning the wheel. Perfect for picking lunch, raffle winners, or assigning tasks randomly."
+      "seo_content": "Free online Random Wheel Picker. Make decisions fun and fair by spinning the wheel. Perfect for picking lunch, raffle winners, or assigning tasks randomly.",
+      "guide_title": "How to Use Random Wheel",
+      "guide": [
+        {
+          "title": "Add Options",
+          "description": "Enter your options (names, items, choices) into the list."
+        },
+        {
+          "title": "Spin",
+          "description": "Click the 'Spin' button to rotate the wheel."
+        },
+        {
+          "title": "Get Result",
+          "description": "Wait for the wheel to stop to see the randomly selected item."
+        }
+      ],
+      "faq_title": "Random Wheel FAQ",
+      "faq": [
+        {
+          "question": "Is it truly random?",
+          "answer": "Yes, the result is generated using a random number generator algorithm."
+        },
+        {
+          "question": "Can I save my lists?",
+          "answer": "Currently, lists are not saved permanently, but you can copy/paste them."
+        }
+      ],
+      "use_cases_title": "Fun Use Cases",
+      "use_cases": [
+        "Deciding where to eat for lunch.",
+        "Selecting a winner for a raffle or giveaway.",
+        "Choosing who goes first in a game."
+      ]
     },
     "image_resizer": {
       "title": "Image Converter & Resizer",
@@ -704,7 +1460,11 @@
           "question": "Is there a file size limit?",
           "answer": "Since processing happens in your browser, large files (e.g. >20MB) might depend on your device memory, but most images are handled easily."
         }
-      ]
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_case_1": "Resizing photos for social media profiles.",
+      "use_case_2": "Optimizing images for faster website loading.",
+      "use_case_3": "Reducing email attachment sizes."
     },
     "lorem_ipsum": {
       "title": "Lorem Ipsum Generator",
@@ -717,7 +1477,43 @@
       "generate": "Generate",
       "copy": "Copy",
       "copied": "Copied!",
-      "seo_content": "Free online Lorem Ipsum Generator. Generate dummy text for website design, publishing, and graphic design. Create paragraphs, sentences, or words of standard Lorem Ipsum text."
+      "seo_content": "Free online Lorem Ipsum Generator. Generate dummy text for website design, publishing, and graphic design. Create paragraphs, sentences, or words of standard Lorem Ipsum text.",
+      "guide_title": "How to Generate Lorem Ipsum",
+      "guide": [
+        {
+          "title": "Select Type",
+          "description": "Choose whether you want to generate paragraphs, sentences, or words."
+        },
+        {
+          "title": "Set Count",
+          "description": "Enter the number of items you need."
+        },
+        {
+          "title": "Generate",
+          "description": "Click 'Generate' to create the dummy text."
+        },
+        {
+          "title": "Copy",
+          "description": "Click the copy button to use the text in your project."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is Lorem Ipsum?",
+          "answer": "Lorem Ipsum is standard dummy text used in the printing and typesetting industry."
+        },
+        {
+          "question": "Why use it?",
+          "answer": "It provides a natural-looking distribution of letters, making it look like readable English compared to simply repeating 'Content here'."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Filling layout placeholders in web design.",
+        "Testing font, size, and weight in typography.",
+        "Generate random text for testing purposes."
+      ]
     },
     "image_cropper": {
       "title": "Image Cropper",
@@ -729,7 +1525,41 @@
       "crop": "Crop Image",
       "download": "Download Cropped Image",
       "reset": "Reset",
-      "seo_content": "Crop your images online for free. Support for various aspect ratios like 1:1 for Instagram, 16:9 for YouTube, and custom cropping. No upload to server required."
+      "seo_content": "Crop your images online for free. Support for various aspect ratios like 1:1 for Instagram, 16:9 for YouTube, and custom cropping. No upload to server required.",
+      "guide_title": "How to Crop Images",
+      "guide": [
+        {
+          "title": "Upload Image",
+          "description": "Upload the image you want to crop."
+        },
+        {
+          "title": "Select Area",
+          "description": "Drag the handles to select the crop area or choose a preset aspect ratio."
+        },
+        {
+          "title": "Crop",
+          "description": "Click 'Crop Image' to process."
+        },
+        {
+          "title": "Download",
+          "description": "Download the cropped image."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Does it reduce quality?",
+          "answer": "Cropping removes pixels but maintains the quality of the remaining area."
+        },
+        {
+          "question": "Can I crop to a circle?",
+          "answer": "Currently we support rectangular cropping with various aspect ratios."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_case_1": "Creating perfect profile pictures (1:1).",
+      "use_case_2": "Cropping thumbnails for YouTube (16:9).",
+      "use_case_3": "Removing unwanted background objects."
     },
     "exif_viewer": {
       "title": "EXIF Data Viewer",
@@ -761,7 +1591,41 @@
       "reset": "View Another Image",
       "remove_exif": "Remove EXIF Data",
       "privacy_note": "All processing happens in your browser. Your photos are never uploaded to any server.",
-      "seo_content": "Free online EXIF viewer tool. Check hidden metadata in your photos such as camera model, ISO, aperture, shutter speed, and GPS location. Supports JPG, HEIC, PNG formats. Client-side processing ensures your privacy."
+      "seo_content": "Free online EXIF viewer tool. Check hidden metadata in your photos such as camera model, ISO, aperture, shutter speed, and GPS location. Supports JPG, HEIC, PNG formats. Client-side processing ensures your privacy.",
+      "guide_title": "How to View EXIF Data",
+      "guide": [
+        {
+          "title": "Upload Photo",
+          "description": "Select or drag & drop a photo (JPG, HEIC, etc.)."
+        },
+        {
+          "title": "View Data",
+          "description": "The tool extracts and displays hidden metadata."
+        },
+        {
+          "title": "Check Location",
+          "description": "If GPS data is present, you can view the location on a map."
+        },
+        {
+          "title": "Remove EXIF",
+          "description": "Optionally remove metadata for privacy."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is EXIF data?",
+          "answer": "Exchangeable Image File Format (EXIF) stores information like camera settings, date taken, and location within the image file."
+        },
+        {
+          "question": "Is it dangerous?",
+          "answer": "EXIF data can reveal your location. It is recommended to remove it before sharing photos publicly."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_case_1": "Checking camera settings used for a shot.",
+      "use_case_2": "Verifying the date and time a photo was taken.",
+      "use_case_3": "Finding the location of an old photo."
     },
     "image_filters": {
       "title": "Image Filters",
@@ -777,7 +1641,43 @@
       "blur": "Blur",
       "download": "Download",
       "reset": "Reset",
-      "seo_content": "Free online Image Filters tool. Apply filters like Grayscale, Sepia, Blur and adjust brightness, contrast, saturation. Enhance your photos directly in the browser."
+      "seo_content": "Free online Image Filters tool. Apply filters like Grayscale, Sepia, Blur and adjust brightness, contrast, saturation. Enhance your photos directly in the browser.",
+      "guide_title": "How to Use Image Filters",
+      "guide": [
+        {
+          "title": "Upload Image",
+          "description": "Upload the photo you want to edit."
+        },
+        {
+          "title": "Apply Filters",
+          "description": "Choose from various presets like Grayscale, Sepia, or Vintage."
+        },
+        {
+          "title": "Adjust Settings",
+          "description": "Fine-tune brightness, contrast, and saturation."
+        },
+        {
+          "title": "Download",
+          "description": "Save your enhanced image."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Is the original image modified?",
+          "answer": "No, your original file remains untouched. You download a new edited version."
+        },
+        {
+          "question": "Can I apply multiple filters?",
+          "answer": "Yes, filters and adjustments stack to create unique looks."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Creating retro-style photos.",
+        "Blurring background for focus.",
+        "Correcting lighting and colors."
+      ]
     },
     "case_converter": {
       "title": "Text Case Converter",
@@ -794,7 +1694,39 @@
       "copy": "Copy",
       "copied": "Copied!",
       "clear": "Clear",
-      "seo_content": "Free online Text Case Converter. Instantly convert text to Uppercase, Lowercase, Title Case, Sentence Case, Camel Case, Snake Case, and more. Essential tool for writers and developers."
+      "seo_content": "Free online Text Case Converter. Instantly convert text to Uppercase, Lowercase, Title Case, Sentence Case, Camel Case, Snake Case, and more. Essential tool for writers and developers.",
+      "guide_title": "How to Convert Text Case",
+      "guide": [
+        {
+          "title": "Enter Text",
+          "description": "Type or paste the text you want to convert."
+        },
+        {
+          "title": "Select Format",
+          "description": "Click on the desired format button (e.g., UPPERCASE, camelCase)."
+        },
+        {
+          "title": "Copy Result",
+          "description": "The text converts instantly. Click 'Copy' to use it."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is Camel Case?",
+          "answer": "Camel Case writes compound words or phrases such that each word or abbreviation begins with a capital letter, with no intervening spaces or punctuation (e.g., myVariableName)."
+        },
+        {
+          "question": "Is the conversion accurate?",
+          "answer": "Yes, we handle common edge cases for sentence casing and title casing to ensure specific rules are followed."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Formatting code variables (camelCase, snake_case).",
+        "Standardizing headlines for articles (Title Case).",
+        "Fixing accidentally caps-locked text."
+      ]
     },
     "html_encoder": {
       "title": "HTML Encoder/Decoder",
@@ -805,7 +1737,39 @@
       "copy": "Copy",
       "copied": "Copied!",
       "clear": "Clear",
-      "seo_content": "Free online HTML Encoder/Decoder. Convert special characters (<, >, &, \", etc.) to HTML entity codes or decode entities back to text. Essential tool for web developers and content creators."
+      "seo_content": "Free online HTML Encoder/Decoder. Convert special characters (<, >, &, \", etc.) to HTML entity codes or decode entities back to text. Essential tool for web developers and content creators.",
+      "guide_title": "How to Use HTML Encoder",
+      "guide": [
+        {
+          "title": "Input Content",
+          "description": "Paste your text or HTML code into the input area."
+        },
+        {
+          "title": "Encode or Decode",
+          "description": "Choose 'Encode' to convert special chars to entities, or 'Decode' to revert them."
+        },
+        {
+          "title": "Copy",
+          "description": "Copy the processed string for use in your HTML."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Why encode HTML?",
+          "answer": "Encoding prevents the browser from interpreting the text as HTML code, which is crucial for security (XSS prevention) and for displaying code blocks."
+        },
+        {
+          "question": "Which characters are encoded?",
+          "answer": "Characters like <, >, &, \", and ' are converted to their respective HTML entities (e.g., &lt;)."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Displaying HTML code snippets on a webpage.",
+        "Sanitizing user input for databases.",
+        "Fixing broken HTML attributes."
+      ]
     },
     "image_to_pdf": {
       "title": "Image to PDF",
@@ -814,18 +1778,43 @@
       "convert": "Convert to PDF",
       "download": "Download PDF",
       "reset": "Reset",
-      "seo_content": "Free online Image to PDF converter. Easily convert multiple JPG, PNG images into a single PDF document. No software installation required, works directly in your browser."
-    },
-    "base64_to_image": {
-      "title": "Base64 to Image",
-      "description": "Decode Base64 strings to image files (PNG, JPG, GIF, etc.).",
-      "input_label": "Base64 String",
-      "input_placeholder": "Paste your Base64 string here...",
-      "decode_button": "Decode",
-      "download_button": "Download Image",
-      "error_invalid_base64": "Invalid Base64 string or unsupported image format.",
-      "result_label": "Result",
-      "seo_content": "Free online Base64 to Image decoder. Convert Base64 strings to image files instantly. Preview and download your decoded images securely in your browser."
+      "seo_content": "Free online Image to PDF converter. Easily convert multiple JPG, PNG images into a single PDF document. No software installation required, works directly in your browser.",
+      "guide_title": "How to Convert Images to PDF",
+      "guide": [
+        {
+          "title": "Upload Images",
+          "description": "Select multiple JPG or PNG images."
+        },
+        {
+          "title": "Reorder",
+          "description": "Drag and drop to arrange the page order."
+        },
+        {
+          "title": "Convert",
+          "description": "Click 'Convert to PDF' to generate the document."
+        },
+        {
+          "title": "Download",
+          "description": "Save the single PDF file containing all images."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "How many images can I convert?",
+          "answer": "There is no hard limit, but performance depends on your device's memory."
+        },
+        {
+          "question": "Does it reduce image quality?",
+          "answer": "Images are embedded as-is ensuring high quality, but file size may increase."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Creating a digital portfolio from photos.",
+        "Compiling scanned documents into one file.",
+        "Sharing multiple images easily via email."
+      ]
     },
     "csv_json_converter": {
       "title": "CSV <-> JSON Converter",
@@ -844,20 +1833,42 @@
       "error_invalid_csv": "Invalid CSV format.",
       "error_invalid_json": "Invalid JSON format.",
       "seo_content": "Free online CSV to JSON and JSON to CSV converter. Convert data formats instantly for analysis or development. Secure, client-side conversion.",
-      "how_to_title": "How to Use CSV <-> JSON Converter",
-      "how_to_step1": "Select the conversion mode (CSV to JSON or JSON to CSV).",
-      "how_to_step2": "Paste your data or drag & drop a file into the input area.",
-      "how_to_step3": "Check 'Header JSON' if you want the first row of CSV to be used as keys, or if your JSON is an array of objects.",
-      "how_to_step4": "Click 'Convert' and copy or download the result.",
+      "guide_title": "How to Convert CSV & JSON",
+      "guide": [
+        {
+          "title": "Select Mode",
+          "description": "Choose 'CSV to JSON' or 'JSON to CSV' depending on your need."
+        },
+        {
+          "title": "Input Data",
+          "description": "Paste your data into the left input area."
+        },
+        {
+          "title": "Configure",
+          "description": "For CSV, check 'Header JSON' if the first row contains column names."
+        },
+        {
+          "title": "Convert",
+          "description": "Click 'Convert' to generate the output in the right panel."
+        }
+      ],
       "faq_title": "FAQ",
-      "faq_1_q": "Is my data sent to a server?",
-      "faq_1_a": "No, all conversions happen entirely within your browser using JavaScript. Your data never leaves your device.",
-      "faq_2_q": "Can it handle large files?",
-      "faq_2_a": "Yes, it's optimized for performance, but very large files might depend on your browser's memory limit.",
-      "use_cases_title": "Use Cases",
-      "use_case_1": "Converting Excel export (CSV) to JSON for web APIs.",
-      "use_case_2": "Transforming JSON database dumps to CSV for spreadsheet analysis.",
-      "use_case_3": "Quickly formatting data for visualization tools."
+      "faq": [
+        {
+          "question": "Is my data sent to a server?",
+          "answer": "No, all conversions happen entirely within your browser using JavaScript. Your data never leaves your device."
+        },
+        {
+          "question": "Can it handle large files?",
+          "answer": "Yes, practically limited only by your browser's memory, but works well for most typical data files."
+        }
+      ],
+      "use_cases_title": "Common Use Cases",
+      "use_cases": [
+        "Converting Excel data (CSV) for use in web APIs (JSON).",
+        "Flattening JSON API responses into CSV for spreadsheet analysis.",
+        "Migrating data between different systems."
+      ]
     },
     "css_generators": {
       "title": "CSS Generators",
@@ -879,21 +1890,39 @@
       "glass_outline": "Outline",
       "copy_css": "Copy CSS",
       "copied": "Copied!",
-      "seo_content": "Free online CSS visual generator tools. Create beautiful Box Shadows, Gradients, and Glassmorphism effects visually and copy the CSS code instantly. Essential for modern web design.",
-      "how_to_title": "How to Use CSS Generators",
-      "how_to_step1": "Select the tool you want to use from the tabs (Shadow, Gradient, Glass).",
-      "how_to_step2": "Adjust the sliders and color pickers to customize the effect.",
-      "how_to_step3": "Preview the result in real-time in the center box.",
-      "how_to_step4": "Click 'Copy CSS' to copy the generated code to your clipboard.",
-      "faq_title": "CSS Trends FAQ",
-      "faq_1_q": "What is Glassmorphism?",
-      "faq_1_a": "Glassmorphism is a design trend that simulates a frosted glass effect using background blur and semi-transparent white layers.",
-      "faq_2_q": "How can I improve Box Shadow performance?",
-      "faq_2_a": "Avoid large blur radius and spread on large elements, as it can be expensive for the browser to render.",
-      "use_cases_title": "Common Use Cases",
-      "use_case_1": "Creating soft shadows for cards and buttons.",
-      "use_case_2": "Generating eye-catching gradients for backgrounds.",
-      "use_case_3": "Designing modern, frosted glass UI elements."
+      "seo_content": "Free online CSS Generators. Create CSS Box Shadows, Borders, Gradients, and more visually. Copy the generated code directly to your project.",
+      "guide_title": "How to Use CSS Generators",
+      "guide": [
+        {
+          "title": "Select Tool",
+          "description": "Choose the specific generator you need (e.g., Box Shadow, Gradient, Border Radius)."
+        },
+        {
+          "title": "Customize",
+          "description": "Use the sliders and controls to adjust the visual properties."
+        },
+        {
+          "title": "Preview",
+          "description": "See the changes in real-time in the preview box."
+        },
+        {
+          "title": "Copy Code",
+          "description": "Click the copy button to get the CSS code for your project."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Is the CSS compatible with all browsers?",
+          "answer": "The generated CSS is standard CSS3. Most properties work in modern browsers. Vendor prefixes are included where necessary."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Rapidly prototyping UI elements.",
+        "Learning how different CSS properties affect visuals.",
+        "Generating complex code like gradients or shadows without writing it manually."
+      ]
     },
     "youtube_thumbnail": {
       "title": "YouTube Thumbnail Downloader",
@@ -906,12 +1935,6 @@
       "quality_medium": "Medium Quality",
       "quality_standard": "Standard Quality",
       "error_invalid_url": "Invalid YouTube URL. Please check the link.",
-      "seo_content": "Free online YouTube Thumbnail Downloader. Extract 4K, HD, and HQ thumbnails from any YouTube video or Short. Save thumbnails directly to your device.",
-      "how_to_title": "How to Download YouTube Thumbnails",
-      "how_to_step1": "Copy the URL of the YouTube video you want to extract the thumbnail from.",
-      "how_to_step2": "Paste the link into the input box above.",
-      "how_to_step3": "Click 'Get Thumbnail' to generate preview images.",
-      "how_to_step4": "Choose your desired quality and click 'Download Image'.",
       "faq_title": "YouTube Thumbnail FAQ",
       "faq_1_q": "What is the best size for a YouTube thumbnail?",
       "faq_1_a": "The recommended size is 1280x720 pixels (16:9 ratio).",
@@ -968,19 +1991,38 @@
       "privacy_notice": "This information is only visible to you and is not stored on our servers.",
       "error_fetch_ip": "Could not fetch IP address.",
       "seo_content": "Free online tool to check your public IP address, geolocation, and system information (OS, Browser, Screen size). Identify your network details instantly.",
-      "how_to_title": "How to Check Your IP Information",
-      "how_to_step1": "Simply visit this page to see your public IP address automatically.",
-      "how_to_step2": "View detailed system information like your OS and Browser version below.",
-      "how_to_step3": "Click the copy button to copy your IP address to the clipboard.",
+      "guide_title": "How to Check IP Info",
+      "guide": [
+        {
+          "title": "Visit Page",
+          "description": "Your public IP address is detected and displayed immediately upon loading."
+        },
+        {
+          "title": "View Details",
+          "description": "See additional details like your ISP location, OS, and Browser."
+        },
+        {
+          "title": "Copy",
+          "description": "Click to copy your IP address."
+        }
+      ],
       "faq_title": "IP Address FAQ",
-      "faq_1_q": "What is an IP address?",
-      "faq_1_a": "An Internet Protocol (IP) address is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.",
-      "faq_2_q": "Why does my IP address change?",
-      "faq_2_a": "Most residential internet connections use dynamic IP addresses, which are assigned by your ISP and can change periodically or when you restart your router.",
-      "use_cases_title": "Common Use Cases",
-      "use_case_1": "Verifying your VPN connection status.",
-      "use_case_2": "Checking your network configuration for troubleshooting.",
-      "use_case_3": "Identifying browser and OS versions for debugging."
+      "faq": [
+        {
+          "question": "Is my IP address accurate?",
+          "answer": "Yes, it shows the public IP assigned by your ISP as seen by the internet."
+        },
+        {
+          "question": "Can I hide my IP?",
+          "answer": "To hide your IP, you would need to use a VPN or Proxy service."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Verifying VPN connection.",
+        "Checking network configuration.",
+        "Debugging geo-restricted content access."
+      ]
     },
     "wifi_qr_code": {
       "title": "WiFi QR Code Generator",
@@ -993,20 +2035,38 @@
       "label_print": "Print / Download",
       "error_ssid_required": "SSID is required.",
       "seo_content": "Generate a printable WiFi QR Code for your home, office, or cafe. Guests can scan to connect instantly without typing passwords. Supports WPA, WPA2, WEP.",
-      "how_to_title": "How to Create a WiFi QR Code",
-      "how_to_step1": "Enter your WiFi Network Name (SSID) exactly as it appears.",
-      "how_to_step2": "Enter the password and select the encryption type (usually WPA/WPA2).",
-      "how_to_step3": "The QR code will generate automatically. Test it with your phone camera.",
-      "how_to_step4": "Download or print the card to display for your guests.",
-      "faq_title": "WiFi QR Code FAQ",
-      "faq_1_q": "Is it safe to share my WiFi via QR code?",
-      "faq_1_a": "Yes, the QR code simply contains your network credentials in a readable format. It doesn't compromise your network security beyond sharing simplicity.",
-      "faq_2_q": "Which encryption should I choose?",
-      "faq_2_a": "Most modern home and business networks use WPA/WPA2. If your network has no password, select 'None'.",
+      "guide_title": "How to Create WiFi QR",
+      "guide": [
+        {
+          "title": "Enter Details",
+          "description": "Input your Network Name (SSID) and Password."
+        },
+        {
+          "title": "Select Security",
+          "description": "Choose encryption (WPA/WPA2 is standard)."
+        },
+        {
+          "title": "Generate & Print",
+          "description": "Generate the code and print it for your guests."
+        }
+      ],
+      "faq_title": "WiFi QR FAQ",
+      "faq": [
+        {
+          "question": "Is it secure?",
+          "answer": "The QR code just contains text. Treat the printed code like you would your written password."
+        },
+        {
+          "question": "Do I need an app to scan?",
+          "answer": "Most modern phone cameras can scan WiFi QR codes natively."
+        }
+      ],
       "use_cases_title": "Use Cases",
-      "use_case_1": " Cafes and restaurants sharing WiFi with customers.",
-      "use_case_2": " Office guest networks.",
-      "use_case_3": " Home WiFi for visiting friends and family."
+      "use_cases": [
+        "Displaying in cafes or Airbnbs.",
+        "Quickly connecting guests at home.",
+        "Office meeting room setups."
+      ]
     },
     "image_blur": {
       "title": "Image Blur/Mosaic",
@@ -1021,7 +2081,43 @@
       "apply": "Apply",
       "download": "Download",
       "reset": "Reset",
-      "seo_content": "Free online Image Blur and Mosaic tool. Easily blur or pixelate specific areas of your photos to hide faces, sensitive information, or for artistic effect."
+      "seo_content": "Free online Image Blur and Mosaic tool. Easily blur or pixelate specific areas of your photos to hide faces, sensitive information, or for artistic effect.",
+      "guide_title": "How to Blur Images",
+      "guide": [
+        {
+          "title": "Upload Photo",
+          "description": "Upload the image containing sensitive info."
+        },
+        {
+          "title": "Select Area",
+          "description": "Drag over the faces or text you want to hide."
+        },
+        {
+          "title": "Apply Effect",
+          "description": "Choose 'Blur' or 'Mosaic' and adjust intensity."
+        },
+        {
+          "title": "Download",
+          "description": "Download the censored image."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Is the blur reversible?",
+          "answer": "Once you download the image, the blur is permanent and cannot be reversed to reveal the original content."
+        },
+        {
+          "question": "Can I blur multiple areas?",
+          "answer": "Yes, you can select and apply effects to multiple spots."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Hiding faces in public photos.",
+        "Censoring credit card numbers or addresses.",
+        "Creating depth of field effects."
+      ]
     },
     "merge_pdf": {
       "title": "Merge PDF",
@@ -1032,7 +2128,39 @@
       "reset": "Reset",
       "file_count": "files selected",
       "drag_to_reorder": "Drag to reorder files",
-      "seo_content": "Free online PDF merger tool. Combine multiple PDF files into one document in the order you want. Fast, secure, and no installation required."
+      "seo_content": "Free online PDF merger tool. Combine multiple PDF files into one document in the order you want. Fast, secure, and no installation required.",
+      "guide_title": "How to Merge PDFs",
+      "guide": [
+        {
+          "title": "Select Files",
+          "description": "Upload the PDF files you want to combine."
+        },
+        {
+          "title": "Arrange",
+          "description": "Drag and drop to set the correct order."
+        },
+        {
+          "title": "Merge",
+          "description": "Click 'Merge PDF' to join them together."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Is it secure?",
+          "answer": "Yes, processing happens in your browser. Files are not uploaded to any server."
+        },
+        {
+          "question": "Can I merge password-protected PDFs?",
+          "answer": "You must remove the password before merging."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Combining separate chapters into a book.",
+        "Merging invoices and receipts for expense reports.",
+        "Collating lecture notes."
+      ]
     },
     "split_pdf": {
       "title": "Split PDF",
@@ -1045,7 +2173,39 @@
       "extract_all": "Split All Pages",
       "extract_custom": "Extract Custom Pages",
       "total_pages": "Total Pages:",
-      "seo_content": "Free online PDF splitter tool. Extract specific pages or split all pages into separate files. Fast, secure, and no installation required."
+      "seo_content": "Free online PDF splitter tool. Extract specific pages or split all pages into separate files. Fast, secure, and no installation required.",
+      "guide_title": "How to Split PDFs",
+      "guide": [
+        {
+          "title": "Upload PDF",
+          "description": "Select the PDF file you want to split."
+        },
+        {
+          "title": "Choose Mode",
+          "description": "Select 'Extract All' or 'Custom Range'."
+        },
+        {
+          "title": "Specify Pages",
+          "description": "For custom split, enter page numbers (e.g., 1-5, 8)."
+        },
+        {
+          "title": "Download",
+          "description": "Download the separated PDF files."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Does quality decrease?",
+          "answer": "No, the pages are extracted exactly as they are in the original."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Extracting a single chapter from a large book.",
+        "Removing unwanted pages from a document.",
+        "Splitting a double-sided scan into single pages."
+      ]
     },
     "reaction_time": {
       "title": "Reaction Time Test",
@@ -1059,15 +2219,47 @@
       "best": "Best Score",
       "tries": "Tries",
       "ms": "ms",
-      "seo_content": "Free online reaction time test. Measure your visual reflex speed in milliseconds and check your average score. Compete with friends!"
+      "seo_content": "Free online reaction time test. Measure your visual reflex speed in milliseconds and check your average score. Compete with friends!",
+      "guide_title": "How to Test Reaction Time",
+      "guide": [
+        {
+          "title": "Wait for Green",
+          "description": "When the screen is red, wait. Do not click yet."
+        },
+        {
+          "title": "Click Fast",
+          "description": "As soon as the screen turns green, click as fast as you can!"
+        },
+        {
+          "title": "Repeat",
+          "description": "Repeat the test 5 times to get an accurate average reaction time."
+        }
+      ],
+      "faq_title": "Reaction Test FAQ",
+      "faq": [
+        {
+          "question": "What is a good reaction time?",
+          "answer": "The average human visual reaction time is around 250ms. Below 200ms is very fast."
+        },
+        {
+          "question": "Does hardware affect the score?",
+          "answer": "Yes, input lag from your mouse or monitor screen refresh rate can slightly affect the result."
+        }
+      ],
+      "use_cases_title": "Why Test?",
+      "use_cases": [
+        "Measuring your reflexes for gaming.",
+        "Checking alertness and fatigue levels.",
+        "Fun competition with friends."
+      ]
     },
     "loan_calculator": {
       "title": "Loan Calculator",
-      "description": "Calculate monthly payments and total interest for different repayment methods: Equal Principal & Interest, Equal Principal, and Maturity.",
+      "description": "Calculate monthly loan payments, total interest, and amortization.",
       "amount_label": "Loan Amount",
-      "rate_label": "Annual Interest Rate",
-      "period_label": "Loan Period",
-      "period_unit": "Months",
+      "rate_label": "Interest Rate (%)",
+      "period_label": "Loan Term",
+      "period_unit": "Years",
       "type_label": "Repayment Type",
       "type_equal_principal_interest": "Equal Principal & Interest",
       "type_equal_principal": "Equal Principal",
@@ -1085,7 +2277,35 @@
       "col_interest": "Interest",
       "col_balance": "Balance",
       "download_schedule": "Download Schedule",
-      "seo_content": "Planning a loan? Calculate your monthly payments and total interest for various repayment methods. Make informed financial decisions with our free loan calculator."
+      "seo_content": "Free online Loan Calculator. Estimate your monthly mortgage, auto, or personal loan payments with interest breakdown.",
+      "guide_title": "How to Calculate Loan Payments",
+      "guide": [
+        {
+          "title": "Loan Details",
+          "description": "Enter the loan amount, interest rate, and term."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click the button to see your estimated monthly payment."
+        },
+        {
+          "title": "Analyze",
+          "description": "Review the total interest cost and amortization schedule."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "Is this for mortgages?",
+          "answer": "Yes, it works for mortgages, auto loans, and personal loans with fixed rates."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Planning a home mortgage.",
+        "Estimating car loan payments.",
+        "Comparing loan offers from different banks."
+      ]
     },
     "bmr_calculator": {
       "title": "BMR Calculator",
@@ -1107,20 +2327,38 @@
       "result_tdee": "Total Daily Energy Expenditure",
       "result_tdee_desc": "Calories needed per day to maintain current weight.",
       "seo_content": "Knowing your BMR is crucial for successful weight loss. We use the Mifflin-St Jeor equation to provide the most accurate BMR and TDEE calculations.",
-      "how_to_title": "How to Calculate BMR",
-      "how_to_step1": "Enter your gender, age, height, and weight.",
-      "how_to_step2": "Select your daily activity level.",
-      "how_to_step3": "Click the 'Calculate' button.",
-      "how_to_step4": "Check your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE).",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is the difference between BMR and TDEE?",
-      "faq_1_a": "BMR (Basal Metabolic Rate) is the calories you burn at rest. TDEE (Total Daily Energy Expenditure) is the total calories you burn including activity.",
-      "faq_2_q": "Should I eat less than my BMR?",
-      "faq_2_a": "No, eating less than your BMR can slow down your metabolism and cause health issues. Aim to eat between your BMR and TDEE for weight loss.",
-      "use_cases_title": "Common Use Cases",
-      "use_case_1": "Setting a minimum calorie intake baseline.",
-      "use_case_2": "Planning a safe weight loss strategy.",
-      "use_case_3": "Understanding your body's energy needs."
+      "guide_title": "How to Calculate BMR",
+      "guide": [
+        {
+          "title": "Input Details",
+          "description": "Enter your gender, age, height, and weight."
+        },
+        {
+          "title": "Select Activity",
+          "description": "Choose your daily activity level from Sedentary to Very Active."
+        },
+        {
+          "title": "Calculate",
+          "description": "Click Calculate to see your BMR and TDEE."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is BMR versus TDEE?",
+          "answer": "BMR is calories burned at rest. TDEE is total calories burned including activity."
+        },
+        {
+          "question": "Should I eat below BMR?",
+          "answer": "Eating below BMR is generally not recommended as it can slow metabolism. Aim for a deficit from TDEE."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Setting a calorie baseline for diets.",
+        "Understanding daily energy needs.",
+        "Planning safe weight loss."
+      ]
     },
     "image_converter": {
       "title": "Image Converter",
@@ -1134,7 +2372,43 @@
       "converting": "Converting...",
       "success": "Conversion Complete!",
       "error": "Error during conversion.",
-      "seo_content": "Free online image converter. Supports JPG, PNG, WEBP, HEIC formats. Converts safely on the client side without server upload."
+      "seo_content": "Free online image converter. Supports JPG, PNG, WEBP, HEIC formats. Converts safely on the client side without server upload.",
+      "guide_title": "How to Convert Images",
+      "guide": [
+        {
+          "title": "Upload",
+          "description": "Drag & drop images (JPG, PNG, WebP, HEIC, etc)."
+        },
+        {
+          "title": "Select Format",
+          "description": "Choose the target format (e.g., to PNG)."
+        },
+        {
+          "title": "Convert",
+          "description": "Click convert and wait for processing."
+        },
+        {
+          "title": "Download",
+          "description": "Download individual files or a ZIP archive."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What formats are supported?",
+          "answer": "Input: JPG, PNG, WEBP, GIF, HEIC. Output: JPG, PNG, WEBP."
+        },
+        {
+          "question": "Is it free?",
+          "answer": "Yes, totally free and unlimited use."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Converting HEIC photos from iPhone to JPG.",
+        "Changing WebP images to PNG for editing.",
+        "Reducing file size by converting PNG to JPG."
+      ]
     },
     "image_compressor": {
       "title": "Image Compressor",
@@ -1192,20 +2466,38 @@
       "macro_protein": "Protein",
       "macro_fat": "Fat",
       "seo_content": "Calculate your Total Daily Energy Expenditure (TDEE) and macronutrient split for weight loss, maintenance, or muscle gain. Based on the Mifflin-St Jeor equation.",
-      "how_to_title": "How to Calculate TDEE",
-      "how_to_step1": "Enter your gender, age, height, and weight.",
-      "how_to_step2": "Select your daily activity level accurately.",
-      "how_to_step3": "Choose your goal (Lose, Maintain, or Gain weight).",
-      "how_to_step4": "Click 'Calculate' to see your daily calories and macros.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is TDEE?",
-      "faq_1_a": "TDEE stands for Total Daily Energy Expenditure. It is the total number of calories you burn in a day, including exercise.",
-      "faq_2_q": "How accurate is this calculator?",
-      "faq_2_a": "We use the Mifflin-St Jeor equation, which is considered one of the most accurate formulas. However, individual metabolism varies.",
-      "use_cases_title": "Common Use Cases",
-      "use_case_1": "Planning a weight loss diet.",
-      "use_case_2": "Calculating surplus calories for muscle gain (bulking).",
-      "use_case_3": "Finding maintenance calories to stay at current weight."
+      "guide_title": "How to Use TDEE Calculator",
+      "guide": [
+        {
+          "title": "Enter Stats",
+          "description": "Input gender, age, height, and weight."
+        },
+        {
+          "title": "Select Activity & Goal",
+          "description": "Choose activity level and your weight goal (lose, maintain, gain)."
+        },
+        {
+          "title": "Calculate",
+          "description": "Get your daily calorie target and macronutrient breakdown."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is TDEE?",
+          "answer": "TDEE (Total Daily Energy Expenditure) is the amount of calories you burn daily, including exercise."
+        },
+        {
+          "question": "How accurate is this?",
+          "answer": "It provides a solid estimate based on established formulas. Adjust based on your actual progress."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Planning a weight loss diet.",
+        "Calculating surplus calories for bulking.",
+        "Optimizing macronutrient intake."
+      ]
     },
     "subnet_calculator": {
       "title": "CIDR / Subnet Calculator",
@@ -1223,16 +2515,34 @@
       "result_binary_mask": "Binary Mask",
       "error_invalid_ip": "Invalid IP Address",
       "seo_content": "Free online IPv4 Subnet Calculator. Calculate network ranges, subnet masks, CIDR notation, and usable IP addresses. Essential for network engineers and IT professionals.",
-      "how_to_title": "How to Calculate Subnets",
-      "how_to_step1": "Enter an IP address (e.g., 192.168.1.1).",
-      "how_to_step2": "Enter the CIDR suffix (e.g., 24) or Subnet Mask.",
-      "how_to_step3": "The tool automatically calculates network details.",
-      "how_to_step4": "View the Network Address, Broadcast Address, and Host Range.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is CIDR?",
-      "faq_1_a": "Classless Inter-Domain Routing (CIDR) is a method for allocating IP addresses and IP routing. It replaces the older classful network design.",
-      "faq_2_q": "How many hosts are in a /24 subnet?",
-      "faq_2_a": "A /24 subnet has 256 total IP addresses, but 254 are usable for hosts (one for network address, one for broadcast).",
+      "guide": [
+        {
+          "title": "Enter IP",
+          "description": "Enter an IP address (e.g., 192.168.1.1)."
+        },
+        {
+          "title": "Enter CIDR/Mask",
+          "description": "Enter the CIDR suffix (e.g., 24) or Subnet Mask."
+        },
+        {
+          "title": "Calculate",
+          "description": "The tool automatically calculates network details."
+        },
+        {
+          "title": "View Results",
+          "description": "View the Network Address, Broadcast Address, and Host Range."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is CIDR?",
+          "answer": "Classless Inter-Domain Routing (CIDR) is a method for allocating IP addresses and IP routing. It replaces the older classful network design."
+        },
+        {
+          "question": "How many hosts are in a /24 subnet?",
+          "answer": "A /24 subnet has 256 total IP addresses, but 254 are usable for hosts (one for network address, one for broadcast)."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Planning network architecture and IP allocation.",
       "use_case_2": "Configuring routers and firewalls.",
@@ -1257,16 +2567,34 @@
       "example_post": "POST + JSON",
       "example_auth": "Auth + Headers",
       "seo_content": "Free online cURL to Code Converter. Convert cURL commands to Python, JavaScript, Node.js, Go, PHP, and more. Simplify API integration and debugging.",
-      "how_to_title": "How to Convert cURL Commands",
-      "how_to_step1": "Paste your cURL command into the input box.",
-      "how_to_step2": "The tool automatically detects the command structure.",
-      "how_to_step3": "Select your target language (Python, JS, Go, etc.).",
-      "how_to_step4": "Copy the generated code snippet for your project.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "Which languages are supported?",
-      "faq_1_a": "We support conversion to Python (Requests), JavaScript (Fetch), Node.js (Axios), Go, PHP, and Java.",
-      "faq_2_q": "Is my data safe?",
-      "faq_2_a": "Yes, all conversions happen in your browser. No data is sent to our servers.",
+      "guide": [
+        {
+          "title": "Paste Command",
+          "description": "Paste your cURL command into the input box."
+        },
+        {
+          "title": "Auto Detect",
+          "description": "The tool automatically detects the command structure."
+        },
+        {
+          "title": "Select Language",
+          "description": "Select your target language (Python, JS, Go, etc.)."
+        },
+        {
+          "title": "Copy Code",
+          "description": "Copy the generated code snippet for your project."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Which languages are supported?",
+          "answer": "We support conversion to Python (Requests), JavaScript (Fetch), Node.js (Axios), Go, PHP, and Java."
+        },
+        {
+          "question": "Is my data safe?",
+          "answer": "Yes, all conversions happen in your browser. No data is sent to our servers."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Translating API documentation examples into code.",
       "use_case_2": "Debugging API requests in different languages.",
@@ -1291,16 +2619,34 @@
         "hex": "Hex Color"
       },
       "seo_content": "Free online Regex Tester and Cheat Sheet. Test your regular expressions against text in real-time. Includes a quick reference guide for common regex patterns.",
-      "how_to_title": "How to Use Regex Tester",
-      "how_to_step1": "Enter your regular expression pattern.",
-      "how_to_step2": "Add flags (g, i, m) if needed.",
-      "how_to_step3": "Type or paste your test string.",
-      "how_to_step4": "Matches will be highlighted instantly.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is Regex?",
-      "faq_1_a": "Regular Expressions (Regex) are sequences of characters that define a search pattern. They are used for string searching and manipulation.",
-      "faq_2_q": "What does the 'g' flag do?",
-      "faq_2_a": "The 'g' (global) flag indicates that the regex should be tested against all possible matches in a string, not just the first one.",
+      "guide": [
+        {
+          "title": "Enter Pattern",
+          "description": "Enter your regular expression pattern."
+        },
+        {
+          "title": "Add Flags",
+          "description": "Add flags (g, i, m) if needed."
+        },
+        {
+          "title": "Input Test Text",
+          "description": "Type or paste your test string."
+        },
+        {
+          "title": "View Matches",
+          "description": "Matches will be highlighted instantly."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is Regex?",
+          "answer": "Regular Expressions (Regex) are sequences of characters that define a search pattern. They are used for string searching and manipulation."
+        },
+        {
+          "question": "What does the 'g' flag do?",
+          "answer": "The 'g' (global) flag indicates that the regex should be tested against all possible matches in a string, not just the first one."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Validating email addresses and phone numbers.",
       "use_case_2": "Extracting specific data from large text files.",
@@ -1316,16 +2662,34 @@
       "error_invalid_json": "Invalid JSON",
       "no_diff": "No differences found.",
       "seo_content": "Free online JSON Diff tool. Compare two JSON objects side-by-side and highlight differences. Essential for debugging API responses and configuration files.",
-      "how_to_title": "How to Use JSON Diff",
-      "how_to_step1": "Paste the original JSON into the left text area.",
-      "how_to_step2": "Paste the modified JSON into the right text area.",
-      "how_to_step3": "Click the 'Compare' button to see the differences.",
-      "how_to_step4": "Additions are highlighted in green, and deletions in red.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "Does it support unquoted keys?",
-      "faq_1_a": "Yes, our tool supports JSON5 (Relaxed JSON), so unquoted keys and trailing commas are accepted.",
-      "faq_2_q": "Is my data safe?",
-      "faq_2_a": "Absolutely. All comparisons are performed locally in your browser. No data is sent to our servers.",
+      "guide": [
+        {
+          "title": "Input Original",
+          "description": "Paste the original JSON into the left text area."
+        },
+        {
+          "title": "Input Modified",
+          "description": "Paste the modified JSON into the right text area."
+        },
+        {
+          "title": "Compare",
+          "description": "Click the 'Compare' button to see the differences."
+        },
+        {
+          "title": "Analyze",
+          "description": "Additions are highlighted in green, and deletions in red."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Does it support unquoted keys?",
+          "answer": "Yes, our tool supports JSON5 (Relaxed JSON), so unquoted keys and trailing commas are accepted."
+        },
+        {
+          "question": "Is my data safe?",
+          "answer": "Absolutely. All comparisons are performed locally in your browser. No data is sent to our servers."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Debugging API responses by comparing expected vs. actual output.",
       "use_case_2": "Tracking changes in configuration files (e.g., package.json, tsconfig.json).",
@@ -1367,16 +2731,34 @@
       "clear": "Clear",
       "placeholder": "Enter text to encode or decode...",
       "seo_content": "Free online URL Encoder/Decoder tool. Easily convert text to URL-safe format (percent-encoding) or decode encoded URLs back to readable text. Essential for web developers and SEO.",
-      "how_to_title": "How to Use URL Encoder/Decoder",
-      "how_to_step1": "Enter or paste your text/URL into the input box.",
-      "how_to_step2": "Click 'Encode' to convert special characters to % codes.",
-      "how_to_step3": "Click 'Decode' to convert % codes back to normal text.",
-      "how_to_step4": "Use the 'Copy' button to save the result to your clipboard.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What is URL Encoding?",
-      "faq_1_a": "URL encoding converts characters into a format that can be transmitted over the Internet. It replaces unsafe ASCII characters with a '%' followed by two hexadecimal digits.",
-      "faq_2_q": "Why do I need to encode URLs?",
-      "faq_2_a": "URLs can only contain a limited set of characters. Spaces and other special symbols must be encoded to ensure the URL is valid and works correctly across all browsers and servers.",
+      "guide": [
+        {
+          "title": "Input Text",
+          "description": "Enter or paste your text/URL into the input box."
+        },
+        {
+          "title": "Encode",
+          "description": "Click 'Encode' to convert special characters to % codes."
+        },
+        {
+          "title": "Decode",
+          "description": "Click 'Decode' to convert % codes back to normal text."
+        },
+        {
+          "title": "Copy Result",
+          "description": "Use the 'Copy' button to save the result to your clipboard."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is URL Encoding?",
+          "answer": "URL encoding converts characters into a format that can be transmitted over the Internet. It replaces unsafe ASCII characters with a '%' followed by two hexadecimal digits."
+        },
+        {
+          "question": "Why do I need to encode URLs?",
+          "answer": "URLs can only contain a limited set of characters. Spaces and other special symbols must be encoded to ensure the URL is valid and works correctly across all browsers and servers."
+        }
+      ],
       "use_cases_title": "Common Use Cases",
       "use_case_1": "Preparing query string parameters for API calls.",
       "use_case_2": "Fixing broken links containing special characters.",
@@ -1397,16 +2779,34 @@
       "copy_code": "Copy Code",
       "copied": "Copied!",
       "seo_content": "Boost your SEO and social media presence with our free Meta Tag Generator. Create perfect title tags, meta descriptions, and Open Graph (OG) tags to ensure your content looks great on Google, Facebook, Twitter, and LinkedIn.",
-      "how_to_title": "How to Create Meta Tags",
-      "how_to_step1": "Enter your website's Title and Description. Keep them concise and keyword-rich.",
-      "how_to_step2": "Add your Site URL and a link to your representative image (OG Image).",
-      "how_to_step3": "Check the 'Google Preview' and 'Social Preview' to see how it looks.",
-      "how_to_step4": "Click 'Copy Code' and paste the HTML into the <head> section of your website.",
-      "faq_title": "Frequently Asked Questions",
-      "faq_1_q": "What are Meta Tags?",
-      "faq_1_a": "Meta tags are snippets of text that describe a page's content. They don't appear on the page itself but only in the page's source code. They tell search engines what a web page is about.",
-      "faq_2_q": "What is Open Graph (OG)?",
-      "faq_2_a": "Open Graph tags control how your content is displayed when shared on social media platforms like Facebook, LinkedIn, and Pinterest. They allow you to set a custom title, description, and image.",
+      "guide": [
+        {
+          "title": "Enter Info",
+          "description": "Enter your website's Title and Description. Keep them concise and keyword-rich."
+        },
+        {
+          "title": "Add Links",
+          "description": "Add your Site URL and a link to your representative image (OG Image)."
+        },
+        {
+          "title": "Preview",
+          "description": "Check the 'Google Preview' and 'Social Preview' to see how it looks."
+        },
+        {
+          "title": "Copy Code",
+          "description": "Click 'Copy Code' and paste the HTML into the <head> section of your website."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What are Meta Tags?",
+          "answer": "Meta tags are snippets of text that describe a page's content. They don't appear on the page itself but only in the page's source code. They tell search engines what a web page is about."
+        },
+        {
+          "question": "What is Open Graph (OG)?",
+          "answer": "Open Graph tags control how your content is displayed when shared on social media platforms like Facebook, LinkedIn, and Pinterest. They allow you to set a custom title, description, and image."
+        }
+      ],
       "use_cases_title": "Why use this tool?",
       "use_case_1": "Bloggers wanting to optimize their posts for search engines.",
       "use_case_2": "Developers needing to quickly generate standard SEO tags.",

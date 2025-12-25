@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import RandomWheelClient from './RandomWheelClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
+import RichContentSection from '@/components/tools/RichContentSection';
+import { ToolContent } from '@/types/Tool';
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -45,11 +47,7 @@ export default async function RandomWheelPage({ params }: Props) {
 
             {/* SEO Content */}
             <div className="max-w-3xl mx-auto px-6 pb-12">
-                <div className="prose prose-indigo dark:prose-invert max-w-none">
-                    <p className="text-gray-600 dark:text-gray-400">
-                        {dict.tools.random_wheel.seo_content}
-                    </p>
-                </div>
+                <RichContentSection content={dict.tools.random_wheel as ToolContent} />
             </div>
 
             <RelatedTools lang={lang} currentSlug="random-wheel" category="daily" />
