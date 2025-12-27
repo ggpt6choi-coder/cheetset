@@ -2868,6 +2868,75 @@
             "use_case_1": "검색 엔진 최적화(SEO)를 원하는 블로거",
             "use_case_2": "표준 SEO 태그를 빠르게 생성해야 하는 개발자",
             "use_case_3": "SNS 공유 시 썸네일과 설명을 매력적으로 꾸미고 싶은 마케터"
+        },
+        "markdown_preview": {
+            "title": "마크다운 미리보기",
+            "description": "마크다운 텍스트를 실시간으로 작성하고 미리보세요.",
+            "placeholder": "여기에 마크다운을 입력하세요...",
+            "heading": "마크다운 편집기",
+            "preview": "미리보기",
+            "seo_content": "무료 온라인 마크다운 에디터 및 미리보기 도구입니다. 실시간으로 마크다운을 변환하여 확인하세요. GitHub 스타일 마크다운을 지원합니다.",
+            "guide_title": "마크다운 미리보기 사용법",
+            "guide": [
+                {
+                    "title": "작성하기",
+                    "description": "왼쪽 입력창에 마크다운 문법으로 텍스트를 작성하세요."
+                },
+                {
+                    "title": "확인하기",
+                    "description": "오른쪽 미리보기 창에서 렌더링된 결과를 실시간으로 확인하세요."
+                }
+            ],
+            "faq_title": "자주 묻는 질문",
+            "faq": [
+                {
+                    "question": "어떤 문법을 지원하나요?",
+                    "answer": "표준 마크다운 및 GitHub Flavored Markdown (GFM)을 지원하여 표, 체크리스트 등을 사용할 수 있습니다."
+                }
+            ],
+            "use_cases_title": "활용 사례",
+            "use_cases": [
+                "README.md 파일 작성 및 미리보기",
+                "블로그 포스트 초안 작성",
+                "마크다운 문법 학습 및 연습"
+            ]
+        },
+        "user_agent_parser": {
+            "title": "User Agent 파서",
+            "description": "브라우저의 User Agent 문자열을 분석하여 상세 정보를 확인하세요.",
+            "placeholder": "User Agent 문자열을 입력하세요 (비워두면 현재 브라우저 정보 표시)",
+            "analyze": "분석하기",
+            "my_ua": "내 브라우저 확인",
+            "browser": "브라우저",
+            "os": "운영체제",
+            "device": "기기",
+            "cpu": "CPU",
+            "engine": "엔진",
+            "seo_content": "무료 온라인 User Agent 분석기입니다. UA 문자열을 입력하여 브라우저, OS, 기기 정보를 상세하게 파악하세요. 개발자 및 QA 테스트에 유용합니다.",
+            "guide_title": "User Agent 분석 방법",
+            "guide": [
+                {
+                    "title": "자동 확인",
+                    "description": "접속 시 자동으로 현재 브라우저의 User Agent를 분석하여 표시합니다."
+                },
+                {
+                    "title": "수동 입력",
+                    "description": "다른 User Agent 문자열을 입력창에 넣고 '분석하기'를 누르면 해당 정보를 분석합니다."
+                }
+            ],
+            "faq_title": "자주 묻는 질문",
+            "faq": [
+                {
+                    "question": "User Agent란 무엇인가요?",
+                    "answer": "사용자가 어떤 브라우저와 운영체제를 사용하는지 서버에 알려주는 식별 문자열입니다."
+                }
+            ],
+            "use_cases_title": "활용 사례",
+            "use_cases": [
+                "특정 기기/브라우저에서의 버그 리포트 분석",
+                "접속 로그의 User Agent 식별",
+                "웹 크롤러 및 봇 확인"
+            ]
         }
     },
     "privacy": {

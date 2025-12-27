@@ -287,5 +287,15 @@ export const tools: Tool[] = [
         slug: 'meta-tag-generator',
         icon: 'Share2',
         category: 'developer'
+    },
+    {
+        slug: 'markdown-preview',
+        icon: 'FileText',
+        category: 'developer'
+    },
+    {
+        slug: 'user-agent-parser',
+        icon: 'Monitor',
+        category: 'developer'
     }
 ];

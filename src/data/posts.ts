@@ -786,5 +786,53 @@ export const posts: Post[] = [
         date: '2025-12-21',
         lang: 'ko',
         category: 'finance'
+    },
+    {
+        slug: 'markdown-guide-for-beginners',
+        title: 'Markdown Guide for Beginners: How to Write Like a Pro',
+        description: 'Learn the basics of Markdown syntax including headers, lists, and links. Write faster and cleaner documentation for your projects.',
+        date: '2025-12-27',
+        lang: 'en',
+        category: 'tech'
+    },
+    {
+        slug: 'markdown-guide-for-beginners',
+        title: '마크다운 마스터 가이드: 10분 만에 익히는 글쓰기 혁명',
+        description: '마크다운이 무엇인지, 왜 개발자와 글쟁이들에게 필수적인지 알아봅니다. 기본 문법부터 꿀팁까지, 마크다운의 모든 것을 정리했습니다.',
+        date: '2025-12-27',
+        lang: 'ko',
+        category: 'tech'
+    },
+    {
+        slug: 'markdown-guide-for-beginners',
+        title: 'マークダウン入門ガイド：10分でマスターする効率的なライティング',
+        description: 'マークダウンとは何か、なぜ開発者やライターにとって必須なのかを学びます。基本構文から便利なヒントまで、マークダウンのすべてをまとめました。',
+        date: '2025-12-27',
+        lang: 'ja',
+        category: 'tech'
+    },
+    {
+        slug: 'user-agent-guide',
+        title: 'What is a User Agent? Examples and Parsing Guide',
+        description: 'Demystifying the User Agent string. Learn how browsers identify themselves, how to parse UA strings, and why it matters for web development.',
+        date: '2025-12-27',
+        lang: 'en',
+        category: 'tech'
+    },
+    {
+        slug: 'user-agent-guide',
+        title: 'User Agent 완벽 정리: 브라우저와 기기 식별의 모든 것',
+        description: 'User Agent 문자열의 비밀을 파헤칩니다. 브라우저가 자신을 소개하는 방법, UA 파싱 방법, 그리고 개발자에게 중요한 이유를 설명합니다.',
+        date: '2025-12-27',
+        lang: 'ko',
+        category: 'tech'
+    },
+    {
+        slug: 'user-agent-guide',
+        title: 'ユーザーエージェントとは？仕組みと活用法を完全解説',
+        description: 'ユーザーエージェント文字列の謎を解き明かします。ブラウザが自身を識別する方法、UAの解析方法、そして開発者にとって重要な理由を解説します。',
+        date: '2025-12-27',
+        lang: 'ja',
+        category: 'tech'
     }
 ];

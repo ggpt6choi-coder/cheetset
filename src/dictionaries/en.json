@@ -2811,6 +2811,75 @@
       "use_case_1": "Bloggers wanting to optimize their posts for search engines.",
       "use_case_2": "Developers needing to quickly generate standard SEO tags.",
       "use_case_3": "Marketers ensuring their landing pages look attractive on social media."
+    },
+    "markdown_preview": {
+      "title": "Markdown Preview",
+      "description": "Write and preview markdown text in real-time.",
+      "placeholder": "Type your markdown here...",
+      "heading": "Markdown Editor",
+      "preview": "Preview",
+      "seo_content": "Free online markdown editor and previewer. Convert and view markdown in real-time. Supports GitHub Flavored Markdown.",
+      "guide_title": "How to Use Markdown Preview",
+      "guide": [
+        {
+          "title": "Write",
+          "description": "Type markdown text in the left input area."
+        },
+        {
+          "title": "Preview",
+          "description": "See the rendered result instantly in the right preview pane."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What syntax is supported?",
+          "answer": "We support standard Markdown and GitHub Flavored Markdown (GFM), including tables and task lists."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Writing and previewing README.md files.",
+        "Drafting blog posts.",
+        "Learning and practicing markdown syntax."
+      ]
+    },
+    "user_agent_parser": {
+      "title": "User Agent Parser",
+      "description": "Analyze browser User Agent strings to get detailed information.",
+      "placeholder": "Enter User Agent string (leave empty for current browser)",
+      "analyze": "Analyze",
+      "my_ua": "Check My Browser",
+      "browser": "Browser",
+      "os": "OS",
+      "device": "Device",
+      "cpu": "CPU",
+      "engine": "Engine",
+      "seo_content": "Free online User Agent Parser. Decode UA strings to identify browser, OS, device, and engine details. Essential for developers and QA.",
+      "guide_title": "How to Parse User Agent",
+      "guide": [
+        {
+          "title": "Auto Detect",
+          "description": "Automatically analyzes your current browser's User Agent upon visit."
+        },
+        {
+          "title": "Manual Input",
+          "description": "Paste any User Agent string to analyze its details."
+        }
+      ],
+      "faq_title": "FAQ",
+      "faq": [
+        {
+          "question": "What is a User Agent?",
+          "answer": "It is a string sent by your browser to the server identifying your browser, OS, and device."
+        }
+      ],
+      "use_cases_title": "Use Cases",
+      "use_cases": [
+        "Debugging browser-specific issues.",
+        "Identifying devices from server logs.",
+        "Verifying web crawlers and bots."
+      ]
     }
   },
   "privacy": {

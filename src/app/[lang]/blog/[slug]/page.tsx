@@ -44,6 +44,8 @@ const ExifViewerGuide = dynamic(() => import('@/components/blog/posts/ExifViewer
 const ImageFiltersGuide = dynamic(() => import('@/components/blog/posts/ImageFiltersGuide'));
 const NewToolsRelease = dynamic(() => import('@/components/blog/posts/NewToolsRelease'));
 const DeveloperProductivityGuide = dynamic(() => import('@/components/blog/posts/DeveloperProductivityGuide'));
+const MarkdownGuideForBeginners = dynamic(() => import('@/components/blog/posts/MarkdownGuideForBeginners'));
+const UserAgentGuide = dynamic(() => import('@/components/blog/posts/UserAgentGuide'));
 
 const POSTS: Record<string, React.ComponentType<any>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -77,6 +79,8 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'new-tools-release-json-diff-color-palette': NewToolsRelease,
     'developer-productivity-guide-2025': DeveloperProductivityGuide,
     'magic-of-compound-interest': MagicOfCompoundInterest,
+    'markdown-guide-for-beginners': MarkdownGuideForBeginners,
+    'user-agent-guide': UserAgentGuide,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
