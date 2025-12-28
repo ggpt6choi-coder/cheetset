@@ -13,6 +13,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const dict = await getDictionary(lang as Locale);
     return {
         title: `${dict.nav.blog} - ${dict.common.title} `,
+        description: `Read the latest tech and daily life articles on CheetSet Blog using ${lang === 'ko' ? 'Korean' : lang === 'ja' ? 'Japanese' : 'English'}.`,
+        alternates: {
+            canonical: `https://cheetset.com/${lang}/blog`,
+            languages: {
+                'en': '/en/blog',
+                'ko': '/ko/blog',
+                'ja': '/ja/blog',
+            },
+        },
     };
 }
 
