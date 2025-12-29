@@ -52,19 +52,31 @@ export default function PhotoCalendarClient({ dict }: Props) {
         if (!canvasRef.current) return;
         setIsExporting(true);
         try {
-            // Apply scale for better quality
+            // Detect mobile
+            const isMobile = window.innerWidth < 768;
+
             const canvas = await html2canvas(canvasRef.current, {
-                scale: 3, // Increased scale for better quality with larger images
-                useCORS: true, // For cross-origin images if any
+                scale: isMobile ? 2 : 3, // Reduce scale on mobile to prevent crashes
+                useCORS: true,
                 backgroundColor: bgColor,
+                logging: false,
+                onclone: (clonedDoc) => {
+                    // Find the canvas element in the cloned document
+                    const clonedCanvas = clonedDoc.querySelector('[data-html2canvas-ignore="true"]');
+                    if (clonedCanvas) {
+                        clonedCanvas.remove();
+                    }
+                }
             });
+
             const link = document.createElement('a');
-            link.download = `my-2025-year-in-photos.png`;
+            const timestamp = new Date().toISOString().slice(0, 10);
+            link.download = `my-2025-photos-${timestamp}.png`;
             link.href = canvas.toDataURL('image/png');
             link.click();
         } catch (err) {
             console.error('Export failed:', err);
-            alert('Failed to export image.');
+            alert('Failed to export image. Please try again with fewer photos or on a desktop.');
         } finally {
             setIsExporting(false);
         }
@@ -79,38 +91,38 @@ export default function PhotoCalendarClient({ dict }: Props) {
     // Theme Styles
     const getThemeStyles = () => {
         switch (theme) {
-            case 'holiday':
+            case 'holiday': // Year-End (Midnight Gold)
                 return {
-                    container: 'p-4 sm:p-6 border-4 border-red-700 bg-[url("/images/noise.png")]',
-                    title: 'font-serif text-red-700 font-bold',
+                    container: 'p-4 sm:p-6 border-8 border-double border-[#d97706] bg-[#1a120b]',
+                    title: 'font-[family-name:var(--font-playfair)] text-[#f59e0b] font-bold',
                     gridGap: 'gap-2 sm:gap-4',
-                    cell: 'rounded-lg border-2 border-gold-500 shadow-md transform rotate-1',
-                    monthLabel: 'bg-red-600 text-white font-serif'
+                    cell: 'rounded-md border border-[#f59e0b]/30 shadow-sm',
+                    monthLabel: 'bg-[#d97706] text-[#1a120b] font-serif px-2 py-0.5 rounded-br-lg top-0 left-0 font-bold'
                 };
-            case 'film':
+            case 'film': // Blue Sky (Clouds)
                 return {
-                    container: 'p-4 sm:p-6 bg-black text-white px-8 sm:px-12',
-                    title: 'font-mono text-white tracking-widest uppercase',
+                    container: 'p-4 sm:p-6 bg-gradient-to-b from-[#bae6fd] to-[#eff6ff] relative',
+                    title: 'font-[family-name:var(--font-dancing)] text-[#2563eb] font-bold tracking-wide',
                     gridGap: 'gap-y-4 sm:gap-y-8 gap-x-2 sm:gap-x-4',
-                    cell: 'aspect-[3/4] border-x-4 sm:border-x-8 border-black shadow-none rounded-none',
-                    monthLabel: 'bg-white text-black font-bold font-mono bottom-1 right-1 px-2'
+                    cell: 'aspect-[3/4] border-4 border-[#ffffff] shadow-lg rounded-xl',
+                    monthLabel: 'bg-[#ffffff]/80 text-[#3b82f6] font-bold rounded-full px-2 py-0.5 bottom-2 right-2 text-[10px]'
                 };
             case 'pastel':
                 return {
-                    container: 'p-4 sm:p-6 bg-gradient-to-br from-pink-100 to-blue-100',
-                    title: 'font-sans text-gray-700 tracking-tight font-light',
+                    container: 'p-4 sm:p-6 bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC]',
+                    title: 'font-[family-name:var(--font-dancing)] text-[#374151] text-5xl sm:text-7xl font-bold',
                     gridGap: 'gap-3 sm:gap-6',
-                    cell: 'rounded-xl sm:rounded-2xl shadow-sm border border-white/50 backdrop-blur-sm',
-                    monthLabel: 'bg-white/80 text-gray-600 rounded-full px-3 py-0.5 text-xs top-2 left-2'
+                    cell: 'rounded-2xl shadow-lg border-4 border-[#ffffff]/80',
+                    monthLabel: 'bg-[#ffffff]/90 text-[#6b7280] rounded-full px-3 py-1 text-xs bottom-2 left-1/2 -translate-x-1/2'
                 };
             case 'classic':
             default:
                 return {
-                    container: 'p-4 sm:p-6 pb-12 sm:pb-16 bg-white shadow-xl',
-                    title: 'font-sans text-gray-800 font-bold',
+                    container: 'p-4 sm:p-8 pb-16 sm:pb-24 bg-[#ffffff] shadow-xl',
+                    title: 'font-[family-name:var(--font-playfair)] text-[#111827] font-black tracking-tight',
                     gridGap: 'gap-2 sm:gap-4',
-                    cell: 'bg-gray-100 shadow-inner rounded-sm',
-                    monthLabel: 'text-gray-400 font-bold text-xs bottom-2 left-2'
+                    cell: 'bg-[#f9fafb] shadow-inner rounded-sm',
+                    monthLabel: 'text-[#9ca3af] font-serif active tracking-widest text-xs -bottom-6 left-1/2 -translate-x-1/2 w-full text-center'
                 };
         }
     };
@@ -119,28 +131,34 @@ export default function PhotoCalendarClient({ dict }: Props) {
 
     return (
         <div className="flex flex-col lg:flex-row gap-8 items-start">
-            {/* Canvas Preview - Reordered to be first */}
+            {/* Canvas Preview */}
             <div className="w-full flex-1 bg-gray-100 dark:bg-gray-900/50 p-2 sm:p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex justify-center items-start overflow-hidden lg:sticky lg:top-8">
-                <div className="w-full max-w-[600px]"> {/* Increased max width */}
+                <div className="w-full max-w-[600px]">
                     <div
                         ref={canvasRef}
                         className={`relative w-full aspect-[3/4] transition-all duration-300 flex flex-col ${s.container}`}
                         style={{ backgroundColor: theme === 'classic' ? bgColor : undefined }}
                     >
-                        {/* Theme specific decorations */}
-                        {theme === 'film' && (
+                        {/* Decorations */}
+                        {theme === 'film' && ( // Sky Theme decorations
                             <>
-                                <div className="absolute left-1 sm:left-2 top-0 bottom-0 w-4 sm:w-6 flex flex-col justify-between py-4 border-r border-white/20">
-                                    {Array(8).fill(0).map((_, i) => <div key={i} className="w-2 sm:w-3 h-3 sm:h-4 bg-white rounded-sm mx-auto" />)}
-                                </div>
-                                <div className="absolute right-1 sm:right-2 top-0 bottom-0 w-4 sm:w-6 flex flex-col justify-between py-4 border-l border-white/20">
-                                    {Array(8).fill(0).map((_, i) => <div key={i} className="w-2 sm:w-3 h-3 sm:h-4 bg-white rounded-sm mx-auto" />)}
-                                </div>
+                                <div className="absolute top-10 left-10 w-20 h-8 bg-[#ffffff]/40 blur-xl rounded-full" />
+                                <div className="absolute top-20 right-20 w-32 h-12 bg-[#ffffff]/30 blur-xl rounded-full" />
+                                <div className="absolute bottom-20 left-1/2 w-40 h-16 bg-[#ffffff]/20 blur-2xl rounded-full" />
                             </>
                         )}
 
-                        <div className="text-center mb-4 sm:mb-8 relative z-10 flex-shrink-0">
-                            <h2 className={`text-3xl sm:text-5xl ${s.title}`}>{title}</h2>
+                        <div className="text-center mb-6 sm:mb-10 relative z-10 flex-shrink-0 pt-2">
+                            {/* Decorative icon */}
+                            {theme === 'holiday' && <div className="text-2xl mb-2">🥂</div>}
+                            {theme === 'film' && <div className="text-2xl mb-2">☁️</div>}
+                            <h2 className={`text-4xl sm:text-5xl whitespace-pre-line leading-tight ${s.title}`}
+                                contentEditable
+                                suppressContentEditableWarning
+                                onBlur={(e) => setTitle(e.currentTarget.textContent || title)}
+                            >
+                                {title}
+                            </h2>
                         </div>
 
                         <div className={`grid grid-cols-3 ${s.gridGap} relative z-10 flex-grow`}>
@@ -148,35 +166,39 @@ export default function PhotoCalendarClient({ dict }: Props) {
                                 <div
                                     key={index}
                                     onClick={() => handlePhotoClick(index)}
-                                    className={`relative w-full h-full cursor-pointer group overflow-hidden ${s.cell} bg-cover bg-center`}
+                                    className={`relative w-full h-full cursor-pointer group overflow-hidden ${s.cell} bg-cover bg-center bg-no-repeat`}
                                 >
                                     {photo ? (
                                         <>
                                             <img src={photo} alt={months[index]} className="w-full h-full object-cover" />
-                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+                                            {/* Buttons - Hidden in export via onclone or css */}
+                                            <div
+                                                data-html2canvas-ignore="true"
+                                                className="absolute inset-0 bg-[#000000]/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 z-20"
+                                            >
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); handlePhotoClick(index); }}
-                                                    className="px-2 py-1 bg-white/20 hover:bg-white/40 text-white rounded-full text-[10px] backdrop-blur-md flex items-center gap-1"
+                                                    className="px-2 py-1 bg-[#ffffff]/20 hover:bg-[#ffffff]/40 text-[#ffffff] rounded-full text-[10px] backdrop-blur-md flex items-center gap-1"
                                                 >
                                                     <RefreshCw className="w-3 h-3" />
                                                 </button>
                                                 <button
                                                     onClick={(e) => removePhoto(index, e)}
-                                                    className="px-2 py-1 bg-red-500/20 hover:bg-red-500/40 text-red-200 rounded-full text-[10px] backdrop-blur-md flex items-center gap-1 border border-red-500/50"
+                                                    className="px-2 py-1 bg-[#ef4444]/20 hover:bg-[#ef4444]/40 text-[#fecaca] rounded-full text-[10px] backdrop-blur-md flex items-center gap-1 border border-[#ef4444]/50"
                                                 >
                                                     <Trash2 className="w-3 h-3" />
                                                 </button>
                                             </div>
                                         </>
                                     ) : (
-                                        <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 hover:bg-black/5 hover:text-gray-500 transition-colors">
-                                            <ImageIcon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 opacity-50" />
-                                            <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-wider">{t.click_to_add}</span>
+                                        <div className="w-full h-full flex flex-col items-center justify-center text-[#9ca3af] hover:bg-[#000000]/5 hover:text-[#6b7280] transition-colors bg-[#000000]/5">
+                                            <ImageIcon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 opacity-30" />
+                                            <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-wider opacity-50">{t.click_to_add}</span>
                                         </div>
                                     )}
 
                                     {/* Month Label */}
-                                    <div className={`absolute ${s.monthLabel}`}>
+                                    <div className={`absolute ${s.monthLabel} pointer-events-none`}>
                                         {months[index]}
                                     </div>
                                 </div>
@@ -184,9 +206,9 @@ export default function PhotoCalendarClient({ dict }: Props) {
                         </div>
 
                         {/* Footer decoration */}
-                        <div className="mt-4 sm:mt-8 text-center opacity-60 flex-shrink-0">
-                            <p className={`text-[8px] sm:text-[10px] ${theme === 'film' ? 'text-white' : 'text-gray-500'} font-mono uppercase tracking-widest`}>
-                                Made with CheetSet
+                        <div className="mt-4 sm:mt-8 text-center opacity-40 flex-shrink-0 pb-2">
+                            <p className={`text-[8px] sm:text-[10px] ${theme === 'holiday' ? 'text-[#f59e0b]/50' : (theme === 'film' ? 'text-[#1e3a8a]/40' : 'text-[#6b7280]')} font-mono uppercase tracking-[0.2em]`}>
+                                GOOD BYE · 2025
                             </p>
                         </div>
                     </div>
@@ -216,9 +238,9 @@ export default function PhotoCalendarClient({ dict }: Props) {
                         <div className="grid grid-cols-2 gap-2">
                             {[
                                 { id: 'classic', label: t.theme_classic, color: 'bg-white border-gray-200' },
-                                { id: 'holiday', label: t.theme_holiday, color: 'bg-red-50 border-red-200 text-red-700' },
-                                { id: 'film', label: t.theme_film, color: 'bg-gray-900 border-gray-700 text-white' },
-                                { id: 'pastel', label: t.theme_pastel, color: 'bg-pink-50 border-pink-200 text-gray-700' },
+                                { id: 'holiday', label: t.theme_holiday, color: 'bg-[#1a120b] border-amber-600/50 text-amber-500' },
+                                { id: 'film', label: t.theme_film, color: 'bg-image-[linear-gradient(to_bottom,#bae6fd,#eff6ff)] border-sky-300 text-sky-700' },
+                                { id: 'pastel', label: t.theme_pastel, color: 'bg-gradient-to-r from-pink-100 to-blue-100 border-pink-200 text-gray-700' },
                             ].map((item) => (
                                 <button
                                     key={item.id}

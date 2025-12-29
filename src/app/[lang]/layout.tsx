@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display, Dancing_Script } from "next/font/google";
 import "./../globals.css";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
@@ -9,7 +9,9 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import CookieConsent from "@/components/CookieConsent";
 import { getDictionary } from "@/dictionaries/get-dictionary";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
+const dancing = Dancing_Script({ subsets: ["latin"], variable: '--font-dancing' });
 
 type Locale = "en" | "ko" | "ja";
 
@@ -96,7 +98,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${playfair.variable} ${dancing.variable}`}>
         <Header lang={lang} dict={dict} />
         <JsonLd
           data={{
