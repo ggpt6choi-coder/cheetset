@@ -122,7 +122,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     title: 'font-[family-name:var(--font-playfair)] text-[#111827] font-black tracking-tight',
                     gridGap: 'gap-2 sm:gap-4',
                     cell: 'bg-[#f9fafb] shadow-inner rounded-sm',
-                    monthLabel: 'text-[#9ca3af] font-serif active tracking-widest text-xs -bottom-6 left-1/2 -translate-x-1/2 w-full text-center'
+                    monthLabel: 'text-[#9ca3af] font-serif uppercase tracking-widest text-xs bottom-2 left-1/2 -translate-x-1/2 w-full text-center bg-white/80 py-0.5 backdrop-blur-sm'
                 };
         }
     };
