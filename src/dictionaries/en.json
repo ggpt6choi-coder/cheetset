@@ -2890,6 +2890,8 @@
       "theme_classic": "Classic White",
       "theme_holiday": "Year-End Mood",
       "theme_film": "Blue Sky",
+      "theme_vintage": "Vintage Paper",
+      "theme_bloom": "Spring Bloom",
       "theme_pastel": "Soft Pastel",
       "label_bg_color": "Background Color",
       "btn_save": "Save Image",

@@ -8,13 +8,13 @@ type Props = {
     dict: any; // Dictionary type would be better but using any for flexibility
 };
 
-type Theme = 'classic' | 'holiday' | 'film' | 'pastel';
+type Theme = 'classic' | 'holiday' | 'film' | 'pastel' | 'vintage' | 'bloom';
 
 export default function PhotoCalendarClient({ dict }: Props) {
     const t = dict.tools.photo_calendar_2025;
     const [photos, setPhotos] = useState<(string | null)[]>(Array(12).fill(null));
     const [title, setTitle] = useState(t.placeholder_title);
-    const [theme, setTheme] = useState<Theme>('classic');
+    const [theme, setTheme] = useState<Theme>('film'); // Default set to 'Blue Sky' (film)
     const [bgColor, setBgColor] = useState('#ffffff');
     const [isExporting, setIsExporting] = useState(false);
     const canvasRef = useRef<HTMLDivElement>(null);
@@ -99,13 +99,29 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     cell: 'rounded-md border border-[#f59e0b]/30 shadow-sm',
                     monthLabel: 'bg-[#d97706] text-[#1a120b] font-serif px-2 py-0.5 rounded-br-lg top-0 left-0 font-bold'
                 };
-            case 'film': // Blue Sky (Clouds)
+            case 'film': // Blue Sky (Clouds) - DEFAULT
                 return {
                     container: 'p-4 sm:p-6 bg-gradient-to-b from-[#bae6fd] to-[#eff6ff] relative',
                     title: 'font-[family-name:var(--font-dancing)] text-[#2563eb] font-bold tracking-wide',
                     gridGap: 'gap-y-4 sm:gap-y-8 gap-x-2 sm:gap-x-4',
                     cell: 'aspect-[3/4] border-4 border-[#ffffff] shadow-lg rounded-xl',
                     monthLabel: 'bg-[#ffffff]/80 text-[#3b82f6] font-bold rounded-full px-2 py-0.5 bottom-2 right-2 text-[10px]'
+                };
+            case 'vintage': // Vintage Paper (New)
+                return {
+                    container: 'p-4 sm:p-6 bg-[#d4c5b0] relative border-4 border-[#8c7b65] border-dashed',
+                    title: 'font-mono text-[#5d4037] font-bold tracking-widest uppercase',
+                    gridGap: 'gap-3 sm:gap-6',
+                    cell: 'rounded-sm border-2 border-[#8c7b65] sepia-[.3] contrast-125',
+                    monthLabel: 'bg-[#8c7b65] text-[#d4c5b0] font-mono px-2 py-0.5 rounded-sm bottom-0 left-0 text-[10px]'
+                };
+            case 'bloom': // Spring Bloom (New)
+                return {
+                    container: 'p-4 sm:p-6 bg-[#fff0f5] border-[12px] border-[#ffb7b2]',
+                    title: 'font-[family-name:var(--font-playfair)] text-[#ff6f61] font-bold italic',
+                    gridGap: 'gap-3 sm:gap-6',
+                    cell: 'rounded-[30px] border-4 border-[#ffdac1] shadow-md',
+                    monthLabel: 'bg-[#ff9aa2] text-white font-serif rounded-full px-3 py-1 bottom-2 right-2 shadow-sm text-[10px]'
                 };
             case 'pastel':
                 return {
@@ -122,7 +138,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     title: 'font-[family-name:var(--font-playfair)] text-[#111827] font-black tracking-tight',
                     gridGap: 'gap-2 sm:gap-4',
                     cell: 'bg-[#f9fafb] shadow-inner rounded-sm',
-                    monthLabel: 'text-[#9ca3af] font-serif uppercase tracking-widest text-xs bottom-2 left-1/2 -translate-x-1/2 w-full text-center bg-white/80 py-0.5 backdrop-blur-sm'
+                    monthLabel: 'text-[#9ca3af] font-serif uppercase tracking-widest text-xs bottom-2 left-1/2 -translate-x-1/2 w-full text-center bg-[#ffffff]/80 py-0.5 backdrop-blur-sm'
                 };
         }
     };
@@ -147,11 +163,16 @@ export default function PhotoCalendarClient({ dict }: Props) {
                                 <div className="absolute bottom-20 left-1/2 w-40 h-16 bg-[#ffffff]/20 blur-2xl rounded-full" />
                             </>
                         )}
+                        {theme === 'vintage' && ( // Vintage decorations
+                            <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(#8c7b65_1px,transparent_1px)] [background-size:16px_16px]" />
+                        )}
 
                         <div className="text-center mb-6 sm:mb-10 relative z-10 flex-shrink-0 pt-2">
                             {/* Decorative icon */}
                             {theme === 'holiday' && <div className="text-2xl mb-2">🥂</div>}
                             {theme === 'film' && <div className="text-2xl mb-2">☁️</div>}
+                            {theme === 'bloom' && <div className="text-2xl mb-2">🌸</div>}
+                            {theme === 'vintage' && <div className="text-2xl mb-2 opacity-50">📜</div>}
                             <h2 className={`text-4xl sm:text-5xl whitespace-pre-line leading-tight ${s.title}`}
                                 contentEditable
                                 suppressContentEditableWarning
@@ -207,7 +228,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
 
                         {/* Footer decoration */}
                         <div className="mt-4 sm:mt-8 text-center opacity-40 flex-shrink-0 pb-2">
-                            <p className={`text-[8px] sm:text-[10px] ${theme === 'holiday' ? 'text-[#f59e0b]/50' : (theme === 'film' ? 'text-[#1e3a8a]/40' : 'text-[#6b7280]')} font-mono uppercase tracking-[0.2em]`}>
+                            <p className={`text-[8px] sm:text-[10px] ${theme === 'holiday' ? 'text-[#f59e0b]/50' : (theme === 'film' ? 'text-[#1e3a8a]/40' : (theme === 'vintage' ? 'text-[#5d4037]/60' : 'text-[#6b7280]'))} font-mono uppercase tracking-[0.2em]`}>
                                 GOOD BYE · 2025
                             </p>
                         </div>
@@ -237,10 +258,12 @@ export default function PhotoCalendarClient({ dict }: Props) {
                         </label>
                         <div className="grid grid-cols-2 gap-2">
                             {[
-                                { id: 'classic', label: t.theme_classic, color: 'bg-white border-gray-200' },
-                                { id: 'holiday', label: t.theme_holiday, color: 'bg-[#1a120b] border-amber-600/50 text-amber-500' },
-                                { id: 'film', label: t.theme_film, color: 'bg-image-[linear-gradient(to_bottom,#bae6fd,#eff6ff)] border-sky-300 text-sky-700' },
+                                { id: 'film', label: t.theme_film, color: 'bg-[#e0f2fe] border-[#7dd3fc] text-[#0369a1]' },
+                                { id: 'vintage', label: t.theme_vintage, color: 'bg-[#d6cbb6] border-[#a18e76] text-[#5d4037]' },
+                                { id: 'bloom', label: t.theme_bloom, color: 'bg-[#fff0f5] border-[#ffb7b2] text-[#ff6f61]' },
+                                { id: 'holiday', label: t.theme_holiday, color: 'bg-[#2a1b12] border-[#d97706] text-[#f59e0b]' },
                                 { id: 'pastel', label: t.theme_pastel, color: 'bg-gradient-to-r from-pink-100 to-blue-100 border-pink-200 text-gray-700' },
+                                { id: 'classic', label: t.theme_classic, color: 'bg-white border-gray-200' },
                             ].map((item) => (
                                 <button
                                     key={item.id}
