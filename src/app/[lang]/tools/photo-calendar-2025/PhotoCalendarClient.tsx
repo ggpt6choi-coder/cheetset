@@ -96,7 +96,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     container: 'p-4 sm:p-6 border-8 border-double border-[#d97706] bg-[#1a120b]',
                     title: 'font-[family-name:var(--font-playfair)] text-[#f59e0b] font-bold',
                     gridGap: 'gap-2 sm:gap-4',
-                    cell: 'rounded-md border border-[#f59e0b]/30 shadow-sm',
+                    cell: 'rounded-md border border-[#f59e0b]/30 shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]',
                     monthLabel: 'bg-[#d97706] text-[#1a120b] font-serif px-2 py-0.5 rounded-br-lg top-0 left-0 font-bold'
                 };
             case 'film': // Blue Sky (Clouds) - DEFAULT
@@ -104,7 +104,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     container: 'p-4 sm:p-6 bg-gradient-to-b from-[#bae6fd] to-[#eff6ff] relative',
                     title: 'font-[family-name:var(--font-dancing)] text-[#2563eb] font-bold tracking-wide',
                     gridGap: 'gap-y-4 sm:gap-y-8 gap-x-2 sm:gap-x-4',
-                    cell: 'aspect-[3/4] border-4 border-[#ffffff] shadow-lg rounded-xl',
+                    cell: 'aspect-[3/4] border-4 border-[#ffffff] shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)] rounded-xl',
                     monthLabel: 'bg-[#ffffff]/80 text-[#3b82f6] font-bold rounded-full px-2 py-0.5 bottom-2 right-2 text-[10px]'
                 };
             case 'vintage': // Vintage Paper (New)
@@ -120,24 +120,24 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     container: 'p-4 sm:p-6 bg-[#fff0f5] border-[12px] border-[#ffb7b2]',
                     title: 'font-[family-name:var(--font-playfair)] text-[#ff6f61] font-bold italic',
                     gridGap: 'gap-3 sm:gap-6',
-                    cell: 'rounded-[30px] border-4 border-[#ffdac1] shadow-md',
-                    monthLabel: 'bg-[#ff9aa2] text-white font-serif rounded-full px-3 py-1 bottom-2 right-2 shadow-sm text-[10px]'
+                    cell: 'rounded-[30px] border-4 border-[#ffdac1] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]',
+                    monthLabel: 'bg-[#ff9aa2] text-[#ffffff] font-serif rounded-full px-3 py-1 bottom-2 right-2 shadow-[0_1px_2px_0_rgba(0,0,0,0.1)] text-[10px]'
                 };
             case 'pastel':
                 return {
                     container: 'p-4 sm:p-6 bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC]',
                     title: 'font-[family-name:var(--font-dancing)] text-[#374151] text-5xl sm:text-7xl font-bold',
                     gridGap: 'gap-3 sm:gap-6',
-                    cell: 'rounded-2xl shadow-lg border-4 border-[#ffffff]/80',
+                    cell: 'rounded-2xl shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)] border-4 border-[#ffffff]/80',
                     monthLabel: 'bg-[#ffffff]/90 text-[#6b7280] rounded-full px-3 py-1 text-xs bottom-2 left-1/2 -translate-x-1/2'
                 };
             case 'classic':
             default:
                 return {
-                    container: 'p-4 sm:p-8 pb-16 sm:pb-24 bg-[#ffffff] shadow-xl',
+                    container: 'p-4 sm:p-8 pb-16 sm:pb-24 bg-[#ffffff] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)]',
                     title: 'font-[family-name:var(--font-playfair)] text-[#111827] font-black tracking-tight',
                     gridGap: 'gap-2 sm:gap-4',
-                    cell: 'bg-[#f9fafb] shadow-inner rounded-sm',
+                    cell: 'bg-[#f9fafb] shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.05)] rounded-sm',
                     monthLabel: 'text-[#9ca3af] font-serif uppercase tracking-widest text-xs bottom-2 left-1/2 -translate-x-1/2 w-full text-center bg-[#ffffff]/80 py-0.5 backdrop-blur-sm'
                 };
         }
