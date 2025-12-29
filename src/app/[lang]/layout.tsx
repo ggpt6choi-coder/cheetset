@@ -152,7 +152,7 @@ export default async function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338629507494018"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <CookieConsent
           message={dict.common.cookie_consent?.message || "This website uses cookies."}

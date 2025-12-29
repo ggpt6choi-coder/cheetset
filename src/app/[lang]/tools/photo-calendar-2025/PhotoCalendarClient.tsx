@@ -5,7 +5,7 @@ import { Download, Upload, Trash2, RefreshCw, Smartphone, Image as ImageIcon } f
 import html2canvas from 'html2canvas';
 
 type Props = {
-    dict: any; // Dictionary type would be better but using any for flexibility
+    dict: any;
 };
 
 type Theme = 'classic' | 'holiday' | 'film' | 'pastel' | 'vintage' | 'bloom';
@@ -14,7 +14,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
     const t = dict.tools.photo_calendar_2025;
     const [photos, setPhotos] = useState<(string | null)[]>(Array(12).fill(null));
     const [title, setTitle] = useState(t.placeholder_title);
-    const [theme, setTheme] = useState<Theme>('film'); // Default set to 'Blue Sky' (film)
+    const [theme, setTheme] = useState<Theme>('film');
     const [bgColor, setBgColor] = useState('#ffffff');
     const [isExporting, setIsExporting] = useState(false);
     const canvasRef = useRef<HTMLDivElement>(null);
@@ -37,7 +37,6 @@ export default function PhotoCalendarClient({ dict }: Props) {
             };
             reader.readAsDataURL(file);
         }
-        // Reset input so same file can be selected again
         e.target.value = '';
     };
 
@@ -52,16 +51,14 @@ export default function PhotoCalendarClient({ dict }: Props) {
         if (!canvasRef.current) return;
         setIsExporting(true);
         try {
-            // Detect mobile
             const isMobile = window.innerWidth < 768;
 
             const canvas = await html2canvas(canvasRef.current, {
-                scale: isMobile ? 2 : 3, // Reduce scale on mobile to prevent crashes
+                scale: isMobile ? 2 : 3,
                 useCORS: true,
-                backgroundColor: bgColor,
+                backgroundColor: bgColor, // This might need to be explicit hex if bgColor is default
                 logging: false,
                 onclone: (clonedDoc) => {
-                    // Find the canvas element in the cloned document
                     const clonedCanvas = clonedDoc.querySelector('[data-html2canvas-ignore="true"]');
                     if (clonedCanvas) {
                         clonedCanvas.remove();
@@ -88,57 +85,160 @@ export default function PhotoCalendarClient({ dict }: Props) {
         t.month_9, t.month_10, t.month_11, t.month_12
     ];
 
-    // Theme Styles
+    // Theme Styles - Refactored to use explicit inline styles for ALL colors/borders/shadows
+    // Structure: { containerClass, containerStyle, titleClass, titleStyle, gridGap, cellClass, cellStyle, monthLabelClass, monthLabelStyle }
     const getThemeStyles = () => {
+        const commonCell = 'relative w-full h-full cursor-pointer group overflow-hidden bg-cover bg-center bg-no-repeat';
+
         switch (theme) {
-            case 'holiday': // Year-End (Midnight Gold)
+            case 'holiday':
                 return {
-                    container: 'p-4 sm:p-6 border-8 border-double border-[#d97706] bg-[#1a120b]',
-                    title: 'font-[family-name:var(--font-playfair)] text-[#f59e0b] font-bold',
+                    containerClass: 'p-4 sm:p-6 flex flex-col',
+                    containerStyle: {
+                        border: '8px double #d97706',
+                        backgroundColor: '#1a120b'
+                    },
+                    titleClass: 'text-4xl sm:text-5xl whitespace-pre-line leading-tight font-bold',
+                    titleStyle: {
+                        color: '#f59e0b',
+                        fontFamily: 'var(--font-playfair)'
+                    },
                     gridGap: 'gap-2 sm:gap-4',
-                    cell: 'rounded-md border border-[#f59e0b]/30 shadow-[0_1px_2px_0_rgba(0,0,0,0.1)]',
-                    monthLabel: 'bg-[#d97706] text-[#1a120b] font-serif px-2 py-0.5 rounded-br-lg top-0 left-0 font-bold'
+                    cellClass: `${commonCell} rounded-md`,
+                    cellStyle: {
+                        border: '1px solid #f59e0b',
+                        boxShadow: '0 1px 2px 0 rgba(0,0,0,0.1)'
+                    },
+                    monthLabelClass: 'absolute font-serif px-2 py-0.5 rounded-br-lg top-0 left-0 font-bold pointer-events-none',
+                    monthLabelStyle: {
+                        backgroundColor: '#d97706',
+                        color: '#1a120b'
+                    },
+                    footerColor: 'rgba(245, 158, 11, 0.5)'
                 };
-            case 'film': // Blue Sky (Clouds) - DEFAULT
+            case 'film': // Blue Sky
                 return {
-                    container: 'p-4 sm:p-6 bg-gradient-to-b from-[#bae6fd] to-[#eff6ff] relative',
-                    title: 'font-[family-name:var(--font-dancing)] text-[#2563eb] font-bold tracking-wide',
+                    containerClass: 'p-4 sm:p-6 relative flex flex-col',
+                    containerStyle: {
+                        background: 'linear-gradient(to bottom, #bae6fd, #eff6ff)'
+                    },
+                    titleClass: 'text-4xl sm:text-5xl whitespace-pre-line leading-tight font-bold tracking-wide',
+                    titleStyle: {
+                        color: '#2563eb',
+                        fontFamily: 'var(--font-dancing)'
+                    },
                     gridGap: 'gap-y-4 sm:gap-y-8 gap-x-2 sm:gap-x-4',
-                    cell: 'aspect-[3/4] border-4 border-[#ffffff] shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)] rounded-xl',
-                    monthLabel: 'bg-[#ffffff]/80 text-[#3b82f6] font-bold rounded-full px-2 py-0.5 bottom-2 right-2 text-[10px]'
+                    cellClass: `${commonCell} aspect-[3/4] rounded-xl`,
+                    cellStyle: {
+                        border: '4px solid #ffffff',
+                        boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)'
+                    },
+                    monthLabelClass: 'absolute font-bold rounded-full px-2 py-0.5 bottom-2 right-2 text-[10px] pointer-events-none',
+                    monthLabelStyle: {
+                        backgroundColor: 'rgba(255,255,255,0.8)',
+                        color: '#3b82f6'
+                    },
+                    footerColor: 'rgba(30, 58, 138, 0.4)'
                 };
-            case 'vintage': // Vintage Paper (New)
+            case 'vintage':
                 return {
-                    container: 'p-4 sm:p-6 bg-[#d4c5b0] relative border-4 border-[#8c7b65] border-dashed',
-                    title: 'font-mono text-[#5d4037] font-bold tracking-widest uppercase',
+                    containerClass: 'p-4 sm:p-6 relative flex flex-col',
+                    containerStyle: {
+                        backgroundColor: '#d4c5b0',
+                        border: '4px dashed #8c7b65'
+                    },
+                    titleClass: 'text-4xl sm:text-5xl whitespace-pre-line leading-tight font-bold tracking-widest uppercase',
+                    titleStyle: {
+                        color: '#5d4037',
+                        fontFamily: 'monospace'
+                    },
                     gridGap: 'gap-3 sm:gap-6',
-                    cell: 'rounded-sm border-2 border-[#8c7b65] sepia-[.3] contrast-125',
-                    monthLabel: 'bg-[#8c7b65] text-[#d4c5b0] font-mono px-2 py-0.5 rounded-sm bottom-0 left-0 text-[10px]'
+                    cellClass: `${commonCell} rounded-sm sepia-[.3] contrast-125`,
+                    cellStyle: {
+                        border: '2px solid #8c7b65'
+                    },
+                    monthLabelClass: 'absolute font-mono px-2 py-0.5 rounded-sm bottom-0 left-0 text-[10px] pointer-events-none',
+                    monthLabelStyle: {
+                        backgroundColor: '#8c7b65',
+                        color: '#d4c5b0'
+                    },
+                    footerColor: 'rgba(93, 64, 55, 0.6)'
                 };
-            case 'bloom': // Spring Bloom (New)
+            case 'bloom':
                 return {
-                    container: 'p-4 sm:p-6 bg-[#fff0f5] border-[12px] border-[#ffb7b2]',
-                    title: 'font-[family-name:var(--font-playfair)] text-[#ff6f61] font-bold italic',
+                    containerClass: 'p-4 sm:p-6 flex flex-col',
+                    containerStyle: {
+                        backgroundColor: '#fff0f5',
+                        border: '12px solid #ffb7b2'
+                    },
+                    titleClass: 'text-4xl sm:text-5xl whitespace-pre-line leading-tight font-bold italic',
+                    titleStyle: {
+                        color: '#ff6f61',
+                        fontFamily: 'var(--font-playfair)'
+                    },
                     gridGap: 'gap-3 sm:gap-6',
-                    cell: 'rounded-[30px] border-4 border-[#ffdac1] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]',
-                    monthLabel: 'bg-[#ff9aa2] text-[#ffffff] font-serif rounded-full px-3 py-1 bottom-2 right-2 shadow-[0_1px_2px_0_rgba(0,0,0,0.1)] text-[10px]'
+                    cellClass: `${commonCell} rounded-[30px]`,
+                    cellStyle: {
+                        border: '4px solid #ffdac1',
+                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'
+                    },
+                    monthLabelClass: 'absolute font-serif rounded-full px-3 py-1 bottom-2 right-2 text-[10px] pointer-events-none',
+                    monthLabelStyle: {
+                        backgroundColor: '#ff9aa2',
+                        color: '#ffffff',
+                        boxShadow: '0 1px 2px 0 rgba(0,0,0,0.1)'
+                    },
+                    footerColor: '#ff6f61'
                 };
             case 'pastel':
                 return {
-                    container: 'p-4 sm:p-6 bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC]',
-                    title: 'font-[family-name:var(--font-dancing)] text-[#374151] text-5xl sm:text-7xl font-bold',
+                    containerClass: 'p-4 sm:p-6 relative flex flex-col',
+                    containerStyle: {
+                        background: 'linear-gradient(to bottom right, #FFDEE9, #B5FFFC)'
+                    },
+                    titleClass: 'text-5xl sm:text-7xl whitespace-pre-line leading-tight font-bold',
+                    titleStyle: {
+                        color: '#374151',
+                        fontFamily: 'var(--font-dancing)'
+                    },
                     gridGap: 'gap-3 sm:gap-6',
-                    cell: 'rounded-2xl shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)] border-4 border-[#ffffff]/80',
-                    monthLabel: 'bg-[#ffffff]/90 text-[#6b7280] rounded-full px-3 py-1 text-xs bottom-2 left-1/2 -translate-x-1/2'
+                    cellClass: `${commonCell} rounded-2xl`,
+                    cellStyle: {
+                        border: '4px solid rgba(255,255,255,0.8)',
+                        boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)'
+                    },
+                    monthLabelClass: 'absolute rounded-full px-3 py-1 text-xs bottom-2 left-1/2 -translate-x-1/2 pointer-events-none',
+                    monthLabelStyle: {
+                        backgroundColor: 'rgba(255,255,255,0.9)',
+                        color: '#6b7280'
+                    },
+                    footerColor: '#6b7280'
                 };
             case 'classic':
             default:
                 return {
-                    container: 'p-4 sm:p-8 pb-16 sm:pb-24 bg-[#ffffff] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)]',
-                    title: 'font-[family-name:var(--font-playfair)] text-[#111827] font-black tracking-tight',
+                    containerClass: 'p-4 sm:p-8 pb-16 sm:pb-24 flex flex-col',
+                    containerStyle: {
+                        backgroundColor: '#ffffff',
+                        boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)'
+                    },
+                    titleClass: 'text-4xl sm:text-5xl whitespace-pre-line leading-tight font-black tracking-tight',
+                    titleStyle: {
+                        color: '#111827',
+                        fontFamily: 'var(--font-playfair)'
+                    },
                     gridGap: 'gap-2 sm:gap-4',
-                    cell: 'bg-[#f9fafb] shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.05)] rounded-sm',
-                    monthLabel: 'text-[#9ca3af] font-serif uppercase tracking-widest text-xs bottom-2 left-1/2 -translate-x-1/2 w-full text-center bg-[#ffffff]/80 py-0.5 backdrop-blur-sm'
+                    cellClass: `${commonCell} rounded-sm`,
+                    cellStyle: {
+                        backgroundColor: '#f9fafb',
+                        boxShadow: 'inset 0 2px 4px 0 rgba(0,0,0,0.05)'
+                    },
+                    monthLabelClass: 'absolute font-serif uppercase tracking-widest text-xs bottom-2 left-1/2 -translate-x-1/2 w-full text-center py-0.5 backdrop-blur-sm pointer-events-none',
+                    monthLabelStyle: {
+                        color: '#9ca3af',
+                        backgroundColor: 'rgba(255,255,255,0.8)'
+                    },
+                    footerColor: '#6b7280'
                 };
         }
     };
@@ -152,19 +252,22 @@ export default function PhotoCalendarClient({ dict }: Props) {
                 <div className="w-full max-w-[600px]">
                     <div
                         ref={canvasRef}
-                        className={`relative w-full aspect-[3/4] transition-all duration-300 flex flex-col ${s.container}`}
-                        style={{ backgroundColor: theme === 'classic' ? bgColor : undefined }}
+                        className={`relative w-full aspect-[3/4] transition-all duration-300 ${s.containerClass}`}
+                        style={{
+                            ...s.containerStyle,
+                            backgroundColor: theme === 'classic' ? bgColor : s.containerStyle.backgroundColor
+                        }}
                     >
                         {/* Decorations */}
                         {theme === 'film' && ( // Sky Theme decorations
                             <>
-                                <div className="absolute top-10 left-10 w-20 h-8 bg-[#ffffff]/40 blur-xl rounded-full" />
-                                <div className="absolute top-20 right-20 w-32 h-12 bg-[#ffffff]/30 blur-xl rounded-full" />
-                                <div className="absolute bottom-20 left-1/2 w-40 h-16 bg-[#ffffff]/20 blur-2xl rounded-full" />
+                                <div className="absolute top-10 left-10 w-20 h-8 blur-xl rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.4)' }} />
+                                <div className="absolute top-20 right-20 w-32 h-12 blur-xl rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.3)' }} />
+                                <div className="absolute bottom-20 left-1/2 w-40 h-16 blur-2xl rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }} />
                             </>
                         )}
                         {theme === 'vintage' && ( // Vintage decorations
-                            <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(#8c7b65_1px,transparent_1px)] [background-size:16px_16px]" />
+                            <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: 'radial-gradient(#8c7b65 1px, rgba(0,0,0,0) 1px)', backgroundSize: '16px 16px' }} />
                         )}
 
                         <div className="text-center mb-6 sm:mb-10 relative z-10 flex-shrink-0 pt-2">
@@ -173,7 +276,9 @@ export default function PhotoCalendarClient({ dict }: Props) {
                             {theme === 'film' && <div className="text-2xl mb-2">☁️</div>}
                             {theme === 'bloom' && <div className="text-2xl mb-2">🌸</div>}
                             {theme === 'vintage' && <div className="text-2xl mb-2 opacity-50">📜</div>}
-                            <h2 className={`text-4xl sm:text-5xl whitespace-pre-line leading-tight ${s.title}`}
+                            <h2
+                                className={s.titleClass}
+                                style={s.titleStyle}
                                 contentEditable
                                 suppressContentEditableWarning
                                 onBlur={(e) => setTitle(e.currentTarget.textContent || title)}
@@ -187,39 +292,59 @@ export default function PhotoCalendarClient({ dict }: Props) {
                                 <div
                                     key={index}
                                     onClick={() => handlePhotoClick(index)}
-                                    className={`relative w-full h-full cursor-pointer group overflow-hidden ${s.cell} bg-cover bg-center bg-no-repeat`}
+                                    className={s.cellClass}
+                                    style={s.cellStyle}
                                 >
                                     {photo ? (
                                         <>
                                             <img src={photo} alt={months[index]} className="w-full h-full object-cover" />
                                             {/* Buttons - Hidden in export via onclone or css */}
+                                            {/* Buttons - Hidden in export via onclone or css */}
                                             <div
                                                 data-html2canvas-ignore="true"
-                                                className="absolute inset-0 bg-[#000000]/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 z-20"
+                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 z-20"
+                                                style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
                                             >
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); handlePhotoClick(index); }}
-                                                    className="px-2 py-1 bg-[#ffffff]/20 hover:bg-[#ffffff]/40 text-[#ffffff] rounded-full text-[10px] backdrop-blur-md flex items-center gap-1"
+                                                    className="px-2 py-1 rounded-full text-[10px] flex items-center gap-1"
+                                                    style={{
+                                                        backgroundColor: 'rgba(255,255,255,0.2)',
+                                                        color: '#ffffff',
+                                                        backdropFilter: 'blur(4px)'
+                                                    }}
                                                 >
                                                     <RefreshCw className="w-3 h-3" />
                                                 </button>
                                                 <button
                                                     onClick={(e) => removePhoto(index, e)}
-                                                    className="px-2 py-1 bg-[#ef4444]/20 hover:bg-[#ef4444]/40 text-[#fecaca] rounded-full text-[10px] backdrop-blur-md flex items-center gap-1 border border-[#ef4444]/50"
+                                                    className="px-2 py-1 rounded-full text-[10px] flex items-center gap-1"
+                                                    style={{
+                                                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                                                        color: '#fee2e2',
+                                                        border: '1px solid rgba(239, 68, 68, 0.5)',
+                                                        backdropFilter: 'blur(4px)'
+                                                    }}
                                                 >
                                                     <Trash2 className="w-3 h-3" />
                                                 </button>
                                             </div>
                                         </>
                                     ) : (
-                                        <div className="w-full h-full flex flex-col items-center justify-center text-[#9ca3af] hover:bg-[#000000]/5 hover:text-[#6b7280] transition-colors bg-[#000000]/5">
+                                        <div
+                                            className="w-full h-full flex flex-col items-center justify-center transition-colors"
+                                            style={{ backgroundColor: 'rgba(0,0,0,0.05)', color: '#9ca3af' }}
+                                        >
                                             <ImageIcon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 opacity-30" />
                                             <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-wider opacity-50">{t.click_to_add}</span>
                                         </div>
                                     )}
 
                                     {/* Month Label */}
-                                    <div className={`absolute ${s.monthLabel} pointer-events-none`}>
+                                    <div
+                                        className={s.monthLabelClass}
+                                        style={s.monthLabelStyle}
+                                    >
                                         {months[index]}
                                     </div>
                                 </div>
@@ -228,7 +353,10 @@ export default function PhotoCalendarClient({ dict }: Props) {
 
                         {/* Footer decoration */}
                         <div className="mt-4 sm:mt-8 text-center opacity-40 flex-shrink-0 pb-2">
-                            <p className={`text-[8px] sm:text-[10px] ${theme === 'holiday' ? 'text-[#f59e0b]/50' : (theme === 'film' ? 'text-[#1e3a8a]/40' : (theme === 'vintage' ? 'text-[#5d4037]/60' : 'text-[#6b7280]'))} font-mono uppercase tracking-[0.2em]`}>
+                            <p
+                                className="text-[8px] sm:text-[10px] font-mono uppercase tracking-[0.2em]"
+                                style={{ color: s.footerColor }}
+                            >
                                 GOOD BYE · 2025
                             </p>
                         </div>
@@ -236,7 +364,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
                 </div>
             </div>
 
-            {/* Sidebar / Controls */}
+            {/* Sidebar / Controls - These can use Tailwind freely as they are not exported */}
             <div className="w-full lg:w-80 flex-shrink-0 space-y-6">
                 <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 space-y-6 border border-gray-100 dark:border-gray-700">
                     <div>
