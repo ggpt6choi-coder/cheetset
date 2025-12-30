@@ -16,10 +16,52 @@ export default function PhotoCalendarClient({ dict }: Props) {
     const [title, setTitle] = useState(t.placeholder_title);
     const [theme, setTheme] = useState<Theme>('film');
     const [bgColor, setBgColor] = useState('#ffffff');
+    const [aspectRatio, setAspectRatio] = useState('3/4');
     const [isExporting, setIsExporting] = useState(false);
     const canvasRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [currentMonthIndex, setCurrentMonthIndex] = useState<number | null>(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    // Load from localStorage on mount
+    React.useEffect(() => {
+        const savedData = localStorage.getItem('photo_calendar_2025_data');
+        if (savedData) {
+            try {
+                const parsed = JSON.parse(savedData);
+                if (parsed.photos) setPhotos(parsed.photos);
+                if (parsed.title) setTitle(parsed.title);
+                if (parsed.theme) setTheme(parsed.theme);
+                if (parsed.bgColor) setBgColor(parsed.bgColor);
+                if (parsed.aspectRatio) setAspectRatio(parsed.aspectRatio);
+            } catch (e) {
+                console.error('Failed to load saved data', e);
+            }
+        }
+        setIsLoaded(true);
+    }, []);
+
+    // Save to localStorage on change
+    React.useEffect(() => {
+        if (!isLoaded) return; // Don't save initial default values
+        const data = { photos, title, theme, bgColor, aspectRatio };
+        localStorage.setItem('photo_calendar_2025_data', JSON.stringify(data));
+    }, [photos, title, theme, bgColor, aspectRatio, isLoaded]);
+
+    // Prevent accidental refresh (beforeunload)
+    React.useEffect(() => {
+        const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+            // Check if there is any unsaved data worth warning about (e.g. at least one photo)
+            const hasData = photos.some(p => p !== null) || title !== t.placeholder_title;
+            if (hasData) {
+                e.preventDefault();
+                e.returnValue = ''; // Standard for Chrome
+                return ''; // Standard for Legacy
+            }
+        };
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+    }, [photos, title, t.placeholder_title]);
 
     const handlePhotoClick = (index: number) => {
         setCurrentMonthIndex(index);
@@ -56,7 +98,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
             const canvas = await html2canvas(canvasRef.current, {
                 scale: isMobile ? 2 : 3,
                 useCORS: true,
-                backgroundColor: bgColor, // This might need to be explicit hex if bgColor is default
+                backgroundColor: bgColor,
                 logging: false,
                 onclone: (clonedDoc) => {
                     const clonedCanvas = clonedDoc.querySelector('[data-html2canvas-ignore="true"]');
@@ -66,11 +108,42 @@ export default function PhotoCalendarClient({ dict }: Props) {
                 }
             });
 
-            const link = document.createElement('a');
-            const timestamp = new Date().toISOString().slice(0, 10);
-            link.download = `my-2025-photos-${timestamp}.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+            canvas.toBlob(async (blob) => {
+                if (!blob) {
+                    alert('Failed to generate image');
+                    return;
+                }
+
+                const timestamp = new Date().toISOString().slice(0, 10);
+                const fileName = `my-2025-photos-${timestamp}.png`;
+                const file = new File([blob], fileName, { type: 'image/png' });
+
+                // Try Web Share API (Mobile: "Save Image" option in share sheet)
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({
+                            files: [file],
+                            title: 'My 2025 Photo Calendar',
+                        });
+                        return;
+                    } catch (error: any) {
+                        // Ignore AbortError (user cancelled)
+                        if (error.name !== 'AbortError') {
+                            console.warn('Share failed, falling back to download', error);
+                        } else {
+                            return;
+                        }
+                    }
+                }
+
+                // Fallback: Standard Download Link (Desktop)
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = fileName;
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+            }, 'image/png');
         } catch (err) {
             console.error('Export failed:', err);
             alert('Failed to export image. Please try again with fewer photos or on a desktop.');
@@ -86,9 +159,11 @@ export default function PhotoCalendarClient({ dict }: Props) {
     ];
 
     // Theme Styles - Refactored to use explicit inline styles for ALL colors/borders/shadows
-    // Structure: { containerClass, containerStyle, titleClass, titleStyle, gridGap, cellClass, cellStyle, monthLabelClass, monthLabelStyle }
     const getThemeStyles = () => {
         const commonCell = 'relative w-full h-full cursor-pointer group overflow-hidden bg-cover bg-center bg-no-repeat';
+
+        // Aspect Ratio Logic: Apply to cellStyle based on user selection
+        const ratioStyle = aspectRatio === 'auto' ? {} : { aspectRatio: aspectRatio };
 
         switch (theme) {
             case 'holiday':
@@ -107,12 +182,13 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     cellClass: `${commonCell} rounded-md`,
                     cellStyle: {
                         border: '1px solid #f59e0b',
-                        boxShadow: '0 1px 2px 0 rgba(0,0,0,0.1)'
+                        boxShadow: '0 1px 2px 0 rgba(0,0,0,0.1)',
+                        ...ratioStyle
                     },
-                    monthLabelClass: 'absolute font-serif px-2 py-0.5 rounded-br-lg top-0 left-0 font-bold pointer-events-none',
+                    monthLabelClass: 'font-serif text-sm font-bold text-center w-full mt-1',
                     monthLabelStyle: {
-                        backgroundColor: '#d97706',
-                        color: '#1a120b'
+                        color: '#f59e0b',
+                        textShadow: '0 1px 2px rgba(0,0,0,0.8)'
                     },
                     footerColor: 'rgba(245, 158, 11, 0.5)'
                 };
@@ -128,15 +204,16 @@ export default function PhotoCalendarClient({ dict }: Props) {
                         fontFamily: 'var(--font-dancing)'
                     },
                     gridGap: 'gap-y-4 sm:gap-y-8 gap-x-2 sm:gap-x-4',
-                    cellClass: `${commonCell} aspect-[3/4] rounded-xl`,
+                    cellClass: `${commonCell} rounded-xl`, // Removed aspect-[3/4]
                     cellStyle: {
                         border: '4px solid #ffffff',
-                        boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)'
+                        boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)',
+                        ...ratioStyle
                     },
-                    monthLabelClass: 'absolute font-bold rounded-full px-2 py-0.5 bottom-2 right-2 text-[10px] pointer-events-none',
+                    monthLabelClass: 'font-bold text-sm text-center w-full mt-1',
                     monthLabelStyle: {
-                        backgroundColor: 'rgba(255,255,255,0.8)',
-                        color: '#3b82f6'
+                        color: '#1e40af',
+                        fontFamily: 'var(--font-dancing)'
                     },
                     footerColor: 'rgba(30, 58, 138, 0.4)'
                 };
@@ -155,12 +232,12 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     gridGap: 'gap-3 sm:gap-6',
                     cellClass: `${commonCell} rounded-sm sepia-[.3] contrast-125`,
                     cellStyle: {
-                        border: '2px solid #8c7b65'
+                        border: '2px solid #8c7b65',
+                        ...ratioStyle
                     },
-                    monthLabelClass: 'absolute font-mono px-2 py-0.5 rounded-sm bottom-0 left-0 text-[10px] pointer-events-none',
+                    monthLabelClass: 'font-mono text-xs font-bold text-center w-full mt-1',
                     monthLabelStyle: {
-                        backgroundColor: '#8c7b65',
-                        color: '#d4c5b0'
+                        color: '#5d4037'
                     },
                     footerColor: 'rgba(93, 64, 55, 0.6)'
                 };
@@ -180,13 +257,12 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     cellClass: `${commonCell} rounded-[30px]`,
                     cellStyle: {
                         border: '4px solid #ffdac1',
-                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'
+                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+                        ...ratioStyle
                     },
-                    monthLabelClass: 'absolute font-serif rounded-full px-3 py-1 bottom-2 right-2 text-[10px] pointer-events-none',
+                    monthLabelClass: 'font-serif text-sm font-bold text-center w-full mt-1',
                     monthLabelStyle: {
-                        backgroundColor: '#ff9aa2',
-                        color: '#ffffff',
-                        boxShadow: '0 1px 2px 0 rgba(0,0,0,0.1)'
+                        color: '#ef4444'
                     },
                     footerColor: '#ff6f61'
                 };
@@ -205,12 +281,13 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     cellClass: `${commonCell} rounded-2xl`,
                     cellStyle: {
                         border: '4px solid rgba(255,255,255,0.8)',
-                        boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)'
+                        boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)',
+                        ...ratioStyle
                     },
-                    monthLabelClass: 'absolute rounded-full px-3 py-1 text-xs bottom-2 left-1/2 -translate-x-1/2 pointer-events-none',
+                    monthLabelClass: 'text-sm font-bold text-center w-full mt-1',
                     monthLabelStyle: {
-                        backgroundColor: 'rgba(255,255,255,0.9)',
-                        color: '#6b7280'
+                        color: '#4b5563',
+                        fontFamily: 'var(--font-dancing)'
                     },
                     footerColor: '#6b7280'
                 };
@@ -231,12 +308,12 @@ export default function PhotoCalendarClient({ dict }: Props) {
                     cellClass: `${commonCell} rounded-sm`,
                     cellStyle: {
                         backgroundColor: '#f9fafb',
-                        boxShadow: 'inset 0 2px 4px 0 rgba(0,0,0,0.05)'
+                        boxShadow: 'inset 0 2px 4px 0 rgba(0,0,0,0.05)',
+                        ...ratioStyle
                     },
-                    monthLabelClass: 'absolute font-serif uppercase tracking-widest text-xs bottom-2 left-1/2 -translate-x-1/2 w-full text-center py-0.5 backdrop-blur-sm pointer-events-none',
+                    monthLabelClass: 'font-serif uppercase tracking-widest text-xs font-bold text-center w-full mt-1',
                     monthLabelStyle: {
-                        color: '#9ca3af',
-                        backgroundColor: 'rgba(255,255,255,0.8)'
+                        color: '#9ca3af'
                     },
                     footerColor: '#6b7280'
                 };
@@ -289,56 +366,56 @@ export default function PhotoCalendarClient({ dict }: Props) {
 
                         <div className={`grid grid-cols-3 ${s.gridGap} relative z-10 flex-grow`}>
                             {photos.map((photo, index) => (
-                                <div
-                                    key={index}
-                                    onClick={() => handlePhotoClick(index)}
-                                    className={s.cellClass}
-                                    style={s.cellStyle}
-                                >
-                                    {photo ? (
-                                        <>
-                                            <img src={photo} alt={months[index]} className="w-full h-full object-cover" />
-                                            {/* Buttons - Hidden in export via onclone or css */}
-                                            {/* Buttons - Hidden in export via onclone or css */}
+                                <div key={index} className="flex flex-col gap-1.5 group relative">
+                                    <div
+                                        onClick={() => handlePhotoClick(index)}
+                                        className={s.cellClass}
+                                        style={s.cellStyle}
+                                    >
+                                        {photo ? (
+                                            <>
+                                                <img src={photo} alt={months[index]} className="w-full h-full object-cover" />
+                                                {/* Buttons - Hidden in export via onclone or css */}
+                                                <div
+                                                    data-html2canvas-ignore="true"
+                                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 z-20"
+                                                    style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
+                                                >
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); handlePhotoClick(index); }}
+                                                        className="px-2 py-1 rounded-full text-[10px] flex items-center gap-1"
+                                                        style={{
+                                                            backgroundColor: 'rgba(255,255,255,0.2)',
+                                                            color: '#ffffff',
+                                                            backdropFilter: 'blur(4px)'
+                                                        }}
+                                                    >
+                                                        <RefreshCw className="w-3 h-3" />
+                                                    </button>
+                                                    <button
+                                                        onClick={(e) => removePhoto(index, e)}
+                                                        className="px-2 py-1 rounded-full text-[10px] flex items-center gap-1"
+                                                        style={{
+                                                            backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                                                            color: '#fee2e2',
+                                                            border: '1px solid rgba(239, 68, 68, 0.5)',
+                                                            backdropFilter: 'blur(4px)'
+                                                        }}
+                                                    >
+                                                        <Trash2 className="w-3 h-3" />
+                                                    </button>
+                                                </div>
+                                            </>
+                                        ) : (
                                             <div
-                                                data-html2canvas-ignore="true"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 z-20"
-                                                style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
+                                                className="w-full h-full flex flex-col items-center justify-center transition-colors"
+                                                style={{ backgroundColor: 'rgba(0,0,0,0.05)', color: '#9ca3af' }}
                                             >
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); handlePhotoClick(index); }}
-                                                    className="px-2 py-1 rounded-full text-[10px] flex items-center gap-1"
-                                                    style={{
-                                                        backgroundColor: 'rgba(255,255,255,0.2)',
-                                                        color: '#ffffff',
-                                                        backdropFilter: 'blur(4px)'
-                                                    }}
-                                                >
-                                                    <RefreshCw className="w-3 h-3" />
-                                                </button>
-                                                <button
-                                                    onClick={(e) => removePhoto(index, e)}
-                                                    className="px-2 py-1 rounded-full text-[10px] flex items-center gap-1"
-                                                    style={{
-                                                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                                                        color: '#fee2e2',
-                                                        border: '1px solid rgba(239, 68, 68, 0.5)',
-                                                        backdropFilter: 'blur(4px)'
-                                                    }}
-                                                >
-                                                    <Trash2 className="w-3 h-3" />
-                                                </button>
+                                                <ImageIcon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 opacity-30" />
+                                                <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-wider opacity-50">{t.click_to_add}</span>
                                             </div>
-                                        </>
-                                    ) : (
-                                        <div
-                                            className="w-full h-full flex flex-col items-center justify-center transition-colors"
-                                            style={{ backgroundColor: 'rgba(0,0,0,0.05)', color: '#9ca3af' }}
-                                        >
-                                            <ImageIcon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 opacity-30" />
-                                            <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-wider opacity-50">{t.click_to_add}</span>
-                                        </div>
-                                    )}
+                                        )}
+                                    </div>
 
                                     {/* Month Label */}
                                     <div
@@ -364,7 +441,7 @@ export default function PhotoCalendarClient({ dict }: Props) {
                 </div>
             </div>
 
-            {/* Sidebar / Controls - These can use Tailwind freely as they are not exported */}
+            {/* Sidebar / Controls */}
             <div className="w-full lg:w-80 flex-shrink-0 space-y-6">
                 <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 space-y-6 border border-gray-100 dark:border-gray-700">
                     <div>
@@ -400,6 +477,31 @@ export default function PhotoCalendarClient({ dict }: Props) {
                                         } ${item.color}`}
                                 >
                                     {item.label}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            Photo Size
+                        </label>
+                        <div className="grid grid-cols-3 gap-2">
+                            {[
+                                { id: '3/4', ratio: '3:4', desc: 'Portrait' },
+                                { id: '1/1', ratio: '1:1', desc: 'Square' },
+                                { id: '4/3', ratio: '4:3', desc: 'Landscape' },
+                            ].map((item) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => setAspectRatio(item.id)}
+                                    className={`p-2 rounded-lg border transition-all flex flex-col items-center justify-center gap-0.5 ${aspectRatio === item.id
+                                        ? 'bg-blue-50 border-blue-500 text-blue-600 ring-1 ring-blue-500'
+                                        : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'
+                                        }`}
+                                >
+                                    <span className="text-sm font-bold">{item.ratio}</span>
+                                    <span className="text-[10px] opacity-80">{item.desc}</span>
                                 </button>
                             ))}
                         </div>
