@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 import { posts } from '@/data/posts'
 import { tools } from '@/config/tools'
 
-const baseUrl = 'https://cheetset.com'
+const baseUrl = 'https://www.cheetset.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const toolRoutes = tools.map(tool => `/tools/${tool.slug}`)
