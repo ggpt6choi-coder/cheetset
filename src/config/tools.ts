@@ -289,11 +289,6 @@ export const tools: Tool[] = [
         category: 'developer'
     },
     {
-        slug: 'photo-calendar-2025',
-        icon: 'Image',
-        category: 'image'
-    },
-    {
         slug: 'markdown-preview',
         icon: 'FileText',
         category: 'developer'
