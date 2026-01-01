@@ -20,10 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang as Locale);
 
   return {
-    metadataBase: new URL('https://cheetset.com'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cheetset.com'),
     title: dict.common.title,
     description: dict.common.description,
     alternates: {
+      canonical: './',
       languages: {
         'en': '/en',
         'ko': '/ko',
