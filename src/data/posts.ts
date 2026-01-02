@@ -834,5 +834,30 @@ export const posts: Post[] = [
         date: '2025-12-27',
         lang: 'ja',
         category: 'tech'
-    }
+    },
+    {
+        slug: 'dev-story-building-markdown-preview',
+        title: 'Building a Real-time Markdown Previewer with Next.js (Dev Story)',
+        description: 'Behind the scenes of building a fast, client-side Markdown editor. We used Next.js, React Markdown, and Tailwind Typography to create a seamless writing experience.',
+        date: '2026-01-02',
+        lang: 'en',
+        category: 'developer'
+    },
+    {
+        slug: 'dev-story-building-markdown-preview',
+        title: 'Next.js로 실시간 마크다운 미리보기 기능 만들기 (개발기)',
+        description: '빠르고 안전한 클라이언트 사이드 마크다운 에디터를 어떻게 만들었을까요? Next.js와 Tailwind Typography를 활용한 CheetSet 개발 비하인드 스토리를 공개합니다.',
+        date: '2026-01-02',
+        lang: 'ko',
+        category: 'developer'
+    },
+    {
+        slug: 'dev-story-building-markdown-preview',
+        title: 'Next.jsでリアルタイムMarkdownプレビュー機能を作る（開発記）',
+        description: '高速で安全なクライアントサイドMarkdownエディタをどのように作ったのか？Next.jsとTailwind Typographyを活用したCheetSet開発の舞台裏を公開します。',
+        date: '2026-01-02',
+        lang: 'ja',
+        category: 'developer'
+    },
 ];
+

@@ -46,6 +46,7 @@ const NewToolsRelease = dynamic(() => import('@/components/blog/posts/NewToolsRe
 const DeveloperProductivityGuide = dynamic(() => import('@/components/blog/posts/DeveloperProductivityGuide'));
 const MarkdownGuideForBeginners = dynamic(() => import('@/components/blog/posts/MarkdownGuideForBeginners'));
 const UserAgentGuide = dynamic(() => import('@/components/blog/posts/UserAgentGuide'));
+const DevStoryMarkdownPreview = dynamic(() => import('@/components/blog/posts/DevStoryMarkdownPreview'));
 
 const POSTS: Record<string, React.ComponentType<any>> = {
     'json-formatting-guide': JsonFormattingGuide,
@@ -81,6 +82,7 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'magic-of-compound-interest': MagicOfCompoundInterest,
     'markdown-guide-for-beginners': MarkdownGuideForBeginners,
     'user-agent-guide': UserAgentGuide,
+    'dev-story-building-markdown-preview': DevStoryMarkdownPreview,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
