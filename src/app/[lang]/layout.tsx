@@ -25,11 +25,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: dict.common.description,
     alternates: {
       canonical: './',
-      languages: {
-        'en': '/en',
-        'ko': '/ko',
-        'ja': '/ja',
-      },
     },
     openGraph: {
       title: dict.common.title,
