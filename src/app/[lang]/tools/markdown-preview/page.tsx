@@ -5,6 +5,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,33 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.markdown_preview.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.markdown_preview.title,
         description: dict.tools.markdown_preview.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/markdown-preview`,
-        },
-        openGraph: {
-            title: `${dict.tools.markdown_preview.title} - ${dict.common.title}`,
-            description: dict.tools.markdown_preview.description,
-            url: `https://cheetset.com/${lang}/tools/markdown-preview`,
-            type: 'website',
-            images: [
-                {
-                    url: '/og-image.png',
-                    width: 1200,
-                    height: 630,
-                    alt: dict.tools.markdown_preview.title,
-                },
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${dict.tools.markdown_preview.title} - ${dict.common.title}`,
-            description: dict.tools.markdown_preview.description,
-            images: ['/og-image.png'],
-        },
-    };
+        path: '/tools/markdown-preview',
+        lang,
+        keywords: dict.tools.markdown_preview.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function MarkdownPreviewPage({ params }: Props) {

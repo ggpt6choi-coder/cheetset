@@ -3,6 +3,7 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import AspectRatioCalculatorClient from './AspectRatioCalculatorClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -14,13 +15,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.aspect_ratio_calculator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.aspect_ratio_calculator.title,
         description: dict.tools.aspect_ratio_calculator.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/aspect-ratio-calculator`,
-        },
-    };
+        path: '/tools/aspect-ratio-calculator',
+        lang,
+        keywords: dict.tools.aspect_ratio_calculator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function AspectRatioCalculatorPage({ params }: Props) {

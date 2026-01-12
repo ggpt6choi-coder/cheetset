@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import CookieConsent from "@/components/CookieConsent";
 import { getDictionary } from "@/dictionaries/get-dictionary";
+import { BASE_URL } from "@/utils/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang as Locale);
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cheetset.com'),
+    metadataBase: new URL(BASE_URL),
     title: dict.common.title,
     description: dict.common.description,
     alternates: {
@@ -29,8 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     openGraph: {
       title: dict.common.title,
       description: dict.common.description,
-      url: `https://cheetset.com/${lang}`,
-      siteName: 'Cheetset',
+      // URL will be derived from metadataBase + current path if not specified
+      siteName: 'CheetSet',
       images: [
         {
           url: '/og-image.png',

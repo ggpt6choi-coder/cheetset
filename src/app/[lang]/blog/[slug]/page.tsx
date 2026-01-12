@@ -85,6 +85,10 @@ const POSTS: Record<string, React.ComponentType<any>> = {
     'dev-story-building-markdown-preview': DevStoryMarkdownPreview,
 };
 
+import { constructMetadata } from "@/utils/seo";
+
+// ... existing imports
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang, slug } = await params;
 
@@ -93,17 +97,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         posts.find(p => p.slug === slug && p.lang === 'en');
 
     if (postData) {
-        return {
+        return constructMetadata({
             title: postData.title,
             description: postData.description,
-            alternates: {
-                languages: {
-                    'en': `/en/blog/${slug}`,
-                    'ko': `/ko/blog/${slug}`,
-                    'ja': `/ja/blog/${slug}`,
-                },
-            },
-        };
+            path: `/blog/${slug}`,
+            lang,
+        });
     }
 
     // If not in posts.ts, try to load MDX metadata
@@ -116,25 +115,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         }
 
         if (mdxModule && mdxModule.metadata) {
-            return {
+            return constructMetadata({
                 title: mdxModule.metadata.title,
                 description: mdxModule.metadata.description,
-                alternates: {
-                    languages: {
-                        'en': `/en/blog/${slug}`,
-                        'ko': `/ko/blog/${slug}`,
-                        'ja': `/ja/blog/${slug}`,
-                    },
-                },
-            };
+                path: `/blog/${slug}`,
+                lang,
+            });
         }
     } catch (e) {
         // Ignore error
     }
 
-    return {
+    return constructMetadata({
         title: 'Blog Post',
-    };
+        description: 'Blog Post',
+        path: `/blog/${slug}`,
+        lang,
+    });
 }
 
 import ShareButtons from '@/components/blog/ShareButtons';

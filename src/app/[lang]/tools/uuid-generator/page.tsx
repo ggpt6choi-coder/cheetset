@@ -4,6 +4,7 @@ import UUIDGeneratorClient from './UUIDGeneratorClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -15,14 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.uuid_generator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.uuid_generator.title,
         description: dict.tools.uuid_generator.description,
-        openGraph: {
-            title: `${dict.tools.uuid_generator.title} - ${dict.common.title}`,
-            description: dict.tools.uuid_generator.description,
-        },
-    };
+        path: '/tools/uuid-generator',
+        lang,
+        keywords: dict.tools.uuid_generator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function UUIDGeneratorPage({ params }: Props) {

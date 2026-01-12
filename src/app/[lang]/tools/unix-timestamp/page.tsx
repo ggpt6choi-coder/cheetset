@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
 import type { Metadata } from "next";
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,20 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.unix_timestamp.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.unix_timestamp.title,
         description: dict.tools.unix_timestamp.description,
-        keywords: ['unix timestamp', 'epoch time', 'timestamp converter', 'unix time', '유닉스 타임스탬프', '유닉스 시간', 'unixタイムスタンプ'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/unix-timestamp`,
-        },
-        openGraph: {
-            title: `${dict.tools.unix_timestamp.title} - ${dict.common.title}`,
-            description: dict.tools.unix_timestamp.description,
-            url: `https://cheetset.com/${lang}/tools/unix-timestamp`,
-            type: 'website',
-        },
-    };
+        path: '/tools/unix-timestamp',
+        lang,
+        keywords: dict.tools.unix_timestamp.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function UnixTimestampPage({ params }: Props) {

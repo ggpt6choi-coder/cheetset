@@ -5,6 +5,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -16,14 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.css_generators.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.css_generators.title,
         description: dict.tools.css_generators.description,
-        openGraph: {
-            title: `${dict.tools.css_generators.title} - ${dict.common.title}`,
-            description: dict.tools.css_generators.description,
-        },
-    };
+        path: '/tools/css-generators',
+        lang,
+        keywords: dict.tools.css_generators.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function CssGeneratorsPage({ params }: Props) {

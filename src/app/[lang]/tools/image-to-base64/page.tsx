@@ -4,6 +4,8 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 
+import { constructMetadata } from "@/utils/seo";
+
 type Locale = "en" | "ko" | "ja";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
@@ -11,13 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const dict = await getDictionary(lang as Locale) as any;
 
-    return {
-        title: `${dict.tools.image_to_base64.title} | Cheetset`,
+    return constructMetadata({
+        title: dict.tools.image_to_base64.title,
         description: dict.tools.image_to_base64.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/image-to-base64`,
-        },
-    };
+        path: '/tools/image-to-base64',
+        lang,
+    });
 }
 
 export default async function ImageToBase64Page({ params }: { params: Promise<{ lang: string }> }) {

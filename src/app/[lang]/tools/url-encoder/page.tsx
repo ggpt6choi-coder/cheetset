@@ -4,6 +4,7 @@ import UrlEncoderClient from './UrlEncoderClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -17,13 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.url_encoder.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.url_encoder.title,
         description: dict.tools.url_encoder.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/url-encoder`,
-        },
-    };
+        path: '/tools/url-encoder',
+        lang,
+        keywords: dict.tools.url_encoder.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function UrlEncoderPage({ params }: Props) {

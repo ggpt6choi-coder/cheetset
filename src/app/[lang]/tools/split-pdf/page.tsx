@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -16,18 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.split_pdf.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.split_pdf.title,
         description: dict.tools.split_pdf.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/split-pdf`,
-        },
-        openGraph: {
-            title: `${dict.tools.split_pdf.title} - ${dict.common.title}`,
-            description: dict.tools.split_pdf.description,
-            url: `https://cheetset.com/${lang}/tools/split-pdf`,
-        },
-    };
+        path: '/tools/split-pdf',
+        lang,
+        keywords: dict.tools.split_pdf.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function SplitPdfPage({ params }: Props) {

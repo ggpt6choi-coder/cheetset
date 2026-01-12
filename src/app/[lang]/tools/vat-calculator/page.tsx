@@ -4,6 +4,7 @@ import VatCalculatorClient from './VatCalculatorClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -15,13 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.vat_calculator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.vat_calculator.title,
         description: dict.tools.vat_calculator.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/vat-calculator`,
-        },
-    };
+        path: '/tools/vat-calculator',
+        lang,
+        keywords: dict.tools.vat_calculator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function VatCalculatorPage({ params }: Props) {

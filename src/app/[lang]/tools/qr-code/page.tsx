@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
 import type { Metadata } from 'next';
+import { constructMetadata } from "@/utils/seo";
 
 type Props = {
     params: Promise<{ lang: string }>;
@@ -12,15 +13,15 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
-    const dict = await getDictionary(lang as any);
+    const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.qr_code.title} - ${dict.common.title}`,
-        description: dict.tools.qr_code.seo_content,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/qr-code`,
-        },
-    };
+    return constructMetadata({
+        title: dict.tools.qr_code.title,
+        description: dict.tools.qr_code.description,
+        path: '/tools/qr-code',
+        lang,
+        keywords: dict.tools.qr_code.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function QrCodeGeneratorPage({ params }: Props) {

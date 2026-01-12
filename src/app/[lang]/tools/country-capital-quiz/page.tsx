@@ -4,6 +4,7 @@ import CountryCapitalQuizClient from './CountryCapitalQuizClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -15,13 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.country_capital_quiz.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.country_capital_quiz.title,
         description: dict.tools.country_capital_quiz.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/country-capital-quiz`,
-        },
-    };
+        path: '/tools/country-capital-quiz',
+        lang,
+        keywords: dict.tools.country_capital_quiz.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function CountryCapitalQuizPage({ params }: Props) {

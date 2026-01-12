@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -18,13 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.html_encoder.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.html_encoder.title,
         description: dict.tools.html_encoder.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/html-encoder`,
-        },
-    };
+        path: '/tools/html-encoder',
+        lang,
+        keywords: dict.tools.html_encoder.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function HtmlEncoderPage({ params }: Props) {

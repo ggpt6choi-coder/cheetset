@@ -6,6 +6,8 @@ import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
 import type { Metadata } from "next";
 
+import { constructMetadata } from "@/utils/seo";
+
 type Locale = "en" | "ko" | "ja";
 
 type Props = {
@@ -16,20 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.pomodoro_timer.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.pomodoro_timer.title,
         description: dict.tools.pomodoro_timer.description,
+        path: '/tools/pomodoro-timer',
+        lang,
         keywords: ['pomodoro timer', 'focus timer', 'productivity timer', 'tomato timer', '포모도로 타이머', '집중 타이머', 'ポモドーロタイマー'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/pomodoro-timer`,
-        },
-        openGraph: {
-            title: `${dict.tools.pomodoro_timer.title} - ${dict.common.title}`,
-            description: dict.tools.pomodoro_timer.description,
-            url: `https://cheetset.com/${lang}/tools/pomodoro-timer`,
-            type: 'website',
-        },
-    };
+    });
 }
 
 export default async function PomodoroTimerPage({ params }: Props) {

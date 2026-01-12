@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -16,18 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.reaction_time.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.reaction_time.title,
         description: dict.tools.reaction_time.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/reaction-time`,
-        },
-        openGraph: {
-            title: `${dict.tools.reaction_time.title} - ${dict.common.title}`,
-            description: dict.tools.reaction_time.description,
-            url: `https://cheetset.com/${lang}/tools/reaction-time`,
-        },
-    };
+        path: '/tools/reaction-time',
+        lang,
+        keywords: dict.tools.reaction_time.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function ReactionTimePage({ params }: Props) {

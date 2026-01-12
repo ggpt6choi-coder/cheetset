@@ -5,6 +5,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,33 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.user_agent_parser.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.user_agent_parser.title,
         description: dict.tools.user_agent_parser.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/user-agent-parser`,
-        },
-        openGraph: {
-            title: `${dict.tools.user_agent_parser.title} - ${dict.common.title}`,
-            description: dict.tools.user_agent_parser.description,
-            url: `https://cheetset.com/${lang}/tools/user-agent-parser`,
-            type: 'website',
-            images: [
-                {
-                    url: '/og-image.png',
-                    width: 1200,
-                    height: 630,
-                    alt: dict.tools.user_agent_parser.title,
-                },
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${dict.tools.user_agent_parser.title} - ${dict.common.title}`,
-            description: dict.tools.user_agent_parser.description,
-            images: ['/og-image.png'],
-        },
-    };
+        path: '/tools/user-agent-parser',
+        lang,
+        keywords: dict.tools.user_agent_parser.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function UserAgentParserPage({ params }: Props) {

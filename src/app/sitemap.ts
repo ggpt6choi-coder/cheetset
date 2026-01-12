@@ -2,8 +2,7 @@ import { MetadataRoute } from 'next'
 
 import { posts } from '@/data/posts'
 import { tools } from '@/config/tools'
-
-const baseUrl = 'https://www.cheetset.com'
+import { BASE_URL } from '@/utils/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const languages = ['en', 'ko', 'ja']
@@ -27,12 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const staticEntries = languages.flatMap((lang) =>
         allPageRoutes.map((route) => {
             const path = `${lang}${route}`
-            const fullUrl = `${baseUrl}/${path}`
+            const fullUrl = `${BASE_URL}/${path}`
 
             // Create language alternates for search engines
             const alternates = {
                 languages: languages.reduce((acc, l) => {
-                    acc[l] = `${baseUrl}/${l}${route}`
+                    acc[l] = `${BASE_URL}/${l}${route}`
                     return acc
                 }, {} as Record<string, string>)
             }
@@ -50,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Generate blog entries
     const blogEntries = posts.map((post) => {
         const route = `/blog/${post.slug}`
-        const fullUrl = `${baseUrl}/${post.lang}${route}`
+        const fullUrl = `${BASE_URL}/${post.lang}${route}`
 
         // Blog posts might not exist in all languages, checking posts array would be ideal
         // For now, assuming distinct posts per language or manual translation linkage
@@ -62,7 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             languages: posts
                 .filter(p => p.slug === post.slug)
                 .reduce((acc, p) => {
-                    acc[p.lang] = `${baseUrl}/${p.lang}/blog/${p.slug}`
+                    acc[p.lang] = `${BASE_URL}/${p.lang}/blog/${p.slug}`
                     return acc
                 }, {} as Record<string, string>)
         }

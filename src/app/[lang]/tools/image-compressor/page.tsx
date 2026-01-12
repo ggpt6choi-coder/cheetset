@@ -3,6 +3,7 @@ import ImageCompressorClient from './ImageCompressorClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import { Metadata } from 'next';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = { params: Promise<{ lang: string }>; };
@@ -11,13 +12,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.image_compressor.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.image_compressor.title,
         description: dict.tools.image_compressor.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/image-compressor`,
-        },
-    };
+        path: '/tools/image-compressor',
+        lang,
+        keywords: dict.tools.image_compressor.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function ImageCompressorPage({ params }: Props) {

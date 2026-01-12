@@ -6,6 +6,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import FAQJsonLd from '@/components/FAQJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -17,14 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.compound_interest.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.compound_interest.title,
         description: dict.tools.compound_interest.description,
-        openGraph: {
-            title: `${dict.tools.compound_interest.title} - ${dict.common.title}`,
-            description: dict.tools.compound_interest.description,
-        },
-    };
+        path: '/tools/compound-interest',
+        lang,
+        keywords: dict.tools.compound_interest.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function CompoundInterestPage({ params }: Props) {

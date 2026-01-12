@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import RegexTesterClient from './RegexTesterClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -14,10 +15,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.regex_tester.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.regex_tester.title,
         description: dict.tools.regex_tester.description,
-    };
+        path: '/tools/regex-tester',
+        lang,
+        keywords: dict.tools.regex_tester.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function RegexTesterPage({ params }: Props) {

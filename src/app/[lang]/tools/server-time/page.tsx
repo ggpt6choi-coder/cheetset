@@ -6,6 +6,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -17,16 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.server_time.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.server_time.title,
         description: dict.tools.server_time.description,
-        keywords: ['서버시간', '서버시간확인', '티켓팅시계', '수강신청시계', '네이비즘', 'server time', 'navyism'],
-        openGraph: {
-            title: `${dict.tools.server_time.title} - ${dict.common.title}`,
-            description: dict.tools.server_time.description,
-            type: 'website',
-        },
-    };
+        path: '/tools/server-time',
+        lang,
+        keywords: dict.tools.server_time.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function ServerTimePage({ params }: Props) {

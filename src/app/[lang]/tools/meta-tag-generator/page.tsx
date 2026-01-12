@@ -4,6 +4,7 @@ import MetaTagGeneratorClient from './MetaTagGeneratorClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -17,13 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.meta_tag_generator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.meta_tag_generator.title,
         description: dict.tools.meta_tag_generator.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/meta-tag-generator`,
-        },
-    };
+        path: '/tools/meta-tag-generator',
+        lang,
+        keywords: dict.tools.meta_tag_generator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function MetaTagGeneratorPage({ params }: Props) {

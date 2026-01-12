@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
 import type { Metadata } from "next";
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,20 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.password_generator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.password_generator.title,
         description: dict.tools.password_generator.description,
-        keywords: ['password generator', 'secure password', 'random password', 'strong password', '비밀번호 생성기', '안전한 비밀번호', 'パスワード生成'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/password-generator`,
-        },
-        openGraph: {
-            title: `${dict.tools.password_generator.title} - ${dict.common.title}`,
-            description: dict.tools.password_generator.description,
-            url: `https://cheetset.com/${lang}/tools/password-generator`,
-            type: 'website',
-        },
-    };
+        path: '/tools/password-generator',
+        lang,
+        keywords: dict.tools.password_generator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function PasswordGeneratorPage({ params }: Props) {

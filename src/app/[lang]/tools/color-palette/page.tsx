@@ -4,6 +4,7 @@ import ColorPaletteClient from './ColorPaletteClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -15,10 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.color_palette.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.color_palette.title,
         description: dict.tools.color_palette.description,
-    };
+        path: '/tools/color-palette',
+        lang,
+        keywords: dict.tools.color_palette.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function ColorPalettePage({ params }: Props) {

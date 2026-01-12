@@ -4,6 +4,7 @@ import RelatedTools from "@/components/tools/RelatedTools";
 import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -15,20 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.cron_generator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.cron_generator.title,
         description: dict.tools.cron_generator.description,
-        keywords: ['cron generator', 'cron expression', 'crontab', 'cron schedule', 'cron 생성기', 'cron 표현식', 'cron式'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/cron-generator`,
-        },
-        openGraph: {
-            title: `${dict.tools.cron_generator.title} - ${dict.common.title}`,
-            description: dict.tools.cron_generator.description,
-            url: `https://cheetset.com/${lang}/tools/cron-generator`,
-            type: 'website',
-        },
-    };
+        path: '/tools/cron-generator',
+        lang,
+        keywords: dict.tools.cron_generator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function CronGeneratorPage({ params }: Props) {

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -17,10 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.tdee_calculator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.tdee_calculator.title,
         description: dict.tools.tdee_calculator.description,
-    };
+        path: '/tools/tdee-calculator',
+        lang,
+        keywords: dict.tools.tdee_calculator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function TdeeCalculatorPage({ params }: Props) {

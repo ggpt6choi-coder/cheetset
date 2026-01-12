@@ -5,6 +5,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,34 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.word_counter.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.word_counter.title,
         description: dict.tools.word_counter.description,
-        keywords: [dict.tools.word_counter.title, 'word count', 'character count', 'online tool', 'free'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/word-counter`,
-        },
-        openGraph: {
-            title: `${dict.tools.word_counter.title} - ${dict.common.title}`,
-            description: dict.tools.word_counter.description,
-            url: `https://cheetset.com/${lang}/tools/word-counter`,
-            type: 'website',
-            images: [
-                {
-                    url: '/og-image.png',
-                    width: 1200,
-                    height: 630,
-                    alt: dict.tools.word_counter.title,
-                },
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${dict.tools.word_counter.title} - ${dict.common.title}`,
-            description: dict.tools.word_counter.description,
-            images: ['/og-image.png'],
-        },
-    };
+        path: '/tools/word-counter',
+        lang,
+        keywords: dict.tools.word_counter.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function WordCounterPage({ params }: Props) {

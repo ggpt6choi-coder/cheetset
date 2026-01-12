@@ -4,6 +4,7 @@ import RelatedTools from "@/components/tools/RelatedTools";
 import ToolJsonLd from '@/components/ToolJsonLd';
 import type { Metadata } from "next";
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -15,20 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.jwt_decoder.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.jwt_decoder.title,
         description: dict.tools.jwt_decoder.description,
-        keywords: ['jwt decoder', 'jwt debugger', 'jwt token', 'json web token', 'jwt 디코더', 'jwt 토큰'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/jwt-decoder`,
-        },
-        openGraph: {
-            title: `${dict.tools.jwt_decoder.title} - ${dict.common.title}`,
-            description: dict.tools.jwt_decoder.description,
-            url: `https://cheetset.com/${lang}/tools/jwt-decoder`,
-            type: 'website',
-        },
-    };
+        path: '/tools/jwt-decoder',
+        lang,
+        keywords: dict.tools.jwt_decoder.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function JwtDecoderPage({ params }: Props) {

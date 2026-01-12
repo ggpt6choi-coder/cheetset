@@ -5,6 +5,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 type Props = {
@@ -15,10 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.ticketing_practice.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.ticketing_practice.title,
         description: dict.tools.ticketing_practice.description,
-    };
+        path: '/tools/ticketing-practice',
+        lang,
+        keywords: dict.tools.ticketing_practice.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function TicketingPage({ params }: Props) {

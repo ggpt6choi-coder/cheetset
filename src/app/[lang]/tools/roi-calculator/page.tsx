@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
 import type { Metadata } from "next";
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,20 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.roi_calculator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.roi_calculator.title,
         description: dict.tools.roi_calculator.description,
-        keywords: ['ROI calculator', 'return on investment', 'investment calculator', 'CAGR calculator', 'ROI 계산기', '투자 수익률', 'ROI計算機'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/roi-calculator`,
-        },
-        openGraph: {
-            title: `${dict.tools.roi_calculator.title} - ${dict.common.title}`,
-            description: dict.tools.roi_calculator.description,
-            url: `https://cheetset.com/${lang}/tools/roi-calculator`,
-            type: 'website',
-        },
-    };
+        path: '/tools/roi-calculator',
+        lang,
+        keywords: dict.tools.roi_calculator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function RoiCalculatorPage({ params }: Props) {

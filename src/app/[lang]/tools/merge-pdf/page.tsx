@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -16,18 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.merge_pdf.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.merge_pdf.title,
         description: dict.tools.merge_pdf.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/merge-pdf`,
-        },
-        openGraph: {
-            title: `${dict.tools.merge_pdf.title} - ${dict.common.title}`,
-            description: dict.tools.merge_pdf.description,
-            url: `https://cheetset.com/${lang}/tools/merge-pdf`,
-        },
-    };
+        path: '/tools/merge-pdf',
+        lang,
+        keywords: dict.tools.merge_pdf.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function MergePdfPage({ params }: Props) {

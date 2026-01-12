@@ -5,6 +5,7 @@ import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -18,13 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.exif_viewer.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.exif_viewer.title,
         description: dict.tools.exif_viewer.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/exif-viewer`,
-        },
-    };
+        path: '/tools/exif-viewer',
+        lang,
+        keywords: dict.tools.exif_viewer.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function ExifViewerPage({ params }: Props) {

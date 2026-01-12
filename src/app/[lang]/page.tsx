@@ -1,8 +1,23 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import { tools } from "@/config/tools";
 import Link from "next/link";
+import { constructMetadata } from "@/utils/seo";
+import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+
+  return constructMetadata({
+    title: dict.common.title,
+    description: dict.common.description,
+    path: '/',
+    lang,
+    image: '/og-image.png',
+  });
+}
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

@@ -5,6 +5,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,34 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.lotto_generator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.lotto_generator.title,
         description: dict.tools.lotto_generator.description,
-        keywords: [dict.tools.lotto_generator.title, 'lotto', 'lottery', 'random number', 'generator', 'lucky numbers'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/lotto-generator`,
-        },
-        openGraph: {
-            title: `${dict.tools.lotto_generator.title} - ${dict.common.title}`,
-            description: dict.tools.lotto_generator.description,
-            url: `https://cheetset.com/${lang}/tools/lotto-generator`,
-            type: 'website',
-            images: [
-                {
-                    url: '/og-image.png',
-                    width: 1200,
-                    height: 630,
-                    alt: dict.tools.lotto_generator.title,
-                },
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${dict.tools.lotto_generator.title} - ${dict.common.title}`,
-            description: dict.tools.lotto_generator.description,
-            images: ['/og-image.png'],
-        },
-    };
+        path: '/tools/lotto-generator',
+        lang,
+        keywords: dict.tools.lotto_generator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function LottoGeneratorPage({ params }: Props) {

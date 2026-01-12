@@ -5,6 +5,7 @@ import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
 import { ToolContent } from '@/types/Tool';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = "en" | "ko" | "ja";
 
@@ -16,34 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.json_formatter.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.json_formatter.title,
         description: dict.tools.json_formatter.description,
-        keywords: [dict.tools.json_formatter.title, 'json formatter', 'json validator', 'json minify', 'json beautify', 'online tool', 'free'],
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/json-formatter`,
-        },
-        openGraph: {
-            title: `${dict.tools.json_formatter.title} - ${dict.common.title}`,
-            description: dict.tools.json_formatter.description,
-            url: `https://cheetset.com/${lang}/tools/json-formatter`,
-            type: 'website',
-            images: [
-                {
-                    url: '/og-image.png',
-                    width: 1200,
-                    height: 630,
-                    alt: dict.tools.json_formatter.title,
-                },
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${dict.tools.json_formatter.title} - ${dict.common.title}`,
-            description: dict.tools.json_formatter.description,
-            images: ['/og-image.png'],
-        },
-    };
+        path: '/tools/json-formatter',
+        lang,
+        keywords: dict.tools.json_formatter.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function JsonFormatterPage({ params }: Props) {

@@ -4,6 +4,7 @@ import SqlFormatterClient from './SqlFormatterClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RelatedTools from '@/components/tools/RelatedTools';
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -17,13 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.sql_formatter.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.sql_formatter.title,
         description: dict.tools.sql_formatter.description,
-        alternates: {
-            canonical: `https://cheetset.com/${lang}/tools/sql-formatter`,
-        },
-    };
+        path: '/tools/sql-formatter',
+        lang,
+        keywords: dict.tools.sql_formatter.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function SqlFormatterPage({ params }: Props) {

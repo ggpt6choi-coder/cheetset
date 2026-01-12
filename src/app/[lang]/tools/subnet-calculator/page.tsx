@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import SubnetCalculatorClient from './SubnetCalculatorClient';
 import ToolJsonLd from '@/components/ToolJsonLd';
 import RichContentSection from '@/components/tools/RichContentSection';
+import { constructMetadata } from "@/utils/seo";
 
 type Locale = 'en' | 'ko' | 'ja';
 
@@ -14,10 +15,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.tools.subnet_calculator.title} - ${dict.common.title}`,
+    return constructMetadata({
+        title: dict.tools.subnet_calculator.title,
         description: dict.tools.subnet_calculator.description,
-    };
+        path: '/tools/subnet-calculator',
+        lang,
+        keywords: dict.tools.subnet_calculator.keywords || [], // Fallback if keywords property is not guaranteed
+    });
 }
 
 export default async function SubnetCalculatorPage({ params }: Props) {
