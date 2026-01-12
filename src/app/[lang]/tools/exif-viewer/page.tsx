@@ -77,7 +77,7 @@ export default async function ExifViewerPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.exif_viewer.title}
                 description={dict.tools.exif_viewer.description}
-                url={`https://cheetset.com/${lang}/tools/exif-viewer`}
+                url={`https://www.cheetset.com/${lang}/tools/exif-viewer`}
             />
         </div>
     );

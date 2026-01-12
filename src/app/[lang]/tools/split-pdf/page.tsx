@@ -58,7 +58,7 @@ export default async function SplitPdfPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.split_pdf.title}
                 description={dict.tools.split_pdf.description}
-                url={`https://cheetset.com/${lang}/tools/split-pdf`}
+                url={`https://www.cheetset.com/${lang}/tools/split-pdf`}
             />
         </div>
     );

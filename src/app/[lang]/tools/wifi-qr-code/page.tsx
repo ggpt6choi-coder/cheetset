@@ -59,7 +59,7 @@ export default async function WifiQrCodePage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.wifi_qr_code.title}
                 description={dict.tools.wifi_qr_code.description}
-                url={`https://cheetset.com/${lang}/tools/wifi-qr-code`}
+                url={`https://www.cheetset.com/${lang}/tools/wifi-qr-code`}
             />
 
         </div>

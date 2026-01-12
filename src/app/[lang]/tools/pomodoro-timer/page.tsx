@@ -69,7 +69,7 @@ export default async function PomodoroTimerPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.pomodoro_timer.title}
                     description={dict.tools.pomodoro_timer.description}
-                    url={`https://cheetset.com/${lang}/tools/pomodoro-timer`}
+                    url={`https://www.cheetset.com/${lang}/tools/pomodoro-timer`}
                 />
             </div>
         </div>

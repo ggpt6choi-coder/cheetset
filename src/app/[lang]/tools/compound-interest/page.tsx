@@ -65,7 +65,7 @@ export default async function CompoundInterestPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.compound_interest.title}
                 description={dict.tools.compound_interest.description}
-                url={`https://cheetset.com/${lang}/tools/compound-interest`}
+                url={`https://www.cheetset.com/${lang}/tools/compound-interest`}
             />
             <FAQJsonLd
                 faqs={(dict.tools.compound_interest as unknown as ToolContent).faq || []}

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://cheetset.com/sitemap.xml',
+        sitemap: 'https://www.cheetset.com/sitemap.xml',
     }
 }

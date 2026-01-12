@@ -62,7 +62,7 @@ export default async function MyIpAddressPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.my_ip_address.title}
                 description={dict.tools.my_ip_address.description}
-                url={`https://cheetset.com/${lang}/tools/my-ip-address`}
+                url={`https://www.cheetset.com/${lang}/tools/my-ip-address`}
             />
 
         </div>

@@ -55,7 +55,7 @@ export default async function ImageConverterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.image_converter.title}
                 description={dict.tools.image_converter.description}
-                url={`https://cheetset.com/${lang}/tools/image-converter`}
+                url={`https://www.cheetset.com/${lang}/tools/image-converter`}
             />
         </div>
     );

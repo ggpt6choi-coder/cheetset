@@ -66,7 +66,7 @@ export default async function LottoGeneratorPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.lotto_generator.title}
                     description={dict.tools.lotto_generator.description}
-                    url={`https://cheetset.com/${lang}/tools/lotto-generator`}
+                    url={`https://www.cheetset.com/${lang}/tools/lotto-generator`}
                 />
             </div>
         </div>

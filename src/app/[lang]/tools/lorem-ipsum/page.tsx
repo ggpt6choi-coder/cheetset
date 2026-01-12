@@ -59,7 +59,7 @@ export default async function LoremIpsumPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.lorem_ipsum.title}
                 description={dict.tools.lorem_ipsum.description}
-                url={`https://cheetset.com/${lang}/tools/lorem-ipsum`}
+                url={`https://www.cheetset.com/${lang}/tools/lorem-ipsum`}
             />
         </div>
     );

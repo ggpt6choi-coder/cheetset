@@ -58,7 +58,7 @@ export default async function DiffCheckerPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.diff_checker.title}
                 description={dict.tools.diff_checker.description}
-                url={`https://cheetset.com/${lang}/tools/diff-checker`}
+                url={`https://www.cheetset.com/${lang}/tools/diff-checker`}
             />
         </div>
     );

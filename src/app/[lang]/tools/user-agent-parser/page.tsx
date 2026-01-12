@@ -68,7 +68,7 @@ export default async function UserAgentParserPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.user_agent_parser.title}
                 description={dict.tools.user_agent_parser.description}
-                url={`https://cheetset.com/${lang}/tools/user-agent-parser`}
+                url={`https://www.cheetset.com/${lang}/tools/user-agent-parser`}
             />
         </div>
     );

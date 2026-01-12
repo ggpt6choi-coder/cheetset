@@ -56,7 +56,7 @@ export default async function RandomWheelPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.random_wheel.title}
                 description={dict.tools.random_wheel.description}
-                url={`https://cheetset.com/${lang}/tools/random-wheel`}
+                url={`https://www.cheetset.com/${lang}/tools/random-wheel`}
             />
         </div>
     );

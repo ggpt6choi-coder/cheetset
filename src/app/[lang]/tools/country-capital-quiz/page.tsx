@@ -56,7 +56,7 @@ export default async function CountryCapitalQuizPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.country_capital_quiz.title}
                 description={dict.tools.country_capital_quiz.description}
-                url={`https://cheetset.com/${lang}/tools/country-capital-quiz`}
+                url={`https://www.cheetset.com/${lang}/tools/country-capital-quiz`}
             />
         </div>
     );

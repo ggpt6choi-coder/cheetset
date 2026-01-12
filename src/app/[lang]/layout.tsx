@@ -103,20 +103,20 @@ export default async function RootLayout({
             '@graph': [
               {
                 '@type': 'WebSite',
-                '@id': 'https://cheetset.com/#website',
-                'url': 'https://cheetset.com',
+                '@id': 'https://www.cheetset.com/#website',
+                'url': 'https://www.cheetset.com',
                 'name': 'CheetSet',
                 'description': dict.common.description,
                 'inLanguage': lang,
               },
               {
                 '@type': 'Organization',
-                '@id': 'https://cheetset.com/#organization',
+                '@id': 'https://www.cheetset.com/#organization',
                 'name': 'CheetSet',
-                'url': 'https://cheetset.com',
+                'url': 'https://www.cheetset.com',
                 'logo': {
                   '@type': 'ImageObject',
-                  'url': 'https://cheetset.com/logo.png',
+                  'url': 'https://www.cheetset.com/logo.png',
                 },
               },
             ],

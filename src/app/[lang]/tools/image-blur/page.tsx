@@ -60,7 +60,7 @@ export default async function ImageBlurPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.image_blur.title}
                 description={dict.tools.image_blur.description}
-                url={`https://cheetset.com/${lang}/tools/image-blur`}
+                url={`https://www.cheetset.com/${lang}/tools/image-blur`}
             />
         </div>
     );

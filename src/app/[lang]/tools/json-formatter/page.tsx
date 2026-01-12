@@ -81,7 +81,7 @@ export default async function JsonFormatterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.json_formatter.title}
                 description={dict.tools.json_formatter.description}
-                url={`https://cheetset.com/${lang}/tools/json-formatter`}
+                url={`https://www.cheetset.com/${lang}/tools/json-formatter`}
             />
         </div>
     );

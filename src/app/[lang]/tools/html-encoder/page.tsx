@@ -57,7 +57,7 @@ export default async function HtmlEncoderPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.html_encoder.title}
                 description={dict.tools.html_encoder.description}
-                url={`https://cheetset.com/${lang}/tools/html-encoder`}
+                url={`https://www.cheetset.com/${lang}/tools/html-encoder`}
             />
         </div>
     );

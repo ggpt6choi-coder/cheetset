@@ -67,7 +67,7 @@ export default async function UnitConverterPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.unit_converter.title}
                     description={dict.tools.unit_converter.description}
-                    url={`https://cheetset.com/${lang}/tools/unit-converter`}
+                    url={`https://www.cheetset.com/${lang}/tools/unit-converter`}
                 />
             </div>
         </div>

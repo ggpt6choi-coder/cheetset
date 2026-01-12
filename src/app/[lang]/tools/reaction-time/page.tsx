@@ -60,7 +60,7 @@ export default async function ReactionTimePage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.reaction_time.title}
                 description={dict.tools.reaction_time.description}
-                url={`https://cheetset.com/${lang}/tools/reaction-time`}
+                url={`https://www.cheetset.com/${lang}/tools/reaction-time`}
             />
         </div>
     );

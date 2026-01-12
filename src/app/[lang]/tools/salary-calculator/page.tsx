@@ -59,7 +59,7 @@ export default async function SalaryPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.salary_calculator.title}
                 description={dict.tools.salary_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/salary-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/salary-calculator`}
             />
         </div>
     );

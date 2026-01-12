@@ -72,7 +72,7 @@ export default async function UnixTimestampPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.unix_timestamp.title}
                     description={dict.tools.unix_timestamp.description}
-                    url={`https://cheetset.com/${lang}/tools/unix-timestamp`}
+                    url={`https://www.cheetset.com/${lang}/tools/unix-timestamp`}
                 />
             </div>
         </div>

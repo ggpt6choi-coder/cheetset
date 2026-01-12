@@ -181,12 +181,12 @@ export default async function BlogPostPage({ params }: Props) {
                     '@type': 'BlogPosting',
                     headline: title,
                     description: description,
-                    image: `https://cheetset.com/og-image.png`,
+                    image: `https://www.cheetset.com/og-image.png`,
                     datePublished: '2025-12-06', // Should be dynamic ideally
                     author: {
                         '@type': 'Organization',
                         name: 'CheetSet',
-                        url: 'https://cheetset.com',
+                        url: 'https://www.cheetset.com',
                     },
                 }}
             />
@@ -194,7 +194,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <PostComponent lang={lang} />
                 <ShareButtons
                     title={title}
-                    url={`https://cheetset.com/${lang}/blog/${slug}`}
+                    url={`https://www.cheetset.com/${lang}/blog/${slug}`}
                     dict={dict}
                 />
             </div>

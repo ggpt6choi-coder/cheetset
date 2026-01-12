@@ -60,7 +60,7 @@ export default async function PercentageCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.percentage_calculator.title}
                 description={dict.tools.percentage_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/percentage-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/percentage-calculator`}
             />
         </div>
     );

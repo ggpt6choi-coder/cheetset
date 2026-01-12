@@ -63,7 +63,7 @@ export default async function WordCounterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.word_counter.title}
                 description={dict.tools.word_counter.description}
-                url={`https://cheetset.com/${lang}/tools/word-counter`}
+                url={`https://www.cheetset.com/${lang}/tools/word-counter`}
             />
         </div>
     );

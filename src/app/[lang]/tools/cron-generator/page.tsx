@@ -76,7 +76,7 @@ export default async function CronGeneratorPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.cron_generator.title}
                     description={dict.tools.cron_generator.description}
-                    url={`https://cheetset.com/${lang}/tools/cron-generator`}
+                    url={`https://www.cheetset.com/${lang}/tools/cron-generator`}
                 />
             </div>
         </div>

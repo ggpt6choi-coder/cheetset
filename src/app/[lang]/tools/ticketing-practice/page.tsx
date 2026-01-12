@@ -60,7 +60,7 @@ export default async function TicketingPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.ticketing_practice.title}
                 description={dict.tools.ticketing_practice.description}
-                url={`https://cheetset.com/${lang}/tools/ticketing-practice`}
+                url={`https://www.cheetset.com/${lang}/tools/ticketing-practice`}
             />
         </div>
     );

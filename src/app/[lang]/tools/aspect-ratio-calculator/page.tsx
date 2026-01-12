@@ -60,7 +60,7 @@ export default async function AspectRatioCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.aspect_ratio_calculator.title}
                 description={dict.tools.aspect_ratio_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/aspect-ratio-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/aspect-ratio-calculator`}
             />
         </div >
     );

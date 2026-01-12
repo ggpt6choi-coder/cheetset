@@ -38,7 +38,7 @@ export default async function Base64ToImagePage({ params }: { params: Promise<{ 
             <ToolJsonLd
                 name={dict.tools.base64_to_image.title}
                 description={dict.tools.base64_to_image.description}
-                url={`https://cheetset.com/${lang}/tools/base64-to-image`}
+                url={`https://www.cheetset.com/${lang}/tools/base64-to-image`}
             />
         </div>
     );

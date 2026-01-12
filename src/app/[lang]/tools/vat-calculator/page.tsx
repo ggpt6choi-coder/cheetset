@@ -53,7 +53,7 @@ export default async function VatCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.vat_calculator.title}
                 description={dict.tools.vat_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/vat-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/vat-calculator`}
             />
         </div>
     );

@@ -72,7 +72,7 @@ export default async function RoiCalculatorPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.roi_calculator.title}
                     description={dict.tools.roi_calculator.description}
-                    url={`https://cheetset.com/${lang}/tools/roi-calculator`}
+                    url={`https://www.cheetset.com/${lang}/tools/roi-calculator`}
                 />
             </div>
         </div>

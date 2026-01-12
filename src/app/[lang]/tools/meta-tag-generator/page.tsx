@@ -68,7 +68,7 @@ export default async function MetaTagGeneratorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.meta_tag_generator.title}
                 description={dict.tools.meta_tag_generator.description}
-                url={`https://cheetset.com/${lang}/tools/meta-tag-generator`}
+                url={`https://www.cheetset.com/${lang}/tools/meta-tag-generator`}
             />
         </div>
     );

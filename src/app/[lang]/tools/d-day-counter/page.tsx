@@ -62,7 +62,7 @@ export default async function DDayCounterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.d_day_counter.title}
                 description={dict.tools.d_day_counter.description}
-                url={`https://cheetset.com/${lang}/tools/d-day-counter`}
+                url={`https://www.cheetset.com/${lang}/tools/d-day-counter`}
             />
         </div>
     );

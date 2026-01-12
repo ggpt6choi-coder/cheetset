@@ -65,7 +65,7 @@ export default async function CsvJsonConverterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.csv_json_converter.title}
                 description={dict.tools.csv_json_converter.description}
-                url={`https://cheetset.com/${lang}/tools/csv-json-converter`}
+                url={`https://www.cheetset.com/${lang}/tools/csv-json-converter`}
             />
 
         </div>

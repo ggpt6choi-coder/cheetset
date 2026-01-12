@@ -65,7 +65,7 @@ export default async function MarkdownPreviewPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.markdown_preview.title}
                 description={dict.tools.markdown_preview.description}
-                url={`https://cheetset.com/${lang}/tools/markdown-preview`}
+                url={`https://www.cheetset.com/${lang}/tools/markdown-preview`}
             />
         </div>
     );

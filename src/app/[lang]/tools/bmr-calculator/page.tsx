@@ -63,7 +63,7 @@ export default async function BmrCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.bmr_calculator.title}
                 description={dict.tools.bmr_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/bmr-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/bmr-calculator`}
             />
         </div>
     );

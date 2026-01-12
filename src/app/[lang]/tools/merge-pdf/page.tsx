@@ -56,7 +56,7 @@ export default async function MergePdfPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.merge_pdf.title}
                 description={dict.tools.merge_pdf.description}
-                url={`https://cheetset.com/${lang}/tools/merge-pdf`}
+                url={`https://www.cheetset.com/${lang}/tools/merge-pdf`}
             />
         </div>
     );

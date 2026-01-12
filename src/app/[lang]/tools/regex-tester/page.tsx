@@ -108,7 +108,7 @@ export default async function RegexTesterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.regex_tester.title}
                 description={dict.tools.regex_tester.description}
-                url={`https://cheetset.com/${lang}/tools/regex-tester`}
+                url={`https://www.cheetset.com/${lang}/tools/regex-tester`}
             />
         </div>
     );

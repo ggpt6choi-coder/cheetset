@@ -67,7 +67,7 @@ export default async function YoutubeCalculatorPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.youtube_calculator.title}
                     description={dict.tools.youtube_calculator.description}
-                    url={`https://cheetset.com/${lang}/tools/youtube-calculator`}
+                    url={`https://www.cheetset.com/${lang}/tools/youtube-calculator`}
                 />
             </div>
         </div>

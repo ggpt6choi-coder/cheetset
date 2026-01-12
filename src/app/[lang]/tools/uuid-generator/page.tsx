@@ -68,7 +68,7 @@ export default async function UUIDGeneratorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.uuid_generator.title}
                 description={dict.tools.uuid_generator.description}
-                url={`https://cheetset.com/${lang}/tools/uuid-generator`}
+                url={`https://www.cheetset.com/${lang}/tools/uuid-generator`}
             />
         </div>
     );

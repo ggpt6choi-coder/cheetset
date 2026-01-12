@@ -66,7 +66,7 @@ export default async function SubnetCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.subnet_calculator.title}
                 description={dict.tools.subnet_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/subnet-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/subnet-calculator`}
             />
         </div>
     );

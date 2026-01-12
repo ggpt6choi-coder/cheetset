@@ -60,7 +60,7 @@ export default async function YoutubeThumbnailPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.youtube_thumbnail.title}
                 description={dict.tools.youtube_thumbnail.description}
-                url={`https://cheetset.com/${lang}/tools/youtube-thumbnail`}
+                url={`https://www.cheetset.com/${lang}/tools/youtube-thumbnail`}
             />
 
         </div>

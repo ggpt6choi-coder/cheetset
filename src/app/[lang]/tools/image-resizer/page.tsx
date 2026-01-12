@@ -61,7 +61,7 @@ export default async function ImageResizerPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.image_resizer.title}
                 description={dict.tools.image_resizer.description}
-                url={`https://cheetset.com/${lang}/tools/image-resizer`}
+                url={`https://www.cheetset.com/${lang}/tools/image-resizer`}
             />
         </div>
     );

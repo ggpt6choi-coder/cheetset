@@ -41,7 +41,7 @@ export default async function QrCodeGeneratorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.qr_code.title}
                 description={dict.tools.qr_code.description}
-                url={`https://cheetset.com/${lang}/tools/qr-code`}
+                url={`https://www.cheetset.com/${lang}/tools/qr-code`}
             />
         </div>
 

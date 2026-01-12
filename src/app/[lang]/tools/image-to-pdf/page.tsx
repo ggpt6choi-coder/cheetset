@@ -54,7 +54,7 @@ export default async function ImageToPdfPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.image_to_pdf.title}
                 description={dict.tools.image_to_pdf.description}
-                url={`https://cheetset.com/${lang}/tools/image-to-pdf`}
+                url={`https://www.cheetset.com/${lang}/tools/image-to-pdf`}
             />
         </div>
     );

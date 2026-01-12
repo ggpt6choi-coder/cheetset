@@ -75,7 +75,7 @@ export default async function JwtDecoderPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.jwt_decoder.title}
                     description={dict.tools.jwt_decoder.description}
-                    url={`https://cheetset.com/${lang}/tools/jwt-decoder`}
+                    url={`https://www.cheetset.com/${lang}/tools/jwt-decoder`}
                 />
             </div>
         </div>

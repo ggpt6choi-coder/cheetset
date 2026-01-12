@@ -74,7 +74,7 @@ export default async function PasswordGeneratorPage({ params }: Props) {
                 <ToolJsonLd
                     name={dict.tools.password_generator.title}
                     description={dict.tools.password_generator.description}
-                    url={`https://cheetset.com/${lang}/tools/password-generator`}
+                    url={`https://www.cheetset.com/${lang}/tools/password-generator`}
                 />
             </div>
         </div>

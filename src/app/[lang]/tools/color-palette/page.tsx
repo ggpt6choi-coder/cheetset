@@ -50,7 +50,7 @@ export default async function ColorPalettePage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.color_palette.title}
                 description={dict.tools.color_palette.description}
-                url={`https://cheetset.com/${lang}/tools/color-palette`}
+                url={`https://www.cheetset.com/${lang}/tools/color-palette`}
             />
         </div>
     );

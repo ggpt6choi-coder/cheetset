@@ -61,7 +61,7 @@ export default async function ImageFiltersPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.image_filters.title}
                 description={dict.tools.image_filters.description}
-                url={`https://cheetset.com/${lang}/tools/image-filters`}
+                url={`https://www.cheetset.com/${lang}/tools/image-filters`}
             />
         </div>
     );

@@ -66,7 +66,7 @@ export default async function SqlFormatterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.sql_formatter.title}
                 description={dict.tools.sql_formatter.description}
-                url={`https://cheetset.com/${lang}/tools/sql-formatter`}
+                url={`https://www.cheetset.com/${lang}/tools/sql-formatter`}
             />
         </div >
     );

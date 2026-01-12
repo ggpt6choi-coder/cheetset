@@ -57,7 +57,7 @@ export default async function ImageCropperPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.image_cropper.title}
                 description={dict.tools.image_cropper.description}
-                url={`https://cheetset.com/${lang}/tools/image-cropper`}
+                url={`https://www.cheetset.com/${lang}/tools/image-cropper`}
             />
         </div>
     );

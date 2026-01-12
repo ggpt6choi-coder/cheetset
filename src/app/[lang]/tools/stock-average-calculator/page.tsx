@@ -58,7 +58,7 @@ export default async function StockAveragePage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.stock_average_calculator.title}
                 description={dict.tools.stock_average_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/stock-average-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/stock-average-calculator`}
             />
         </div>
     );

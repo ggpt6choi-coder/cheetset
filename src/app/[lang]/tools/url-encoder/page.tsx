@@ -65,7 +65,7 @@ export default async function UrlEncoderPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.url_encoder.title}
                 description={dict.tools.url_encoder.description}
-                url={`https://cheetset.com/${lang}/tools/url-encoder`}
+                url={`https://www.cheetset.com/${lang}/tools/url-encoder`}
             />
         </div>
     );

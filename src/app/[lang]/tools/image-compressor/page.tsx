@@ -125,7 +125,7 @@ export default async function ImageCompressorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.image_compressor.title}
                 description={dict.tools.image_compressor.description}
-                url={`https://cheetset.com/${lang}/tools/image-compressor`}
+                url={`https://www.cheetset.com/${lang}/tools/image-compressor`}
             />
         </div>
     );

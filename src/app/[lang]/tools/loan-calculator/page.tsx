@@ -67,7 +67,7 @@ export default async function LoanCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.loan_calculator.title}
                 description={dict.tools.loan_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/loan-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/loan-calculator`}
             />
         </div>
     );

@@ -58,7 +58,7 @@ export default async function JsonDiffPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.json_diff.title}
                 description={dict.tools.json_diff.description}
-                url={`https://cheetset.com/${lang}/tools/json-diff`}
+                url={`https://www.cheetset.com/${lang}/tools/json-diff`}
             />
         </div>
     );

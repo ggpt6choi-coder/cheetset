@@ -69,7 +69,7 @@ export default async function BmiCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.bmi_calculator.title}
                 description={dict.tools.bmi_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/bmi-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/bmi-calculator`}
             />
         </div>
     );

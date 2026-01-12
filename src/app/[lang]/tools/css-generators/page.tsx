@@ -68,7 +68,7 @@ export default async function CssGeneratorsPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.css_generators.title}
                 description={dict.tools.css_generators.description}
-                url={`https://cheetset.com/${lang}/tools/css-generators`}
+                url={`https://www.cheetset.com/${lang}/tools/css-generators`}
             />
         </div>
     );

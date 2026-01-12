@@ -92,7 +92,7 @@ export default async function TdeeCalculatorPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.tdee_calculator.title}
                 description={dict.tools.tdee_calculator.description}
-                url={`https://cheetset.com/${lang}/tools/tdee-calculator`}
+                url={`https://www.cheetset.com/${lang}/tools/tdee-calculator`}
             />
         </div>
     );

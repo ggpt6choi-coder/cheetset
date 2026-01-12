@@ -69,7 +69,7 @@ export default async function CurlConverterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.curl_converter.title}
                 description={dict.tools.curl_converter.description}
-                url={`https://cheetset.com/${lang}/tools/curl-converter`}
+                url={`https://www.cheetset.com/${lang}/tools/curl-converter`}
             />
         </div>
     );

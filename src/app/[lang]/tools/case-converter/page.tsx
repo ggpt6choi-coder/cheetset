@@ -63,7 +63,7 @@ export default async function CaseConverterPage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.case_converter.title}
                 description={dict.tools.case_converter.description}
-                url={`https://cheetset.com/${lang}/tools/case-converter`}
+                url={`https://www.cheetset.com/${lang}/tools/case-converter`}
             />
         </div>
     );

@@ -64,7 +64,7 @@ export default async function ServerTimePage({ params }: Props) {
             <ToolJsonLd
                 name={dict.tools.server_time.title}
                 description={dict.tools.server_time.description}
-                url={`https://cheetset.com/${lang}/tools/server-time`}
+                url={`https://www.cheetset.com/${lang}/tools/server-time`}
             />
         </div>
     );
