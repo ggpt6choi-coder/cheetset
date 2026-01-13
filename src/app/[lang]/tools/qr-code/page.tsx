@@ -1,4 +1,4 @@
-import { getDictionary } from '@/dictionaries/get-dictionary';
+import { getDictionary, Locale } from '@/dictionaries/get-dictionary';
 import QrCodeGeneratorClient from '@/components/tools/QrCodeGeneratorClient';
 import RelatedTools from '@/components/tools/RelatedTools';
 import ToolJsonLd from '@/components/ToolJsonLd';
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function QrCodeGeneratorPage({ params }: Props) {
     const { lang } = await params;
-    const dict = await getDictionary(lang as any);
+    const dict = await getDictionary(lang as Locale);
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
