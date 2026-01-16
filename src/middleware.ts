@@ -20,6 +20,14 @@ function getLocale(request: NextRequest): string {
 }
 
 export function middleware(request: NextRequest) {
+    const host = request.headers.get('host')
+    // Redirect non-www to www in production
+    if (process.env.NODE_ENV === 'production' && host && !host.startsWith('www.') && !host.includes('localhost')) {
+        const newUrl = new URL(request.url)
+        newUrl.host = 'www.cheetset.com'
+        return NextResponse.redirect(newUrl, 301)
+    }
+
     const pathname = request.nextUrl.pathname
 
     // Check if there is any supported locale in the pathname
