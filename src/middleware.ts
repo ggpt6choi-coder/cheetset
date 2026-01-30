@@ -21,11 +21,13 @@ function getLocale(request: NextRequest): string {
 
 export function middleware(request: NextRequest) {
     const host = request.headers.get('host')
-    // Redirect non-www to www in production
-    if (process.env.NODE_ENV === 'production' && host && !host.startsWith('www.') && !host.includes('localhost')) {
-        const newUrl = new URL(request.url)
-        newUrl.host = 'www.cheetset.com'
-        return NextResponse.redirect(newUrl, 301)
+    // Strong redirect for cheetset.com to www.cheetset.com (avoid duplicate content)
+    // This helps Google Indexing by consolidating signals to the www version
+    if (process.env.NODE_ENV === 'production' && host === 'cheetset.com') {
+        const url = request.nextUrl.clone()
+        url.hostname = 'www.cheetset.com'
+        url.protocol = 'https'
+        return NextResponse.redirect(url, 301)
     }
 
     const pathname = request.nextUrl.pathname
