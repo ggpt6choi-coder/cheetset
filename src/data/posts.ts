@@ -94,21 +94,21 @@ export const posts: Post[] = [
     },
     {
         slug: 'productivity-tools-guide',
-        title: 'Top 5 Online Tools to Double Your Productivity in 2025',
+        title: 'Top 5 Online Tools to Double Your Productivity in 2026',
         description: 'Discover free online tools that will transform your workflow. From word counting to JSON formatting, learn how to work smarter, not harder.',
         date: '2025-11-30',
         lang: 'en'
     },
     {
         slug: 'productivity-tools-guide',
-        title: '생산성을 2배로 높이는 온라인 도구 활용법 TOP 5',
+        title: '생산성을 2배로 높이는 온라인 도구 활용법 TOP 5 (2026년)',
         description: '하루 업무 시간을 2시간 단축시키는 무료 온라인 도구들! 글자 수 세기부터 JSON 포맷팅까지, 스마트하게 일하는 방법을 알려드립니다.',
         date: '2025-11-30',
         lang: 'ko'
     },
     {
         slug: 'productivity-tools-guide',
-        title: '生産性を2倍にするオンラインツール活用法 TOP 5',
+        title: '生産性を2倍にするオンラインツール活用法 TOP 5 (2026年)',
         description: '1日の作業時間を2時間短縮する無料オンラインツール！文字数カウントからJSON整形まで、スマートに働く方法をお教えします。',
         date: '2025-11-30',
         lang: 'ja'
@@ -178,43 +178,43 @@ export const posts: Post[] = [
     },
     {
         slug: 'online-shopping-tips',
-        title: 'Best Online Shopping Tips 2025: How to Find Lowest Prices',
+        title: 'Best Online Shopping Tips 2026: How to Find Lowest Prices',
         description: 'Save money on every purchase! Master price comparison strategies for Amazon, eBay, and other major shopping sites.',
         date: '2025-11-30',
         lang: 'en'
     },
     {
         slug: 'online-shopping-tips',
-        title: '2025년 온라인 쇼핑 최저가 찾는 법: 쿠팡, 네이버 가격 비교 꿀팁',
+        title: '2026년 온라인 쇼핑 최저가 찾는 법: 쿠팡, 네이버 가격 비교 꿀팁',
         description: '매번 바가지 쓰시나요? 쿠팡, 네이버쇼핑, SSG에서 최저가를 찾는 검증된 방법과 숨겨진 할인 혜택 공개!',
         date: '2025-11-30',
         lang: 'ko'
     },
     {
         slug: 'online-shopping-tips',
-        title: '2025年オンラインショッピング最安値の探し方：楽天、Amazon価格比較テクニック',
+        title: '2026年オンラインショッピング最安値の探し方：楽天、Amazon価格比較テクニック',
         description: '毎回損していませんか？楽天、Amazon、Yahoo!ショッピングで最安値を見つける検証済み方法と隠れた割引特典公開！',
         date: '2025-11-30',
         lang: 'ja'
     },
     {
         slug: 'salary-calculator-guide-2025',
-        title: '2025 Salary Calculator: How Much is My Take-Home Pay? (Tax & Deductions Guide)',
-        description: 'Calculate your real take-home pay with our 2025 Salary Calculator. Learn about income tax, national pension, and health insurance deductions.',
+        title: '2026 Salary Calculator: How Much is My Take-Home Pay? (Tax & Deductions Guide)',
+        description: 'Calculate your real take-home pay with our 2026 Salary Calculator. Learn about income tax, national pension, and health insurance deductions.',
         date: '2025-12-01',
         lang: 'en'
     },
     {
         slug: 'salary-calculator-guide-2025',
-        title: '2025년 연봉 실수령액 계산기: 내 월급은 얼마일까? (4대보험, 소득세 완벽 분석)',
-        description: '2025년 최신 세율 적용! 연봉 3천, 5천, 1억일 때 실제 통장에 찍히는 금액은? 국민연금, 건강보험, 소득세 공제 항목을 완벽하게 분석해 드립니다.',
+        title: '2026년 연봉 실수령액 계산기: 내 월급은 얼마일까? (4대보험, 소득세 완벽 분석)',
+        description: '2026년 최신 세율 적용! 연봉 3천, 5천, 1억일 때 실제 통장에 찍히는 금액은? 국민연금, 건강보험, 소득세 공제 항목을 완벽하게 분석해 드립니다.',
         date: '2025-12-01',
         lang: 'ko'
     },
     {
         slug: 'salary-calculator-guide-2025',
-        title: '2025年給与手取り計算機：私の手取りはいくら？（税金・社会保険完全ガイド）',
-        description: '2025年最新税率適用！年収300万、500万、1000万の時の実際の手取り額は？所得税、住民税、社会保険料の控除項目を完全に分析します。',
+        title: '2026年給与手取り計算機：私の手取りはいくら？（税金・社会保険完全ガイド）',
+        description: '2026年最新税率適用！年収300万、500万、1000万の時の実際の手取り額は？所得税、住民税、社会保険料の控除項目を完全に分析します。',
         date: '2025-12-01',
         lang: 'ja'
     },
@@ -757,24 +757,24 @@ export const posts: Post[] = [
     },
     {
         slug: 'developer-productivity-guide-2025',
-        title: 'The Ultimate Developer Productivity Setup for 2025',
-        description: 'Essential free online tools for developers and designers in 2025. JSON Diff, Color Palette, Salary Calculator, and more.',
+        title: 'The Ultimate Developer Productivity Setup for 2026',
+        description: 'Essential free online tools for developers and designers in 2026. JSON Diff, Color Palette, Salary Calculator, and more.',
         date: '2025-12-15',
         lang: 'en',
         category: 'developer'
     },
     {
         slug: 'developer-productivity-guide-2025',
-        title: '개발 생산성을 200% 높이는 필수 온라인 도구 모음 2025',
-        description: '2025년 개발자와 디자이너가 반드시 즐겨찾기 해야 할 무료 온라인 도구들을 엄선했습니다. JSON Diff, 컬러 팔레트, 연봉 계산기 등.',
+        title: '개발 생산성을 200% 높이는 필수 온라인 도구 모음 2026',
+        description: '2026년 개발자와 디자이너가 반드시 즐겨찾기 해야 할 무료 온라인 도구들을 엄선했습니다. JSON Diff, 컬러 팔레트, 연봉 계산기 등.',
         date: '2025-12-15',
         lang: 'ko',
         category: 'developer'
     },
     {
         slug: 'developer-productivity-guide-2025',
-        title: '開発生産性を200%向上させる必須オンラインツール集 2025',
-        description: '2025年に開発者とデザイナーが必ずブックマークすべき無料オンラインツールを厳選しました。JSON Diff、カラーパレット、給与計算機など。',
+        title: '開発生産性を200%向上させる必須オンラインツール集 2026',
+        description: '2026年に開発者とデザイナーが必ずブックマークすべき無料オンラインツールを厳選しました。JSON Diff、カラーパレット、給与計算機など。',
         date: '2025-12-15',
         lang: 'ja',
         category: 'developer'
