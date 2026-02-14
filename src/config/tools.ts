@@ -239,6 +239,11 @@ export const tools: Tool[] = [
         category: 'daily',
     },
     {
+        slug: 'flag-quiz',
+        icon: 'Flag',
+        category: 'daily',
+    },
+    {
         slug: 'loan-calculator',
         icon: 'DollarSign',
         category: 'finance'

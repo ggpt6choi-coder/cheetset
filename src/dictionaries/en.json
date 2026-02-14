@@ -1568,6 +1568,53 @@
                 "picker"
             ]
         },
+        "flag_quiz": {
+            "title": "Flag Quiz",
+            "description": "Guess the country from its flag! Test your knowledge of world flags.",
+            "tab_finder": "Flag Finder",
+            "tab_quiz": "Flag Quiz",
+            "search_placeholder": "Search country...",
+            "region_all": "All Regions",
+            "quiz_question": "Which country does this flag belong to?",
+            "quiz_score": "Score",
+            "quiz_next": "Next Question",
+            "quiz_correct": "Correct!",
+            "quiz_wrong": "Wrong! The answer is {answer}.",
+            "seo_content": "Free online World Flag Quiz. Test your knowledge of national flags from around the world. Learn flags, countries, and regions with this interactive game.",
+            "guide_title": "How to Play Flag Quiz",
+            "guide": [
+                {
+                    "title": "Start Quiz",
+                    "description": "Click 'Quiz' tab to begin the game."
+                },
+                {
+                    "title": "Guess Country",
+                    "description": "Look at the displayed flag and select the correct country name."
+                },
+                {
+                    "title": "Learn",
+                    "description": "If you get it wrong, the correct answer is shown to help you learn."
+                }
+            ],
+            "faq_title": "Flag Quiz FAQ",
+            "faq": [
+                {
+                    "question": "How many flags are included?",
+                    "answer": "We have a comprehensive database of over 240 national flags."
+                },
+                {
+                    "question": "Is it good for learning?",
+                    "answer": "Yes, it helps you recognize flags and improve your geography knowledge."
+                }
+            ],
+            "keywords": [
+                "flag",
+                "quiz",
+                "geography",
+                "country",
+                "game"
+            ]
+        },
         "image_resizer": {
             "title": "Image Converter & Resizer",
             "description": "Resize images and convert them to JPG, PNG, or WebP formats.",
