@@ -1,6 +1,8 @@
 import { getDictionary } from "@/dictionaries/get-dictionary";
 import type { Metadata } from "next";
 
+import { constructMetadata } from "@/utils/seo";
+
 type Locale = "en" | "ko" | "ja";
 
 type Props = {
@@ -10,9 +12,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
-    return {
-        title: `${dict.nav.privacy} - ${dict.common.title}`,
-    };
+
+    return constructMetadata({
+        title: dict.pages.privacy.title,
+        description: dict.pages.privacy.description,
+        path: 'privacy',
+        lang,
+    });
 }
 
 export default async function PrivacyPage({ params }: Props) {

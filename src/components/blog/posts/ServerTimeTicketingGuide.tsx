@@ -28,7 +28,7 @@ export default function ServerTimeTicketingGuide({ lang }: Props) {
                         <h2>3. 서버 시간 확인하는 방법</h2>
                         <h3>3-1. 우리 도구 사용하기 (추천!)</h3>
                         <div className="bg-indigo-50 dark:bg-indigo-900/30 p-6 rounded-lg my-6 text-center">
-                            <p className="text-lg font-bold text-indigo-800 dark:text-indigo-200">⏰ CheatKey 서버 시간 확인 도구</p>
+                            <p className="text-lg font-bold text-indigo-800 dark:text-indigo-200">⏰ CheetSet 서버 시간 확인 도구</p>
                             <p className="mb-4 text-sm text-indigo-600 dark:text-indigo-300">0.1초 단위로 정확한 서버 시간을 실시간으로 확인하세요!</p>
                             <a href={`/${lang}/tools/server-time`} className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors font-bold text-lg shadow-lg">서버 시간 확인하기 →</a>
                         </div>

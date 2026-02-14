@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getDictionary, Locale } from "@/dictionaries/get-dictionary";
 
+import { constructMetadata } from "@/utils/seo";
+
 type Props = {
     params: Promise<{ lang: string }>;
 };
@@ -9,10 +11,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.nav.contact} - ${dict.common.title}`,
-        description: 'Contact CheatKey for questions, feedback, or suggestions about our free utility tools.',
-    };
+    return constructMetadata({
+        title: dict.pages.contact.title,
+        description: dict.pages.contact.description,
+        path: 'contact',
+        lang,
+    });
 }
 
 export default async function ContactPage({ params }: Props) {
@@ -26,7 +30,7 @@ export default async function ContactPage({ params }: Props) {
                     {lang === 'ko' && (
                         <>
                             <h1>문의하기</h1>
-                            <p className="lead">CheatSet에 대한 질문, 피드백, 제안이 있으신가요? 언제든 연락 주세요!</p>
+                            <p className="lead">CheetSet에 대한 질문, 피드백, 제안이 있으신가요? 언제든 연락 주세요!</p>
 
                             <h2>📧 이메일</h2>
                             <p>
@@ -67,7 +71,7 @@ export default async function ContactPage({ params }: Props) {
                     {lang === 'en' && (
                         <>
                             <h1>Contact Us</h1>
-                            <p className="lead">Have questions, feedback, or suggestions about CheatKey? We'd love to hear from you!</p>
+                            <p className="lead">Have questions, feedback, or suggestions about CheetSet? We'd love to hear from you!</p>
 
                             <h2>📧 Email</h2>
                             <p>
@@ -93,7 +97,7 @@ export default async function ContactPage({ params }: Props) {
                             </div>
 
                             <h2>🌐 Social Media</h2>
-                            <p>Follow CheatKey for the latest news and updates:</p>
+                            <p>Follow CheetSet for the latest news and updates:</p>
                             <ul className="list-none pl-0">
                                 <li>🐦 Twitter: <a href="https://twitter.com/cheetset" target="_blank" rel="noopener noreferrer">@cheetset</a></li>
                                 <li>📘 GitHub: <a href="https://github.com/cheetset" target="_blank" rel="noopener noreferrer">github.com/cheetset</a></li>
@@ -112,7 +116,7 @@ export default async function ContactPage({ params }: Props) {
                     {lang === 'ja' && (
                         <>
                             <h1>お問い合わせ</h1>
-                            <p className="lead">CheatSetについてのご質問、フィードバック、ご提案はありますか？お気軽にご連絡ください！</p>
+                            <p className="lead">CheetSetについてのご質問、フィードバック、ご提案はありますか？お気軽にご連絡ください！</p>
 
                             <h2>📧 メール</h2>
                             <p>
@@ -138,7 +142,7 @@ export default async function ContactPage({ params }: Props) {
                             </div>
 
                             <h2>🌐 ソーシャルメディア</h2>
-                            <p>CheatKeyの最新ニュースとアップデートをフォローしてください：</p>
+                            <p>CheetSetの最新ニュースとアップデートをフォローしてください：</p>
                             <ul className="list-none pl-0">
                                 <li>🐦 Twitter: <a href="https://twitter.com/cheetset" target="_blank" rel="noopener noreferrer">@cheetset</a></li>
                                 <li>📘 GitHub: <a href="https://github.com/cheetset" target="_blank" rel="noopener noreferrer">github.com/cheetset</a></li>

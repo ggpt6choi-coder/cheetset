@@ -61,6 +61,8 @@
     },
     "home": {
         "welcome": "Welcome to Cheetset",
+        "seo_title": "CheetSet - Free Online Developer & Utility Tools",
+        "seo_desc": "CheetSet provides free, privacy-focused online utility tools including Word Counter, JSON Formatter, Aspect Ratio Calculator, and more. No sign-up required.",
         "intro": "Developer tools, financial calculators, and productivity boosters. All the utilities you need in one place.",
         "categories": {
             "developer": "👨‍💻 Developer Tools",
@@ -69,6 +71,20 @@
             "image": "🖼️ Image & Document Tools",
             "text": "📝 Text Tools",
             "health": "💪 Health & Fitness"
+        }
+    },
+    "pages": {
+        "about": {
+            "title": "About CheetSet - Free Online Utility Tools",
+            "description": "Learn more about CheetSet. We provide free, privacy-focused online utility tools for developers and daily tasks including Word Counter, JSON Formatter, and more."
+        },
+        "contact": {
+            "title": "Contact CheetSet - Support & Feedback",
+            "description": "Get in touch with the CheetSet team. We welcome your feedback, questions, and feature requests for our free utility tools."
+        },
+        "privacy": {
+            "title": "Privacy Policy - CheetSet",
+            "description": "Read CheetSet's Privacy Policy. We prioritize your privacy and do not store your data on our servers. All processing is done locally."
         }
     },
     "tools": {

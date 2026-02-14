@@ -143,6 +143,10 @@ export default async function BlogPostPage({ params }: Props) {
     const dict = await getDictionary(lang as Locale);
     let PostComponent = POSTS[slug];
 
+    // Try to find post data for date and metadata
+    const postData = posts.find(p => p.slug === slug && p.lang === lang) ||
+        posts.find(p => p.slug === slug && p.lang === 'en');
+
     if (!PostComponent) {
         try {
             let mdxModule;
@@ -172,6 +176,7 @@ export default async function BlogPostPage({ params }: Props) {
     const meta = await generateMetadata({ params: Promise.resolve({ lang, slug }) });
     const title = (meta.title as string) || 'Blog Post';
     const description = meta.description || '';
+    const datePublished = postData?.date || new Date().toISOString().split('T')[0];
 
     return (
         <article className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -182,7 +187,7 @@ export default async function BlogPostPage({ params }: Props) {
                     headline: title,
                     description: description,
                     image: `https://www.cheetset.com/og-image.png`,
-                    datePublished: '2025-12-06', // Should be dynamic ideally
+                    datePublished: datePublished,
                     author: {
                         '@type': 'Organization',
                         name: 'CheetSet',

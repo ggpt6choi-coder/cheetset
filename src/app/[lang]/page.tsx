@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang as Locale);
 
   return constructMetadata({
-    title: dict.common.title,
-    description: dict.common.description,
+    title: dict.home.seo_title,
+    description: dict.home.seo_desc,
     path: '/',
     lang,
     image: '/og-image.png',

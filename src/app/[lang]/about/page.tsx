@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getDictionary, Locale } from "@/dictionaries/get-dictionary";
 
+import { constructMetadata } from "@/utils/seo";
+
 type Props = {
     params: Promise<{ lang: string }>;
 };
@@ -9,10 +11,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
-    return {
-        title: `${dict.nav.about} - ${dict.common.title}`,
-        description: 'CheatKey provides free online utility tools including Word Counter, JSON Formatter, Lotto Number Generator, and Server Time Checker.',
-    };
+    return constructMetadata({
+        title: dict.pages.about.title,
+        description: dict.pages.about.description,
+        path: 'about',
+        lang,
+    });
 }
 
 export default async function AboutPage({ params }: Props) {
@@ -29,7 +33,7 @@ export default async function AboutPage({ params }: Props) {
                             <p className="lead">일상에서 자주 필요한 유틸리티 도구를 무료로 제공하는 웹 서비스입니다.</p>
 
                             <h2>우리의 미션</h2>
-                            <p>CheatKey는 <strong>단순하지만 유용한 도구</strong>를 누구나 쉽게 사용할 수 있도록 만듭니다. 복잡한 가입 절차 없이, 브라우저만 있으면 바로 사용할 수 있습니다.</p>
+                            <p>CheetSet은 <strong>단순하지만 유용한 도구</strong>를 누구나 쉽게 사용할 수 있도록 만듭니다. 복잡한 가입 절차 없이, 브라우저만 있으면 바로 사용할 수 있습니다.</p>
 
                             <h2>제공하는 도구</h2>
                             <ul>
@@ -101,7 +105,7 @@ export default async function AboutPage({ params }: Props) {
                             <p className="lead">Free online utility tools for everyday tasks, designed to make your life easier.</p>
 
                             <h2>Our Mission</h2>
-                            <p>CheatKey provides <strong>simple yet powerful tools</strong> that anyone can use instantly. No complex sign-up process—just open your browser and start using.</p>
+                            <p>CheetSet provides <strong>simple yet powerful tools</strong> that anyone can use instantly. No complex sign-up process—just open your browser and start using.</p>
 
                             <h2>Available Tools</h2>
                             <ul>
@@ -147,7 +151,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>Meta Tag Generator:</strong> Generate SEO-friendly Meta Tags and Open Graph tags for social media sharing.</li>
                             </ul>
 
-                            <h2>Why CheatKey?</h2>
+                            <h2>Why CheetSet?</h2>
                             <h3>✅ Completely Free</h3>
                             <p>All tools are free forever. No hidden costs.</p>
 
@@ -161,7 +165,7 @@ export default async function AboutPage({ params }: Props) {
                             <p>We regularly add new tools based on user feedback.</p>
 
                             <h2>Developer</h2>
-                            <p>CheatKey aims to create utilities for both developers and general users. Have suggestions for new tools? Feel free to reach out!</p>
+                            <p>CheetSet aims to create utilities for both developers and general users. Have suggestions for new tools? Feel free to reach out!</p>
 
                             <h2>Contact</h2>
                             <p>Have questions? Visit our <a href={`/${lang}/contact`}>Contact page</a> to get in touch.</p>
@@ -173,7 +177,7 @@ export default async function AboutPage({ params }: Props) {
                             <p className="lead">日常で頻繁に必要なユーティリティツールを無料で提供するWebサービスです。</p>
 
                             <h2>私たちのミッション</h2>
-                            <p>CheatKeyは<strong>シンプルで便利なツール</strong>を誰でも簡単に使えるようにします。複雑な登録手続きなしで、ブラウザさえあればすぐに使えます。</p>
+                            <p>CheetSetは<strong>シンプルで便利なツール</strong>を誰でも簡単に使えるようにします。複雑な登録手続きなしで、ブラウザさえあればすぐに使えます。</p>
 
                             <h2>提供するツール</h2>
                             <ul>
@@ -209,7 +213,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>メタタグ生成ツール:</strong> SEO最適化とSNS共有のためのメタタグとオープングラフタグを簡単に生成します。</li>
                             </ul>
 
-                            <h2>なぜCheatKey？</h2>
+                            <h2>なぜCheetSet？</h2>
                             <h3>✅ 完全無料</h3>
                             <p>すべてのツールは永久無料です。隠れたコストはありません。</p>
 
@@ -223,7 +227,7 @@ export default async function AboutPage({ params }: Props) {
                             <p>ユーザーフィードバックを反映して新しいツールを追加し続けます。</p>
 
                             <h2>開発者</h2>
-                            <p>CheatKeyは開発者と一般ユーザーの両方のためのユーティリティを作ることを目指しています。より良いツールのための提案があればいつでも連絡してください！</p>
+                            <p>CheetSetは開発者と一般ユーザーの両方のためのユーティリティを作ることを目指しています。より良いツールのための提案があればいつでも連絡してください！</p>
 
                             <h2>お問い合わせ</h2>
                             <p>ご質問がありますか？<a href={`/${lang}/contact`}>Contactページ</a>からお問い合わせください。</p>
