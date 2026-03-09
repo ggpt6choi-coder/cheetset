@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 
 type Locale = "en" | "ko" | "ja";
 
+import { constructMetadata } from "@/utils/seo";
+
 type Props = {
     params: Promise<{ lang: string }>;
 };
@@ -10,9 +12,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
-    return {
+    return constructMetadata({
         title: `${dict.terms.title} - ${dict.common.title}`,
-    };
+        description: dict.terms.intro_content?.substring(0, 150) || 'Terms of Service for CheetSet',
+        path: 'terms',
+        lang,
+    });
 }
 
 export default async function TermsPage({ params }: Props) {

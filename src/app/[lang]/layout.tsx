@@ -24,9 +24,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     metadataBase: new URL(BASE_URL),
     title: dict.common.title,
     description: dict.common.description,
-    alternates: {
-      canonical: './',
-    },
     openGraph: {
       title: dict.common.title,
       description: dict.common.description,
