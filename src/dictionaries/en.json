@@ -93,31 +93,39 @@
             "description": "Count words and characters in your text.",
             "placeholder": "Type or paste your text here...",
             "result": "Words: {words}, Characters: {chars}",
-            "seo_content": "This is a free online word counter tool. It helps you count words and characters for your essays, articles, and social media posts.",
+            "seo_content": "CheetSet Free Online Word Counter is an essential tool for various writing tasks, including resumes, essays, reports, and blog posts. Going beyond simply counting words and characters, it provides detailed, real-time statistics such as character count with and without spaces, and total byte usage. We apply the same strict standards as major search engines and portals to guarantee high accuracy. All text input is completely secure; it is never sent to our servers and is processed entirely within your browser, ensuring no risk of personal data leakage.",
             "guide_title": "How to Use Word Counter",
             "guide": [
                 {
-                    "title": "Enter Text",
-                    "description": "Type or paste your text into the input area."
+                    "title": "Type or Paste Text",
+                    "description": "Enter your text directly into the large editor area in the center of the screen, or copy and paste content from other documents like Word, Notepad, or Google Docs. There is no maximum character limit, allowing you to check even lengthy documents of tens of thousands of words at once."
                 },
                 {
-                    "title": "Check Results",
-                    "description": "The word and character counts update instantly as you type."
+                    "title": "Real-time Word and Character Counts",
+                    "description": "As you type, the total number of words, characters (with and without spaces), and lines are automatically calculated and displayed in real-time. This allows you to instantly check if you have reached your target length and significantly improves your writing efficiency."
                 },
                 {
-                    "title": "Analyze",
-                    "description": "Use the detailed stats to see sentence and paragraph counts."
+                    "title": "Check Byte Count",
+                    "description": "Many application forms and websites limit input by bytes rather than characters. Our tool accurately calculates total bytes, properly distinguishing between English/numbers (1 byte) and other characters, preventing form submission errors in advance."
+                },
+                {
+                    "title": "Clear and Restart",
+                    "description": "Once your task is complete or you want to check new text, simply click the Clear button at the bottom of the input area to wipe the screen clean and start fresh."
                 }
             ],
             "faq_title": "FAQ",
             "faq": [
                 {
-                    "question": "Is there a limit on text length?",
-                    "answer": "No, you can paste as much text as your browser can handle."
+                    "question": "Is there a limit to the word count?",
+                    "answer": "No. Since CheetSet’s word counter operates within your browser, it can instantly calculate extremely long texts without needing a file upload or causing delays."
                 },
                 {
-                    "question": "Is my text saved?",
-                    "answer": "No, all analysis is performed locally in your browser. Your text is not sent to any server."
+                    "question": "Is the content I enter (like resumes) securely protected?",
+                    "answer": "Yes, it is 100% secure. Everything you enter is processed and calculated solely within your web browser’s memory. It is never transmitted to or stored on CheetSet servers. You can safely check sensitive personal information or important corporate documents with peace of mind."
+                },
+                {
+                    "question": "Why are counts for characters with and without spaces provided separately?",
+                    "answer": "Different submission guidelines (e.g., HR systems, writing contests) have different requirements. Some count spaces as characters, while others only count the actual letters. CheetSet provides both results to eliminate confusion."
                 }
             ],
             "use_cases_title": "Common Use Cases",
@@ -141,17 +149,17 @@
             "clear": "Clear",
             "error": "Invalid JSON",
             "copied": "Copied!",
-            "seo_content": "Free online JSON Formatter and Validator. Beautify and minify your JSON data with a single click. Fix indentation, validate syntax, and make your JSON readable.",
+            "seo_content": "CheetSet Free Online JSON Formatter and Validator automatically converts raw, hard-to-read JSON data into a clean, highly readable format. It is built for developers and data analysts dealing with API responses or database extractions. Paste in a single, unformatted string of JSON, and with one click, beautiful indentation and line breaks are applied. If there are syntax errors, the tool pinpoints the exact location in real-time, drastically reducing debugging time. All data is processed securely and 100% locally in your browser, never transmitted to any external servers.",
             "how_to_title": "How to Format JSON",
-            "how_to_step1": "Paste your messy or minified JSON into the input area.",
-            "how_to_step2": "Click the 'Format' button to beautify the code.",
-            "how_to_step3": "Use 'Minify' to remove whitespace for production use.",
-            "how_to_step4": "Click 'Copy' to copy the result to your clipboard.",
+            "how_to_step1": "1. Import Raw Data: Copy and paste your entire unformatted (minified) or compressed JSON string from a local file, API response, or another text editor into the code editor panel on the left.",
+            "how_to_step2": "2. Format and Beautify: Click the Format button. Instantly, proper 2-space or 4-space indentation is applied according to the depth of every object and array, making the structure immediately understandable at a glance.",
+            "how_to_step3": "3. Minify for Optimization: If you need to save network bandwidth or prepare data for a production deployment, click the Minify button instead. This removes all unnecessary line breaks and whitespaces, minimizing the file size as much as possible.",
+            "how_to_step4": "4. Save and Export: After reviewing the result, click Copy to save the entire output to your clipboard, or use the download option to save it securely to your local device as a .json file.",
             "faq_title": "Frequently Asked Questions",
             "faq_1_q": "Why is my JSON not formatting?",
-            "faq_1_a": "Check if your JSON is valid. Common errors include missing quotes around keys or trailing commas. Our tool will highlight syntax errors.",
+            "faq_1_a": "The most common cause is failing to follow strict JSON syntax rules. For instance, unlike standard JavaScript objects, all keys in JSON must be wrapped in double quotes. Additionally, trailing commas after the final element in an object or array will cause a parsing error (Invalid JSON). Check the highlighted error line to fix the issue.",
             "faq_2_q": "Can I format large JSON files?",
-            "faq_2_a": "Yes, our tool is optimized for performance and can handle large JSON strings efficiently within your browser.",
+            "faq_2_a": "Yes. Leveraging browser-native performance optimizations, CheetSet’s formatter can handle deeply nested, multi-megabyte JSON datasets in a matter of seconds. Delay may only occur depending on your PC’s available RAM and browser limits.",
             "use_cases_title": "Common Use Cases",
             "use_case_1": "Beautifying minified API responses for debugging.",
             "use_case_2": "Validating JSON syntax before deployment.",
@@ -200,20 +208,20 @@
             "save": "Save",
             "saved_numbers": "Saved Numbers",
             "no_saved": "No saved numbers.",
-            "seo_content": "Free online lottery number generator. Randomly draw 6 numbers from 1 to 45 to test your luck. Save and manage your generated numbers.",
+            "seo_content": "CheetSet Free Online Lottery Number Generator uses a Cryptographically Secure Pseudo-Random Number Generator (CSPRNG) to perfectly and randomly draw numbers based on standard lottery rules. It is the ultimate simple, powerful utility for those dreaming of hitting the jackpot or wishing to skip the hassle of picking numbers manually. You can securely save your generated combinations in your browser’s local storage to check back later. Generate as many sets as you want with a single click—no signup required.",
             "guide_title": "How to Generate Lotto Numbers",
             "guide": [
                 {
-                    "title": "Generate",
-                    "description": "Click the 'Generate Numbers' button to get a random set of 6 numbers (1-45)."
+                    "title": "Auto-Generate Numbers",
+                    "description": "As soon as you press the giant Generate Numbers button, the system calls the native random number module to extract and visually animate a completely randomized set of numbers for your lottery ticket."
                 },
                 {
-                    "title": "Save Numbers",
-                    "description": "Click 'Save' to keep the current set in your history list."
+                    "title": "Save Your Favorites",
+                    "description": "If the pattern of the generated numbers feels lucky to you, click the Save heart icon to record it in your list. This is highly useful when you visit the offline ticket counter to mark your slips."
                 },
                 {
-                    "title": "Manage",
-                    "description": "View your saved numbers or clear them to start over."
+                    "title": "History Management",
+                    "description": "In the Saved Numbers tab, you can view the history of all the combinations you previously favorited. Records you no longer need can be wiped completely using the clear all button for easy management."
                 }
             ],
             "faq_title": "Lotto Generator FAQ",
@@ -255,7 +263,7 @@
             "time_diff_slower": "ahead",
             "time_diff_slower_text": "behind",
             "seconds": "seconds",
-            "seo_content": "Free online server time checker tool. Check the exact server time of Ticketmaster, StubHub, or any website down to 0.1 seconds. Essential tool for successful ticket purchases and course registration.",
+            "seo_content": "CheetSet Server Time Checker is an essential utility for highly competitive events like concert ticketing, university course registration, and limited-edition product drops. In situations where success is determined by a fraction of a second, the internal clock on your computer or phone is often out of sync with the target organization’s server by 1 to 2 seconds or more. This tool captures the standard standard Time (Date) response coming directly from the target server HTTP headers in real time. We cross-analyze the pings to calibrate delay, providing millisecond-level precision superior to other generic time-checking sites.",
             "guide_title": "How to Check Server Time",
             "guide": [
                 {
@@ -271,15 +279,19 @@
                     "description": "Watch the seconds to synchronize your actions exactly."
                 }
             ],
-            "faq_title": "Server Time FAQ",
+            "faq_title": "Server Time & Ticketing Success FAQs",
             "faq": [
                 {
-                    "question": "Why is server time important?",
-                    "answer": "For competitive events like ticketing, even a second difference between your clock and the server's clock can mean failure."
+                    "question": "Can I check the server time of international reservation sites, Google, or Amazon?",
+                    "answer": "Yes, absolutely. By entering the URL of almost any web server, reservation platform, or game server worldwide that responds to standard HTTP/HTTPS requests with a Date header, you can fetch its current standard time. However, some special-purpose secure internal servers that aggressively block ping responses may not be supported."
                 },
                 {
-                    "question": "How accurate is it?",
-                    "answer": "We fetch the HTTP Date header directly from the server, providing high accuracy relative to network latency."
+                    "question": "Should I click exactly at 59 minutes 59 seconds, or right at 00 seconds?",
+                    "answer": "This varies depending on the specific system infrastructure (e.g., refresh rules, queue systems) and your internet response speed. Generally, the highest win rate is achieved when pressing the button or hitting F5 precisely passing from 59:59 into 00:00. We highly recommend using the Ticketing Practice tool to measure your average personal reaction speed beforehand."
+                },
+                {
+                    "question": "Will the time slow down or pause if I switch to another browser tab?",
+                    "answer": "Modern browsers like Chrome or Edge force background tabs to slow down their timer execution cycles to save battery life. Therefore, on D-Day, you must keep this server time checker tool visible as the active, foreground window on your screen to perfectly prevent the time from pausing or lagging behind."
                 }
             ],
             "use_cases_title": "Use Cases",
@@ -306,27 +318,31 @@
             "result_avg_price": "New Average Price",
             "result_total_quantity": "Total Quantity",
             "result_total_amount": "Total Amount",
-            "seo_content": "Free stock average down calculator. Calculate how much you can lower your average price by buying more shares. Essential tool for successful stock and crypto investing.",
+            "seo_content": "CheetSet Free Stock Average Down Calculator is meticulously designed for investors trading domestic stocks, US stocks like Tesla or Nvidia, and cryptocurrency assets like Bitcoin. When facing severe market downturns, it provides real-time simulations calculating exactly how much capital you need to risk, at what target buy price, to successfully lower your breakeven average down to a specific target level. It is a mandatory financial utility to help stock and coin traders build a systematic, mathematical split-buy strategy to recover account losses and pivot into profit zones.",
             "guide_title": "How to Calculate Average Down",
             "guide": [
                 {
-                    "title": "Current Holdings",
-                    "description": "Enter your current stock price and quantity."
+                    "title": "Accurately Enter Initial Position",
+                    "description": "In the first row, carefully input the average buy price of the asset you currently hold, along with the total quantity of shares (or fractional coin amounts) you own."
                 },
                 {
-                    "title": "New Purchase",
-                    "description": "Enter the price and quantity of the new shares you plan to buy."
+                    "title": "Simulate New Additional Buys",
+                    "description": "If you have cash ready, input the target price at which you plan to execute the new buy order and the exact quantity you can acquire. Extremely effective for sizing up a buy the dip panic drop scenario."
                 },
                 {
-                    "title": "Calculate",
-                    "description": "Click Calculate to see your new lowered average price."
+                    "title": "Review Updated Breakeven Results",
+                    "description": "Hit the Calculate button, and you instantly see the newly refreshed, combined average cost per share, alongside the dramatically increased total capital invested across your account portfolio."
                 }
             ],
             "faq_title": "FAQ",
             "faq": [
                 {
-                    "question": "What is 'averaging down'?",
-                    "answer": "Averaging down is an investment strategy where you buy more shares of a stock at a lower price than your initial purchase, thereby lowering the average cost per share."
+                    "question": "Does this calculator work for infinite decimal units like Bitcoin or Ethereum?",
+                    "answer": "Yes, of course! It is precisely calibrated to accept not only the integer quantities of conventional stocks but also the deep 0.0001 decimal quantities unique to crypto trading, as well as fractional US Dollar currency amounts."
+                },
+                {
+                    "question": "Does the result include brokerage trading fees, taxes, or dividends?",
+                    "answer": "No. This calculator is a purely mathematical weighted average cost utility. In order to factor in broker-specific margin requirements, fractional trading fees, or dividend taxes, you will still need to consult your home trading system (HTS) portal."
                 }
             ],
             "use_cases_title": "Use Cases",
