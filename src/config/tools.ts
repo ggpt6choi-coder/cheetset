@@ -302,5 +302,46 @@ export const tools: Tool[] = [
         slug: 'user-agent-parser',
         icon: 'Monitor',
         category: 'developer'
+    },
+    // Finance & Investment Tools (Securities)
+    {
+        slug: 'bond-calculator',
+        icon: 'TrendingUp',
+        category: 'finance'
+    },
+    {
+        slug: 'black-scholes',
+        icon: 'BarChart2',
+        category: 'finance'
+    },
+    {
+        slug: 'stock-tax-calculator',
+        icon: 'Receipt',
+        category: 'finance'
+    },
+    {
+        slug: 'fx-calculator',
+        icon: 'ArrowLeftRight',
+        category: 'finance'
+    },
+    {
+        slug: 'cagr-calculator',
+        icon: 'TrendingUp',
+        category: 'finance'
+    },
+    {
+        slug: 'portfolio-calculator',
+        icon: 'PieChart',
+        category: 'finance'
+    },
+    {
+        slug: 'margin-calculator',
+        icon: 'AlertTriangle',
+        category: 'finance'
+    },
+    {
+        slug: 'stock-valuation',
+        icon: 'Search',
+        category: 'finance'
     }
 ];

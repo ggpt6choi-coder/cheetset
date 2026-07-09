@@ -3249,6 +3249,469 @@
                 "agent",
                 "parser"
             ]
+        },
+        "bond_calculator": {
+            "title": "Bond Calculator",
+            "description": "Calculate bond price, YTM, duration, and modified duration for any fixed-income security.",
+            "keywords": ["bond", "YTM", "duration", "yield", "fixed income"],
+            "face_value": "Face Value",
+            "coupon_rate": "Coupon Rate (%)",
+            "maturity_years": "Maturity (Years)",
+            "market_rate": "Market Rate / Required Yield (%)",
+            "coupon_frequency": "Coupon Frequency",
+            "freq_annual": "Annual",
+            "freq_semi": "Semi-Annual",
+            "freq_quarterly": "Quarterly",
+            "calculate": "Calculate",
+            "bond_price": "Bond Price",
+            "ytm": "Yield to Maturity (YTM)",
+            "duration": "Macaulay Duration",
+            "modified_duration": "Modified Duration",
+            "cashflow_title": "Cash Flow Schedule",
+            "col_period": "Period",
+            "col_coupon": "Coupon",
+            "col_principal": "Principal",
+            "col_total": "Total",
+            "col_pv": "Present Value",
+            "discount_premium": "Discount / Premium",
+            "at_par": "At Par",
+            "at_discount": "At Discount",
+            "at_premium": "At Premium",
+            "seo_content": "Use this free bond calculator to instantly compute bond price, yield to maturity (YTM), Macaulay duration, and modified duration. Essential for fixed income analysts, portfolio managers, and finance professionals analyzing government bonds, corporate bonds, and other debt securities.",
+            "guide_title": "How to Use the Bond Calculator",
+            "guide": [
+                {
+                    "title": "Enter Bond Details",
+                    "description": "Input the face value (par value), annual coupon rate, years to maturity, and the current market interest rate (required yield)."
+                },
+                {
+                    "title": "Select Coupon Frequency",
+                    "description": "Choose how often the bond pays interest: annually, semi-annually, or quarterly."
+                },
+                {
+                    "title": "Interpret Results",
+                    "description": "If the market rate exceeds the coupon rate, the bond trades at a discount (below par). Modified duration tells you the approximate % price change for a 1% change in yield."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "What is Yield to Maturity (YTM)?",
+                    "answer": "YTM is the total return anticipated on a bond if held until it matures. It represents the internal rate of return of the bond's cash flows."
+                },
+                {
+                    "question": "Why does higher duration mean more risk?",
+                    "answer": "A modified duration of 5 means the bond price will fall approximately 5% for every 1% rise in interest rates."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Pricing bonds before purchase",
+                "Managing interest rate risk in a fixed income portfolio",
+                "Comparing bond returns vs. equity"
+            ]
+        },
+        "black_scholes": {
+            "title": "Black-Scholes Options Calculator",
+            "description": "Calculate theoretical call/put option prices and Greeks (Delta, Gamma, Theta, Vega, Rho) using the Black-Scholes model.",
+            "keywords": ["Black-Scholes", "options", "Greeks", "delta", "gamma", "derivatives"],
+            "stock_price": "Underlying Asset Price (S)",
+            "strike_price": "Strike Price (K)",
+            "time_to_expiry": "Time to Expiry (T, years)",
+            "risk_free_rate": "Risk-Free Rate (r, %)",
+            "volatility": "Volatility (σ, %)",
+            "dividend_yield": "Dividend Yield (q, %)",
+            "calculate": "Calculate",
+            "call_price": "Call Option Price",
+            "put_price": "Put Option Price",
+            "greeks_title": "Greeks",
+            "delta": "Delta (Δ)",
+            "gamma": "Gamma (Γ)",
+            "theta": "Theta (Θ, per day)",
+            "vega": "Vega (ν)",
+            "rho": "Rho (ρ)",
+            "intrinsic_value": "Intrinsic Value",
+            "time_value": "Time Value",
+            "call_label": "Call",
+            "put_label": "Put",
+            "days_to_expiry": "Days to Expiry",
+            "seo_content": "Free Black-Scholes options pricing calculator. Instantly compute theoretical call and put option prices along with all five Greeks: Delta, Gamma, Theta, Vega, and Rho. Used by derivatives traders, hedge funds, and financial analysts for options strategy analysis and risk management.",
+            "guide_title": "How to Use the Black-Scholes Calculator",
+            "guide": [
+                {
+                    "title": "Enter Underlying Information",
+                    "description": "Input the current asset price (S), the option strike price (K), and time to expiration (T in years). Example: 30 days = 30/365 ≈ 0.082."
+                },
+                {
+                    "title": "Enter Market Parameters",
+                    "description": "Input the risk-free rate (e.g., 3-month T-bill yield) and the implied or historical volatility of the underlying asset."
+                },
+                {
+                    "title": "Interpret the Greeks",
+                    "description": "Delta: Option price change per $1 move in the underlying. Gamma: Rate of change of Delta. Theta: Daily time decay. Vega: Sensitivity to volatility changes."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "Where can I find implied volatility?",
+                    "answer": "Implied volatility is quoted in options chains on brokers like TD Ameritrade, Interactive Brokers, or market data platforms like Bloomberg and Yahoo Finance."
+                },
+                {
+                    "question": "What are the limitations of the Black-Scholes model?",
+                    "answer": "It assumes constant volatility and lognormal returns, ignoring jumps and the volatility smile/skew observed in real markets."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Pricing stock, index, or ETF options",
+                "Analyzing options strategies before execution",
+                "Calculating hedge ratios (Delta) for portfolio protection"
+            ]
+        },
+        "stock_tax_calculator": {
+            "title": "Stock Capital Gains Tax Calculator",
+            "description": "Calculate capital gains tax on overseas stock sales. Includes Korea's 22% tax rate, 2.5M KRW deduction, and gain/loss netting.",
+            "keywords": ["capital gains tax", "overseas stocks", "stock tax", "gain loss netting"],
+            "add_trade": "Add Trade",
+            "stock_name": "Stock Name",
+            "buy_price": "Purchase Price",
+            "sell_price": "Sale Price",
+            "quantity": "Quantity",
+            "profit_loss": "Profit / Loss",
+            "remove": "Remove",
+            "total_profit": "Total Gains",
+            "total_loss": "Total Losses",
+            "net_gain": "Net Gain (After Netting)",
+            "basic_deduction": "Basic Deduction",
+            "taxable_income": "Taxable Income",
+            "tax_rate": "Tax Rate",
+            "total_tax": "Tax Due",
+            "local_tax": "Incl. Local Income Tax",
+            "no_tax": "No Tax Due",
+            "tax_note": "※ Korea's overseas stock capital gains tax applies a 22% rate (20% income tax + 2% local tax) after a 2.5M KRW annual deduction.",
+            "currency": "Currency",
+            "exchange_rate": "Exchange Rate",
+            "calculate": "Calculate Tax",
+            "reset": "Reset",
+            "seo_content": "Calculate capital gains tax on overseas stock investments. This calculator applies South Korea's 22% tax rate on foreign stock gains, automatically deducts the 2.5 million KRW annual exemption, and supports gain-loss netting across multiple trades. Perfect for year-end tax planning.",
+            "guide_title": "How to Calculate Stock Capital Gains Tax",
+            "guide": [
+                {
+                    "title": "Enter Your Trades",
+                    "description": "Add both profitable and loss-making trades. Loss trades reduce your total taxable gain through gain-loss netting."
+                },
+                {
+                    "title": "Gain-Loss Netting",
+                    "description": "Gains and losses from the same tax year are netted together. Example: +$5,000 gain and -$2,000 loss = $3,000 net gain."
+                },
+                {
+                    "title": "Apply Deduction and Rate",
+                    "description": "Subtract the 2.5M KRW annual deduction from the net gain. The remaining amount is taxed at 22%. Tax is due the following May."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "Are domestic Korean stocks taxed?",
+                    "answer": "General listed shares held by minority shareholders are exempt. This calculator is designed for overseas (foreign) stock taxation."
+                },
+                {
+                    "question": "Which exchange rate should I use?",
+                    "answer": "Use the official exchange rate on the date of each sale transaction. Consult the National Tax Service (NTS) guidelines for exact rates."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Year-end tax estimation for overseas stock portfolio",
+                "Tax-loss harvesting strategy planning",
+                "Multi-trade gain/loss aggregation"
+            ]
+        },
+        "fx_calculator": {
+            "title": "Currency Exchange Calculator",
+            "description": "Calculate currency exchange amounts with spreads and preferential rates for 10 major currencies.",
+            "keywords": ["currency", "exchange rate", "forex", "FX", "conversion"],
+            "from_currency": "From Currency",
+            "to_currency": "To Currency",
+            "amount": "Amount",
+            "base_rate": "Base Exchange Rate (Manual Input)",
+            "discount_rate": "Preferential Rate (%)",
+            "spread_rate": "Spread (%)",
+            "calculate": "Calculate Exchange",
+            "result_title": "Exchange Result",
+            "receive_amount": "Amount Received",
+            "applied_rate": "Applied Rate",
+            "fee_amount": "Fee Amount",
+            "net_rate": "Effective Rate",
+            "rate_guide": "Exchange Rate Guide",
+            "swap": "Swap Currencies",
+            "reset": "Reset",
+            "currencies": {
+                "KRW": "Korean Won (₩)",
+                "USD": "US Dollar ($)",
+                "JPY": "Japanese Yen (¥)",
+                "EUR": "Euro (€)",
+                "GBP": "British Pound (£)",
+                "CNY": "Chinese Yuan (¥)",
+                "HKD": "Hong Kong Dollar (HK$)",
+                "SGD": "Singapore Dollar (S$)",
+                "AUD": "Australian Dollar (A$)",
+                "CAD": "Canadian Dollar (CA$)"
+            },
+            "seo_content": "Free currency exchange calculator supporting 10 major currencies including USD, KRW, JPY, EUR, GBP, CNY, and more. Manually input the base exchange rate, apply preferential discounts, and instantly see fees and the effective exchange rate. Perfect for international travel, overseas investing, and cross-border shopping.",
+            "guide_title": "How to Use the Currency Calculator",
+            "guide": [
+                {
+                    "title": "Select Currencies and Enter Amount",
+                    "description": "Choose the source and target currencies, then enter the amount you want to convert."
+                },
+                {
+                    "title": "Input Exchange Rate",
+                    "description": "Enter the current base rate from your bank or broker. Find live rates on Google, XE.com, or your bank's app."
+                },
+                {
+                    "title": "Set Preferential Rate",
+                    "description": "Banks and brokers often offer fee discounts (e.g., 70-90% off the spread). Enter your discount percentage to see the actual amount received."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "What is a currency spread?",
+                    "answer": "The spread is the difference between the mid-market rate and the rate your bank charges. Example: mid-rate is $1 = ₩1,300 but the bank sells at ₩1,320 — the spread is ~1.5%."
+                },
+                {
+                    "question": "Are brokerage exchanges cheaper than banks?",
+                    "answer": "Yes. Securities firms (e.g., Mirae Asset, Kiwoom) often offer up to 95% discount on spreads for investment purposes, making them significantly cheaper."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Calculate currency needed for international travel",
+                "Convert overseas stock investment amounts",
+                "Estimate actual cost of international purchases"
+            ]
+        },
+        "cagr_calculator": {
+            "title": "CAGR Calculator",
+            "description": "Calculate Compound Annual Growth Rate (CAGR), future investment value, or the time needed to reach your financial goal.",
+            "keywords": ["CAGR", "compound annual growth rate", "investment return", "compound interest", "future value"],
+            "mode": "Calculation Mode",
+            "mode_cagr": "Calculate CAGR",
+            "mode_future": "Calculate Future Value",
+            "mode_period": "Calculate Period",
+            "initial_value": "Initial Investment (Present Value)",
+            "final_value": "Final Value (Target Amount)",
+            "period_years": "Investment Period (Years)",
+            "cagr_rate": "CAGR (%)",
+            "calculate": "Calculate",
+            "result_cagr": "CAGR (Compound Annual Growth Rate)",
+            "result_future": "Future Investment Value",
+            "result_period": "Time to Reach Goal",
+            "result_total_return": "Total Return",
+            "result_total_gain": "Total Gain",
+            "chart_title": "Year-by-Year Growth Projection",
+            "year_label": "Year",
+            "value_label": "Portfolio Value",
+            "seo_content": "Free CAGR calculator for investors and analysts. Compute the compound annual growth rate of any investment, project the future value of your portfolio, or find out how long it takes to reach your financial goal. Compare historical CAGRs of S&P 500, Nasdaq, Bitcoin, real estate, and other asset classes.",
+            "guide_title": "How to Use the CAGR Calculator",
+            "guide": [
+                {
+                    "title": "Choose Calculation Mode",
+                    "description": "① CAGR Mode: Enter initial value, final value, and period to get the annual growth rate. ② Future Value: Enter initial value, CAGR, and period to project portfolio growth. ③ Period Mode: Enter initial value, target, and CAGR to find time to goal."
+                },
+                {
+                    "title": "Interpret Results",
+                    "description": "CAGR smooths out volatility to show a consistent growth rate. Even if individual years vary, the CAGR represents the equivalent steady annual return."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "What's the difference between CAGR and average return?",
+                    "answer": "Average return is the arithmetic mean of annual returns. CAGR is the geometric mean. For volatile investments, CAGR is always lower than the simple average."
+                },
+                {
+                    "question": "What is the historical CAGR of the S&P 500?",
+                    "answer": "With dividends reinvested, the S&P 500 has historically returned approximately 10-11% per year over the long term. This varies significantly by start/end date."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Calculate annualized returns for stocks and funds",
+                "Retirement savings projection simulations",
+                "Business revenue growth rate analysis"
+            ]
+        },
+        "portfolio_calculator": {
+            "title": "Portfolio Calculator",
+            "description": "Analyze portfolio allocation, weighted average return, and P&L for up to 10 holdings.",
+            "keywords": ["portfolio", "asset allocation", "weighted return", "rebalancing"],
+            "add_stock": "Add Holding",
+            "stock_name": "Stock / Asset Name",
+            "buy_price": "Purchase Price",
+            "current_price": "Current Price",
+            "quantity": "Shares Held",
+            "weight": "Weight",
+            "return_pct": "Return",
+            "profit_loss": "P&L",
+            "total_invested": "Total Invested",
+            "total_value": "Current Portfolio Value",
+            "total_profit": "Total P&L",
+            "weighted_return": "Weighted Average Return",
+            "remove": "Remove",
+            "chart_title": "Portfolio Allocation",
+            "no_stocks": "Add holdings to begin",
+            "calculate": "Analyze",
+            "seo_content": "Free portfolio calculator for investors. Enter up to 10 holdings with purchase price, current price, and quantity to instantly see portfolio allocation, individual and weighted average returns, total P&L, and a visual donut chart. Ideal for stocks, ETFs, mutual funds, and mixed asset portfolios.",
+            "guide_title": "How to Use the Portfolio Calculator",
+            "guide": [
+                {
+                    "title": "Add Your Holdings",
+                    "description": "Enter the name, purchase price, current price, and number of shares for each position. Add up to 10 holdings."
+                },
+                {
+                    "title": "Review Results",
+                    "description": "Each holding shows its portfolio weight (%), individual return rate, and P&L. The donut chart displays the allocation breakdown."
+                },
+                {
+                    "title": "Weighted Average Return",
+                    "description": "This is the true portfolio return weighted by investment amount — more meaningful than a simple average of individual returns."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "What is portfolio rebalancing?",
+                    "answer": "Rebalancing means adjusting holdings back to target weights. Example: if stocks rise from a 60% target to 70%, you sell some stocks to restore the 60/40 stock-bond balance."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Aggregate P&L across multiple holdings",
+                "Check current allocation vs. target for rebalancing",
+                "Visualize portfolio diversification"
+            ]
+        },
+        "margin_calculator": {
+            "title": "Margin & Leverage Calculator",
+            "description": "Calculate required margin, leverage ratio, and theoretical liquidation price for futures and options positions.",
+            "keywords": ["margin", "futures", "leverage", "liquidation price", "derivatives"],
+            "instrument_type": "Instrument Type",
+            "type_futures": "Futures",
+            "type_options": "Options",
+            "type_crypto": "Crypto Futures",
+            "underlying_price": "Underlying Asset Price",
+            "contract_size": "Contract Size (Multiplier)",
+            "num_contracts": "Number of Contracts",
+            "margin_rate": "Margin Rate (%)",
+            "position_type": "Position Direction",
+            "long": "Long (Buy)",
+            "short": "Short (Sell)",
+            "calculate": "Calculate",
+            "total_exposure": "Total Exposure",
+            "required_margin": "Required Margin",
+            "leverage": "Leverage Ratio",
+            "liquidation_price": "Theoretical Liquidation Price",
+            "profit_per_tick": "P&L per Tick",
+            "tick_size": "Tick Size",
+            "warning": "⚠️ Leveraged trading involves significant risk of loss. Actual margin requirements vary by exchange and broker.",
+            "seo_content": "Free margin and leverage calculator for futures and options traders. Calculate initial margin requirements, leverage ratio, and theoretical liquidation price for any futures contract — including equity index futures, commodity futures, and crypto perpetuals. Essential for risk management before opening positions.",
+            "guide_title": "How to Use the Margin Calculator",
+            "guide": [
+                {
+                    "title": "Enter Contract Details",
+                    "description": "Select instrument type, enter the underlying asset price, contract multiplier, and number of contracts. For S&P 500 E-mini futures, the multiplier is $50."
+                },
+                {
+                    "title": "Enter Margin Rate",
+                    "description": "Input your broker's initial margin rate. This varies by instrument and broker — typically 5-15% for equity futures."
+                },
+                {
+                    "title": "Understand Liquidation Price",
+                    "description": "The theoretical liquidation price is where your margin is fully depleted. In practice, a margin call occurs before this point (at the maintenance margin level)."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "What is the difference between initial and maintenance margin?",
+                    "answer": "Initial margin is what you need to open a position. Maintenance margin is the minimum to keep it open. A margin call occurs when your account falls below the maintenance level."
+                },
+                {
+                    "question": "What does 10x leverage mean?",
+                    "answer": "It means you control $10,000 in assets with $1,000 in margin. Profits and losses are both multiplied by 10x."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Verify margin required before opening futures positions",
+                "Understand leverage exposure and risk",
+                "Pre-calculate liquidation price for stop-loss planning"
+            ]
+        },
+        "stock_valuation": {
+            "title": "Stock Valuation Calculator",
+            "description": "Estimate fair value using PER, PBR, and EV/EBITDA multiples and compare to the current market price.",
+            "keywords": ["PER", "PBR", "fair value", "stock valuation", "EV/EBITDA"],
+            "current_price": "Current Stock Price",
+            "per_section": "P/E Ratio Method",
+            "eps": "EPS (Earnings Per Share)",
+            "target_per": "Target P/E (Industry Average)",
+            "pbr_section": "P/B Ratio Method",
+            "bps": "BPS (Book Value Per Share)",
+            "target_pbr": "Target P/B (Industry Average)",
+            "ev_section": "EV/EBITDA Method",
+            "ebitda_per_share": "EBITDA Per Share",
+            "net_debt_per_share": "Net Debt Per Share",
+            "target_ev_ebitda": "Target EV/EBITDA",
+            "calculate": "Calculate",
+            "fair_value_per": "P/E Fair Value",
+            "fair_value_pbr": "P/B Fair Value",
+            "fair_value_ev": "EV/EBITDA Fair Value",
+            "average_fair_value": "Average Fair Value",
+            "upside": "Upside Potential",
+            "downside": "Downside Risk",
+            "current_per": "Current P/E",
+            "current_pbr": "Current P/B",
+            "overvalued": "Overvalued",
+            "undervalued": "Undervalued",
+            "fairly_valued": "Fairly Valued",
+            "disclaimer": "※ Results are for reference only and do not constitute investment advice. Consult a financial professional before making investment decisions.",
+            "seo_content": "Free stock valuation calculator using three professional methods: P/E (PER), P/B (PBR), and EV/EBITDA. Input earnings, book value, and industry average multiples to estimate fair value and identify whether a stock is overvalued or undervalued. Used by value investors, equity analysts, and portfolio managers.",
+            "guide_title": "How to Use the Valuation Calculator",
+            "guide": [
+                {
+                    "title": "P/E Method",
+                    "description": "Multiply EPS (Earnings Per Share) by the industry average P/E ratio. EPS is found in earnings reports or financial data sites like Macrotrends or Simply Wall St."
+                },
+                {
+                    "title": "P/B Method",
+                    "description": "Multiply BPS (Book Value Per Share) by the industry average P/B. Best for asset-heavy sectors like financials and industrials."
+                },
+                {
+                    "title": "EV/EBITDA Method",
+                    "description": "Multiply EBITDA per share by the target EV/EBITDA, then subtract net debt per share. Useful for companies with high depreciation or varying capital structures."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "Where can I find industry average P/E ratios?",
+                    "answer": "Check sources like Damodaran's dataset (NYU), Macrotrends, Bloomberg, or your broker's research portal for sector P/E and P/B benchmarks."
+                },
+                {
+                    "question": "What if the three methods give very different results?",
+                    "answer": "Use the average as a reference, or weight the most appropriate method for the company type: P/E for growth stocks, P/B for financial/value stocks, EV/EBITDA for capital-intensive businesses."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Identify undervalued or overvalued stocks",
+                "Set price targets for investment thesis",
+                "M&A and corporate valuation analysis"
+            ]
         }
     },
     "privacy": {
