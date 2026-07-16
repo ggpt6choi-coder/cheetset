@@ -53,6 +53,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>로또 번호 생성기:</strong> 랜덤 로또 번호 추천</li>
                                 <li><strong>단위 변환기:</strong> 길이, 무게, 부피 등 필수 단위 변환</li>
                                 <li><strong>서버 시간 확인:</strong> 티켓팅, 수강신청을 위한 정확한 서버 시간 체크</li>
+                                <li><strong>한글 타자 연습:</strong> 한글 단어 100개를 따라치며 타속(CPM)과 정확도 측정</li>
                                 <li><strong>QR 코드 생성기:</strong> URL, 텍스트를 QR 코드로 변환 및 커스터마이징</li>
                                 <li><strong>SQL 포매터:</strong> 복잡한 SQL 쿼리 정렬 및 구문 강조</li>
                                 <li><strong>퍼센트 계산기:</strong> 비율, 증감률 등 다양한 퍼센트 계산</li>
@@ -125,6 +126,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>Lotto Generator:</strong> Random lottery number recommendations</li>
                                 <li><strong>Unit Converter:</strong> Essential unit conversions for length, weight, etc.</li>
                                 <li><strong>Server Time Checker:</strong> Accurate server time for ticket purchases</li>
+                                <li><strong>Korean Keyboard Practice:</strong> Practice typing 100 Korean words and test your speed (CPM) and accuracy</li>
                                 <li><strong>QR Code Generator:</strong> Create and customize QR codes for URLs and text</li>
                                 <li><strong>SQL Formatter:</strong> Format and beautify complex SQL queries</li>
                                 <li><strong>Percentage Calculator:</strong> Calculate percentages, increases, and decreases easily</li>
@@ -185,6 +187,7 @@ export default async function AboutPage({ params }: Props) {
                                 <li><strong>JSONフォーマッター:</strong> 複雑なJSONデータを読みやすく整形し、検証します。</li>
                                 <li><strong>ロト番号生成器:</strong> 韓国のロト6/45方式でランダムな番号を生成します。</li>
                                 <li><strong>サーバー時間確認:</strong> チケット予約や受講申請のための正確なサーバー時間を確認できます。</li>
+                                <li><strong>韓国語タイピング練習:</strong> 100個の韓国語単語をタイピングして打鍵速度（CPM）と正確度を測定します。</li>
                                 <li><strong>画像Base64変換:</strong> 画像をBase64文字列に変換、またはその逆に変換します。</li>
                                 <li><strong>株式平均単価計算機:</strong> 追加購入時の株式平均単価（「ムルタギ」）を計算します。</li>
                                 <li><strong>UUID生成器:</strong> バージョン4のUUIDを生成します。</li>

@@ -28,7 +28,8 @@
         "image_to_base64": "Image to Base64",
         "base64_to_image": "Base64 to Image",
         "ticketing_practice": "Ticketing Practice",
-        "salary_calculator": "Real Salary Calculator",
+        "korean_keyboard_practice": "Korean Keyboard Practice",
+        "salary_calculator": "Real Salary Calculator (US)",
         "compound_interest": "Compound Interest Calculator",
         "uuid_generator": "UUID Generator",
         "unit_converter": "Unit Converter",
@@ -408,6 +409,67 @@
                 "ticketing",
                 "practice",
                 "game"
+            ]
+        },
+        "korean_keyboard_practice": {
+            "title": "Korean Keyboard Practice",
+            "description": "Learn and practice Korean keyboard typing. Type 100 common Korean words in sequence and test your CPM (Characters Per Minute) and accuracy in real-time.",
+            "start_game": "Start Practice",
+            "cpm": "CPM (Speed)",
+            "accuracy": "Accuracy",
+            "time_left": "Elapsed Time",
+            "current_word": "Current Word",
+            "next_word": "Next Word",
+            "type_here": "Type the word here...",
+            "game_over": "Practice Completed!",
+            "final_cpm": "Average Speed (CPM)",
+            "final_accuracy": "Final Accuracy",
+            "total_time": "Total Time",
+            "retry": "Try Again",
+            "share_result": "Share Result",
+            "share_message": "My Korean Typing Practice Result! Avg Speed: {cpm} CPM, Accuracy: {accuracy}%, Total Time: {time}s! Challenge yourself 👉",
+            "copied": "Copied to clipboard!",
+            "seo_content": "Free online Korean Keyboard Practice game designed to help you learn and improve Hangeul typing skills. Practice typing 100 daily Korean words sequentially while tracking your typing speed (CPM - Characters Per Minute) and accuracy in real time. Features a dynamic Dubeolsik virtual keyboard highlighting the next consonant or vowel key, along with Shift indicators for double consonants/vowels. Perfect for Korean language learners and typists alike.",
+            "guide_title": "How to Practice Korean Keyboard",
+            "guide": [
+                {
+                    "title": "Type the word",
+                    "description": "Read the Korean word shown on the screen and type it exactly in the input box."
+                },
+                {
+                    "title": "Press Space or Enter",
+                    "description": "Press the Spacebar or Enter key to submit your typed word and move to the next one."
+                },
+                {
+                    "title": "Follow Keyboard Guide",
+                    "description": "The next Hangul key to press will highlight in yellow on the virtual keyboard to guide your fingers."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "How is CPM (Characters Per Minute) calculated?",
+                    "answer": "CPM is calculated based on individual keystrokes (consonants and vowels) rather than full syllables. For example, typing '한글' requires 6 keypresses (ㅎ, ㅏ, ㄴ, ㄱ, ㅡ, ㄹ), which count as 6 keystrokes, ensuring precise and standard measurement."
+                },
+                {
+                    "question": "Is this helpful for absolute beginners?",
+                    "answer": "Yes! The interactive virtual keyboard highlights not only the next key to press but also the Shift key for double consonants (like ㅃ, ㅉ, ㄸ, ㄲ, ㅆ), which is perfect for learning the layout."
+                }
+            ],
+            "use_cases_title": "Use Cases",
+            "use_cases": [
+                "Learning the Korean Dubeolsik (2-bul) keyboard layout.",
+                "Improving Korean typing speed and muscle memory.",
+                "Practicing basic Korean vocabulary words while typing."
+            ],
+            "keywords": [
+                "korean keyboard practice",
+                "learn hangul typing",
+                "hangeul typing game",
+                "korean typing speed test",
+                "dubeolsik practice",
+                "free typing test",
+                "cpm calculator"
             ]
         },
         "salary_calculator": {

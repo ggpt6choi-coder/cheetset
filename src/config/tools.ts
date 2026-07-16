@@ -184,6 +184,11 @@ export const tools: Tool[] = [
         category: 'daily',
     },
     {
+        slug: 'korean-keyboard-practice',
+        icon: '⌨️',
+        category: 'daily',
+    },
+    {
         slug: 'unit-converter',
         category: 'daily',
     },
