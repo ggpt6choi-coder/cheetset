@@ -16,6 +16,110 @@ const WORDS_100 = [
   "신발", "안경", "시계", "우산", "연필", "공책", "책상", "의자", "침대", "거울"
 ];
 
+const JAMO_LIST = [
+  'ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ',
+  'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ',
+  'ㅏ', 'ㅑ', 'ㅓ', 'ㅕ', 'ㅗ', '요', 'ㅜ', 'ㅠ', 'ㅡ', 'ㅣ',
+  'ㅐ', 'ㅒ', 'ㅔ', 'ㅖ', 'ㅘ', 'ㅝ', 'ㅢ'
+];
+
+interface FingerMapping {
+  finger: string;
+  hand: 'left' | 'right' | 'both';
+  color: string;
+}
+
+const KEY_FINGER_MAP: Record<string, FingerMapping> = {
+  // Left Hand
+  // Pinky (L5)
+  'KeyQ': { finger: 'L5', hand: 'left', color: '#ec4899' },
+  'KeyA': { finger: 'L5', hand: 'left', color: '#ec4899' },
+  'KeyZ': { finger: 'L5', hand: 'left', color: '#ec4899' },
+  'ShiftLeft': { finger: 'L5', hand: 'left', color: '#ec4899' },
+  
+  // Ring (L4)
+  'KeyW': { finger: 'L4', hand: 'left', color: '#a855f7' },
+  'KeyS': { finger: 'L4', hand: 'left', color: '#a855f7' },
+  'KeyX': { finger: 'L4', hand: 'left', color: '#a855f7' },
+  
+  // Middle (L3)
+  'KeyE': { finger: 'L3', hand: 'left', color: '#3b82f6' },
+  'KeyD': { finger: 'L3', hand: 'left', color: '#3b82f6' },
+  'KeyC': { finger: 'L3', hand: 'left', color: '#3b82f6' },
+  
+  // Index (L2)
+  'KeyR': { finger: 'L2', hand: 'left', color: '#10b981' },
+  'KeyF': { finger: 'L2', hand: 'left', color: '#10b981' },
+  'KeyV': { finger: 'L2', hand: 'left', color: '#10b981' },
+  'KeyT': { finger: 'L2', hand: 'left', color: '#10b981' },
+  'KeyG': { finger: 'L2', hand: 'left', color: '#10b981' },
+  
+  // Thumb
+  'Space': { finger: 'Thumb', hand: 'both', color: '#f59e0b' },
+  
+  // Right Hand
+  // Index (R2)
+  'KeyY': { finger: 'R2', hand: 'right', color: '#10b981' },
+  'KeyU': { finger: 'R2', hand: 'right', color: '#10b981' },
+  'KeyH': { finger: 'R2', hand: 'right', color: '#10b981' },
+  'KeyJ': { finger: 'R2', hand: 'right', color: '#10b981' },
+  'KeyN': { finger: 'R2', hand: 'right', color: '#10b981' },
+  'KeyB': { finger: 'R2', hand: 'right', color: '#10b981' },
+  
+  // Middle (R3)
+  'KeyI': { finger: 'R3', hand: 'right', color: '#3b82f6' },
+  'KeyK': { finger: 'R3', hand: 'right', color: '#3b82f6' },
+  'KeyM': { finger: 'R3', hand: 'right', color: '#3b82f6' },
+  
+  // Ring (R4)
+  'KeyO': { finger: 'R4', hand: 'right', color: '#a855f7' },
+  'KeyL': { finger: 'R4', hand: 'right', color: '#a855f7' },
+  
+  // Pinky (R5)
+  'KeyP': { finger: 'R5', hand: 'right', color: '#ec4899' },
+  'Backspace': { finger: 'R5', hand: 'right', color: '#ec4899' }
+};
+
+const getFingerLabel = (fingerId: string, hand: 'left' | 'right' | 'both', lang: string) => {
+  const isKo = lang === 'ko';
+  const isJa = lang === 'ja';
+  if (fingerId === 'Thumb') {
+    return isKo ? '양손 엄지손가락 (Space)' : isJa ? '両親指 (Space)' : 'Both Thumbs (Space)';
+  }
+  const side = hand === 'left' ? (isKo ? '왼쪽' : isJa ? '左' : 'Left') : (isKo ? '오른쪽' : isJa ? '右' : 'Right');
+  let fingerName = '';
+  switch (fingerId) {
+    case 'L5':
+    case 'R5': fingerName = isKo ? '새끼손가락' : isJa ? '小指' : 'Pinky'; break;
+    case 'L4':
+    case 'R4': fingerName = isKo ? '약지손가락' : isJa ? '薬指' : 'Ring finger'; break;
+    case 'L3':
+    case 'R3': fingerName = isKo ? '중지손가락' : isJa ? '中指' : 'Middle finger'; break;
+    case 'L2':
+    case 'R2': fingerName = isKo ? '검지손가락' : isJa ? '人差し指' : 'Index finger'; break;
+  }
+  return isKo ? `${side} ${fingerName}` : isJa ? `${side}${fingerName}` : `${side} ${fingerName}`;
+};
+
+const getLocalText = (lang: string) => {
+  const isKo = lang === 'ko';
+  const isJa = lang === 'ja';
+  return {
+    tabJamo: isKo ? '1단계: 자음/모음 연습' : isJa ? '第1段階: 子音・母音' : 'Stage 1: Consonants & Vowels',
+    tabWord: isKo ? '2단계: 단어 연습' : isJa ? '第2段階: 単語練習' : 'Stage 2: Word Practice',
+    handGuideTitle: isKo ? '손가락 위치 가이드' : isJa ? '指の位置ガイド' : 'Finger Position Guide',
+    showHandGuide: isKo ? '손 모양 가이드' : isJa ? '手の形ガイド' : 'Hand Guide',
+    stage1Description: isKo 
+      ? '한글 자음과 모음을 하나씩 입력하며 키보드 자판 위치를 익힙니다.' 
+      : isJa 
+      ? 'ハングルの子音と母音を一つずつ入力しながら、キーボードの位置を覚えます。' 
+      : 'Practice typing individual Korean consonants and vowels to learn keyboard layout.',
+    currentLetter: isKo ? '현재 글자' : isJa ? '現在の文字' : 'Current Letter',
+    nextLetter: isKo ? '다음 글자' : isJa ? '次の文字' : 'Next Letter',
+    typeLetterHere: isKo ? '자판을 누르세요...' : isJa ? 'キーを押してください...' : 'Press the key...',
+  };
+};
+
 // Hangul character sets
 const CHOSEONG_KEYS = [
   'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'
@@ -195,7 +299,7 @@ function getHighlightedKeys(
 // Synthesize typing clicks using Web Audio API
 const playKeySound = (type: 'normal' | 'backspace' | 'space') => {
   try {
-    const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+    const AudioContext = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!AudioContext) return;
     const ctx = new AudioContext();
     
@@ -232,14 +336,14 @@ const playKeySound = (type: 'normal' | 'backspace' | 'space') => {
     gain.connect(ctx.destination);
     
     source.start();
-  } catch (e) {
+  } catch {
     // Silent fail on browser policy
   }
 };
 
 const playSuccessSound = () => {
   try {
-    const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+    const AudioContext = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!AudioContext) return;
     const ctx = new AudioContext();
     
@@ -263,12 +367,13 @@ const playSuccessSound = () => {
     playNote(659.25, t + 0.15, 0.15); // E5
     playNote(783.99, t + 0.3, 0.15);  // G5
     playNote(1046.50, t + 0.45, 0.35); // C6
-  } catch (e) {
+  } catch {
     // Ignore audio issues
   }
 };
 
 interface KoreanKeyboardClientProps {
+  lang?: string;
   labels: {
     title: string;
     description: string;
@@ -290,12 +395,13 @@ interface KoreanKeyboardClientProps {
   };
 }
 
-export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientProps) {
+export default function KoreanKeyboardClient({ lang = 'ko', labels }: KoreanKeyboardClientProps) {
+  const [currentTab, setCurrentTab] = useState<'jamo' | 'word'>('jamo');
+  const [showHandGuide, setShowHandGuide] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [inputValue, setInputValue] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
-  const [correctWordCount, setCorrectWordCount] = useState(0);
   
   // Real-time statistics tracking
   const [correctKeystrokes, setCorrectKeystrokes] = useState(0);
@@ -327,8 +433,10 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
     }
   }, [currentIndex, isPlaying]);
 
-  const currentWord = WORDS_100[currentIndex] || '';
-  const nextWord = WORDS_100[currentIndex + 1] || '';
+  const localText = useMemo(() => getLocalText(lang), [lang]);
+  const currentList = useMemo(() => currentTab === 'jamo' ? JAMO_LIST : WORDS_100, [currentTab]);
+  const currentWord = currentList[currentIndex] || '';
+  const nextWord = currentList[currentIndex + 1] || '';
 
   // Decompose values to find highlighted keyboard keys
   const activeKeys = useMemo(() => {
@@ -344,6 +452,38 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
     return inputKeys.every((key, index) => targetKeys[index] === key);
   }, [inputValue, currentWord]);
 
+  const activeFingerInfo = (() => {
+    if (activeKeys.size === 0) return null;
+    
+    if (activeKeys.has('Backspace')) {
+      return { finger: 'R5', hand: 'right' as const, label: `${getFingerLabel('R5', 'right', lang)} (Backspace)` };
+    }
+    
+    if (activeKeys.has('Space')) {
+      return { finger: 'Thumb', hand: 'both' as const, label: getFingerLabel('Thumb', 'both', lang) };
+    }
+    
+    for (const key of activeKeys) {
+      if (key !== 'ShiftLeft' && KEY_FINGER_MAP[key]) {
+        const info = KEY_FINGER_MAP[key];
+        const requiresShift = activeKeys.has('ShiftLeft');
+        const fingerLabel = getFingerLabel(info.finger, info.hand, lang);
+        const shiftText = requiresShift ? (lang === 'ko' ? ' (+왼쪽 새끼손가락 Shift)' : lang === 'ja' ? ' (+左小指 Shift)' : ' (+Left Pinky Shift)') : '';
+        return {
+          finger: info.finger,
+          hand: info.hand,
+          label: `${fingerLabel}${shiftText}`
+        };
+      }
+    }
+    
+    if (activeKeys.has('ShiftLeft')) {
+      return { finger: 'L5', hand: 'left' as const, label: `${getFingerLabel('L5', 'left', lang)} (Shift)` };
+    }
+    
+    return null;
+  })();
+
   // Dynamic calculations
   const cpm = useMemo(() => {
     if (elapsedTime <= 0) return 0;
@@ -355,10 +495,22 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
     return Math.min(100, Math.round((correctKeystrokes / totalKeystrokes) * 1000) / 10);
   }, [correctKeystrokes, totalKeystrokes]);
 
+  const handleTabChange = (tab: 'jamo' | 'word') => {
+    setCurrentTab(tab);
+    setIsPlaying(false);
+    setIsFinished(false);
+    setCurrentIndex(0);
+    setInputValue('');
+    setCorrectKeystrokes(0);
+    setTotalKeystrokes(0);
+    setStartTime(null);
+    setElapsedTime(0);
+    setCpmHistory([0]);
+  };
+
   const handleStart = () => {
     setCurrentIndex(0);
     setInputValue('');
-    setCorrectWordCount(0);
     setCorrectKeystrokes(0);
     setTotalKeystrokes(0);
     setStartTime(Date.now());
@@ -371,9 +523,11 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === ' ' || e.key === 'Enter') {
+    if (currentTab === 'word' && (e.key === ' ' || e.key === 'Enter')) {
       e.preventDefault();
       handleSubmit();
+    } else if (currentTab === 'jamo' && (e.key === ' ' || e.key === 'Enter')) {
+      e.preventDefault();
     } else {
       if (soundEnabled) {
         if (e.key === 'Backspace') {
@@ -397,7 +551,6 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
     const inputKeys = decomposeToKeyboardKeys(inputValue);
 
     if (isCorrect) {
-      setCorrectWordCount(prev => prev + 1);
       setCorrectKeystrokes(prev => prev + targetKeys.length);
       setTotalKeystrokes(prev => prev + targetKeys.length);
     } else {
@@ -405,9 +558,9 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
       setShake(true);
       setTimeout(() => setShake(false), 300);
     }
-
-    // Chart timeline: record every 5 words
-    if ((currentIndex + 1) % 5 === 0 || currentIndex === 99) {
+    const finalIndex = currentList.length - 1;
+    // Chart timeline: record every 5 items
+    if ((currentIndex + 1) % 5 === 0 || currentIndex === finalIndex) {
       const timeSpent = startTime ? (Date.now() - startTime) / 1000 : 0;
       const currentCorrectStrokes = correctKeystrokes + (isCorrect ? targetKeys.length : 0);
       const calculatedCpm = timeSpent > 0 ? Math.round((currentCorrectStrokes * 60) / timeSpent) : 0;
@@ -416,7 +569,7 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
 
     setInputValue('');
 
-    if (currentIndex === 99) {
+    if (currentIndex === finalIndex) {
       setIsFinished(true);
       setIsPlaying(false);
       if (soundEnabled) {
@@ -482,36 +635,80 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
             </h2>
           </div>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            {labels.description}
+            {currentTab === 'jamo' ? localText.stage1Description : labels.description}
           </p>
         </div>
+        
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowHandGuide(prev => !prev);
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${
+              showHandGuide 
+                ? 'bg-indigo-50 border-indigo-200 text-indigo-600 dark:bg-indigo-900/30 dark:border-indigo-800/40 dark:text-indigo-400' 
+                : 'bg-gray-50 border-gray-200 text-gray-400 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-500'
+            }`}
+          >
+            <span className="text-base">🖐️</span>
+            {localText.showHandGuide}
+          </button>
+          
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setSoundEnabled(prev => !prev);
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${
+              soundEnabled 
+                ? 'bg-indigo-50 border-indigo-200 text-indigo-600 dark:bg-indigo-900/30 dark:border-indigo-800/40 dark:text-indigo-400' 
+                : 'bg-gray-50 border-gray-200 text-gray-400 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-500'
+            }`}
+          >
+            {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+            {soundEnabled ? 'Click Sound ON' : 'Click Sound OFF'}
+          </button>
+        </div>
+      </div>
+
+      {/* Tab Selector */}
+      <div className="flex bg-gray-100 dark:bg-gray-800/80 p-1 rounded-xl mb-6 max-w-sm mx-auto border border-gray-200/50 dark:border-gray-700/60 shadow-inner">
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setSoundEnabled(prev => !prev);
-          }}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${
-            soundEnabled 
-              ? 'bg-indigo-50 border-indigo-200 text-indigo-600 dark:bg-indigo-900/30 dark:border-indigo-800/40 dark:text-indigo-400' 
-              : 'bg-gray-50 border-gray-200 text-gray-400 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-500'
+          onClick={() => handleTabChange('jamo')}
+          className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all ${
+            currentTab === 'jamo'
+              ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-white shadow-sm'
+              : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
           }`}
         >
-          {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-          {soundEnabled ? 'Click Sound ON' : 'Click Sound OFF'}
+          {localText.tabJamo}
+        </button>
+        <button
+          onClick={() => handleTabChange('word')}
+          className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all ${
+            currentTab === 'word'
+              ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-white shadow-sm'
+              : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
+          }`}
+        >
+          {localText.tabWord}
         </button>
       </div>
 
       {!isPlaying && !isFinished ? (
         /* Start Screen */
         <div className="bg-white dark:bg-gray-800 rounded-3xl p-12 border border-gray-200 dark:border-gray-700/80 shadow-md text-center">
-          <div className="w-20 h-20 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-            <Keyboard className="w-10 h-10" />
+          <div className="w-20 h-20 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner animate-bounce">
+            <span className="text-4xl">⌨️</span>
           </div>
           <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">
-            한글 키보드 속도 & 정확도 챌린지
+            {currentTab === 'jamo' ? localText.tabJamo : '한글 키보드 속도 & 정확도 챌린지'}
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-8">
-            자주 사용하는 실생활 한글 단어 100개를 순서대로 따라치면서 타속을 확인하세요.
+          <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-8 text-sm">
+            {currentTab === 'jamo' 
+              ? localText.stage1Description 
+              : '자주 사용하는 실생활 한글 단어 100개를 순서대로 따라치면서 타속을 확인하세요.'}
           </p>
           <button
             onClick={handleStart}
@@ -642,7 +839,7 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
               </div>
               <div className="text-right">
                 <span className="text-xs font-semibold text-gray-400 block leading-none">Progress</span>
-                <span className="text-lg font-bold text-gray-600 dark:text-gray-200">{currentIndex + 1} / 100</span>
+                <span className="text-lg font-bold text-gray-600 dark:text-gray-200">{currentIndex + 1} / {currentList.length}</span>
               </div>
             </div>
           </div>
@@ -651,14 +848,14 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
           <div className="w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden mb-10">
             <div
               className="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 transition-all duration-300 ease-out"
-              style={{ width: `${currentIndex + 1}%` }}
+              style={{ width: `${((currentIndex + 1) / currentList.length) * 100}%` }}
             />
           </div>
 
           {/* Typing Area */}
           <div className="max-w-xl mx-auto text-center mb-10">
             <span className="text-xs font-extrabold uppercase tracking-widest text-indigo-500/80 block mb-2">
-              {labels.current_word}
+              {currentTab === 'jamo' ? localText.currentLetter : labels.current_word}
             </span>
             <div className="mb-4 relative">
               <h1 className="text-5xl md:text-6xl font-black text-gray-900 dark:text-white tracking-wide select-none drop-shadow-sm">
@@ -669,7 +866,7 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
             {/* Next Word Preview */}
             {nextWord && (
               <div className="flex items-center justify-center gap-1.5 text-sm text-gray-400 mb-8 opacity-75">
-                <span className="font-semibold">{labels.next_word}:</span>
+                <span className="font-semibold">{currentTab === 'jamo' ? localText.nextLetter : labels.next_word}:</span>
                 <span className="font-bold text-gray-500 dark:text-gray-300">{nextWord}</span>
               </div>
             )}
@@ -686,10 +883,63 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
                     setStartTime(Date.now());
                     setIsPlaying(true);
                   }
-                  setInputValue(val);
+                  
+                  if (currentTab === 'jamo') {
+                    const target = currentWord;
+                    if (val === target) {
+                      if (soundEnabled) {
+                        playKeySound('normal');
+                      }
+                      const targetKeys = decomposeToKeyboardKeys(target);
+                      setCorrectKeystrokes(prev => prev + targetKeys.length);
+                      setTotalKeystrokes(prev => prev + targetKeys.length);
+                      setInputValue('');
+                      
+                      const finalIndex = currentList.length - 1;
+                      if (currentIndex === finalIndex) {
+                        setIsFinished(true);
+                        setIsPlaying(false);
+                        if (soundEnabled) {
+                          playSuccessSound();
+                        }
+                      } else {
+                        setCurrentIndex(prev => prev + 1);
+                      }
+                    } else {
+                      // Check prefix compatibility
+                      const targetKeys = decomposeToKeyboardKeys(target);
+                      const inputKeys = decomposeToKeyboardKeys(val);
+                      const isPrefix = inputKeys.every((k, i) => targetKeys[i] === k);
+                      
+                      if (isPrefix) {
+                        if (soundEnabled && val.length > inputValue.length) {
+                          playKeySound('normal');
+                        }
+                        const addedCount = val.length - inputValue.length;
+                        if (addedCount > 0) {
+                          setCorrectKeystrokes(prev => prev + addedCount);
+                          setTotalKeystrokes(prev => prev + addedCount);
+                        }
+                        setInputValue(val);
+                      } else {
+                        if (soundEnabled && val.length > inputValue.length) {
+                          playKeySound('backspace');
+                        }
+                        const addedCount = val.length - inputValue.length;
+                        if (addedCount > 0) {
+                          setTotalKeystrokes(prev => prev + addedCount);
+                          setShake(true);
+                          setTimeout(() => setShake(false), 300);
+                        }
+                        setInputValue(val);
+                      }
+                    }
+                  } else {
+                    setInputValue(val);
+                  }
                 }}
                 onKeyDown={handleKeyDown}
-                placeholder={labels.type_here}
+                placeholder={currentTab === 'jamo' ? localText.typeLetterHere : labels.type_here}
                 className={`w-full px-6 py-4 text-center text-2xl font-bold rounded-2xl border-2 shadow-sm focus:outline-none transition-all duration-150 bg-gray-50/50 dark:bg-gray-900/40 ${
                   inputValue === ''
                     ? 'border-gray-200 dark:border-gray-700 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10'
@@ -715,8 +965,9 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
                     const isShift = key.char === 'Shift';
                     const isBackspace = key.char === 'Backspace';
                     const isSpace = key.char === 'Space';
+                    const fingerInfo = KEY_FINGER_MAP[key.code];
                     
-                    let btnClass = "flex items-center justify-center text-[13px] font-bold rounded-lg select-none transition-all duration-100 h-10 ";
+                    let btnClass = "relative flex items-center justify-center text-[13px] font-bold rounded-lg select-none transition-all duration-100 h-10 ";
                     
                     if (isSpace) {
                       btnClass += "w-48 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 shadow-sm";
@@ -751,6 +1002,20 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
                             <span className="leading-none">{key.char}</span>
                           </div>
                         )}
+                        
+                        {/* Finger guide dot/line */}
+                        {showHandGuide && fingerInfo && !isSpace && !isBackspace && !isShift && (
+                          <div 
+                            style={{ backgroundColor: fingerInfo.color }}
+                            className="w-1.5 h-1.5 rounded-full absolute bottom-1 left-1/2 -translate-x-1/2 opacity-70"
+                          />
+                        )}
+                        {showHandGuide && isSpace && (
+                          <div 
+                            style={{ backgroundColor: '#f59e0b' }}
+                            className="w-12 h-1 rounded-full absolute bottom-1 left-1/2 -translate-x-1/2 opacity-70"
+                          />
+                        )}
                       </div>
                     );
                   })}
@@ -758,6 +1023,218 @@ export default function KoreanKeyboardClient({ labels }: KoreanKeyboardClientPro
               ))}
             </div>
           </div>
+
+          {/* Hands Guide Section */}
+          {showHandGuide && (
+            <div className="flex flex-col items-center mt-6 p-4 bg-gray-50/50 dark:bg-gray-800/10 rounded-2xl border border-gray-150 dark:border-gray-700/30 max-w-md mx-auto transition-all">
+              <span className="text-xs font-bold text-gray-400 dark:text-gray-500 mb-3">{localText.handGuideTitle}</span>
+              <div className="flex gap-12 items-end justify-center h-[105px]">
+                <svg width="200" height="100" viewBox="0 0 200 100" className="overflow-visible text-gray-200 dark:text-gray-700">
+                  {/* Left Hand Group */}
+                  <g transform="translate(10, 2)">
+                    {/* Palm */}
+                    <path
+                      d="M 22,60 Q 22,50 50,50 Q 78,50 78,60 L 78,85 Q 78,100 50,100 Q 22,100 22,85 Z"
+                      fill="currentColor"
+                    />
+                    
+                    {/* L5 Pinky */}
+                    <rect
+                      x="22"
+                      y="28"
+                      width="8"
+                      height="28"
+                      rx="4"
+                      fill="#ec4899"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'L5' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* L4 Ring */}
+                    <rect
+                      x="33"
+                      y="16"
+                      width="8"
+                      height="40"
+                      rx="4"
+                      fill="#a855f7"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'L4' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* L3 Middle */}
+                    <rect
+                      x="44"
+                      y="10"
+                      width="8"
+                      height="46"
+                      rx="4"
+                      fill="#3b82f6"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'L3' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* L2 Index */}
+                    <rect
+                      x="55"
+                      y="18"
+                      width="8"
+                      height="38"
+                      rx="4"
+                      fill="#10b981"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'L2' && activeFingerInfo.hand === 'left' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* Left Thumb */}
+                    <rect
+                      x="66"
+                      y="48"
+                      width="8"
+                      height="22"
+                      rx="4"
+                      transform="rotate(25 66 48)"
+                      fill="#f59e0b"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'Thumb' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    
+                    {/* Glowing indicator circles */}
+                    {activeFingerInfo?.finger === 'L5' && (
+                      <>
+                        <circle cx="26" cy="24" r="4" fill="#ec4899" />
+                        <circle cx="26" cy="24" r="8" fill="#ec4899" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'L4' && (
+                      <>
+                        <circle cx="37" cy="12" r="4" fill="#a855f7" />
+                        <circle cx="37" cy="12" r="8" fill="#a855f7" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'L3' && (
+                      <>
+                        <circle cx="48" cy="6" r="4" fill="#3b82f6" />
+                        <circle cx="48" cy="6" r="8" fill="#3b82f6" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'L2' && activeFingerInfo?.hand === 'left' && (
+                      <>
+                        <circle cx="59" cy="14" r="4" fill="#10b981" />
+                        <circle cx="59" cy="14" r="8" fill="#10b981" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'Thumb' && (
+                      <>
+                        <circle cx="78" cy="46" r="4" fill="#f59e0b" />
+                        <circle cx="78" cy="46" r="8" fill="#f59e0b" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                  </g>
+
+                  {/* Right Hand Group */}
+                  <g transform="translate(100, 2)">
+                    {/* Palm */}
+                    <path
+                      d="M 22,60 Q 22,50 50,50 Q 78,50 78,60 L 78,85 Q 78,100 50,100 Q 22,100 22,85 Z"
+                      fill="currentColor"
+                    />
+                    
+                    {/* Right Thumb */}
+                    <rect
+                      x="26"
+                      y="48"
+                      width="8"
+                      height="22"
+                      rx="4"
+                      transform="rotate(-25 26 48)"
+                      fill="#f59e0b"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'Thumb' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* R2 Index */}
+                    <rect
+                      x="37"
+                      y="18"
+                      width="8"
+                      height="38"
+                      rx="4"
+                      fill="#10b981"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'R2' && activeFingerInfo.hand === 'right' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* R3 Middle */}
+                    <rect
+                      x="48"
+                      y="10"
+                      width="8"
+                      height="46"
+                      rx="4"
+                      fill="#3b82f6"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'R3' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* R4 Ring */}
+                    <rect
+                      x="59"
+                      y="16"
+                      width="8"
+                      height="40"
+                      rx="4"
+                      fill="#a855f7"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'R4' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    {/* R5 Pinky */}
+                    <rect
+                      x="70"
+                      y="28"
+                      width="8"
+                      height="28"
+                      rx="4"
+                      fill="#ec4899"
+                      opacity={activeFingerInfo ? (activeFingerInfo.finger === 'R5' ? 1 : 0.3) : 0.8}
+                      className="transition-all duration-150"
+                    />
+                    
+                    {/* Glowing indicator circles */}
+                    {activeFingerInfo?.finger === 'R5' && (
+                      <>
+                        <circle cx="74" cy="24" r="4" fill="#ec4899" />
+                        <circle cx="74" cy="24" r="8" fill="#ec4899" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'R4' && (
+                      <>
+                        <circle cx="63" cy="12" r="4" fill="#a855f7" />
+                        <circle cx="63" cy="12" r="8" fill="#a855f7" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'R3' && (
+                      <>
+                        <circle cx="52" cy="6" r="4" fill="#3b82f6" />
+                        <circle cx="52" cy="6" r="8" fill="#3b82f6" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'R2' && activeFingerInfo?.hand === 'right' && (
+                      <>
+                        <circle cx="41" cy="14" r="4" fill="#10b981" />
+                        <circle cx="41" cy="14" r="8" fill="#10b981" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                    {activeFingerInfo?.finger === 'Thumb' && (
+                      <>
+                        <circle cx="18" cy="46" r="4" fill="#f59e0b" />
+                        <circle cx="18" cy="46" r="8" fill="#f59e0b" className="animate-ping opacity-75" />
+                      </>
+                    )}
+                  </g>
+                </svg>
+              </div>
+              
+              {activeFingerInfo && isPlaying && (
+                <div className="mt-4 text-sm font-black text-indigo-600 dark:text-indigo-400 animate-pulse text-center">
+                  {activeFingerInfo.label}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
 

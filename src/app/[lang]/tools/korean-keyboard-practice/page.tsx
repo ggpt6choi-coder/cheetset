@@ -32,6 +32,7 @@ export default async function KoreanKeyboardPracticePage({ params }: Props) {
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
             <KoreanKeyboardClient
+                lang={lang}
                 labels={{
                     title: dict.tools.korean_keyboard_practice.title,
                     description: dict.tools.korean_keyboard_practice.description,
