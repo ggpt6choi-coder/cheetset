@@ -526,39 +526,67 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
         inputRef.current?.focus();
     };
 
+    // Helper to render keypad buttons with consistent 3D styling
+    const renderKeypadBtn = (key: string, sizeClasses: string = '') => {
+        if (key === 'backspace') {
+            return (
+                <button
+                    key={key}
+                    type="button"
+                    onClick={() => handleKeypadPress('backspace')}
+                    className={`flex-1 min-w-0 ${sizeClasses} rounded-xl sm:rounded-2xl md:rounded-3xl bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold border-2 border-b-3 sm:border-b-4 md:border-b-[5px] border-gray-300 dark:border-gray-600 active:border-b-2 active:translate-y-0.5 transition-all shadow-sm flex items-center justify-center cursor-pointer select-none`}
+                    title="한 글자 지우기"
+                    aria-label="한 글자 지우기"
+                >
+                    <Delete className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8" />
+                </button>
+            );
+        }
+        return (
+            <button
+                key={key}
+                type="button"
+                onClick={() => handleKeypadPress(key)}
+                className={`flex-1 min-w-0 ${sizeClasses} rounded-xl sm:rounded-2xl md:rounded-3xl bg-white dark:bg-gray-800 hover:bg-indigo-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-black border-2 border-b-3 sm:border-b-4 md:border-b-[5px] border-gray-300 dark:border-gray-600 active:border-b-2 active:translate-y-0.5 transition-all shadow-sm flex items-center justify-center cursor-pointer select-none`}
+            >
+                {key}
+            </button>
+        );
+    };
+
     return (
-        <div className="max-w-5xl mx-auto px-2 sm:px-4 py-2 sm:py-4 select-none">
+        <div className="max-w-5xl mx-auto px-2 sm:px-4 py-1.5 sm:py-4 select-none">
             {/* Header: Title & Badges */}
-            <div className="text-center mb-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-xs sm:text-sm font-semibold mb-1.5">
-                    <Sparkles className="w-3.5 h-3.5" />
+            <div className="text-center mb-2 sm:mb-4">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-xs sm:text-sm font-semibold mb-1">
+                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>초등 1학년 맞춤형 덧셈·뺄셈</span>
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+                <h1 className="text-xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                     {labels.title}
                 </h1>
-                <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                <p className="hidden sm:block mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     {labels.description}
                 </p>
             </div>
 
             {/* Mode Selector Tabs (1번: 도전 10문제 / 2번: 무한 연습) */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-2 mb-4">
-                <div className="grid grid-cols-2 gap-2">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-1.5 sm:p-2 mb-2 sm:mb-4">
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
                     <button
                         type="button"
                         onClick={() => {
                             setMode('challenge');
                             startNewGame(digitRange, operation);
                         }}
-                        className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm sm:text-base transition-all ${
+                        className={`flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-3 px-2 sm:px-4 rounded-xl font-bold text-xs sm:text-base transition-all whitespace-nowrap ${
                             mode === 'challenge'
                                 ? 'bg-gradient-to-r from-indigo-500 to-blue-600 text-white shadow-md shadow-blue-500/20 scale-[1.01]'
                                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/60'
                         }`}
                     >
-                        <Trophy className="w-5 h-5 text-amber-300" />
-                        <span>{labels.mode_challenge}</span>
+                        <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 flex-shrink-0" />
+                        <span className="truncate">{labels.mode_challenge}</span>
                     </button>
                     <button
                         type="button"
@@ -566,26 +594,26 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                             setMode('infinite');
                             startNewGame(digitRange, operation);
                         }}
-                        className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm sm:text-base transition-all ${
+                        className={`flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-3 px-2 sm:px-4 rounded-xl font-bold text-xs sm:text-base transition-all whitespace-nowrap ${
                             mode === 'infinite'
                                 ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-md shadow-teal-500/20 scale-[1.01]'
                                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/60'
                         }`}
                     >
-                        <Flame className="w-5 h-5 text-orange-300" />
-                        <span>{labels.mode_infinite}</span>
+                        <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-orange-300 flex-shrink-0" />
+                        <span className="truncate">{labels.mode_infinite}</span>
                     </button>
                 </div>
 
                 {/* Sub Bar: Controls & Quick Stats */}
-                <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between px-2 text-xs sm:text-sm">
+                <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between px-1 sm:px-2 text-xs sm:text-sm">
                     {/* Mode Specific Status */}
                     {mode === 'challenge' ? (
-                        <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-medium">
-                            <span className="font-bold text-indigo-600 dark:text-indigo-400">
+                        <div className="flex items-center gap-1.5 sm:gap-2 text-gray-700 dark:text-gray-300 font-medium">
+                            <span className="font-bold text-indigo-600 dark:text-indigo-400 whitespace-nowrap">
                                 {labels.question_num.replace('{cur}', challengeIndex.toString()).replace('{total}', '10')}
                             </span>
-                            <div className="w-24 sm:w-36 h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div className="w-16 sm:w-36 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                                 <div 
                                     className="h-full bg-indigo-500 transition-all duration-300"
                                     style={{ width: `${(challengeIndex / 10) * 100}%` }}
@@ -711,7 +739,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
             </div>
 
             {/* Main Interactive Stage */}
-            <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl border-2 border-indigo-100 dark:border-gray-700 p-4 sm:p-8 md:p-10 overflow-hidden">
+            <div className="relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-xl border-2 border-indigo-100 dark:border-gray-700 p-3 sm:p-8 md:p-10 overflow-hidden">
                 {/* Canvas for Confetti particle explosion */}
                 <canvas
                     ref={canvasRef}
@@ -812,38 +840,38 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                     /* Active Quiz Stage */
                     <div className="space-y-4">
                         {/* 1. Horizontal Equation Card: Problem + Input + Submit Button on ONE row */}
-                        <div className="relative py-6 sm:py-10 px-4 sm:px-8 bg-gradient-to-b from-indigo-50/60 to-blue-50/30 dark:from-gray-900/60 dark:to-gray-800/40 rounded-3xl border border-indigo-100/80 dark:border-gray-700/60 flex flex-col items-center justify-center shadow-sm">
+                        <div className="relative py-4 sm:py-10 px-2 sm:px-8 bg-gradient-to-b from-indigo-50/60 to-blue-50/30 dark:from-gray-900/60 dark:to-gray-800/40 rounded-2xl sm:rounded-3xl border border-indigo-100/80 dark:border-gray-700/60 flex flex-col items-center justify-center shadow-sm">
                             {/* Streak badge in infinite mode */}
                             {mode === 'infinite' && streak >= 3 && (
-                                <div className="absolute top-2.5 right-3 sm:top-3.5 sm:right-4 flex items-center gap-1 px-3 py-1 bg-orange-500 text-white text-xs font-black rounded-full shadow-md animate-pulse">
-                                    <Flame className="w-3.5 h-3.5 fill-white" />
+                                <div className="absolute top-2 right-2 sm:top-3.5 sm:right-4 flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-orange-500 text-white text-[11px] sm:text-xs font-black rounded-full shadow-md animate-pulse">
+                                    <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white" />
                                     <span>{streak} COMBO!</span>
                                 </div>
                             )}
 
                             {/* Horizontal Equation: [Num1] [Op] [Num2] [=] [Input] [Confirm Button] */}
                             {currentProblem && (
-                                <div className="w-full flex items-center justify-center gap-2 sm:gap-3 md:gap-5 py-2 flex-nowrap overflow-x-auto">
-                                    <span className="text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 dark:text-white tabular-nums drop-shadow-sm flex-shrink-0">
+                                <div className="w-full flex items-center justify-center gap-1.5 sm:gap-3 md:gap-5 py-1 sm:py-2 flex-nowrap overflow-x-hidden">
+                                    <span className="text-2xl sm:text-4xl md:text-6xl font-black text-gray-900 dark:text-white tabular-nums drop-shadow-sm flex-shrink-0">
                                         {currentProblem.num1}
                                     </span>
 
-                                    <span className={`text-3xl sm:text-5xl md:text-6xl font-black flex-shrink-0 ${
+                                    <span className={`text-2xl sm:text-4xl md:text-6xl font-black flex-shrink-0 ${
                                         currentProblem.op === '+' ? 'text-blue-500 dark:text-blue-400' : 'text-rose-500 dark:text-rose-400'
                                     }`}>
                                         {currentProblem.op}
                                     </span>
 
-                                    <span className="text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 dark:text-white tabular-nums drop-shadow-sm flex-shrink-0">
+                                    <span className="text-2xl sm:text-4xl md:text-6xl font-black text-gray-900 dark:text-white tabular-nums drop-shadow-sm flex-shrink-0">
                                         {currentProblem.num2}
                                     </span>
 
-                                    <span className="text-3xl sm:text-5xl md:text-6xl font-black text-gray-400 dark:text-gray-500 flex-shrink-0">
+                                    <span className="text-2xl sm:text-4xl md:text-6xl font-black text-gray-400 dark:text-gray-500 flex-shrink-0">
                                         =
                                     </span>
 
                                     {/* Inline Answer Input Box */}
-                                    <div className="relative w-28 sm:w-44 md:w-56 flex-shrink-0">
+                                    <div className="relative w-20 sm:w-36 md:w-52 flex-shrink-0">
                                         <label htmlFor="math-answer-input" className="sr-only">
                                             {labels.input_placeholder}
                                         </label>
@@ -863,7 +891,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                             }}
                                             onKeyDown={handleKeyDown}
                                             placeholder="?"
-                                            className="w-full text-center py-2.5 sm:py-4 md:py-5 px-2 sm:px-4 text-3xl sm:text-5xl md:text-6xl font-black rounded-2xl md:rounded-3xl border-3 sm:border-4 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-gray-700 text-indigo-950 dark:text-white placeholder-indigo-300 dark:placeholder-gray-500 shadow-inner focus:outline-none focus:ring-4 focus:ring-indigo-500/25 transition-all"
+                                            className="w-full text-center py-2 sm:py-3.5 md:py-4 px-1 sm:px-3 text-2xl sm:text-4xl md:text-6xl font-black rounded-xl sm:rounded-2xl md:rounded-3xl border-3 sm:border-4 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-gray-700 text-indigo-950 dark:text-white placeholder-indigo-300 dark:placeholder-gray-500 shadow-inner focus:outline-none focus:ring-4 focus:ring-indigo-500/25 transition-all"
                                         />
                                     </div>
 
@@ -872,14 +900,15 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                         type="button"
                                         onClick={handleSubmit}
                                         disabled={isTransitioning || userInput.trim() === ''}
-                                        className={`py-2.5 sm:py-4 md:py-5 px-3.5 sm:px-6 rounded-2xl md:rounded-3xl font-black text-base sm:text-xl md:text-2xl shadow-lg transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 flex-shrink-0 ${
+                                        className={`py-2 sm:py-3.5 md:py-4 px-2.5 sm:px-5 md:px-6 rounded-xl sm:rounded-2xl md:rounded-3xl font-black text-xs sm:text-base md:text-2xl shadow-lg transition-all flex items-center justify-center gap-1 whitespace-nowrap active:scale-95 flex-shrink-0 ${
                                             userInput.trim() !== ''
                                                 ? 'bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-white shadow-orange-500/30 hover:brightness-105 cursor-pointer'
                                                 : 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed shadow-none'
                                         }`}
                                     >
-                                        <span>{labels.submit_btn}</span>
-                                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3]" />
+                                        <span className="hidden sm:inline">{labels.submit_btn}</span>
+                                        <span className="sm:hidden">확인 🚀</span>
+                                        <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 md:w-6 md:h-6 stroke-[3]" />
                                     </button>
                                 </div>
                             )}
@@ -887,7 +916,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                             {/* Feedback Banner */}
                             {feedback.message && (
                                 <div 
-                                    className={`mt-4 px-4 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all transform animate-in fade-in zoom-in-95 ${
+                                    className={`mt-3 sm:mt-4 px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all transform animate-in fade-in zoom-in-95 ${
                                         feedback.type === 'correct'
                                             ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800'
                                             : 'bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-800'
@@ -903,36 +932,24 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                             )}
                         </div>
 
-                        {/* 2. Extra Large Horizontal Keypad: 11 prominent buttons in a sleek horizontal row */}
+                        {/* 2. Responsive Keypad: 2 touch-friendly rows on mobile (<sm), 1 sleek horizontal row on desktop (sm+) */}
                         {showKeypad && (
-                            <div className="w-full max-w-5xl mx-auto pt-3 sm:pt-5">
-                                <div className="flex w-full items-stretch justify-center gap-1.5 sm:gap-2.5 md:gap-3 p-2 sm:p-3 md:p-4 bg-gray-100/95 dark:bg-gray-900/85 rounded-2xl sm:rounded-3xl border-2 border-gray-200 dark:border-gray-700 shadow-md">
-                                    {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'backspace'].map((key) => {
-                                        if (key === 'backspace') {
-                                            return (
-                                                <button
-                                                    key={key}
-                                                    type="button"
-                                                    onClick={() => handleKeypadPress('backspace')}
-                                                    className="flex-1 min-w-0 h-14 sm:h-18 md:h-20 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold border-2 border-b-4 md:border-b-[5px] border-gray-300 dark:border-gray-600 active:border-b-2 active:translate-y-1 transition-all shadow-sm flex items-center justify-center cursor-pointer select-none"
-                                                    title={labels.clear}
-                                                    aria-label="한 글자 지우기"
-                                                >
-                                                    <Delete className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8" />
-                                                </button>
-                                            );
-                                        }
-                                        return (
-                                            <button
-                                                key={key}
-                                                type="button"
-                                                onClick={() => handleKeypadPress(key)}
-                                                className="flex-1 min-w-0 h-14 sm:h-18 md:h-20 rounded-xl sm:rounded-2xl md:rounded-3xl bg-white dark:bg-gray-800 hover:bg-indigo-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-black text-xl sm:text-3xl md:text-4xl border-2 border-b-4 md:border-b-[5px] border-gray-300 dark:border-gray-600 active:border-b-2 active:translate-y-1 transition-all shadow-sm flex items-center justify-center cursor-pointer select-none"
-                                            >
-                                                {key}
-                                            </button>
-                                        );
-                                    })}
+                            <div className="w-full max-w-5xl mx-auto pt-2 sm:pt-4">
+                                <div className="p-2 sm:p-3 md:p-4 bg-gray-100/95 dark:bg-gray-900/85 rounded-2xl sm:rounded-3xl border-2 border-gray-200 dark:border-gray-700 shadow-md">
+                                    {/* Mobile layout: 2 rows (5 keys on top, 6 keys on bottom) */}
+                                    <div className="flex sm:hidden flex-col gap-1.5 w-full">
+                                        <div className="flex w-full items-stretch gap-1.5 justify-center">
+                                            {['1', '2', '3', '4', '5'].map(k => renderKeypadBtn(k, 'h-11 text-xl'))}
+                                        </div>
+                                        <div className="flex w-full items-stretch gap-1.5 justify-center">
+                                            {['6', '7', '8', '9', '0', 'backspace'].map(k => renderKeypadBtn(k, 'h-11 text-xl'))}
+                                        </div>
+                                    </div>
+
+                                    {/* Desktop & Tablet layout: 1 unified horizontal row */}
+                                    <div className="hidden sm:flex w-full items-stretch justify-center gap-2 md:gap-3">
+                                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'backspace'].map(k => renderKeypadBtn(k, 'h-16 md:h-20 text-2xl sm:text-3xl md:text-4xl'))}
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -941,7 +958,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
             </div>
 
             {/* Bottom Tip for Parents / Elementary 1st Grader */}
-            <div className="mt-8 text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+            <div className="mt-4 sm:mt-8 text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                 <p>
                     💡 <strong>Tip</strong>: 키보드의 <strong>Enter(엔터)</strong> 키를 누르면 바로 정답이 확인되고, 다음 문제로 빠르게 넘어갑니다!
                 </p>
