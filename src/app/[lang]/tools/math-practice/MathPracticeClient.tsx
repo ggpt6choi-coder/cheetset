@@ -865,18 +865,6 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                             placeholder="?"
                                             className="w-full text-center py-2.5 sm:py-4 md:py-5 px-2 sm:px-4 text-3xl sm:text-5xl md:text-6xl font-black rounded-2xl md:rounded-3xl border-3 sm:border-4 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-gray-700 text-indigo-950 dark:text-white placeholder-indigo-300 dark:placeholder-gray-500 shadow-inner focus:outline-none focus:ring-4 focus:ring-indigo-500/25 transition-all"
                                         />
-                                        {userInput && (
-                                            <button
-                                                type="button"
-                                                onClick={() => {
-                                                    setUserInput('');
-                                                    inputRef.current?.focus();
-                                                }}
-                                                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-sm sm:text-base p-1 sm:p-1.5"
-                                            >
-                                                ✕
-                                            </button>
-                                        )}
                                     </div>
 
                                     {/* Inline Submit Button */}
