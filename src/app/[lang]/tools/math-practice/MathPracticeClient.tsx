@@ -69,7 +69,7 @@ interface MathPracticeClientProps {
 }
 
 type Mode = "challenge" | "infinite";
-type DigitRange = "all" | "1" | "2" | "3";
+type DigitRange = "1" | "2" | "3";
 type Operation = "mixed" | "add" | "sub";
 
 interface Problem {
@@ -197,7 +197,11 @@ export default function MathPracticeClient({
 }: MathPracticeClientProps) {
   // Mode & Settings
   const [mode, setMode] = useState<Mode>("challenge"); // 1: challenge, 2: infinite
-  const [digitRange, setDigitRange] = useState<DigitRange>("all"); // up to 3 digits
+  const [selectedDigits, setSelectedDigits] = useState<DigitRange[]>([
+    "1",
+    "2",
+    "3",
+  ]); // multi-select: ["1"], ["2"], ["1", "2"], etc.
   const [operation, setOperation] = useState<Operation>("mixed"); // +, -, mixed
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [showSettings, setShowSettings] = useState<boolean>(false);
@@ -285,38 +289,28 @@ export default function MathPracticeClient({
     return () => clearInterval(interval);
   }, [mode, certificateOpen]);
 
-  // Helper: Generate Random Number based on selected digit range
-  const getRandomNumber = useCallback((range: DigitRange): number => {
-    if (range === "1") {
+  // Helper: Generate Random Number based on selected digit ranges
+  const getRandomNumber = useCallback((digits: DigitRange[]): number => {
+    const pool =
+      digits && digits.length > 0 ? digits : (["1", "2", "3"] as DigitRange[]);
+    // Randomly pick one digit category from user's selection
+    const chosen = pool[Math.floor(Math.random() * pool.length)];
+    if (chosen === "1") {
       // 1-digit: 1 ~ 9
       return Math.floor(Math.random() * 9) + 1;
-    } else if (range === "2") {
+    } else if (chosen === "2") {
       // 2-digit: 10 ~ 99
       return Math.floor(Math.random() * 90) + 10;
-    } else if (range === "3") {
+    } else {
       // 3-digit: 100 ~ 999
       return Math.floor(Math.random() * 900) + 100;
-    } else {
-      // 'all': Mix of 1 to 3 digits (1 ~ 999)
-      // Weighted random so 1, 2, and 3 digits all appear naturally
-      const roll = Math.random();
-      if (roll < 0.25) {
-        // 1-digit (25%)
-        return Math.floor(Math.random() * 9) + 1;
-      } else if (roll < 0.65) {
-        // 2-digit (40%)
-        return Math.floor(Math.random() * 90) + 10;
-      } else {
-        // 3-digit (35%)
-        return Math.floor(Math.random() * 900) + 100;
-      }
     }
   }, []);
 
   // Generate Problem logic
   const generateNewProblem = useCallback((): Problem => {
-    let n1 = getRandomNumber(digitRange);
-    let n2 = getRandomNumber(digitRange);
+    let n1 = getRandomNumber(selectedDigits);
+    let n2 = getRandomNumber(selectedDigits);
 
     // Decide operation
     let op: "+" | "-" = "+";
@@ -347,7 +341,7 @@ export default function MathPracticeClient({
 
     const answer = op === "+" ? n1 + n2 : n1 - n2;
     return { num1: n1, num2: n2, op, answer };
-  }, [digitRange, operation, getRandomNumber, prevProblem]);
+  }, [selectedDigits, operation, getRandomNumber, prevProblem]);
 
   // Helper to format duration for UI display (시간, 분, 초 대응)
   const formatDurationDisplay = (totalSec: number) => {
@@ -373,9 +367,28 @@ export default function MathPracticeClient({
     return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
+  // Helper to get readable digit description for UI & records
+  const getDigitDescription = useCallback((digits: DigitRange[]) => {
+    const has1 = digits.includes("1");
+    const has2 = digits.includes("2");
+    const has3 = digits.includes("3");
+    if (has1 && has2 && has3) return "1~3자리";
+    if (has1 && has2) return "1~2자리";
+    if (has2 && has3) return "2~3자리";
+    if (has1 && has3) return "1·3자리";
+    if (has1) return "1자리수";
+    if (has2) return "2자리수";
+    if (has3) return "3자리수";
+    return "1~3자리";
+  }, []);
+
   // Initialize or Reset Game
   const startNewGame = useCallback(
-    (targetRange: DigitRange = digitRange, targetOp: Operation = operation, resetInfiniteStats: boolean = false) => {
+    (
+      targetDigits: DigitRange[] = selectedDigits,
+      targetOp: Operation = operation,
+      resetInfiniteStats: boolean = false,
+    ) => {
       setChallengeIndex(1);
       setChallengeScore(0);
       setChallengeAttempts(0);
@@ -396,8 +409,8 @@ export default function MathPracticeClient({
         setInfiniteSeconds(0);
       }
 
-      let n1 = getRandomNumber(targetRange);
-      let n2 = getRandomNumber(targetRange);
+      let n1 = getRandomNumber(targetDigits);
+      let n2 = getRandomNumber(targetDigits);
 
       let op: "+" | "-" = "+";
       if (targetOp === "mixed") {
@@ -423,8 +436,32 @@ export default function MathPracticeClient({
       setCurrentProblem(newProb);
       setPrevProblem(newProb);
     },
-    [digitRange, operation, getRandomNumber],
+    [selectedDigits, operation, getRandomNumber],
   );
+
+  // Toggle individual digit length (1, 2, or 3)
+  const handleToggleDigit = (digit: DigitRange) => {
+    let nextDigits: DigitRange[];
+    if (selectedDigits.includes(digit)) {
+      if (selectedDigits.length === 1) {
+        setToastMessage("최소 1개 이상의 자릿수를 선택해야 해요! 🎯");
+        setTimeout(() => setToastMessage(""), 2500);
+        return;
+      }
+      nextDigits = selectedDigits.filter((d) => d !== digit);
+    } else {
+      nextDigits = ([...selectedDigits, digit] as DigitRange[]).sort();
+    }
+    setSelectedDigits(nextDigits);
+    startNewGame(nextDigits, operation);
+  };
+
+  // Select all digits (1, 2, 3)
+  const handleSelectAllDigits = () => {
+    const nextDigits: DigitRange[] = ["1", "2", "3"];
+    setSelectedDigits(nextDigits);
+    startNewGame(nextDigits, operation);
+  };
 
   // Confetti effect on canvas
   const triggerConfetti = useCallback(() => {
@@ -577,9 +614,10 @@ export default function MathPracticeClient({
       const displayHour = hours % 12 === 0 ? 12 : hours % 12;
       const dateTimeFormatted = `${year}.${month}.${day} (${dayName}) ${ampm} ${displayHour}:${minutes}`;
 
-      let opDesc = "덧셈·뺄셈 (1~3자리)";
-      if (operation === "add") opDesc = "덧셈 연습";
-      else if (operation === "sub") opDesc = "뺄셈 연습";
+      let opName = "덧셈·뺄셈";
+      if (operation === "add") opName = "덧셈 연습";
+      else if (operation === "sub") opName = "뺄셈 연습";
+      const opDesc = `${opName} (${getDigitDescription(selectedDigits)})`;
 
       setCertSnapshot({
         mode: targetMode,
@@ -615,6 +653,8 @@ export default function MathPracticeClient({
       infiniteSeconds,
       bestStreak,
       operation,
+      selectedDigits,
+      getDigitDescription,
       soundEnabled,
       triggerConfetti,
     ]
@@ -882,7 +922,7 @@ export default function MathPracticeClient({
             type="button"
             onClick={() => {
               setMode("challenge");
-              startNewGame(digitRange, operation);
+              startNewGame(selectedDigits, operation);
             }}
             className={`flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-3 px-2 sm:px-4 rounded-xl font-bold text-xs sm:text-base transition-all whitespace-nowrap ${
               mode === "challenge"
@@ -897,7 +937,7 @@ export default function MathPracticeClient({
             type="button"
             onClick={() => {
               setMode("infinite");
-              startNewGame(digitRange, operation);
+              startNewGame(selectedDigits, operation);
             }}
             className={`flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-3 px-2 sm:px-4 rounded-xl font-bold text-xs sm:text-base transition-all whitespace-nowrap ${
               mode === "infinite"
@@ -1014,32 +1054,85 @@ export default function MathPracticeClient({
         {showSettings && (
           <div className="mt-3 p-4 bg-gray-50 dark:bg-gray-900/60 rounded-xl border border-gray-200 dark:border-gray-700 space-y-3">
             <div>
-              <span className="block text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5">
-                {labels.digits_label} (최대 3자리수)
-              </span>
+              <div className="flex items-center justify-between mb-1.5 flex-wrap gap-1">
+                <span className="text-xs font-bold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+                  <span>{labels.digits_label}</span>
+                  <span className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 px-1.5 py-0.5 rounded-md">
+                    복수 선택 가능 ✓
+                  </span>
+                </span>
+                <span className="text-[11px] text-gray-400 dark:text-gray-500">
+                  원하는 자릿수를 함께 누르면 섞여서 출제돼요!
+                </span>
+              </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2">
-                {[
-                  { id: "all", label: labels.digits_all },
-                  { id: "1", label: labels.digits_1 },
-                  { id: "2", label: labels.digits_2 },
-                  { id: "3", label: labels.digits_3 },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => {
-                      setDigitRange(item.id as DigitRange);
-                      startNewGame(item.id as DigitRange, operation);
-                    }}
-                    className={`py-2 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-xs font-bold transition flex items-center justify-center text-center whitespace-nowrap ${
-                      digitRange === item.id
-                        ? "bg-indigo-600 text-white shadow-sm ring-1 ring-indigo-500"
-                        : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/60"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
+                {/* 1. 전체 (1~3자리) 버튼 */}
+                <button
+                  type="button"
+                  onClick={handleSelectAllDigits}
+                  className={`py-2 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-xs font-bold transition flex items-center justify-center gap-1 text-center whitespace-nowrap cursor-pointer ${
+                    selectedDigits.length === 3
+                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25 ring-2 ring-indigo-400"
+                      : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/60"
+                  }`}
+                  title="1, 2, 3자리수 모두 출제"
+                >
+                  <span>{labels.digits_all}</span>
+                  {selectedDigits.length === 3 && (
+                    <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                  )}
+                </button>
+
+                {/* 2. 1자리수 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => handleToggleDigit("1")}
+                  className={`py-2 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-xs font-bold transition flex items-center justify-center gap-1 text-center whitespace-nowrap cursor-pointer ${
+                    selectedDigits.includes("1")
+                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25 ring-2 ring-indigo-400"
+                      : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/60"
+                  }`}
+                  title="1자리수 (1~9) 켜기/끄기"
+                >
+                  <span>{labels.digits_1}</span>
+                  {selectedDigits.includes("1") && (
+                    <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                  )}
+                </button>
+
+                {/* 3. 2자리수 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => handleToggleDigit("2")}
+                  className={`py-2 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-xs font-bold transition flex items-center justify-center gap-1 text-center whitespace-nowrap cursor-pointer ${
+                    selectedDigits.includes("2")
+                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25 ring-2 ring-indigo-400"
+                      : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/60"
+                  }`}
+                  title="2자리수 (10~99) 켜기/끄기"
+                >
+                  <span>{labels.digits_2}</span>
+                  {selectedDigits.includes("2") && (
+                    <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                  )}
+                </button>
+
+                {/* 4. 3자리수 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => handleToggleDigit("3")}
+                  className={`py-2 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-xs font-bold transition flex items-center justify-center gap-1 text-center whitespace-nowrap cursor-pointer ${
+                    selectedDigits.includes("3")
+                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25 ring-2 ring-indigo-400"
+                      : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/60"
+                  }`}
+                  title="3자리수 (100~999) 켜기/끄기"
+                >
+                  <span>{labels.digits_3}</span>
+                  {selectedDigits.includes("3") && (
+                    <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                  )}
+                </button>
               </div>
             </div>
 
@@ -1058,7 +1151,7 @@ export default function MathPracticeClient({
                     type="button"
                     onClick={() => {
                       setOperation(item.id as Operation);
-                      startNewGame(digitRange, item.id as Operation);
+                      startNewGame(selectedDigits, item.id as Operation);
                     }}
                     className={`py-2 px-1 sm:px-2 rounded-xl text-[11px] sm:text-xs font-bold transition flex items-center justify-center text-center whitespace-nowrap ${
                       operation === item.id
@@ -1182,7 +1275,7 @@ export default function MathPracticeClient({
                 type="button"
                 onClick={() => {
                   setMode("infinite");
-                  startNewGame(digitRange, operation);
+                  startNewGame(selectedDigits, operation);
                 }}
                 className="w-full sm:w-auto px-5 py-3.5 sm:py-4 rounded-2xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold transition flex items-center justify-center gap-2"
               >
