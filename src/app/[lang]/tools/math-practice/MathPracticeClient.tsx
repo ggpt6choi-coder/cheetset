@@ -527,7 +527,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
     };
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-2 sm:py-4 select-none">
+        <div className="max-w-5xl mx-auto px-2 sm:px-4 py-2 sm:py-4 select-none">
             {/* Header: Title & Badges */}
             <div className="text-center mb-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-xs sm:text-sm font-semibold mb-1.5">
@@ -711,7 +711,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
             </div>
 
             {/* Main Interactive Stage */}
-            <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl border-2 border-indigo-100 dark:border-gray-700 p-6 sm:p-10 overflow-hidden">
+            <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl border-2 border-indigo-100 dark:border-gray-700 p-4 sm:p-8 md:p-10 overflow-hidden">
                 {/* Canvas for Confetti particle explosion */}
                 <canvas
                     ref={canvasRef}
@@ -851,7 +851,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                             id="math-answer-input"
                                             ref={inputRef}
                                             type="text"
-                                            inputMode="numeric"
+                                            inputMode="none"
                                             pattern="[0-9]*"
                                             autoFocus
                                             disabled={isTransitioning}
@@ -914,34 +914,22 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                             )}
                         </div>
 
-                        {/* 2. Horizontal Keypad: 12 buttons in a sleek horizontal row */}
+                        {/* 2. Extra Large Horizontal Keypad: 11 prominent buttons in a sleek horizontal row */}
                         {showKeypad && (
-                            <div className="w-full max-w-xl mx-auto pt-1">
-                                <div className="grid grid-cols-6 sm:grid-cols-12 gap-1.5 sm:gap-2 p-2 sm:p-2.5 bg-gray-100/80 dark:bg-gray-900/60 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm">
-                                    {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'backspace', 'clear'].map((key) => {
-                                        if (key === 'clear') {
-                                            return (
-                                                <button
-                                                    key={key}
-                                                    type="button"
-                                                    onClick={() => handleKeypadPress('clear')}
-                                                    className="py-2.5 sm:py-3 rounded-xl bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold text-xs sm:text-sm active:scale-95 transition"
-                                                    title={labels.clear}
-                                                >
-                                                    {labels.clear}
-                                                </button>
-                                            );
-                                        }
+                            <div className="w-full max-w-5xl mx-auto pt-3 sm:pt-5">
+                                <div className="flex w-full items-stretch justify-center gap-1.5 sm:gap-2.5 md:gap-3 p-2 sm:p-3 md:p-4 bg-gray-100/95 dark:bg-gray-900/85 rounded-2xl sm:rounded-3xl border-2 border-gray-200 dark:border-gray-700 shadow-md">
+                                    {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'backspace'].map((key) => {
                                         if (key === 'backspace') {
                                             return (
                                                 <button
                                                     key={key}
                                                     type="button"
                                                     onClick={() => handleKeypadPress('backspace')}
-                                                    className="py-2.5 sm:py-3 rounded-xl bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold flex items-center justify-center active:scale-95 transition"
-                                                    title="지우기"
+                                                    className="flex-1 min-w-0 h-14 sm:h-18 md:h-20 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold border-2 border-b-4 md:border-b-[5px] border-gray-300 dark:border-gray-600 active:border-b-2 active:translate-y-1 transition-all shadow-sm flex items-center justify-center cursor-pointer select-none"
+                                                    title={labels.clear}
+                                                    aria-label="한 글자 지우기"
                                                 >
-                                                    <Delete className="w-4 h-4" />
+                                                    <Delete className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8" />
                                                 </button>
                                             );
                                         }
@@ -950,7 +938,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                                 key={key}
                                                 type="button"
                                                 onClick={() => handleKeypadPress(key)}
-                                                className="py-2.5 sm:py-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-indigo-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-black text-lg sm:text-xl shadow-sm border border-gray-200 dark:border-gray-700 active:scale-95 transition"
+                                                className="flex-1 min-w-0 h-14 sm:h-18 md:h-20 rounded-xl sm:rounded-2xl md:rounded-3xl bg-white dark:bg-gray-800 hover:bg-indigo-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-black text-xl sm:text-3xl md:text-4xl border-2 border-b-4 md:border-b-[5px] border-gray-300 dark:border-gray-600 active:border-b-2 active:translate-y-1 transition-all shadow-sm flex items-center justify-center cursor-pointer select-none"
                                             >
                                                 {key}
                                             </button>
