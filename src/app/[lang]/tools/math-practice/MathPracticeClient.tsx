@@ -519,7 +519,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
         } else if (val === 'enter') {
             handleSubmit();
         } else {
-            if (userInput.length < 6) {
+            if (userInput.length < 5) {
                 setUserInput(prev => prev + val);
             }
         }
@@ -843,7 +843,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                     </span>
 
                                     {/* Inline Answer Input Box */}
-                                    <div className="relative w-24 sm:w-36 md:w-44 flex-shrink-0">
+                                    <div className="relative w-28 sm:w-44 md:w-56 flex-shrink-0">
                                         <label htmlFor="math-answer-input" className="sr-only">
                                             {labels.input_placeholder}
                                         </label>
@@ -853,16 +853,17 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                             type="text"
                                             inputMode="none"
                                             pattern="[0-9]*"
+                                            maxLength={5}
                                             autoFocus
                                             disabled={isTransitioning}
                                             value={userInput}
                                             onChange={(e) => {
-                                                const val = e.target.value.replace(/[^0-9]/g, '');
+                                                const val = e.target.value.replace(/[^0-9]/g, '').slice(0, 5);
                                                 setUserInput(val);
                                             }}
                                             onKeyDown={handleKeyDown}
                                             placeholder="?"
-                                            className="w-full text-center py-2 sm:py-3 px-2 text-2xl sm:text-4xl md:text-5xl font-black rounded-2xl border-3 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-gray-700 text-indigo-950 dark:text-white placeholder-indigo-300 dark:placeholder-gray-500 shadow-inner focus:outline-none focus:ring-4 focus:ring-indigo-500/25 transition-all"
+                                            className="w-full text-center py-2.5 sm:py-4 md:py-5 px-2 sm:px-4 text-3xl sm:text-5xl md:text-6xl font-black rounded-2xl md:rounded-3xl border-3 sm:border-4 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-gray-700 text-indigo-950 dark:text-white placeholder-indigo-300 dark:placeholder-gray-500 shadow-inner focus:outline-none focus:ring-4 focus:ring-indigo-500/25 transition-all"
                                         />
                                         {userInput && (
                                             <button
@@ -871,7 +872,7 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                                     setUserInput('');
                                                     inputRef.current?.focus();
                                                 }}
-                                                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-sm p-1"
+                                                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-sm sm:text-base p-1 sm:p-1.5"
                                             >
                                                 ✕
                                             </button>
@@ -883,14 +884,14 @@ export default function MathPracticeClient({ labels }: MathPracticeClientProps) 
                                         type="button"
                                         onClick={handleSubmit}
                                         disabled={isTransitioning || userInput.trim() === ''}
-                                        className={`py-2 sm:py-3.5 px-3 sm:px-5 rounded-2xl font-black text-base sm:text-lg md:text-xl shadow-lg transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 flex-shrink-0 ${
+                                        className={`py-2.5 sm:py-4 md:py-5 px-3.5 sm:px-6 rounded-2xl md:rounded-3xl font-black text-base sm:text-xl md:text-2xl shadow-lg transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 flex-shrink-0 ${
                                             userInput.trim() !== ''
                                                 ? 'bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-white shadow-orange-500/30 hover:brightness-105 cursor-pointer'
                                                 : 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed shadow-none'
                                         }`}
                                     >
                                         <span>{labels.submit_btn}</span>
-                                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]" />
+                                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3]" />
                                     </button>
                                 </div>
                             )}
