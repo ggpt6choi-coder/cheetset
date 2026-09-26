@@ -58,7 +58,8 @@
         "case_converter": "Case Converter",
         "html_encoder": "HTML Encoder/Decoder",
         "image_to_pdf": "Image to PDF",
-        "image_converter": "Image Converter"
+        "image_converter": "Image Converter",
+        "math_practice": "Math Practice"
     },
     "home": {
         "welcome": "Welcome to Cheetset",
@@ -1691,6 +1692,87 @@
                 "geography",
                 "country",
                 "game"
+            ]
+        },
+        "math_practice": {
+            "title": "Elementary Math Practice (Add & Subtract)",
+            "description": "Fun addition and subtraction drill designed for 1st graders! Practice with the 10-Question Challenge or Infinite Practice mode with up to 3-digit numbers.",
+            "mode_challenge": "1. 🎯 10-Question Challenge",
+            "mode_infinite": "2. ⚡️ Infinite Practice",
+            "digits_label": "Digit Range",
+            "digits_all": "Up to 3 Digits (Mixed)",
+            "digits_1": "1 Digit (1~9)",
+            "digits_2": "2 Digits (10~99)",
+            "digits_3": "3 Digits (100~999)",
+            "op_label": "Operation",
+            "op_all": "➕ ➖ Add & Subtract",
+            "op_add": "➕ Addition Only",
+            "op_sub": "➖ Subtraction Only",
+            "input_placeholder": "Enter your answer",
+            "submit_btn": "Check Answer! 🚀",
+            "next_btn": "Next Problem ➡️",
+            "correct_msg": "🎉 Correct! Great job!",
+            "wrong_msg": "💪 Not quite! Let's try once more!",
+            "streak": "Streak",
+            "best_streak": "Best Streak",
+            "score": "Correct Answers",
+            "accuracy": "Accuracy",
+            "sound_on": "Sound On",
+            "sound_off": "Sound Off",
+            "keypad_toggle": "On-Screen Keypad",
+            "challenge_complete": "🎉 Congratulations! You completed all 10 problems!",
+            "restart_challenge": "Play 10 New Problems 🔄",
+            "reset": "Reset",
+            "time_taken": "Time Taken",
+            "question_num": "Problem {cur} / {total}",
+            "combo_cheer": "On Fire! 🔥",
+            "clear": "Clear",
+            "perfect": "Perfect Score! You are a Math Genius! 👑",
+            "good_job": "Awesome work! Keep practicing to get even faster! 👏",
+            "seo_content": "Free online math calculation practice tool for elementary school students. Real-time randomly generated addition and subtraction problems from single digit up to 3 digits. Features 10-Question Challenge mode and Infinite combo mode, audio feedback, and a touch-friendly on-screen numeric keypad.",
+            "guide_title": "How to Use Math Practice",
+            "guide": [
+                {
+                    "title": "Select Practice Mode",
+                    "description": "Choose between the focused '10-Question Challenge' to earn stars and a score, or the 'Infinite Practice' mode to build continuous answer streaks."
+                },
+                {
+                    "title": "Choose Digit Range",
+                    "description": "Select from 1-digit basics, 2-digit problems, 3-digit problems, or a random mix up to 3 digits."
+                },
+                {
+                    "title": "Fast Input & Enter Key Support",
+                    "description": "Type your answer and press Enter to instantly check and advance to the next problem. On tablets or phones, use the large on-screen numeric keypad."
+                }
+            ],
+            "faq_title": "Frequently Asked Questions",
+            "faq": [
+                {
+                    "question": "How many problems are available?",
+                    "answer": "Problems are generated dynamically on the fly with a random algorithm, providing virtually infinite math questions."
+                },
+                {
+                    "question": "Can subtraction result in negative numbers?",
+                    "answer": "No. The generator ensures the first number is always greater than or equal to the second number, ensuring safe, positive natural numbers for young learners."
+                },
+                {
+                    "question": "Is it suitable for tablets and mobile devices?",
+                    "answer": "Yes! An on-screen big-button keypad is included, making it very comfortable to play on iPads and smartphones."
+                }
+            ],
+            "keywords": [
+                "math practice",
+                "elementary math",
+                "addition drill",
+                "subtraction quiz",
+                "math game",
+                "kids math"
+            ],
+            "use_cases_title": "Recommended Use Cases",
+            "use_cases": [
+                "Daily 10-question morning math routine for elementary students",
+                "Self-directed tablet learning and math drills at home",
+                "Sharpening mental arithmetic speed and calculation confidence"
             ]
         },
         "image_resizer": {
