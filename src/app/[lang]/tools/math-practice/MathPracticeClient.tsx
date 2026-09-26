@@ -15,7 +15,18 @@ import {
   SlidersHorizontal,
   Star,
   Clock,
+  Award,
+  Download,
+  Share2,
+  Camera,
+  Edit3,
+  Check,
+  X,
+  Maximize2,
+  Minimize2,
+  LogOut,
 } from "lucide-react";
+import { toPng } from "html-to-image";
 
 interface MathPracticeClientProps {
   labels: {
@@ -211,22 +222,68 @@ export default function MathPracticeClient({
   const [challengeAttempts, setChallengeAttempts] = useState<number>(0);
   const [challengeComplete, setChallengeComplete] = useState<boolean>(false);
   const [elapsedTimeStr, setElapsedTimeStr] = useState<string>("");
+  const [challengeSeconds, setChallengeSeconds] = useState<number>(0);
   const startTimeRef = useRef<number>(0);
 
-  // Infinite Mode State
+  // Infinite Mode State & Timer
   const [infiniteTotal, setInfiniteTotal] = useState<number>(0);
   const [infiniteCorrect, setInfiniteCorrect] = useState<number>(0);
   const [streak, setStreak] = useState<number>(0);
   const [bestStreak, setBestStreak] = useState<number>(0);
+  const [infiniteSeconds, setInfiniteSeconds] = useState<number>(0);
 
-  // Sound player & canvas refs
+  // Record Snapshot State
+  interface CertSnapshot {
+    mode: Mode;
+    totalQuestions: number;
+    correctCount: number;
+    accuracy: number;
+    bestStreak: number;
+    durationSec: number;
+    timeFormatted: string;
+    avgSpeedSec: number;
+    gradeTitle: string;
+    gradeRank: "특급" | "1급" | "2급" | "3급" | "수료";
+    gradeBadgeColor: string;
+    issueDate: string;
+    dateTimeFormatted: string;
+    opDescription: string;
+  }
+
+  const [certificateOpen, setCertificateOpen] = useState<boolean>(false);
+  const [certSnapshot, setCertSnapshot] = useState<CertSnapshot | null>(null);
+  const [certStudentName, setCertStudentName] = useState<string>("이은우");
+  const [isEditingName, setIsEditingName] = useState<boolean>(false);
+  const [isFullScreenCard, setIsFullScreenCard] = useState<boolean>(false);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
+  const [toastMessage, setToastMessage] = useState<string>("");
+
+  // Sound player, canvas & card refs
   const soundRef = useRef<SoundPlayer | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const certificateCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     soundRef.current = new SoundPlayer();
   }, []);
+
+  // Real-time Timer for Challenge Mode (runs only when active)
+  useEffect(() => {
+    if (mode !== "challenge" || challengeComplete || certificateOpen) return;
+    const interval = setInterval(() => {
+      setChallengeSeconds((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [mode, challengeComplete, certificateOpen]);
+
+  // Real-time Timer for Infinite Mode (pauses when certificate modal is open)
+  useEffect(() => {
+    if (mode !== "infinite" || certificateOpen) return;
+    const interval = setInterval(() => {
+      setInfiniteSeconds((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [mode, certificateOpen]);
 
   // Helper: Generate Random Number based on selected digit range
   const getRandomNumber = useCallback((range: DigitRange): number => {
@@ -292,13 +349,38 @@ export default function MathPracticeClient({
     return { num1: n1, num2: n2, op, answer };
   }, [digitRange, operation, getRandomNumber, prevProblem]);
 
+  // Helper to format duration for UI display (시간, 분, 초 대응)
+  const formatDurationDisplay = (totalSec: number) => {
+    const h = Math.floor(totalSec / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    const s = totalSec % 60;
+    if (h > 0) {
+      return m > 0 ? `${h}시간 ${m}분 ${s}초` : `${h}시간 ${s}초`;
+    }
+    if (m > 0) {
+      return `${m}분 ${s}초`;
+    }
+    return `${s}초`;
+  };
+
+  const formatStopwatch = (totalSec: number) => {
+    const h = Math.floor(totalSec / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    const s = totalSec % 60;
+    if (h > 0) {
+      return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+    }
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  };
+
   // Initialize or Reset Game
   const startNewGame = useCallback(
-    (targetRange: DigitRange = digitRange, targetOp: Operation = operation) => {
+    (targetRange: DigitRange = digitRange, targetOp: Operation = operation, resetInfiniteStats: boolean = false) => {
       setChallengeIndex(1);
       setChallengeScore(0);
       setChallengeAttempts(0);
       setChallengeComplete(false);
+      setChallengeSeconds(0);
       startTimeRef.current = Date.now();
       setElapsedTimeStr("");
 
@@ -306,6 +388,13 @@ export default function MathPracticeClient({
       setUserInput("");
       setFeedback({ type: null, message: "" });
       setIsTransitioning(false);
+
+      if (resetInfiniteStats) {
+        setInfiniteTotal(0);
+        setInfiniteCorrect(0);
+        setBestStreak(0);
+        setInfiniteSeconds(0);
+      }
 
       let n1 = getRandomNumber(targetRange);
       let n2 = getRandomNumber(targetRange);
@@ -333,10 +422,6 @@ export default function MathPracticeClient({
       };
       setCurrentProblem(newProb);
       setPrevProblem(newProb);
-
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 50);
     },
     [digitRange, operation, getRandomNumber],
   );
@@ -423,6 +508,189 @@ export default function MathPracticeClient({
     };
   }, []);
 
+  // Open Certificate handler (can be triggered from Challenge finished or Infinite "그만하기")
+  const handleOpenCertificate = useCallback(
+    (customMode?: Mode) => {
+      const targetMode = customMode || mode;
+      let total = 0;
+      let correct = 0;
+      let duration = 0;
+      const maxStreak = bestStreak;
+
+      if (targetMode === "challenge") {
+        total = challengeAttempts > 0 ? challengeAttempts : 10;
+        correct = challengeScore;
+        const now = Date.now();
+        duration = Math.max(
+          1,
+          challengeSeconds || Math.floor((now - (startTimeRef.current || now)) / 1000)
+        );
+      } else {
+        total = infiniteTotal;
+        correct = infiniteCorrect;
+        duration = Math.max(1, infiniteSeconds);
+      }
+
+      if (total < 3) {
+        setToastMessage("최소 3문제 이상 풀어야 멋진 기록 카드를 발급받을 수 있어요! 🎯");
+        setTimeout(() => setToastMessage(""), 3000);
+        return;
+      }
+
+      const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+      const avgSpeed = Number((duration / total).toFixed(1));
+
+      let gradeRank: "특급" | "1급" | "2급" | "3급" | "수료" = "수료";
+      let gradeTitle = "열정의 연산러 (수료 🎖️)";
+      let gradeBadgeColor = "from-amber-600 to-amber-800 text-amber-100 border-amber-500";
+
+      if (
+        (accuracy >= 95 && total >= 10) ||
+        (targetMode === "challenge" && correct === 10)
+      ) {
+        gradeRank = "특급";
+        gradeTitle = "연산의 신 (특급 👑)";
+        gradeBadgeColor = "from-purple-600 to-indigo-700 text-purple-100 border-purple-400";
+      } else if (accuracy >= 90) {
+        gradeRank = "1급";
+        gradeTitle = "인간 계산기 (1급 🥇)";
+        gradeBadgeColor = "from-amber-500 to-yellow-600 text-amber-950 border-amber-300";
+      } else if (accuracy >= 80) {
+        gradeRank = "2급";
+        gradeTitle = "수학 우등생 (2급 🥈)";
+        gradeBadgeColor = "from-slate-400 to-slate-600 text-slate-100 border-slate-300";
+      } else if (accuracy >= 70) {
+        gradeRank = "3급";
+        gradeTitle = "연산 꿈나무 (3급 🥉)";
+        gradeBadgeColor = "from-amber-700 to-yellow-800 text-amber-100 border-amber-600";
+      }
+
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, "0");
+      const day = String(today.getDate()).padStart(2, "0");
+      const days = ["일", "월", "화", "수", "목", "금", "토"];
+      const dayName = days[today.getDay()];
+      const hours = today.getHours();
+      const minutes = String(today.getMinutes()).padStart(2, "0");
+      const ampm = hours < 12 ? "오전" : "오후";
+      const displayHour = hours % 12 === 0 ? 12 : hours % 12;
+      const dateTimeFormatted = `${year}.${month}.${day} (${dayName}) ${ampm} ${displayHour}:${minutes}`;
+
+      let opDesc = "덧셈·뺄셈 (1~3자리)";
+      if (operation === "add") opDesc = "덧셈 연습";
+      else if (operation === "sub") opDesc = "뺄셈 연습";
+
+      setCertSnapshot({
+        mode: targetMode,
+        totalQuestions: total,
+        correctCount: correct,
+        accuracy,
+        bestStreak: maxStreak,
+        durationSec: duration,
+        timeFormatted: formatDurationDisplay(duration),
+        avgSpeedSec: avgSpeed,
+        gradeTitle,
+        gradeRank,
+        gradeBadgeColor,
+        issueDate: `${year}년 ${today.getMonth() + 1}월 ${today.getDate()}일`,
+        dateTimeFormatted,
+        opDescription: opDesc,
+      });
+
+      setCertificateOpen(true);
+      setIsFullScreenCard(false);
+      triggerConfetti();
+      if (soundEnabled && soundRef.current) {
+        soundRef.current.playCelebration();
+      }
+    },
+    [
+      mode,
+      challengeAttempts,
+      challengeScore,
+      challengeSeconds,
+      infiniteTotal,
+      infiniteCorrect,
+      infiniteSeconds,
+      bestStreak,
+      operation,
+      soundEnabled,
+      triggerConfetti,
+    ]
+  );
+
+  // Record PNG Download
+  const handleDownloadCertificate = async () => {
+    if (!certificateCardRef.current || isDownloading) return;
+    try {
+      setIsDownloading(true);
+      const dataUrl = await toPng(certificateCardRef.current, {
+        pixelRatio: 2,
+        cacheBust: true,
+        backgroundColor: "#ffffff",
+      });
+      const link = document.createElement("a");
+      const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+      link.download = `연산기록_${certStudentName.trim() || "학생"}_${todayStr}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error("Record export error", err);
+      alert("이미지 저장 중 일시적인 오류가 발생했습니다. 화면 캡처를 이용해주세요.");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
+  // Record Web Share
+  const handleShareCertificate = async () => {
+    if (!certificateCardRef.current) return;
+    try {
+      const targetName = certStudentName.trim() || "학생";
+      if (navigator.share) {
+        try {
+          const dataUrl = await toPng(certificateCardRef.current, {
+            pixelRatio: 2,
+            cacheBust: true,
+          });
+          const res = await fetch(dataUrl);
+          const blob = await res.blob();
+          const file = new File(
+            [blob],
+            `연산기록_${targetName}.png`,
+            { type: "image/png" }
+          );
+
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              files: [file],
+              title: `${targetName}님의 오늘 연산 기록`,
+              text: `${targetName}님이 ${certSnapshot?.totalQuestions}문제 중 ${certSnapshot?.correctCount}문제를 맞히고 (${certSnapshot?.accuracy}%), ${certSnapshot?.timeFormatted} 동안 열공했어요! 👏`,
+            });
+            return;
+          }
+        } catch {
+          // Fallback to text share
+        }
+
+        await navigator.share({
+          title: `${targetName}님의 오늘 연산 기록`,
+          text: `${targetName}님이 ${certSnapshot?.totalQuestions}문제 중 ${certSnapshot?.correctCount}문제를 맞히고 (${certSnapshot?.accuracy}%), ${certSnapshot?.timeFormatted} 동안 열공했어요! 👏`,
+          url: window.location.href,
+        });
+      } else {
+        await navigator.clipboard.writeText(
+          `${targetName}님이 오늘 ${certSnapshot?.totalQuestions}문제 중 ${certSnapshot?.correctCount}문제를 맞히고 (${certSnapshot?.accuracy}%), ${certSnapshot?.timeFormatted} 동안 열공했어요!`
+        );
+        setToastMessage("공유 내용이 클립보드에 복사되었습니다! 📋");
+        setTimeout(() => setToastMessage(""), 3000);
+      }
+    } catch (err) {
+      console.error("Share failed", err);
+    }
+  };
+
   // Check Answer
   const handleSubmit = () => {
     if (!currentProblem || isTransitioning) return;
@@ -480,13 +748,12 @@ export default function MathPracticeClient({
           const finishTime = Date.now();
           const totalSec = Math.max(
             1,
-            Math.floor(
-              (finishTime - (startTimeRef.current || finishTime)) / 1000,
-            ),
+            challengeSeconds ||
+              Math.floor(
+                (finishTime - (startTimeRef.current || finishTime)) / 1000,
+              ),
           );
-          const mins = Math.floor(totalSec / 60);
-          const secs = totalSec % 60;
-          setElapsedTimeStr(mins > 0 ? `${mins}분 ${secs}초` : `${secs}초`);
+          setElapsedTimeStr(formatDurationDisplay(totalSec));
           setChallengeComplete(true);
           if (soundEnabled && soundRef.current) {
             soundRef.current.playCelebration();
@@ -502,7 +769,6 @@ export default function MathPracticeClient({
           setUserInput("");
           setFeedback({ type: null, message: "" });
           setIsTransitioning(false);
-          inputRef.current?.focus();
         }
       }, 650);
     } else {
@@ -520,39 +786,50 @@ export default function MathPracticeClient({
         type: "wrong",
         message: labels.wrong_msg,
       });
-
-      // Focus and highlight input to allow re-try
-      setTimeout(() => {
-        inputRef.current?.select();
-      }, 50);
     }
   };
 
-  // Keyboard Handler (Enter to submit)
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleSubmit();
-    }
-  };
+  // Virtual Keypad Button Press (하단 버튼 클릭으로만 입력됨)
+  const handleKeypadPress = useCallback(
+    (val: string) => {
+      if (isTransitioning || challengeComplete) return;
 
-  // Virtual Keypad Button Press
-  const handleKeypadPress = (val: string) => {
-    if (isTransitioning || challengeComplete) return;
-
-    if (val === "clear") {
-      setUserInput("");
-    } else if (val === "backspace") {
-      setUserInput((prev) => prev.slice(0, -1));
-    } else if (val === "enter") {
-      handleSubmit();
-    } else {
-      if (userInput.length < 5) {
-        setUserInput((prev) => prev + val);
+      if (val === "clear") {
+        setUserInput("");
+      } else if (val === "backspace") {
+        setUserInput((prev) => prev.slice(0, -1));
+      } else if (val === "enter") {
+        handleSubmit();
+      } else {
+        setUserInput((prev) => {
+          if (prev.length < 5) {
+            return prev + val;
+          }
+          return prev;
+        });
       }
-    }
-    inputRef.current?.focus();
-  };
+    },
+    [isTransitioning, challengeComplete, handleSubmit]
+  );
+
+  // Global Physical Keyboard Listener (PC 키보드 사용자 지원, 화면 터치 시 가상키보드 팝업 없음)
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (certificateOpen || isEditingName || isTransitioning || challengeComplete) return;
+      if (e.key >= "0" && e.key <= "9") {
+        e.preventDefault();
+        handleKeypadPress(e.key);
+      } else if (e.key === "Backspace") {
+        e.preventDefault();
+        handleKeypadPress("backspace");
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        handleSubmit();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [certificateOpen, isEditingName, isTransitioning, challengeComplete, handleKeypadPress, handleSubmit]);
 
   // Helper to render keypad buttons with consistent 3D styling
   const renderKeypadBtn = (key: string, sizeClasses: string = "") => {
@@ -634,37 +911,51 @@ export default function MathPracticeClient({
         </div>
 
         {/* Sub Bar: Controls & Quick Stats */}
-        <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between px-1 sm:px-2 text-xs sm:text-sm">
+        <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between px-1 sm:px-2 text-xs sm:text-sm gap-2">
           {/* Mode Specific Status */}
           {mode === "challenge" ? (
-            <div className="flex items-center gap-1.5 sm:gap-2 text-gray-700 dark:text-gray-300 font-medium">
+            <div className="flex items-center gap-2 sm:gap-3 text-gray-700 dark:text-gray-300 font-medium">
               <span className="font-bold text-indigo-600 dark:text-indigo-400 whitespace-nowrap">
                 {labels.question_num
                   .replace("{cur}", challengeIndex.toString())
                   .replace("{total}", "10")}
               </span>
-              <div className="w-16 sm:w-36 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div className="w-16 sm:w-28 md:w-36 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-indigo-500 transition-all duration-300"
                   style={{ width: `${(challengeIndex / 10) * 100}%` }}
                 />
               </div>
+              {/* Real-time Challenge Stopwatch */}
+              <div
+                className="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-bold tabular-nums text-xs"
+                title="도전 10문제 경과 시간"
+              >
+                <Clock className="w-3.5 h-3.5 animate-pulse text-indigo-600 dark:text-indigo-400" />
+                <span>{formatStopwatch(challengeSeconds)}</span>
+              </div>
             </div>
           ) : (
-            <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-medium">
+            <div className="flex items-center gap-2 sm:gap-3 text-gray-700 dark:text-gray-300 font-medium flex-wrap">
+              {/* Real-time Infinite Stopwatch */}
+              <div className="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 font-bold tabular-nums">
+                <Clock className="w-3.5 h-3.5 animate-pulse text-teal-600 dark:text-teal-400" />
+                <span>{formatStopwatch(infiniteSeconds)}</span>
+              </div>
+
               <span className="flex items-center gap-1 font-bold text-orange-600 dark:text-orange-400">
                 <Flame className="w-4 h-4 fill-orange-500 text-orange-500" />
                 {streak} {labels.streak}
               </span>
-              <span className="text-gray-400">|</span>
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="hidden sm:inline text-gray-300 dark:text-gray-600">|</span>
+              <span className="hidden sm:inline text-gray-600 dark:text-gray-400">
                 {labels.best_streak}:{" "}
                 <strong className="text-gray-900 dark:text-gray-100">
                   {bestStreak}
                 </strong>
               </span>
-              <span className="hidden sm:inline text-gray-400">|</span>
-              <span className="hidden sm:inline text-gray-600 dark:text-gray-400">
+              <span className="text-gray-300 dark:text-gray-600">|</span>
+              <span className="text-gray-600 dark:text-gray-400 whitespace-nowrap">
                 {labels.score}:{" "}
                 <strong className="text-gray-900 dark:text-gray-100">
                   {infiniteCorrect}/{infiniteTotal}
@@ -673,12 +964,25 @@ export default function MathPracticeClient({
             </div>
           )}
 
-          {/* Sound & Settings buttons */}
-          <div className="flex items-center gap-2">
+          {/* Action & Settings Buttons */}
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+            {/* "기록 완료 & 인증샷" button - 무한 연습 모드에서만 노출 (도전 10문제는 완주 시 자동 제공) */}
+            {mode === "infinite" && (
+              <button
+                type="button"
+                onClick={() => handleOpenCertificate()}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-sm shadow-teal-500/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+                title="지금까지의 무한 연습 기록을 확인하고 인증샷을 남깁니다"
+              >
+                <Award className="w-3.5 h-3.5" />
+                <span>기록 완료 📸</span>
+              </button>
+            )}
+
             <button
               type="button"
               onClick={() => setSoundEnabled(!soundEnabled)}
-              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              className="p-1.5 sm:p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
               title={soundEnabled ? labels.sound_off : labels.sound_on}
               aria-label={soundEnabled ? labels.sound_off : labels.sound_on}
             >
@@ -688,10 +992,11 @@ export default function MathPracticeClient({
                 <VolumeX className="w-4 h-4 text-gray-400" />
               )}
             </button>
+
             <button
               type="button"
               onClick={() => setShowSettings(!showSettings)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+              className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition ${
                 showSettings
                   ? "text-indigo-600 bg-indigo-50 dark:bg-indigo-900/40 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 shadow-sm"
                   : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
@@ -700,7 +1005,7 @@ export default function MathPracticeClient({
               aria-label="설정"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
-              <span>설정</span>
+              <span className="hidden sm:inline">설정</span>
             </button>
           </div>
         </div>
@@ -790,7 +1095,7 @@ export default function MathPracticeClient({
                 {labels.challenge_complete}
               </h2>
               <p className="mt-2 text-base text-gray-600 dark:text-gray-300">
-                {challengeScore === 10 ? labels.perfect : labels.good_job}
+                {challengeScore === 10 ? "🎉 축하합니다! 10문제를 모두 완주했어요!" : labels.good_job}
               </p>
             </div>
 
@@ -814,10 +1119,27 @@ export default function MathPracticeClient({
               })}
             </div>
 
-            {/* Score Card */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-md mx-auto pt-2">
-              <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-700">
-                <span className="block text-xs text-gray-500 dark:text-gray-400 font-medium">
+            {/* Main Highlight: 10문제 완주 소요 시간 집중 측정 배너 */}
+            <div className="p-5 sm:p-6 bg-gradient-to-br from-indigo-500 via-indigo-600 to-blue-600 text-white rounded-3xl max-w-md mx-auto shadow-xl shadow-indigo-500/25 relative overflow-hidden">
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/10 rounded-full blur-xl pointer-events-none" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-extrabold text-indigo-100 mb-2">
+                <Clock className="w-4 h-4 text-indigo-200 animate-pulse" />
+                <span>10문제 완주 소요 시간</span>
+              </span>
+              <div className="my-1.5">
+                <span className="text-4xl sm:text-5xl font-black tracking-tight tabular-nums">
+                  {elapsedTimeStr || "10초"}
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-indigo-100 font-bold mt-2">
+                ⚡ 문제당 평균 {(Math.max(1, challengeSeconds) / 10).toFixed(1)}초 만에 풀었어요!
+              </p>
+            </div>
+
+            {/* Sub Stats: Score & Accuracy */}
+            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
+              <div className="p-3.5 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-700">
+                <span className="block text-xs text-gray-500 dark:text-gray-400 font-bold">
                   {labels.score}
                 </span>
                 <span className="text-xl sm:text-2xl font-black text-indigo-600 dark:text-indigo-400">
@@ -825,8 +1147,8 @@ export default function MathPracticeClient({
                 </span>
               </div>
 
-              <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-700">
-                <span className="block text-xs text-gray-500 dark:text-gray-400 font-medium">
+              <div className="p-3.5 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-700">
+                <span className="block text-xs text-gray-500 dark:text-gray-400 font-bold">
                   {labels.accuracy}
                 </span>
                 <span className="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">
@@ -836,24 +1158,22 @@ export default function MathPracticeClient({
                   %
                 </span>
               </div>
-
-              <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-700 col-span-2 sm:col-span-1">
-                <span className="block text-xs text-gray-500 dark:text-gray-400 font-medium">
-                  {labels.time_taken}
-                </span>
-                <span className="text-xl sm:text-2xl font-black text-amber-600 dark:text-amber-400 flex items-center justify-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  {elapsedTimeStr || "10초"}
-                </span>
-              </div>
             </div>
 
             {/* Action Buttons */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 type="button"
+                onClick={() => handleOpenCertificate("challenge")}
+                className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-600 text-white font-black text-base sm:text-lg shadow-lg shadow-indigo-500/30 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Award className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span>오늘의 연산 기록 보기 📋</span>
+              </button>
+              <button
+                type="button"
                 onClick={() => startNewGame()}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-extrabold text-lg shadow-lg shadow-indigo-500/25 hover:from-indigo-600 hover:to-blue-700 active:scale-95 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-extrabold text-base shadow-lg shadow-indigo-500/25 hover:from-indigo-600 hover:to-blue-700 active:scale-95 transition-all flex items-center justify-center gap-2"
               >
                 <RotateCcw className="w-5 h-5" />
                 <span>{labels.restart_challenge}</span>
@@ -864,7 +1184,7 @@ export default function MathPracticeClient({
                   setMode("infinite");
                   startNewGame(digitRange, operation);
                 }}
-                className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold transition flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-5 py-3.5 sm:py-4 rounded-2xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold transition flex items-center justify-center gap-2"
               >
                 <Flame className="w-5 h-5 text-orange-500" />
                 <span>{labels.mode_infinite}로 이어하기</span>
@@ -909,31 +1229,21 @@ export default function MathPracticeClient({
                     =
                   </span>
 
-                  {/* Inline Answer Input Box */}
+                  {/* Inline Answer Display Box (하단 숫자 키패드로만 입력됨, 커서/가상키보드 팝업 없음) */}
                   <div className="relative w-20 sm:w-36 md:w-52 flex-shrink-0">
-                    <label htmlFor="math-answer-input" className="sr-only">
-                      {labels.input_placeholder}
-                    </label>
-                    <input
-                      id="math-answer-input"
-                      ref={inputRef}
-                      type="text"
-                      inputMode="none"
-                      pattern="[0-9]*"
-                      maxLength={5}
-                      autoFocus
-                      disabled={isTransitioning}
-                      value={userInput}
-                      onChange={(e) => {
-                        const val = e.target.value
-                          .replace(/[^0-9]/g, "")
-                          .slice(0, 5);
-                        setUserInput(val);
-                      }}
-                      onKeyDown={handleKeyDown}
-                      placeholder="?"
-                      className="w-full text-center py-2 sm:py-3.5 md:py-4 px-1 sm:px-3 text-2xl sm:text-4xl md:text-6xl font-black rounded-xl sm:rounded-2xl md:rounded-3xl border-3 sm:border-4 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-gray-700 text-indigo-950 dark:text-white placeholder-indigo-300 dark:placeholder-gray-500 shadow-inner focus:outline-none focus:ring-4 focus:ring-indigo-500/25 transition-all"
-                    />
+                    <div
+                      role="status"
+                      aria-label="입력된 정답"
+                      className="w-full text-center py-2 sm:py-3.5 md:py-4 px-1 sm:px-3 text-2xl sm:text-4xl md:text-6xl font-black rounded-xl sm:rounded-2xl md:rounded-3xl border-3 sm:border-4 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-gray-700 text-indigo-950 dark:text-white shadow-inner select-none transition-all flex items-center justify-center min-h-[52px] sm:min-h-[72px] md:min-h-[96px] cursor-default"
+                    >
+                      {userInput !== "" ? (
+                        <span className="tracking-wider">{userInput}</span>
+                      ) : (
+                        <span className="text-indigo-300 dark:text-gray-500 font-bold">
+                          ?
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Desktop Inline Submit Button (sm 이상에서만 인라인) */}
@@ -1038,10 +1348,457 @@ export default function MathPracticeClient({
       {/* Bottom Tip for Parents / Elementary 1st Grader */}
       <div className="mt-4 sm:mt-8 text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
         <p>
-          💡 <strong>Tip</strong>: 키보드의 <strong>Enter(엔터)</strong> 키를
-          누르면 바로 정답이 확인되고, 다음 문제로 빠르게 넘어갑니다!
+          💡 <strong>Tip</strong>: 화면 하단의 <strong>숫자 버튼</strong>을 톡톡 눌러서 정답을 입력하고 확인해 보세요!
         </p>
       </div>
+
+      {/* Floating Toast Notification */}
+      {toastMessage && (
+        <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-2xl bg-gray-900/95 text-white text-xs sm:text-sm font-bold shadow-2xl backdrop-blur-md border border-gray-700 flex items-center gap-2 animate-in fade-in slide-in-from-top-4">
+          <Sparkles className="w-4 h-4 text-amber-400 flex-shrink-0 animate-spin" />
+          <span>{toastMessage}</span>
+        </div>
+      )}
+
+      {/* Record Modal & Photo Shoot Stage */}
+      {certificateOpen && certSnapshot && (
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 overflow-y-auto">
+          {/* 1. Full-screen Photo Shoot View: 화면 가득 기록 카드만 띄워 들고 인증샷 찍기 */}
+          {isFullScreenCard ? (
+            <div
+              onClick={() => setIsFullScreenCard(false)}
+              className="relative w-full min-h-screen flex flex-col items-center justify-center py-6 px-2 cursor-pointer select-none"
+            >
+              {/* Floating Camera Hint Banner */}
+              <div className="fixed top-5 left-1/2 -translate-x-1/2 z-20 px-5 py-2.5 rounded-full bg-black/80 text-white text-xs sm:text-base font-bold shadow-xl backdrop-blur-md border border-white/20 flex items-center gap-2 animate-pulse">
+                <Camera className="w-5 h-5 text-emerald-400" />
+                <span>화면을 든 채 인증샷을 찍어보세요! (터치하면 메뉴 복귀 📸)</span>
+              </div>
+
+              {/* Record Card Rendered (Enlarged) */}
+              <div
+                ref={certificateCardRef}
+                className="w-full max-w-[580px] bg-white text-gray-900 rounded-3xl p-6 sm:p-9 shadow-2xl border border-gray-100 relative select-none overflow-hidden my-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Background Glows */}
+                <div className="absolute -top-28 -right-28 w-64 h-64 bg-indigo-200/50 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-28 -left-28 w-64 h-64 bg-teal-200/40 rounded-full blur-3xl pointer-events-none" />
+
+                {/* 1. Header: Date & Time + Name */}
+                <div className="relative pb-4 border-b border-gray-100 flex items-center justify-between">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 font-black text-xs sm:text-sm mb-1.5">
+                      <Sparkles className="w-4 h-4 text-indigo-500" />
+                      <span>
+                        {certSnapshot.mode === "challenge"
+                          ? "⚡ 10문제 타임어택 완주"
+                          : "오늘의 연산 연습 완료"}
+                      </span>
+                    </div>
+                    <div className="text-sm sm:text-base md:text-lg font-black text-gray-700 flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                      <span>{certSnapshot.dateTimeFormatted}</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-xs text-gray-400 block font-bold mb-0.5">참여자</span>
+                    <span className="text-base sm:text-2xl font-black text-gray-900 border-b-2 border-indigo-500 pb-0.5 px-1">
+                      {certStudentName.trim() || "학생"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* 2. Main Hero Grid */}
+                <div className="relative py-5 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  {certSnapshot.mode === "challenge" ? (
+                    <>
+                      {/* Challenge Block 1: 10문제 완주 소요 시간 (메인 하이라이트) */}
+                      <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-blue-600 text-white rounded-3xl p-5 sm:p-6 shadow-lg shadow-indigo-500/25 text-center flex flex-col justify-between">
+                        <span className="text-xs sm:text-sm font-extrabold text-indigo-100 flex items-center justify-center gap-1.5">
+                          <Clock className="w-4 h-4 text-indigo-200" />
+                          <span>10문제 완주 시간</span>
+                        </span>
+                        <div className="my-2 sm:my-3">
+                          <span className="text-4xl sm:text-5xl md:text-6xl font-black tabular-nums tracking-tight">
+                            {certSnapshot.timeFormatted}
+                          </span>
+                        </div>
+                        <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                          ⚡ 문제당 평균 {certSnapshot.avgSpeedSec}초 돌파
+                        </div>
+                      </div>
+
+                      {/* Challenge Block 2: 맞힌 문제 & 정답률 */}
+                      <div className="bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-600 text-white rounded-3xl p-5 sm:p-6 shadow-lg shadow-teal-500/25 text-center flex flex-col justify-between">
+                        <span className="text-xs sm:text-sm font-extrabold text-teal-100 flex items-center justify-center gap-1.5">
+                          <CheckCircle2 className="w-4 h-4 text-teal-200" />
+                          <span>맞힌 문제</span>
+                        </span>
+                        <div className="my-2 sm:my-3">
+                          <span className="text-5xl sm:text-6xl md:text-7xl font-black tabular-nums tracking-tight">
+                            {certSnapshot.correctCount}
+                          </span>
+                          <span className="text-teal-200 text-base sm:text-xl font-extrabold">
+                            {" "}/ {certSnapshot.totalQuestions} 문제
+                          </span>
+                        </div>
+                        <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                          정답률 {certSnapshot.accuracy}% {certSnapshot.accuracy === 100 ? "🎉 올패스" : ""}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Infinite Block 1: 맞힌 문제 & 정답률 */}
+                      <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-blue-600 text-white rounded-3xl p-5 sm:p-6 shadow-lg shadow-indigo-500/25 text-center flex flex-col justify-between">
+                        <span className="text-xs sm:text-sm font-extrabold text-indigo-100 flex items-center justify-center gap-1.5">
+                          <CheckCircle2 className="w-4 h-4 text-indigo-200" />
+                          <span>맞힌 문제</span>
+                        </span>
+                        <div className="my-2 sm:my-3">
+                          <span className="text-5xl sm:text-6xl md:text-7xl font-black tabular-nums tracking-tight">
+                            {certSnapshot.correctCount}
+                          </span>
+                          <span className="text-indigo-200 text-base sm:text-xl font-extrabold">
+                            {" "}/ {certSnapshot.totalQuestions} 문제
+                          </span>
+                        </div>
+                        <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                          정답률 {certSnapshot.accuracy}% {certSnapshot.accuracy === 100 ? "🎉 올패스" : ""}
+                        </div>
+                      </div>
+
+                      {/* Infinite Block 2: 플레이 시간 */}
+                      <div className="bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-600 text-white rounded-3xl p-5 sm:p-6 shadow-lg shadow-teal-500/25 text-center flex flex-col justify-between">
+                        <span className="text-xs sm:text-sm font-extrabold text-teal-100 flex items-center justify-center gap-1.5">
+                          <Clock className="w-4 h-4 text-teal-200" />
+                          <span>집중한 시간</span>
+                        </span>
+                        <div className="my-2 sm:my-3">
+                          <span className="text-4xl sm:text-5xl md:text-6xl font-black tabular-nums tracking-tight">
+                            {certSnapshot.timeFormatted}
+                          </span>
+                        </div>
+                        <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                          문제당 평균 {certSnapshot.avgSpeedSec}초
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* 3. Sub Details: 연속 정답 & 연산 종류 */}
+                <div className="relative grid grid-cols-2 gap-2.5 sm:gap-3 text-center text-xs sm:text-sm font-bold text-gray-700">
+                  <div className="bg-orange-50/80 border border-orange-200/80 p-3 rounded-2xl flex items-center justify-center gap-2 text-orange-900">
+                    <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 fill-orange-500 flex-shrink-0" />
+                    <span>최고 {certSnapshot.bestStreak} 콤보 연속 정답!</span>
+                  </div>
+                  <div className="bg-gray-50 border border-gray-200/80 p-3 rounded-2xl flex items-center justify-center gap-2 text-gray-700">
+                    <span>{certSnapshot.opDescription}</span>
+                  </div>
+                </div>
+
+                {/* 4. Encouragement & Title */}
+                <div className="relative mt-4 p-4 bg-amber-50/80 border border-amber-200 rounded-2xl flex items-center justify-between gap-3">
+                  <div className="text-left">
+                    <div className="text-sm sm:text-base font-black text-amber-950 flex items-center gap-1.5">
+                      <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 flex-shrink-0" />
+                      <span>{certSnapshot.gradeTitle}</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-amber-900/90 font-bold mt-1">
+                      {certSnapshot.mode === "challenge"
+                        ? `10문제를 단 ${certSnapshot.timeFormatted} 만에 멋지게 완주했어요! ⚡`
+                        : "오늘도 꾸준히 연습했어요! 실력이 쑥쑥 자라는 중 🌱"}
+                    </p>
+                  </div>
+
+                  {/* Cute '참 잘했어요' Stamp */}
+                  <div className="flex-shrink-0 -rotate-12">
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full border-2 border-rose-500 p-0.5 shadow-sm">
+                      <div className="w-full h-full rounded-full border border-dashed border-rose-400 flex flex-col items-center justify-center text-rose-500 font-black leading-tight select-none">
+                        <span className="text-[11px] sm:text-xs">참 잘했어요</span>
+                        <span className="text-[9px] sm:text-[10px]">💯 열공인증</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Exit Button */}
+              <button
+                type="button"
+                onClick={() => setIsFullScreenCard(false)}
+                className="mt-5 px-6 py-2.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm font-bold backdrop-blur-sm border border-white/20 flex items-center gap-2 transition"
+              >
+                <Minimize2 className="w-4 h-4" />
+                <span>메뉴로 돌아가기</span>
+              </button>
+            </div>
+          ) : (
+            /* 2. Standard Modal View: 대형 기록 카드 미리보기 + 저장/공유/이름변경 컨트롤 */
+            <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden my-4 animate-in fade-in zoom-in-95">
+              {/* Modal Header */}
+              <div className="px-5 py-3.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 text-white flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <Award className="w-6 h-6 text-indigo-200" />
+                  <span className="font-black text-base sm:text-lg">
+                    오늘의 연산 연습 완료!
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCertificateOpen(false)}
+                  className="p-1.5 rounded-xl hover:bg-white/20 text-white/90 hover:text-white transition cursor-pointer"
+                  title="닫기"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Recipient Name Bar */}
+              <div className="px-5 py-3 bg-gray-50 dark:bg-gray-900/60 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between text-xs sm:text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-600 dark:text-gray-400 font-bold">참여자 이름:</span>
+                  {isEditingName ? (
+                    <div className="flex items-center gap-1.5">
+                      <input
+                        type="text"
+                        maxLength={10}
+                        autoFocus
+                        value={certStudentName}
+                        onChange={(e) => setCertStudentName(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") setIsEditingName(false);
+                        }}
+                        className="py-1 px-3 text-xs sm:text-sm font-bold rounded-xl border border-indigo-400 dark:border-indigo-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none ring-2 ring-indigo-500/20"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setIsEditingName(false)}
+                        className="p-1.5 rounded-xl bg-indigo-500 text-white hover:bg-indigo-600"
+                        title="확인"
+                      >
+                        <Check className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setIsEditingName(true)}
+                      className="group flex items-center gap-1.5 font-black text-indigo-900 dark:text-indigo-300 hover:text-indigo-600 transition text-sm sm:text-base"
+                      title="이름 수정하기"
+                    >
+                      <span className="underline underline-offset-4">
+                        {certStudentName.trim() || "학생"}
+                      </span>
+                      <Edit3 className="w-4 h-4 text-gray-400 group-hover:text-indigo-600 transition" />
+                    </button>
+                  )}
+                </div>
+                <span className="text-xs text-gray-500 dark:text-gray-400 hidden sm:inline">
+                  클릭해서 이름 변경 가능 ✍️
+                </span>
+              </div>
+
+              {/* Card Preview Container (Enlarged) */}
+              <div className="p-4 sm:p-7 bg-gray-100/70 dark:bg-gray-900/40 flex justify-center">
+                <div
+                  ref={certificateCardRef}
+                  className="w-full max-w-[580px] bg-white text-gray-900 rounded-3xl p-6 sm:p-9 shadow-xl border border-gray-100 relative select-none overflow-hidden"
+                >
+                  {/* Background Soft Glow */}
+                  <div className="absolute -top-28 -right-28 w-64 h-64 bg-indigo-200/50 rounded-full blur-3xl pointer-events-none" />
+                  <div className="absolute -bottom-28 -left-28 w-64 h-64 bg-teal-200/40 rounded-full blur-3xl pointer-events-none" />
+
+                  {/* 1. Header: Date & Time + Name */}
+                  <div className="relative pb-4 border-b border-gray-100 flex items-center justify-between">
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 font-black text-xs sm:text-sm mb-1.5">
+                        <Sparkles className="w-4 h-4 text-indigo-500" />
+                        <span>
+                          {certSnapshot.mode === "challenge"
+                            ? "⚡ 10문제 타임어택 완주"
+                            : "오늘의 연산 연습 완료"}
+                        </span>
+                      </div>
+                      <div className="text-sm sm:text-base md:text-lg font-black text-gray-700 flex items-center gap-2">
+                        <Clock className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                        <span>{certSnapshot.dateTimeFormatted}</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-xs text-gray-400 block font-bold mb-0.5">참여자</span>
+                      <span className="text-base sm:text-2xl font-black text-gray-900 border-b-2 border-indigo-500 pb-0.5 px-1">
+                        {certStudentName.trim() || "학생"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 2. Main Hero Grid */}
+                  <div className="relative py-5 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    {certSnapshot.mode === "challenge" ? (
+                      <>
+                        {/* Challenge Block 1: 10문제 완주 소요 시간 (메인 하이라이트) */}
+                        <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-blue-600 text-white rounded-3xl p-5 sm:p-6 shadow-md shadow-indigo-500/25 text-center flex flex-col justify-between">
+                          <span className="text-xs sm:text-sm font-extrabold text-indigo-100 flex items-center justify-center gap-1.5">
+                            <Clock className="w-4 h-4 text-indigo-200" />
+                            <span>10문제 완주 시간</span>
+                          </span>
+                          <div className="my-2 sm:my-3">
+                            <span className="text-4xl sm:text-5xl md:text-6xl font-black tabular-nums tracking-tight">
+                              {certSnapshot.timeFormatted}
+                            </span>
+                          </div>
+                          <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                            ⚡ 문제당 평균 {certSnapshot.avgSpeedSec}초 돌파
+                          </div>
+                        </div>
+
+                        {/* Challenge Block 2: 맞힌 문제 & 정답률 */}
+                        <div className="bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-600 text-white rounded-3xl p-5 sm:p-6 shadow-md shadow-teal-500/25 text-center flex flex-col justify-between">
+                          <span className="text-xs sm:text-sm font-extrabold text-teal-100 flex items-center justify-center gap-1.5">
+                            <CheckCircle2 className="w-4 h-4 text-teal-200" />
+                            <span>맞힌 문제</span>
+                          </span>
+                          <div className="my-2 sm:my-3">
+                            <span className="text-5xl sm:text-6xl md:text-7xl font-black tabular-nums tracking-tight">
+                              {certSnapshot.correctCount}
+                            </span>
+                            <span className="text-teal-200 text-base sm:text-xl font-extrabold">
+                              {" "}/ {certSnapshot.totalQuestions} 문제
+                            </span>
+                          </div>
+                          <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                            정답률 {certSnapshot.accuracy}% {certSnapshot.accuracy === 100 ? "🎉 올패스" : ""}
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {/* Infinite Block 1: 맞힌 문제 & 정답률 */}
+                        <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-blue-600 text-white rounded-3xl p-5 sm:p-6 shadow-md shadow-indigo-500/25 text-center flex flex-col justify-between">
+                          <span className="text-xs sm:text-sm font-extrabold text-indigo-100 flex items-center justify-center gap-1.5">
+                            <CheckCircle2 className="w-4 h-4 text-indigo-200" />
+                            <span>맞힌 문제</span>
+                          </span>
+                          <div className="my-2 sm:my-3">
+                            <span className="text-5xl sm:text-6xl md:text-7xl font-black tabular-nums tracking-tight">
+                              {certSnapshot.correctCount}
+                            </span>
+                            <span className="text-indigo-200 text-base sm:text-xl font-extrabold">
+                              {" "}/ {certSnapshot.totalQuestions} 문제
+                            </span>
+                          </div>
+                          <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                            정답률 {certSnapshot.accuracy}% {certSnapshot.accuracy === 100 ? "🎉 올패스" : ""}
+                          </div>
+                        </div>
+
+                        {/* Infinite Block 2: 플레이 시간 */}
+                        <div className="bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-600 text-white rounded-3xl p-5 sm:p-6 shadow-md shadow-teal-500/25 text-center flex flex-col justify-between">
+                          <span className="text-xs sm:text-sm font-extrabold text-teal-100 flex items-center justify-center gap-1.5">
+                            <Clock className="w-4 h-4 text-teal-200" />
+                            <span>집중한 시간</span>
+                          </span>
+                          <div className="my-2 sm:my-3">
+                            <span className="text-4xl sm:text-5xl md:text-6xl font-black tabular-nums tracking-tight">
+                              {certSnapshot.timeFormatted}
+                            </span>
+                          </div>
+                          <div className="inline-block mx-auto px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs sm:text-sm font-black text-white">
+                            문제당 평균 {certSnapshot.avgSpeedSec}초
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* 3. Sub Details: 연속 정답 & 연산 종류 */}
+                  <div className="relative grid grid-cols-2 gap-2.5 sm:gap-3 text-center text-xs sm:text-sm font-bold text-gray-700">
+                    <div className="bg-orange-50/80 border border-orange-200/80 p-3 rounded-2xl flex items-center justify-center gap-2 text-orange-900">
+                      <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 fill-orange-500 flex-shrink-0" />
+                      <span>최고 {certSnapshot.bestStreak} 콤보 연속 정답!</span>
+                    </div>
+                    <div className="bg-gray-50 border border-gray-200/80 p-3 rounded-2xl flex items-center justify-center gap-2 text-gray-700">
+                      <span>{certSnapshot.opDescription}</span>
+                    </div>
+                  </div>
+
+                  {/* 4. Encouragement & Title */}
+                  <div className="relative mt-4 p-4 bg-amber-50/80 border border-amber-200 rounded-2xl flex items-center justify-between gap-3">
+                    <div className="text-left">
+                      <div className="text-sm sm:text-base font-black text-amber-950 flex items-center gap-1.5">
+                        <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 flex-shrink-0" />
+                        <span>{certSnapshot.gradeTitle}</span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-amber-900/90 font-bold mt-1">
+                        {certSnapshot.mode === "challenge"
+                          ? `10문제를 단 ${certSnapshot.timeFormatted} 만에 멋지게 완주했어요! ⚡`
+                          : "오늘도 꾸준히 연습했어요! 실력이 쑥쑥 자라는 중 🌱"}
+                      </p>
+                    </div>
+
+                    {/* Cute '참 잘했어요' Stamp */}
+                    <div className="flex-shrink-0 -rotate-12">
+                      <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full border-2 border-rose-500 p-0.5 shadow-sm">
+                        <div className="w-full h-full rounded-full border border-dashed border-rose-400 flex flex-col items-center justify-center text-rose-500 font-black leading-tight select-none">
+                          <span className="text-[11px] sm:text-xs">참 잘했어요</span>
+                          <span className="text-[9px] sm:text-[10px]">💯 열공인증</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons Toolbar */}
+              <div className="p-4 sm:p-5 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-3">
+                {/* 들고 사진찍기 모드 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => setIsFullScreenCard(true)}
+                  className="w-full sm:w-auto flex-1 py-3 px-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-black text-sm sm:text-base transition flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20 cursor-pointer"
+                >
+                  <Camera className="w-5 h-5" />
+                  <span>📱 들고 사진찍기</span>
+                </button>
+
+                {/* 이미지 다운로드 버튼 */}
+                <button
+                  type="button"
+                  onClick={handleDownloadCertificate}
+                  disabled={isDownloading}
+                  className="w-full sm:w-auto flex-1 py-3 px-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 active:scale-95 text-white font-black text-sm sm:text-base transition flex items-center justify-center gap-2 shadow-md shadow-teal-500/20 cursor-pointer disabled:opacity-50"
+                >
+                  <Download className="w-5 h-5" />
+                  <span>{isDownloading ? "저장 중..." : "💾 이미지 저장"}</span>
+                </button>
+
+                {/* 공유하기 버튼 */}
+                <button
+                  type="button"
+                  onClick={handleShareCertificate}
+                  className="w-full sm:w-auto py-3 px-4 rounded-2xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold text-sm sm:text-base transition flex items-center justify-center gap-2 cursor-pointer"
+                  title="공유하기"
+                >
+                  <Share2 className="w-5 h-5" />
+                  <span className="hidden sm:inline">공유</span>
+                </button>
+
+                {/* 닫기 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => setCertificateOpen(false)}
+                  className="w-full sm:w-auto py-3 px-4 rounded-2xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold text-sm sm:text-base transition flex items-center justify-center gap-1 cursor-pointer"
+                >
+                  <span>닫기</span>
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
