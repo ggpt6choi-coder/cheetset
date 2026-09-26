@@ -299,9 +299,9 @@ function getHighlightedKeys(
 // Synthesize typing clicks using Web Audio API
 const playKeySound = (type: 'normal' | 'backspace' | 'space') => {
   try {
-    const AudioContext = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (!AudioContext) return;
-    const ctx = new AudioContext();
+    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof window.AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const ctx = new AudioContextClass();
     
     const bufferSize = ctx.sampleRate * 0.03; // 30ms buffer
     const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
@@ -343,9 +343,9 @@ const playKeySound = (type: 'normal' | 'backspace' | 'space') => {
 
 const playSuccessSound = () => {
   try {
-    const AudioContext = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (!AudioContext) return;
-    const ctx = new AudioContext();
+    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof window.AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const ctx = new AudioContextClass();
     
     const playNote = (freq: number, start: number, duration: number) => {
       const osc = ctx.createOscillator();
